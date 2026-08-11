@@ -728,3 +728,47 @@ def test_merge_backfills_the_image_url():
     )
     assert updated == 1
     assert merged[0].image_url == "https://example.test/x.jpg"
+
+
+def test_assign_dates_keeps_a_rotated_out_deck_in_the_past():
+    """レギュレーション落ちしたデッキが「今週の結果」に混ざらないこと。
+
+    デッキ別ページは新しい順に並ぶ。先頭が今日より未来の月日なら
+    そのページ全体が前年のもの。1件ずつ独立に判定すると
+    「9/7 は前年 / 8/9 は当年」とバラバラになり、落ちたデッキが
+    今週のランキングに現れてしまう (実際に起きた)。
+    """
+    today = date(2026, 8, 11)
+    seq = [(9, 7), (9, 3), (8, 30), (8, 24), (8, 12), (8, 9)]
+    got = deckindex.assign_dates(seq, today)
+    assert got == [
+        "2025-09-07", "2025-09-03", "2025-08-30",
+        "2025-08-24", "2025-08-12", "2025-08-09",
+    ]
+
+
+def test_assign_dates_keeps_an_active_deck_in_the_current_year():
+    today = date(2026, 8, 11)
+    seq = [(8, 9), (8, 8), (7, 29), (5, 28)]
+    got = deckindex.assign_dates(seq, today)
+    assert got == ["2026-08-09", "2026-08-08", "2026-07-29", "2026-05-28"]
+
+
+def test_assign_dates_walks_back_across_the_new_year():
+    today = date(2026, 8, 11)
+    seq = [(1, 5), (1, 3), (12, 28), (12, 20)]
+    got = deckindex.assign_dates(seq, today)
+    assert got == ["2026-01-05", "2026-01-03", "2025-12-28", "2025-12-20"]
+
+
+def test_assign_dates_never_returns_a_future_date():
+    today = date(2026, 8, 11)
+    got = deckindex.assign_dates([(8, 12), (8, 11), (8, 10)], today)
+    assert all(d <= today.isoformat() for d in got if d)
+    assert got[0] == "2025-08-12"
+
+
+def test_assign_dates_handles_leap_day():
+    """2/29 は閏年まで遡る。"""
+    got = deckindex.assign_dates([(2, 29)], date(2026, 8, 11))
+    assert got == ["2024-02-29"]

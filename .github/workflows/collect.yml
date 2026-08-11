@@ -22,6 +22,10 @@ on:
         description: "true で保存せず収集結果だけ確認"
         type: boolean
         default: false
+      deck_batch:
+        description: "1回に見に行くデッキ別ページの数 (0 で全73デッキ。取り直しのときに使う)"
+        type: string
+        default: "25"
 
 permissions:
   contents: write   # results.json と site/ を更新してpushするため
@@ -59,10 +63,12 @@ jobs:
 
       - name: Collect results
         run: |
+          batch="${{ inputs.deck_batch }}"
+          batch="${batch:-25}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python -m src.pokeca.cli collect --dry-run
+            python -m src.pokeca.cli collect --dry-run --deck-batch "$batch"
           else
-            python -m src.pokeca.cli collect
+            python -m src.pokeca.cli collect --deck-batch "$batch"
           fi
 
       # 収集に失敗したときだけ、どの取得経路が生きているかを調べて出す。

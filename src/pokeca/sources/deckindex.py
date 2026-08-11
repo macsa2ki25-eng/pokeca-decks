@@ -90,26 +90,51 @@ def is_plausible_deck_name(name: str) -> bool:
     return not IMPLAUSIBLE_NAME.search(name)
 
 
-def _resolve_date(month: int, day: int, today: date) -> str:
-    """月日から実際の開催日を決める。
+# 何年前まで遡ってよいか。デッキ別ページは長くても数年ぶんしか無い。
+MAX_YEARS_BACK = 6
 
-    キャプションは「8/9【日】」のように年が書かれていない。
-    **大会結果が未来の日付になることはない**ので、今日を超えない範囲で
-    一番新しい年を選ぶ。
 
-    以前は記事の公開日を基準に「30日以上先なら前年」としていたが、
-    デッキ別ページには前年の結果も並ぶため、8月に公開されたページの
-    「8/12」を当年と判定して未来の日付を作ってしまっていた
-    (実際に本番データへ43件混入し、ランキングの基準日を壊した)。
+def assign_dates(month_days: list[tuple[int, int]], today: date) -> list[str]:
+    """年の無い「月/日」の並びに、実際の年を割り当てる。
+
+    デッキ別ページは **掲載順が厳密に新しい順** になっている
+    (実物324件で隣接323ペアすべてが降順であることを確認済み)。
+    この順序が年を決める手がかりになる。
+
+    1件ずつ独立に「今日を超えない一番新しい年」を選ぶだけでは足りない。
+    例えばレギュレーション落ちしたデッキのページは
+
+        9/7 → 8/30 → 8/24 → … → 8/9   (すべて前年の結果)
+
+    と並ぶが、独立に判定すると 9/7 だけ前年、8/9 は当年になり、
+    落ちたデッキが「今週の結果」として混ざってしまう。
+
+    そこで、上から順に **前の日付を超えない** ように年を選ぶ。
+    先頭が前年と分かれば、以降も自然に前年になる。
     """
-    for year in (today.year, today.year - 1):
-        try:
-            candidate = date(year, month, day)
-        except ValueError:
-            continue  # 閏日など
-        if candidate <= today:
-            return candidate.isoformat()
-    return ""
+    out: list[str] = []
+    previous: date | None = None
+    year = today.year
+
+    for month, day in month_days:
+        chosen: date | None = None
+        for candidate_year in range(year, year - MAX_YEARS_BACK, -1):
+            try:
+                candidate = date(candidate_year, month, day)
+            except ValueError:
+                continue  # 閏日など、その年に存在しない日付
+            # 大会結果が未来になることはない。かつ掲載順より新しくもならない。
+            if candidate <= today and (previous is None or candidate <= previous):
+                chosen = candidate
+                break
+        if chosen is None:
+            out.append("")
+            continue
+        out.append(chosen.isoformat())
+        previous = chosen
+        year = chosen.year
+
+    return out
 
 
 def extract_deck_name(title: str) -> str:
@@ -155,8 +180,8 @@ def parse_deck_page(
     """デッキ別ページ1枚から結果レコードを取り出す。
 
     Args:
-        today: 収集日。キャプションには年が無いので、これを超えない範囲で
-            一番新しい年を割り当てる。
+        today: 収集日。キャプションに年が無いので、掲載順(新しい順)を手がかりに
+            年を割り当てる。詳しくは assign_dates を参照。
         deck_name: デッキ一覧ページから取れた正式なデッキ名。
             指定されていればこれを最優先で使う (一番確実な出どころ)。
     """
@@ -164,8 +189,10 @@ def parse_deck_page(
     content = soup.select_one(".entry-content") or soup
 
     fallback_name = deck_name.strip() or extract_deck_name(title)
-    records: list[DeckResult] = []
 
+    # 年の割り当ては前後関係に依存するので、まず掲載順のまま拾ってから
+    # まとめて日付を決める
+    entries: list[tuple[re.Match, str, str, str]] = []
     for figure in content.find_all("figure", class_="wp-block-image"):
         caption = figure.find("figcaption")
         if not caption:
@@ -181,14 +208,19 @@ def parse_deck_page(
         if not code_match:
             continue
 
-        held = _resolve_date(int(match.group("month")), int(match.group("day")), today)
-        if not held:
-            continue
-
         image = figure.find("img")
         from_alt = extract_deck_name(image.get("alt", "")) if image else ""
         image_url = (image.get("src") or "") if image else ""
+        entries.append((match, code_match.group(1), image_url, from_alt))
 
+    held_dates = assign_dates(
+        [(int(m.group("month")), int(m.group("day"))) for m, _, _, _ in entries], today
+    )
+
+    records: list[DeckResult] = []
+    for (match, deck_code, image_url, from_alt), held in zip(entries, held_dates):
+        if not held:
+            continue
         records.append(
             DeckResult(
                 date=held,
@@ -196,7 +228,7 @@ def parse_deck_page(
                 rank=RANK_BY_LABEL[match.group("rank")],
                 deck_name=fallback_name or from_alt,
                 event_type=EVENT_BY_LABEL.get(match.group("event") or "", EVENT_GYM),
-                deck_code=code_match.group(1),
+                deck_code=deck_code,
                 image_url=image_url,
                 source=SOURCE_NAME,
                 source_url=source_url,
