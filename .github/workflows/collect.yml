@@ -1,0 +1,133 @@
+name: Collect winning decks
+
+# シティリーグとジムバトルの優勝・準優勝デッキを毎日集めて、
+# 子ども向けページ (site/index.html) を GitHub Pages に公開する。
+#
+# このリポジトリは Pages をポケカのページ専用に使う。
+# 他の用途と同居させないこと (以前、生徒が使っている英単語学習サイトと
+# 同じリポジトリに置いてしまい、そのサイトを上書きする事故を起こした)。
+#
+# 事前準備 (1回だけ):
+#   Settings > Pages > Build and deployment の Source を
+#   "GitHub Actions" にする。
+
+on:
+  schedule:
+    # cronはUTC基準。08:00 JST = 前日 23:00 UTC
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+    # 手動トリガー (スマホからでも回せる)
+    inputs:
+      dry_run:
+        description: "true で保存せず収集結果だけ確認"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # results.json と site/ を更新してpushするため
+  pages: write      # GitHub Pages へのデプロイ
+  id-token: write   # deploy-pages が要求する
+  issues: write     # 収集が止まったときの通知
+
+# 同時実行するとpushがぶつかるので直列化する
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Collect results
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python -m src.pokeca.cli collect --dry-run
+          else
+            python -m src.pokeca.cli collect
+          fi
+
+      # 収集に失敗したときだけ、どの取得経路が生きているかを調べて出す。
+      # ログを見ればサイト側で何が閉じられているのか一目で分かる。
+      - name: Probe routes on failure
+        if: failure()
+        run: python -m src.pokeca.cli probe
+
+      - name: Build kids page
+        if: ${{ inputs.dry_run != true }}
+        run: python -m src.pokeca.cli build
+
+      - name: Healthcheck
+        id: health
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: python -m src.pokeca.cli healthcheck --max-age-days 10
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/pokeca/ site/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update winning deck results [skip ci]"
+            git push
+          fi
+
+      # 収集が止まったら Issue で知らせる。
+      # 同じ Issue が開いているあいだは重複して立てない。
+      - name: Notify if collection is stale
+        if: ${{ inputs.dry_run != true && steps.health.outcome == 'failure' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create pokeca-alert --color B60205 \
+            --description "収集の異常" 2>/dev/null || true
+          existing=$(gh issue list --label pokeca-alert --state open --json number --jq 'length')
+          if [ "$existing" = "0" ]; then
+            gh issue create \
+              --title "収集が止まっています" \
+              --label pokeca-alert \
+              --body-file .github/pokeca-alert.md
+          else
+            echo "Alert issue already open. Skipping."
+          fi
+
+      - name: Upload Pages artifact
+        if: ${{ inputs.dry_run != true }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # site/ 配下だけを公開する
+          path: site
+
+  deploy:
+    needs: collect
+    if: ${{ inputs.dry_run != true }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
