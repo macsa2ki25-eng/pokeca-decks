@@ -772,3 +772,25 @@ def test_assign_dates_handles_leap_day():
     """2/29 は閏年まで遡る。"""
     got = deckindex.assign_dates([(2, 29)], date(2026, 8, 11))
     assert got == ["2024-02-29"]
+
+
+def test_deck_image_url_is_derived_from_the_deck_code():
+    """公式のデッキ画像はデッキコードから組み立てる。収集は要らない。
+
+    実物で確認したURL:
+      画像ページ https://www.pokemon-card.com/deck/thumbs.html/deckID/<コード>/
+      画像本体   https://www.pokemon-card.com/deck/deckView.php/deckID/<コード>.png
+    """
+    record = _record(deck_code="yyMppy-jUiB2j-pyXXRU")
+    assert record.deck_image_url == (
+        "https://www.pokemon-card.com/deck/deckView.php/deckID/yyMppy-jUiB2j-pyXXRU.png"
+    )
+
+
+def test_deck_image_url_is_empty_without_a_code():
+    assert _record(deck_code="").deck_image_url == ""
+
+
+def test_every_record_with_a_code_gets_an_image(records):
+    """シティリーグはデッキ名が無くても、画像は全件付く。"""
+    assert all(r.deck_image_url for r in records)

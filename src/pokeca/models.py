@@ -119,6 +119,23 @@ class DeckResult:
             return ""
         return f"https://www.pokemon-card.com/deck/confirm.html/deckID/{self.deck_code}/"
 
+    @property
+    def deck_image_url(self) -> str:
+        """デッキ画像 (公式が生成するPNG) のURL。
+
+        公式のデッキ画像ページ
+        ``https://www.pokemon-card.com/deck/thumbs.html/deckID/<コード>/``
+        が読み込んでいる画像そのもの。デッキコードから組み立てられるので、
+        収集しなくても全レコードに画像が付く。
+
+            <img src="https://www.pokemon-card.com/deck/deckView.php/deckID/<コード>.png">
+
+        収集元サイトの画像は直リンクが効かなかったため、こちらを使う。
+        """
+        if not self.deck_code:
+            return ""
+        return f"https://www.pokemon-card.com/deck/deckView.php/deckID/{self.deck_code}.png"
+
     def to_dict(self) -> dict:
         return asdict(self)
 

@@ -90,7 +90,8 @@ def build_data(
                 # レシピは公式デッキコードを最優先、無ければ元記事へ
                 "recipeUrl": record.deck_code_url or record.source_url,
                 "hasCode": bool(record.deck_code),
-                "image": record.image_url,
+                # 公式が生成するデッキ画像。デッキコードがあれば必ず付く
+                "image": record.deck_image_url or record.image_url,
                 "color": theme["color"],
                 "emoji": theme["emoji"],
             }
