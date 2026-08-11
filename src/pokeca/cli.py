@@ -294,6 +294,99 @@ def cmd_rank(days: int, event: str) -> None:
 
 
 # ------------------------------------------------------------------
+# fetch-decks / fetch-cards
+# ------------------------------------------------------------------
+
+
+@main.command("fetch-decks")
+@click.option("--limit", default=200, help="1回に取りに行くデッキ数 (0 で全部)")
+def cmd_fetch_decks(limit: int) -> None:
+    """優勝・準優勝デッキの中身 (60枚) を取得して保存する。
+
+    デッキの中身は一度確定したら変わらないので、すでに持っているものは
+    取りに行かない。初回だけ時間がかかり、以後は新着ぶんだけで済む。
+    """
+    from src.pokeca.cardstore import load_decklists, save_decklists
+    from src.pokeca.sources import official_deck
+
+    known = load_decklists()
+    codes = [r.deck_code for r in load_results() if r.deck_code]
+    todo = [c for c in dict.fromkeys(codes) if c not in known]
+    if limit > 0:
+        todo = todo[:limit]
+
+    if not todo:
+        console.print(f"[green]すべて取得済みです[/green] ({len(known)} デッキ)")
+        return
+
+    console.print(f"取得対象: {len(todo)} デッキ (保有 {len(known)})")
+    console.print(f"[dim]1.5秒間隔なので約 {len(todo) * 1.5 / 60:.0f} 分かかります[/dim]")
+
+    ok = failed = 0
+    for index, code in enumerate(todo, start=1):
+        deck = official_deck.fetch_decklist(code)
+        if deck:
+            known[code] = deck
+            ok += 1
+        else:
+            failed += 1
+        if index % 25 == 0 or index == len(todo):
+            console.print(f"  {index}/{len(todo)}  成功 {ok} / 失敗 {failed}")
+            save_decklists(known)  # 途中で落ちても取得ぶんは残す
+
+    save_decklists(known)
+    console.print(f"[green]完了[/green]: {ok} デッキを追加 (合計 {len(known)})")
+    if failed:
+        console.print(f"[yellow]{failed} デッキは60枚揃わず取得できませんでした[/yellow]")
+
+
+@main.command("fetch-cards")
+@click.option("--limit", default=300, help="1回に取りに行くカード数 (0 で全部)")
+def cmd_fetch_cards(limit: int) -> None:
+    """デッキに入っているカードの内容 (HP・ワザ・特性) を取得して保存する。
+
+    公式のカードは数千枚あるが、取りに行くのは優勝デッキに実際に
+    出てくるカードだけ。カードの内容は変わらないので取得は一度きり。
+    """
+    from src.pokeca.cardstore import card_ids_in, load_cards, load_decklists, save_cards
+    from src.pokeca.sources import official_card
+
+    decklists = load_decklists()
+    if not decklists:
+        console.print("[yellow]先に fetch-decks を実行してください。[/yellow]")
+        sys.exit(1)
+
+    known = load_cards()
+    todo = sorted(card_ids_in(decklists) - set(known))
+    if limit > 0:
+        todo = todo[:limit]
+
+    if not todo:
+        console.print(f"[green]すべて取得済みです[/green] ({len(known)} カード)")
+        return
+
+    console.print(f"取得対象: {len(todo)} カード (保有 {len(known)})")
+    console.print(f"[dim]1.5秒間隔なので約 {len(todo) * 1.5 / 60:.0f} 分かかります[/dim]")
+
+    ok = failed = 0
+    for index, card_id in enumerate(todo, start=1):
+        card = official_card.fetch_card(card_id)
+        if card:
+            known[card_id] = card
+            ok += 1
+        else:
+            failed += 1
+        if index % 25 == 0 or index == len(todo):
+            console.print(f"  {index}/{len(todo)}  成功 {ok} / 失敗 {failed}")
+            save_cards(known)
+
+    save_cards(known)
+    console.print(f"[green]完了[/green]: {ok} カードを追加 (合計 {len(known)})")
+    if failed:
+        console.print(f"[yellow]{failed} カードは取得できませんでした[/yellow]")
+
+
+# ------------------------------------------------------------------
 # probe
 # ------------------------------------------------------------------
 

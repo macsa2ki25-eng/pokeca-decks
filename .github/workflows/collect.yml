@@ -27,6 +27,10 @@ on:
         description: "1回に見に行くデッキ別ページの数 (0 で全73デッキ。取り直しのときに使う)"
         type: string
         default: "25"
+      fetch_limit:
+        description: "1回に取りに行くデッキの中身/カードの枚数 (0 で全部。初回の貯め込みに使う)"
+        type: string
+        default: "200"
 
 permissions:
   contents: write   # results.json と site/ を更新してpushするため
@@ -78,6 +82,23 @@ jobs:
         if: failure()
         run: python -m src.pokeca.cli probe
 
+      # デッキの中身とカードの内容を貯める。
+      # どちらも一度取れば変わらないので、初回だけ時間がかかり、
+      # 以後は新着ぶんだけになる。失敗しても収集そのものは止めない。
+      - name: Fetch deck contents
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: |
+          limit="${{ inputs.fetch_limit }}"
+          python -m src.pokeca.cli fetch-decks --limit "${limit:-200}"
+
+      - name: Fetch card text
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: |
+          limit="${{ inputs.fetch_limit }}"
+          python -m src.pokeca.cli fetch-cards --limit "${limit:-200}"
+
       - name: Build kids page
         if: ${{ inputs.dry_run != true }}
         run: python -m src.pokeca.cli build
@@ -93,7 +114,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/pokeca/ site/
+          git add data/pokeca/ site/   # decklists.json / cards.json も含む
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
