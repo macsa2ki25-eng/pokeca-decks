@@ -70,6 +70,7 @@ class DeckResult:
     prefecture: str = ""  # 都道府県 (取れれば)
     league: str = ""  # オープン / シニア / ジュニア
     deck_code: str = ""  # 公式デッキコード (取れれば)
+    image_url: str = ""  # 収集元にあるデッキ画像のURL (一覧に並べて表示する)
     source: str = ""  # pokecabook / official
     source_url: str = ""  # 元記事・元ページURL
     event_url: str = ""  # 公式イベント結果ページ (リーグ区分の補完に使う)

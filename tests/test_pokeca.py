@@ -652,3 +652,79 @@ def test_deck_ranking_respects_period():
     recent = aggregate.deck_ranking(results, days=7, today=date(2026, 5, 6))
     assert [e["deck_name"] for e in recent] == ["ドラパルトex"]
     assert len(aggregate.deck_ranking(results, days=0)) == 2
+
+
+# ------------------------------------------------------------------
+# 集計期間の起点 / 画像 / 名前なしジムバトル
+# ------------------------------------------------------------------
+
+
+def test_period_is_measured_from_today_not_from_the_newest_record():
+    """「直近1週間」は今日から数える。データ内の最新日からではない。
+
+    シティリーグはシーズンが5月で終わっているため、以前の実装だと
+    8月に見ても 4/30〜5/6 が「今週」として集計されていた。
+    開催が無いなら空で返すのが正しい。
+    """
+    stale = [
+        _record(date="2026-05-06", store="A", deck_name="ドラパルトex"),
+        _record(date="2026-05-05", store="B", deck_name="リザードンex"),
+    ]
+    assert aggregate.deck_ranking(stale, days=7, today=date(2026, 8, 11)) == []
+    # 全期間なら出る
+    assert len(aggregate.deck_ranking(stale, days=0)) == 2
+
+
+def test_period_includes_todays_results():
+    fresh = [_record(date="2026-08-11", store="A", deck_name="ドラパルトex")]
+    ranked = aggregate.deck_ranking(fresh, days=7, today=date(2026, 8, 11))
+    assert [e["deck_name"] for e in ranked] == ["ドラパルトex"]
+
+
+def test_sanitize_drops_gym_records_without_a_deck_name():
+    """名前の無いジムバトルは捨てる。
+
+    ジムバトルには店舗名も無いので、名前が無いと日付とリンクしか残らず、
+    一覧では中身の無い「ゆうしょうデッキ」というカードになってしまう。
+    """
+    from src.pokeca.store import sanitize_results
+
+    records = [
+        _record(deck_name="", deck_code="a-1", event_type=EVENT_GYM),
+        _record(deck_name="ドラパルトex", deck_code="a-2", event_type=EVENT_GYM),
+    ]
+    kept, _ = sanitize_results(records, known_decks=set())
+    assert [r.deck_name for r in kept] == ["ドラパルトex"]
+
+
+def test_sanitize_keeps_city_league_records_without_a_deck_name():
+    """シティリーグは店舗・都道府県・日付が揃っているので名前が無くても残す。"""
+    from src.pokeca.store import sanitize_results
+
+    records = [
+        _record(deck_name="", deck_code="a-1", event_type=EVENT_CITY, store="宝島 岐阜本店")
+    ]
+    kept, _ = sanitize_results(records, known_decks=set())
+    assert len(kept) == 1
+
+
+def test_city_league_parser_captures_the_deck_image(records):
+    """一覧にそのまま並べるため、デッキ画像のURLを持っておく。"""
+    first = next(r for r in records if r.rank == 1 and r.store == "宝島 岐阜本店")
+    assert first.image_url.endswith("1_1_8YGKY8-wTd9K2-8Dacc4.jpg")
+    assert all(r.image_url for r in records)
+
+
+def test_deck_page_parser_captures_the_deck_image(deck_records):
+    assert all(r.image_url for r in deck_records)
+    assert deck_records[0].image_url.endswith("image-132.png")
+
+
+def test_merge_backfills_the_image_url():
+    """画像URLは後から埋まる (既存レコードは再収集で補完される)。"""
+    existing = [_record(deck_code="a-1", image_url="")]
+    merged, _, updated = merge_results(
+        existing, [_record(deck_code="a-1", image_url="https://example.test/x.jpg")]
+    )
+    assert updated == 1
+    assert merged[0].image_url == "https://example.test/x.jpg"

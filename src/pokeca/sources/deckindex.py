@@ -187,6 +187,7 @@ def parse_deck_page(
 
         image = figure.find("img")
         from_alt = extract_deck_name(image.get("alt", "")) if image else ""
+        image_url = (image.get("src") or "") if image else ""
 
         records.append(
             DeckResult(
@@ -196,6 +197,7 @@ def parse_deck_page(
                 deck_name=fallback_name or from_alt,
                 event_type=EVENT_BY_LABEL.get(match.group("event") or "", EVENT_GYM),
                 deck_code=code_match.group(1),
+                image_url=image_url,
                 source=SOURCE_NAME,
                 source_url=source_url,
             )

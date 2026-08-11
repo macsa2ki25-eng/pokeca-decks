@@ -13,7 +13,7 @@ from pathlib import Path
 
 import yaml
 
-from src.pokeca.models import DeckResult, normalize_deck_name
+from src.pokeca.models import EVENT_GYM, DeckResult, normalize_deck_name
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 POKECA_DIR = ROOT / "data" / "pokeca"
@@ -85,7 +85,14 @@ def merge_results(
 
         # 既存レコードの空欄だけを埋める (すでに入っている値は上書きしない)
         changed = False
-        for fieldname in ("prefecture", "league", "deck_code", "source_url", "event_url"):
+        for fieldname in (
+            "prefecture",
+            "league",
+            "deck_code",
+            "image_url",
+            "source_url",
+            "event_url",
+        ):
             if not getattr(current, fieldname) and getattr(record, fieldname):
                 setattr(current, fieldname, getattr(record, fieldname))
                 changed = True
@@ -170,7 +177,18 @@ def sanitize_results(
             record.deck_name = ""
             record.deck_key = ""
             fixed += 1
-    return results, fixed
+
+    # デッキ名の無いジムバトルは捨てる。
+    # ジムバトルは店舗名も載っていないので、名前が無いと「日付」と
+    # 「レシピへのリンク」しか残らず、一覧では「ゆうしょうデッキ」という
+    # 中身の無いカードになってしまう。
+    # (シティリーグは店舗・都道府県・日付が揃っているので名前が無くても残す)
+    kept = [
+        r for r in results
+        if not (r.event_type == EVENT_GYM and not r.deck_name)
+    ]
+    dropped = len(results) - len(kept)
+    return kept, fixed + dropped
 
 
 def prune_results(results: list[DeckResult], keep_days: int = 180) -> list[DeckResult]:

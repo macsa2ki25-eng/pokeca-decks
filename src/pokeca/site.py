@@ -90,6 +90,7 @@ def build_data(
                 # レシピは公式デッキコードを最優先、無ければ元記事へ
                 "recipeUrl": record.deck_code_url or record.source_url,
                 "hasCode": bool(record.deck_code),
+                "image": record.image_url,
                 "color": theme["color"],
                 "emoji": theme["emoji"],
             }
@@ -128,6 +129,13 @@ def build_data(
         # デッキ名がまだ1件も取れていないときは、ランキングと絞り込みを隠す。
         # 名前が無い状態でそれらを出しても空欄が並ぶだけで混乱させる。
         "hasNames": any(r.deck_name for r in results),
+        # 大会種別ごとのデッキ名の有無。シティリーグは名前が取れないので
+        # ランキングが常に空になる。その理由を画面で説明するために使う。
+        "namedEvents": [
+            e
+            for e in (EVENT_CITY, EVENT_GYM)
+            if any(r.deck_name for r in results if r.event_type == e)
+        ],
         # 実際に存在する大会種別だけをボタンに出す
         "events": [e for e in (EVENT_CITY, EVENT_GYM) if any(r.event_type == e for r in results)],
         "summary": summary,
@@ -164,12 +172,12 @@ h1{font-size:28px;margin:8px 0 2px;letter-spacing:.02em}
 }
 .hero{
   background:linear-gradient(135deg,#FFD166,#FFB703);
-  border-radius:22px;padding:18px 20px;margin-bottom:20px;box-shadow:var(--shadow);
+  border-radius:22px;padding:14px 18px;margin-bottom:14px;box-shadow:var(--shadow);
 }
 .hero .cap{font-size:16px;font-weight:700;margin:0 0 6px}
 .hero .name{font-size:30px;font-weight:800;margin:0;line-height:1.3;word-break:break-word}
 .hero .note{font-size:15px;margin:6px 0 0}
-.section-title{font-size:15px;color:var(--muted);margin:22px 0 8px;font-weight:700}
+.section-title{font-size:15px;color:var(--muted);margin:16px 0 6px;font-weight:700}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .span2{grid-column:1 / -1}
@@ -212,6 +220,12 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 }
 .meta{font-size:15px;color:var(--muted);word-break:keep-all;overflow-wrap:anywhere}
 .go{margin-top:8px;font-size:16px;font-weight:700;color:#1F6FEB}
+/* デッキ画像。タップしなくても中身が見えるように一覧へ並べる。
+   loading=lazy なので、画面に入ったぶんだけ読み込む。 */
+.shot{
+  display:block;width:100%;height:auto;margin:10px 0 4px;
+  border-radius:12px;border:2px solid var(--line);background:#fff;
+}
 .rankrow{display:flex;align-items:center;gap:14px}
 .num{
   flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
@@ -224,7 +238,7 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .count span{display:inline-block;margin-right:12px}
 /* flex の子は既定で内容より縮まないので、明示的に縮められるようにする */
 .rankrow > div:last-child{min-width:0}
-.empty{text-align:center;color:var(--muted);padding:36px 10px;font-size:17px}
+.empty{text-align:center;color:var(--muted);padding:36px 10px;font-size:17px;line-height:2}
 footer{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.8}
 footer a{color:var(--muted)}
 """
@@ -261,10 +275,17 @@ function cardHtml(r){
   var title = r.deck
     ? r.emoji + " " + esc(r.deck)
     : (r.rank === 1 ? "🏆 ゆうしょうデッキ" : "🥈 じゅんゆうしょうデッキ");
+  var shot = r.image
+    ? '<img class="shot" src="' + esc(r.image) + '" alt="" loading="lazy" decoding="async" ' +
+      // 収集元が画像の直リンクを断ることがある。読み込めなければ黙って消して、
+      // 壊れたアイコンが並ばないようにする (カード自体はリンクとして機能する)
+      'onerror="this.remove()">'
+    : '';
   return '<a class="card" href="' + r.recipeUrl + '" target="_blank" rel="noopener">' +
     '<span class="badge ' + cls + '">' + label + '</span>' +
     '<div class="deck">' + title + '</div>' +
     '<div class="meta">' + esc(r.dateLabel) + "　" + esc(where) + esc(league) + '</div>' +
+    shot +
     '<div class="go">' + go + '</div>' +
     '</a>';
 }
@@ -298,9 +319,15 @@ function render(){
     el("deckTitle").style.display = "none";
     var byEvent = DATA.rankings[state.event] || DATA.rankings["all"] || {};
     var items = (byEvent[state.period] || {items:[]}).items;
+    var named = DATA.namedEvents || [];
+    var noNamesHere = state.event !== "all" && named.indexOf(state.event) < 0;
+    var msg = noNamesHere
+      ? 'シティリーグは デッキの なまえが まだ わからないので、<br>' +
+        'ランキングは だせません。<br>「あたらしい じゅん」で みてね'
+      : 'この きかんの けっかは まだ ないよ。<br>「ぜんぶ」を おしてみてね';
     listBox.innerHTML = items.length
       ? items.map(rankHtml).join("")
-      : '<div class="empty">まだ データが ありません</div>';
+      : '<div class="empty">' + msg + '</div>';
     return;
   }
 
@@ -313,7 +340,8 @@ function render(){
   var rows = filtered();
   listBox.innerHTML = rows.length
     ? rows.slice(0, 300).map(cardHtml).join("")
-    : '<div class="empty">その デッキは まだ ありません</div>';
+    : '<div class="empty">それに あう けっかは まだ ないよ。<br>' +
+      '「ぜんぶ みる」を おしてみてね</div>';
 }
 
 function boot(){

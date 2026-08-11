@@ -144,7 +144,7 @@ def parse_post(
         store_url = f"{source_url}#{anchor}" if anchor and source_url else source_url
 
         event_url = ""
-        found: list[tuple[int, str]] = []
+        found: list[tuple[int, str, str]] = []
 
         # 次の <h2> までがこの店舗のブロック
         for sibling in heading.next_siblings:
@@ -160,9 +160,14 @@ def parse_post(
                     continue
                 link = caption.find("a", href=True)
                 code_match = DECK_CODE_RE.search(link["href"]) if link else None
-                found.append((rank, code_match.group(1) if code_match else ""))
+                # 同じ <figure> の中にあるデッキ画像を拾う。
+                # 一覧にそのまま並べて、タップしなくても中身が見えるようにする。
+                figure = caption.find_parent("figure")
+                image = figure.find("img") if figure else None
+                image_url = (image.get("src") or "") if image else ""
+                found.append((rank, code_match.group(1) if code_match else "", image_url))
 
-        for rank, deck_code in found:
+        for rank, deck_code, image_url in found:
             records.append(
                 DeckResult(
                     date=held,
@@ -175,6 +180,7 @@ def parse_post(
                     prefecture=prefecture,
                     league=league_from_title,
                     deck_code=deck_code,
+                    image_url=image_url,
                     source=SOURCE_NAME,
                     source_url=store_url,
                     event_url=event_url,

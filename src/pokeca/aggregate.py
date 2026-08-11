@@ -29,12 +29,18 @@ def _parse_date(value: str) -> date | None:
 def filter_by_period(
     results: list[DeckResult], days: int, today: date | None = None
 ) -> list[DeckResult]:
-    """直近 days 日ぶんに絞る。days=0 なら全期間。"""
+    """直近 days 日ぶんに絞る。days=0 なら全期間。
+
+    起点は **今日**。データ内の最新日ではない。
+
+    以前はデータ内の最新日を起点にしていたが、それだと開催が止まっている
+    大会で「直近1週間」が過去の1週間を指してしまう。実際、シティリーグは
+    シーズンが5月で終わっているため、8月に見ても 4/30〜5/6 が「今週」として
+    集計されていた。該当が無いなら空で返すのが正しい。
+    """
     if days <= 0:
         return list(results)
-    base = today or max(
-        (d for d in (_parse_date(r.date) for r in results) if d), default=date.today()
-    )
+    base = today or date.today()
     cutoff = base - timedelta(days=days - 1)
     out = []
     for record in results:
