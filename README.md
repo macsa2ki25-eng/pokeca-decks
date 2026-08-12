@@ -31,6 +31,15 @@ python -m src.pokeca.cli rank        # 直近1週間の優勝ランキング
 python -m src.pokeca.cli list --rank 1 --event city   # シティリーグの優勝だけ
 ```
 
+デッキの中身まで貯まると、こう調べられる。
+
+```bash
+python -m src.pokeca.cli cards ドラパルト        # 確定枠と選択枠を分けて出す
+python -m src.pokeca.cli variants ドラパルト     # 型に分ける
+python -m src.pokeca.cli decks-with マシマシラ   # そのカードを使うデッキ
+python -m src.pokeca.cli check <デッキコード>    # 自分のデッキと見比べる
+```
+
 毎朝8時 (JST) に GitHub Actions が自動で収集・公開する。
 `Actions > Collect winning decks > Run workflow` で手動実行もできる。
 

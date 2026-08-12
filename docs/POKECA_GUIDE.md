@@ -196,6 +196,29 @@ python -m src.pokeca.cli collect --source deckindex   # デッキ別ページだ
 python -m src.pokeca.cli collect --with-league        # リーグ区分も補う(未検証)
 ```
 
+### 4-1-2. デッキの中身を調べる
+
+デッキの中身 (`decklists.json`) が貯まってから使える。
+
+```bash
+python -m src.pokeca.cli fetch-decks --limit 200   # 60枚の中身を取りに行く
+python -m src.pokeca.cli fetch-cards --limit 200   # カードのテキストを取りに行く
+
+python -m src.pokeca.cli cards ドラパルト          # 確定枠と選択枠を分けて出す
+python -m src.pokeca.cli variants ドラパルト       # 型に分ける
+python -m src.pokeca.cli decks-with マシマシラ     # そのカードを使うデッキ
+python -m src.pokeca.cli check <デッキコード>      # 自分のデッキと見比べる
+```
+
+デッキ名・カード名は一部だけで通じる (「ドラパルト」で引ける)。
+
+数字の読み方で気をつけること:
+
+- 採用率は必ず「何件中の何件か」で見る。3件中3件と80件中80件は意味が違う
+- 平均枚数は**入れているデッキの中での平均**。入れていないデッキを0枚として
+  混ぜていない
+- `check` は強い弱いを判定しない。勝っているデッキとの違いを並べるだけ
+
 ### 4-2. GitHub を使わずローカルだけで運用する場合
 
 ```bash
@@ -227,6 +250,8 @@ python -m pytest tests/test_pokeca.py -q
 | WP REST API での記事取得 | ❌ **403で閉じられている**。RSS / HTML に自動で切り替わる |
 | RSS からの取得 | ✅ 本番で動作確認済み (シティリーグ側はこの経路) |
 | 公式サイトのリーグ補完 | ⚠️ 未検証。既定で無効 (`--with-league` を付けたときだけ動く) |
+| デッキの中身 (60枚) の取得 | ✅ **実機で検証済み**。素のGETで5/5成功。hidden 入力欄から60枚ちょうど復元 |
+| カードのテキストの取得 | ✅ **実機で検証済み**。5/5成功 (シェイミ: HP80 / かけぬける 草1 20ダメージ) |
 
 `tests/fixtures/` にあるのは実際に保存したページからの抜粋で、構造は実物のまま。
 
@@ -314,14 +339,57 @@ JS実行後のDOMなのかを必ず区別する。** サイズを比べれば分
 python -m src.pokeca.cli dump-official   # 素のレスポンスの中身を調査
 ```
 
-取れるようになるまで `fetch-decks` / `fetch-cards` はワークフローの既定では
-動かさない (`fetch_limit` を明示したときだけ動く)。
+### 解決: 中身は hidden の入力欄に入っていた
 
-考えられる対処:
+素のHTMLを端から出して調べたところ、**カード表は無くても、デッキの中身
+そのものは hidden の入力欄に入っている**ことが分かった。
 
-1. JSが叩いているAPIを見つけて直接呼ぶ ← まずこれを調べる
-2. ヘッドレスブラウザでJSを実行してから読む (確実だが重い)
-3. デッキの中身は諦め、順位・画像・ランキングだけで運用する
+```html
+<input type="hidden" name="deck_pke" value="47847_2_1-49270_4_1-45707_3_1-...">
+<input type="hidden" name="deck_gds" value="46219_4_1-48679_1_1-...">
+<input type="hidden" name="deck_sup" value="46824_4_1-46227_2_1-...">
+<input type="hidden" name="deck_sta" value="46041_2_1">
+<input type="hidden" name="deck_ene" value="46116_8_1-46119_4_1-46121_4_1">
+```
+
+`カードID_枚数_?` を `-` で連ねた形。欄の名前が区分に対応する。
+
+| 欄 | 区分 |
+|---|---|
+| `deck_pke` | ポケモン |
+| `deck_tool` | ポケモンのどうぐ |
+| `deck_gds` | グッズ |
+| `deck_sup` | サポート |
+| `deck_sta` | スタジアム |
+| `deck_ene` | エネルギー |
+| `deck_tech` / `deck_ajs` | **中身が入った実物をまだ見ていない**。区分名は仮 |
+
+カード名・収録セット・番号・カード画像は、同じHTMLのインラインJSにある。
+
+```js
+PCGDECK.searchItemName[47847]='メガガルーラex(M1S 051/063)';
+PCGDECK.searchItemNameAlt[47847]='メガガルーラex';
+PCGDECK.searchItemCardPict[47847]='/assets/images/card_images/large/M1S/047847_P_....jpg';
+```
+
+実物 (`ngHLgL-pA4GKN-9gniQn`) で枚数の合計は60ちょうど、種類は27で、
+`searchItemName` の件数と一致した。**1回のGETで60枚そろう。**
+ヘッドレスブラウザは要らなかった。
+
+カード詳細ページ (`card-search/details.php/card/<ID>/`) は最初から素のGETで
+読める。実機で `fetch-decks` / `fetch-cards` とも 5/5 成功を確認済み。
+
+**教訓: 「JSが組み立てている」と分かった時点で諦めない。組み立てる元の
+データはページのどこかにある。** input・textarea・インラインJSを端から
+出せば見つかる。`dump-official` がそれをやる。
+
+### 調査用ワークフロー
+
+開発機から公式サイトへは接続できないため、実物のレスポンスは Actions でしか
+見られない。`.github/workflows/investigate.yml` が調査専用で、
+`.github/investigate-trigger` を書き換えて push すると走る。
+権限は `contents: read` だけなので、収集にも公開にも触れない。
+**調査が終わったらこのワークフローごと消してよい。**
 
 ## 6. 収集が止まったときの通知
 
