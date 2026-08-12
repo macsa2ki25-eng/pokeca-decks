@@ -1,0 +1,66 @@
+name: Investigate official site
+
+# 公式サイトが素のGETで何を返すかを調べるためだけのワークフロー。
+#
+# 開発機からは公式サイトに接続できないため、実物のレスポンスを見るには
+# ここで走らせるしかない。収集も公開もしないので、サイトには一切触れない。
+#
+# 走らせ方: .github/investigate-trigger の中身を書き換えて main に push する。
+#           (Actions > Investigate official site > Run workflow でも可)
+#
+# 調査が終わったらこのワークフローごと消してよい。
+
+on:
+  workflow_dispatch:
+    inputs:
+      deck_code:
+        description: "調べるデッキコード (空なら保存済みの先頭)"
+        type: string
+        default: ""
+  push:
+    branches: [main]
+    paths:
+      - ".github/investigate-trigger"
+
+# 読むだけ。results.json も site/ も書き換えない。
+permissions:
+  contents: read
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      # どの経路が生きているかを先に一覧で見る
+      - name: Probe official routes
+        continue-on-error: true
+        run: python -m src.pokeca.cli probe-official
+
+      # デッキページの中身を余さず出す (枚数の在り処を突き止める)
+      - name: Dump official deck page
+        continue-on-error: true
+        run: python -m src.pokeca.cli dump-official --deck-code "${{ inputs.deck_code }}"
+
+      # カード詳細は素のGETで読めるのか。デッキの中身とは別経路なので分けて確かめる。
+      - name: Check card detail route
+        continue-on-error: true
+        run: python -m src.pokeca.cli dump-card --card-id 50452
+
+      # ログが流れてもあとから拾えるように、取得した生HTMLを成果物として残す。
+      # リポジトリには入れない (他所のページを転載しないため)。
+      - name: Upload raw responses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-raw-html
+          path: data/pokeca/_inspect/
+          if-no-files-found: warn
+          retention-days: 3

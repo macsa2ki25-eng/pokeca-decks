@@ -535,6 +535,38 @@ def cmd_dump_official(deck_code: str) -> None:
         print(f"\n全文を保存: {path}")
 
 
+@main.command("dump-card")
+@click.option("--card-id", default="50452", help="調べるカードID")
+def cmd_dump_card(card_id: str) -> None:
+    """カード詳細ページが素のGETで読めるかを確かめる。
+
+    デッキの中身とカードの内容は別々の経路。片方が駄目でも、もう片方は
+    生きているかもしれないので、分けて確認できるようにしておく。
+    """
+    import json
+
+    from src.pokeca import http
+    from src.pokeca.sources import official_card
+
+    url = official_card.card_url(card_id)
+    print(f"=== カード詳細 {url}")
+    try:
+        html = http.get_text(url, respect_robots=False)
+    except Exception as exc:
+        print(f"  取得できず: {type(exc).__name__} {exc}")
+        sys.exit(1)
+
+    print(f"HTML {len(html):,} 文字 / RightBox {html.count('RightBox')}箇所 / h4 {html.count('<h4')}箇所")
+    card = official_card.parse_card(html, card_id)
+    for line in json.dumps(card, ensure_ascii=False, indent=1).splitlines():
+        _emit(line)
+
+    path = INSPECT_DIR / f"official-card-{card_id}.html"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(html, encoding="utf-8")
+    print(f"\n全文を保存: {path}")
+
+
 @main.command("probe-official")
 @click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
 def cmd_probe_official(deck_code: str) -> None:
