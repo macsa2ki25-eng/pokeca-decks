@@ -325,10 +325,12 @@ def cmd_fetch_decks(limit: int) -> None:
     console.print(f"[dim]1.5秒間隔なので約 {len(todo) * 1.5 / 60:.0f} 分かかります[/dim]")
 
     ok = failed = 0
+    unconfirmed: set[str] = set()
     for index, code in enumerate(todo, start=1):
         deck, reason = official_deck.fetch_decklist(code)
         if deck:
             known[code] = deck
+            unconfirmed.update(official_deck.unconfirmed_sections(deck))
             ok += 1
         else:
             failed += 1
@@ -350,6 +352,16 @@ def cmd_fetch_decks(limit: int) -> None:
     console.print(f"[green]完了[/green]: {ok} デッキを追加 (合計 {len(known)})")
     if failed:
         console.print(f"[yellow]{failed} デッキは60枚揃わず取得できませんでした[/yellow]")
+    if unconfirmed:
+        # 公式の入力欄のうち意味を確かめていないものに、実際にカードが入っていた。
+        # 区分名が仮のままなので、実物を見て直す手がかりを残す。
+        console.print(
+            f"[yellow]まだ意味の分からない欄にカードが入っていました: "
+            f"{', '.join(sorted(unconfirmed))}[/yellow]"
+        )
+        console.print(
+            "[dim]official_deck.SECTION_FIELDS の区分名を実物に合わせて直してください。[/dim]"
+        )
 
 
 @main.command("fetch-cards")

@@ -2,7 +2,10 @@
 
 fixtures は実際に保存した公式サイトのページからの抜粋で、構造は実物のまま。
 
+  official_deck_raw.html  deck/result.html/deckID/ngHLgL-pA4GKN-9gniQn
+                          サーバーが素で返すHTML。本番はこちらを読む
   official_decklist.html  deck/result.html/deckID/yyMppy-jUiB2j-pyXXRU
+                          ブラウザで保存した JavaScript 実行後のDOM
   official_card.html      card-search/details.php/card/50452/
 """
 
@@ -22,6 +25,13 @@ FIXTURES = Path(__file__).parent / "fixtures"
 def decklist() -> dict:
     return official_deck.parse_decklist(
         (FIXTURES / "official_decklist.html").read_text(encoding="utf-8")
+    )
+
+
+@pytest.fixture(scope="module")
+def raw_decklist() -> dict:
+    return official_deck.parse_decklist(
+        (FIXTURES / "official_deck_raw.html").read_text(encoding="utf-8")
     )
 
 
@@ -84,6 +94,77 @@ def test_parse_decklist_survives_an_unrelated_page():
 
 def test_deck_url_is_built_from_the_code():
     assert official_deck.deck_url("abc-def-ghi").endswith("/deckID/abc-def-ghi/")
+
+
+# ------------------------------------------------------------------
+# 素のHTML (hidden 入力欄) から読む — 本番の経路
+#
+# 公式のカード表は JavaScript が組み立てているので、サーバーが返すHTMLに
+# 表は無い。中身は hidden の入力欄に入っている。
+# ------------------------------------------------------------------
+
+
+def test_raw_decklist_totals_exactly_sixty(raw_decklist):
+    """JavaScript を動かさずに60枚そろうこと。ここが崩れると全部崩れる。"""
+    assert raw_decklist["total"] == 60
+
+
+def test_raw_decklist_has_every_distinct_card(raw_decklist):
+    """種類数は、同じHTMLに並ぶカード名の件数 (実物で27) と一致する。"""
+    assert len(raw_decklist["cards"]) == 27
+
+
+def test_raw_decklist_reads_counts_per_section(raw_decklist):
+    assert raw_decklist["sections"]["ポケモン"] == 16
+    assert raw_decklist["sections"]["グッズ"] == 17
+    assert raw_decklist["sections"]["サポート"] == 9
+    assert raw_decklist["sections"]["スタジアム"] == 2
+    assert raw_decklist["sections"]["エネルギー"] == 16
+
+
+def test_raw_decklist_extracts_card_identity(raw_decklist):
+    """47847_2_1 と searchItemName を突き合わせて1枚ぶんに組み立てる。"""
+    kangaskhan = next(c for c in raw_decklist["cards"] if c["id"] == "47847")
+    assert kangaskhan["name"] == "メガガルーラex"
+    assert kangaskhan["count"] == 2
+    assert kangaskhan["set"] == "M1S"
+    assert kangaskhan["number"] == "051/063"
+    assert kangaskhan["section"] == "ポケモン"
+    assert kangaskhan["image"].endswith(".jpg")
+
+
+def test_raw_decklist_keeps_names_with_spaces_intact(raw_decklist):
+    """「オーガポン みどりのめんex」のように空白を含む名前を切らない。"""
+    ogerpon = next(c for c in raw_decklist["cards"] if c["id"] == "45707")
+    assert ogerpon["name"] == "オーガポン みどりのめんex"
+    assert ogerpon["number"] == "006/101"
+
+
+def test_raw_decklist_keeps_cards_without_a_known_name(raw_decklist):
+    """名前が引けなくても枚数は正しい。60枚の合計を崩さないため。"""
+    unnamed = [c for c in raw_decklist["cards"] if not c["name"]]
+    assert unnamed, "名前の無いカードが1枚も無いなら、この試験は意味を持たない"
+    assert all(c["count"] > 0 for c in unnamed)
+
+
+def test_raw_decklist_uses_no_unconfirmed_section(raw_decklist):
+    """deck_tech / deck_ajs に中身が入った実物はまだ見ていない。
+
+    入っていたら区分名を決めつけずに気付けるようにしてある。
+    """
+    assert official_deck.unconfirmed_sections(raw_decklist) == []
+
+
+def test_unconfirmed_sections_are_reported_when_used():
+    html = '<input type="hidden" name="deck_tech" value="12345_1_1">'
+    assert official_deck.unconfirmed_sections(
+        official_deck.parse_decklist(html)
+    ) == ["その他(tech)"]
+
+
+def test_saved_browser_page_still_parses(decklist, raw_decklist):
+    """素のHTMLを優先しつつ、保存したページ (表) も読めること。"""
+    assert decklist["total"] == raw_decklist["total"] == 60
 
 
 # ------------------------------------------------------------------

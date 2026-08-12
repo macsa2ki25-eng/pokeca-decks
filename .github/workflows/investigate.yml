@@ -54,6 +54,14 @@ jobs:
         continue-on-error: true
         run: python -m src.pokeca.cli dump-card --card-id 50452
 
+      # 本番と同じ経路で実際に数件取ってみる。ここが通れば毎日の収集も通る。
+      # contents: read なので、取れたものが保存されて残ることはない。
+      - name: Try fetching a few real decks
+        continue-on-error: true
+        run: |
+          python -m src.pokeca.cli fetch-decks --limit 5
+          python -m src.pokeca.cli fetch-cards --limit 5
+
       # ログが流れてもあとから拾えるように、取得した生HTMLを成果物として残す。
       # リポジトリには入れない (他所のページを転載しないため)。
       - name: Upload raw responses
