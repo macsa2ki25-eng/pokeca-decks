@@ -303,7 +303,7 @@ def cmd_rank(days: int, event: str) -> None:
 def _load_corpus():
     """大会結果と60枚の中身を突き合わせたものを返す。"""
     from src.pokeca import analysis
-    from src.pokeca.cardstore import load_decklists
+    from src.pokeca.cardstore import load_cards, load_decklists
 
     decklists = load_decklists()
     if not decklists:
@@ -312,7 +312,7 @@ def _load_corpus():
             "先に fetch-decks を実行してください。[/yellow]"
         )
         sys.exit(1)
-    return analysis.build_corpus(load_results(), decklists)
+    return analysis.build_corpus(load_results(), decklists, load_cards())
 
 
 def _resolve_deck(corpus, name: str):
@@ -447,19 +447,23 @@ def cmd_check(deck_code: str, against: str) -> None:
     どこが違うかを出すところまで。そこから先は本人が決めること。
     """
     from src.pokeca import analysis
-    from src.pokeca.cardstore import load_decklists
+    from src.pokeca.cardstore import expand, load_cards, load_decklists
     from src.pokeca.sources import official_deck
 
-    decklists = load_decklists()
-    mine = decklists.get(deck_code)
-    if not mine:
-        mine, reason = official_deck.fetch_decklist(deck_code)
-        if not mine:
+    cards = load_cards()
+    mine = load_decklists().get(deck_code)
+    if mine:
+        # 保存済みのデッキはIDと枚数だけなので、カード表で名前を補う
+        entries = expand(mine, cards)
+    else:
+        fetched, reason = official_deck.fetch_decklist(deck_code)
+        if not fetched:
             console.print(f"[red]デッキを読めませんでした[/red]: {reason}")
             sys.exit(1)
+        entries = fetched["cards"]
 
     counts: dict[str, int] = {}
-    for card in mine["cards"]:
+    for card in entries:
         if card.get("name"):
             counts[card["name"]] = counts.get(card["name"], 0) + card.get("count", 0)
 
@@ -589,7 +593,7 @@ def cmd_fetch_cards(limit: int) -> None:
     公式のカードは数千枚あるが、取りに行くのは優勝デッキに実際に
     出てくるカードだけ。カードの内容は変わらないので取得は一度きり。
     """
-    from src.pokeca.cardstore import card_ids_in, load_cards, load_decklists, save_cards
+    from src.pokeca.cardstore import load_cards, load_decklists, needs_detail, save_cards
     from src.pokeca.sources import official_card
 
     decklists = load_decklists()
@@ -598,22 +602,27 @@ def cmd_fetch_cards(limit: int) -> None:
         sys.exit(1)
 
     known = load_cards()
-    todo = sorted(card_ids_in(decklists) - set(known))
+    # 名前だけ入っているカードは「取得済み」ではない。ワザや特性が
+    # 入っているかどうかで判断する。
+    todo = needs_detail(decklists, known)
+    have = sum(1 for c in known.values() if c.get("detail"))
     if limit > 0:
         todo = todo[:limit]
 
     if not todo:
-        console.print(f"[green]すべて取得済みです[/green] ({len(known)} カード)")
+        console.print(f"[green]すべて取得済みです[/green] ({have} カード)")
         return
 
-    console.print(f"取得対象: {len(todo)} カード (保有 {len(known)})")
+    console.print(f"取得対象: {len(todo)} カード (保有 {have})")
     console.print(f"[dim]1.5秒間隔なので約 {len(todo) * 1.5 / 60:.0f} 分かかります[/dim]")
 
     ok = failed = 0
     for index, card_id in enumerate(todo, start=1):
         card, reason = official_card.fetch_card(card_id)
         if card:
-            known[card_id] = card
+            # デッキページ経由で入っている情報 (収録セット・区分・画像) は
+            # 消さずに残す
+            known[card_id] = {**known.get(card_id, {}), **card, "detail": True}
             ok += 1
         else:
             failed += 1
@@ -630,9 +639,13 @@ def cmd_fetch_cards(limit: int) -> None:
             save_cards(known)
 
     save_cards(known)
-    console.print(f"[green]完了[/green]: {ok} カードを追加 (合計 {len(known)})")
+    detailed = sum(1 for c in known.values() if c.get("detail"))
+    console.print(f"[green]完了[/green]: {ok} カードを追加 (合計 {detailed})")
     if failed:
-        console.print(f"[yellow]{failed} カードは取得できませんでした[/yellow]")
+        console.print(
+            f"[yellow]{failed} カードは取得できませんでした "
+            "(次回の実行で取り直します)[/yellow]"
+        )
 
 
 # ------------------------------------------------------------------

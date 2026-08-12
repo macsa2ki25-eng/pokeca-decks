@@ -248,3 +248,109 @@ def test_fetch_card_reports_why_it_failed(monkeypatch):
     card, reason = official_card.fetch_card("50452")
     assert card is None
     assert "カード名が取れず" in reason
+
+
+# ------------------------------------------------------------------
+# 保存の形 -- カードの情報はデッキ側に持たない
+#
+# 同じカードの情報を、そのカードが入っているデッキの数だけ書き写して
+# いたため decklists.json が26MBあった。カードの種類は2151しかなく、
+# 1枚あたり平均49回書いている計算だった。
+# ------------------------------------------------------------------
+
+
+@pytest.fixture
+def store(tmp_path, monkeypatch):
+    """保存先を一時ディレクトリに向ける。"""
+    from src.pokeca import cardstore
+
+    monkeypatch.setattr(cardstore, "DECKLISTS_FILE", tmp_path / "decklists.json")
+    monkeypatch.setattr(cardstore, "CARDS_FILE", tmp_path / "cards.json")
+    return cardstore
+
+
+def test_saved_deck_keeps_only_ids_and_counts(store, raw_decklist):
+    store.save_decklists({"abc": raw_decklist})
+    saved = store.load_decklists()["abc"]
+    assert saved["total"] == 60
+    assert saved["cards"][0] == ["47847", 2]
+    assert all(len(pair) == 2 for pair in saved["cards"])
+
+
+def test_saving_a_deck_files_the_card_information_once(store, raw_decklist):
+    store.save_decklists({"abc": raw_decklist, "def": raw_decklist})
+    cards = store.load_cards()
+    assert cards["47847"]["name"] == "メガガルーラex"
+    assert cards["47847"]["set"] == "M1S"
+    assert cards["47847"]["section"] == "ポケモン"
+    # 2デッキ保存しても、カードの情報は1件だけ
+    assert len(cards) == 27
+
+
+def test_saved_deck_is_far_smaller_than_the_parsed_one(store, raw_decklist):
+    import json
+
+    store.save_decklists({"abc": raw_decklist})
+    fat = len(json.dumps({"abc": raw_decklist}, ensure_ascii=False))
+    thin = store.DECKLISTS_FILE.stat().st_size
+    assert thin < fat / 2
+
+
+def test_expand_rebuilds_the_readable_form(store, raw_decklist):
+    store.save_decklists({"abc": raw_decklist})
+    rebuilt = store.expand(store.load_decklists()["abc"], store.load_cards())
+    assert sum(c["count"] for c in rebuilt) == 60
+    first = rebuilt[0]
+    assert first["name"] == "メガガルーラex"
+    assert first["count"] == 2
+
+
+def test_expand_keeps_counts_for_cards_we_have_no_name_for(store):
+    deck = {"cards": [["99999", 4]], "total": 4}
+    rebuilt = store.expand(deck, {})
+    assert rebuilt == [
+        {"id": "99999", "count": 4, "name": "", "set": "", "number": "",
+         "section": "", "image": ""}
+    ]
+
+
+def test_old_format_is_read_back_in_the_new_shape(store, raw_decklist):
+    """カードの情報を丸ごと持っていた古い保存も、そのまま読めること。"""
+    import json
+
+    store.DECKLISTS_FILE.write_text(
+        json.dumps({"count": 1, "decklists": {"abc": raw_decklist}}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    saved = store.load_decklists()["abc"]
+    assert saved["cards"][0] == ["47847", 2]
+    assert saved["total"] == 60
+
+
+def test_merge_cards_does_not_overwrite_what_we_already_know(store):
+    store.save_cards({"1": {"name": "シェイミ", "hp": 80, "detail": True}})
+    store.merge_cards({"1": {"name": "ちがう名前", "set": "SV6"}})
+    card = store.load_cards()["1"]
+    assert card["name"] == "シェイミ"   # 既にあるものは守る
+    assert card["set"] == "SV6"        # 無かったものは足す
+    assert card["hp"] == 80
+
+
+def test_card_ids_are_collected_from_the_saved_shape(store, raw_decklist):
+    store.save_decklists({"abc": raw_decklist})
+    ids = store.card_ids_in(store.load_decklists())
+    assert "47847" in ids
+    assert len(ids) == 27
+
+
+def test_needs_detail_ignores_cards_that_only_have_a_name(store, raw_decklist):
+    """名前だけ入っているカードを取得済みと数えると、ワザが永久に集まらない。"""
+    store.save_decklists({"abc": raw_decklist})
+    decklists = store.load_decklists()
+    todo = store.needs_detail(decklists, store.load_cards())
+    assert len(todo) == 27   # 名前はあるが、中身はまだ
+
+    store.merge_cards({"47847": {"detail": True}})
+    todo = store.needs_detail(decklists, store.load_cards())
+    assert "47847" not in todo
+    assert len(todo) == 26

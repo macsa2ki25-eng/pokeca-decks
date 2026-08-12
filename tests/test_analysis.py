@@ -23,23 +23,24 @@ def make_result(code: str, name: str, *, rank: int = 1, event: str = "city") -> 
     )
 
 
+# カード名 → カードID。保存形のデッキはIDしか持たないので、
+# 名前を引くための表が要る。実物と同じ構造。
+CARD_IDS: dict[str, str] = {}
+CARDS: dict[str, dict] = {}
+
+
+def card_id(name: str) -> str:
+    if name not in CARD_IDS:
+        CARD_IDS[name] = str(1000 + len(CARD_IDS))
+        CARDS[CARD_IDS[name]] = {"name": name, "set": "TST", "section": "ポケモン"}
+    return CARD_IDS[name]
+
+
 def make_deck(cards: dict[str, int]) -> dict:
-    """{カード名: 枚数} から、公式のデッキページと同じ形を作る。"""
+    """{カード名: 枚数} から、保存されているデッキと同じ形を作る。"""
     return {
-        "cards": [
-            {
-                "id": str(1000 + i),
-                "name": name,
-                "set": "TST",
-                "number": f"{i:03d}/100",
-                "count": count,
-                "section": "ポケモン",
-                "image": "",
-            }
-            for i, (name, count) in enumerate(cards.items(), start=1)
-        ],
+        "cards": [[card_id(name), count] for name, count in cards.items()],
         "total": sum(cards.values()),
-        "sections": {"ポケモン": sum(cards.values())},
     }
 
 
@@ -59,7 +60,7 @@ def corpus() -> list[analysis.DeckEntry]:
     results = [make_result(code, "ドラパルトex") for code in DRAPARUTO]
     results.append(make_result("l1", "ルギアVSTAR"))
     decklists = {code: make_deck(cards) for code, cards in {**DRAPARUTO, **LUGIA}.items()}
-    return analysis.build_corpus(results, decklists)
+    return analysis.build_corpus(results, decklists, CARDS)
 
 
 @pytest.fixture(scope="module")
@@ -79,13 +80,13 @@ def test_corpus_joins_results_with_their_contents(corpus):
 
 def test_corpus_skips_decks_without_contents():
     results = [make_result("missing", "ドラパルトex")]
-    assert analysis.build_corpus(results, {}) == []
+    assert analysis.build_corpus(results, {}, CARDS) == []
 
 
 def test_corpus_skips_results_without_a_deck_name():
     """名前が無いと束ねられない。採用率の意味が無くなるので数えない。"""
     results = [make_result("d1", "")]
-    assert analysis.build_corpus(results, {"d1": make_deck({"a": 60})}) == []
+    assert analysis.build_corpus(results, {"d1": make_deck({"a": 60})}, CARDS) == []
 
 
 def test_select_filters_by_deck_and_event(corpus):
@@ -207,7 +208,7 @@ def test_variant_coverage_counts_what_did_not_fit(draparuto):
 
 def test_variants_need_more_than_one_deck():
     corpus = analysis.build_corpus(
-        [make_result("d1", "ドラパルトex")], {"d1": make_deck({"a": 60})}
+        [make_result("d1", "ドラパルトex")], {"d1": make_deck({"a": 60})}, CARDS
     )
     assert analysis.variants(corpus) == []
 
@@ -218,6 +219,7 @@ def test_variants_of_identical_decks_is_empty():
     corpus = analysis.build_corpus(
         [make_result(code, "ドラパルトex") for code in same],
         {code: make_deck(cards) for code, cards in same.items()},
+        CARDS,
     )
     assert analysis.variants(corpus) == []
 

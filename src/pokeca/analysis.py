@@ -64,9 +64,15 @@ class DeckEntry:
 
 
 def build_corpus(
-    results: list[DeckResult], decklists: dict[str, dict]
+    results: list[DeckResult],
+    decklists: dict[str, dict],
+    cards: dict[str, dict],
 ) -> list[DeckEntry]:
     """大会結果と60枚の中身を突き合わせて、分析できる形にまとめる。
+
+    デッキ側が持っているのはカードIDと枚数だけなので、名前は ``cards``
+    (カード表) から引く。同じカードが再録でIDだけ変わることがあるため、
+    数える単位は名前にする。
 
     中身をまだ取っていないデッキは黙って飛ばす。デッキ名が空のものも
     飛ばす -- 名前で束ねられないと、採用率の意味が無いため。
@@ -79,14 +85,15 @@ def build_corpus(
 
         counts: dict[str, int] = defaultdict(int)
         card_ids: dict[str, str] = {}
-        for card in deck.get("cards", []):
-            name = card.get("name") or ""
+        for card_id, count in deck.get("cards", []):
+            card_id = str(card_id)
+            name = cards.get(card_id, {}).get("name") or ""
             if not name:
                 # 名前が引けなかったカードは数えられない。
                 # 枚数の合計が60から欠けるので、あとで気付けるようにする。
                 continue
-            counts[name] += card.get("count", 0)
-            card_ids.setdefault(name, card.get("id", ""))
+            counts[name] += count
+            card_ids.setdefault(name, card_id)
 
         corpus.append(
             DeckEntry(
