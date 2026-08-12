@@ -62,13 +62,131 @@ def _recent_by_event(results: list[DeckResult], max_rows: int) -> list[DeckResul
     return selected
 
 
+# カード画像のURLは長く、1枚ぶんの半分以上を占める。
+# 共通部分を落として持ち、表示するときに組み立て直す。
+CARD_IMAGE_BASE = "https://www.pokemon-card.com/assets/images/card_images/large/"
+CARD_IMAGE_PREFIX = "/assets/images/card_images/large/"
+
+# 採用率のグループ名。子どもが読める言い方にする。
+GROUP_LABELS = {
+    "確定枠": "かならず はいってる",
+    "よく入る": "よく はいってる",
+    "選択枠": "ひとに よって ちがう",
+}
+# 1つのデッキで見せるカードの数の上限。
+# 1枚積みの端まで全部出すとページが重くなるうえ、子どもが読み切れない。
+MAX_CARDS_PER_DECK = 45
+# 中身を出すのに必要な最低デッキ数。
+# 2〜3件しかないものの「採用率100%」は、ただの偶然でしかない。
+MIN_DECKS_FOR_CONTENTS = 5
+
+
+def _card_row(row: dict, cards: dict) -> dict:
+    """採用率1行を、ページに出す形にする。
+
+    平均枚数よりも「何枚入れている人が一番多いか」のほうが、
+    デッキを組むときにはそのまま使える。両方持たせる。
+    """
+    spread = row.get("distribution") or {}
+    common = max(spread, key=lambda n: spread[n]) if spread else 0
+    image = cards.get(row.get("id", ""), {}).get("image", "")
+    return {
+        "name": row["name"],
+        "n": common,
+        "avg": round(row["average"], 1),
+        "decks": row["decks"],
+        "total": row["total"],
+        "img": image[len(CARD_IMAGE_PREFIX):] if image.startswith(CARD_IMAGE_PREFIX) else "",
+    }
+
+
+def build_contents(
+    results: list[DeckResult],
+    decklists: dict[str, dict],
+    cards: dict[str, dict],
+    deck_keys: list[str],
+) -> tuple[dict, dict]:
+    """デッキごとの「なかみ」と、カードから引くための索引を作る。
+
+    Returns:
+        (なかみ, カード索引)。中身をまだ持っていなければ両方とも空。
+    """
+    from src.pokeca import analysis
+
+    if not decklists:
+        return {}, {}
+
+    corpus = analysis.build_corpus(results, decklists, cards)
+    if not corpus:
+        return {}, {}
+
+    contents: dict[str, dict] = {}
+    shown: set[str] = set()
+
+    for key in deck_keys:
+        decks = analysis.select(corpus, deck_key=key)
+        if len(decks) < MIN_DECKS_FOR_CONTENTS:
+            continue
+
+        rows = analysis.adoption(decks)
+        groups = []
+        budget = MAX_CARDS_PER_DECK
+        for label, group_rows in analysis.core_and_flex(rows).items():
+            if not group_rows or budget <= 0:
+                continue
+            picked = group_rows[:budget]
+            budget -= len(picked)
+            groups.append(
+                {
+                    "label": GROUP_LABELS.get(label, label),
+                    "cards": [_card_row(r, cards) for r in picked],
+                }
+            )
+            shown.update(r["name"] for r in picked)
+
+        variants = analysis.variants(decks)
+        contents[key] = {
+            "name": decks[0].deck_name,
+            "decks": len(decks),
+            "groups": groups,
+            "variants": [
+                {"cards": v["cards"], "decks": v["decks"], "share": round(v["share"], 2)}
+                for v in variants[:6]
+            ],
+            "other": analysis.variant_coverage(decks, variants),
+        }
+
+    # カード → そのカードを使っているデッキ。画面に出したカードだけに絞る。
+    index = analysis.card_index(corpus)
+    card_decks = {
+        name: {
+            "decks": data["decks"],
+            "avg": round(data["average"], 1),
+            # JSON にしたときと同じ形 (配列) で持つ。
+            # タプルのままだと、書き出す前後で形が変わって扱いを間違えやすい。
+            "top": [[deck_name, n] for deck_name, n in list(data["archetypes"].items())[:8]],
+        }
+        for name, data in index.items()
+        if name in shown
+    }
+    return contents, card_decks
+
+
 def build_data(
-    results: list[DeckResult], *, is_sample: bool = False, max_rows: int = 300
+    results: list[DeckResult],
+    *,
+    is_sample: bool = False,
+    max_rows: int = 300,
+    decklists: dict[str, dict] | None = None,
+    cards: dict[str, dict] | None = None,
 ) -> dict:
     """ページに埋め込む JSON を組み立てる。
 
     一覧に載せる行は大会種別ごとに新しいほうから max_rows 件で打ち切る。
     ランキングは打ち切る前の全件から計算するので、集計の正確さは保たれる。
+
+    decklists と cards を渡すと、デッキごとの「なかみ」も一緒に埋め込む。
+    渡さなければ従来どおりの一覧とランキングだけになる。
     """
     themes = load_deck_themes()
 
@@ -117,6 +235,10 @@ def build_data(
         entry["color"] = theme["color"]
         entry["emoji"] = theme["emoji"]
 
+    contents, card_decks = build_contents(
+        results, decklists or {}, cards or {}, [d["deck_key"] for d in decks[:24]]
+    )
+
     summary = aggregate.summary(results)
     latest = summary.get("latest_date") or ""
     summary["latest_date_label"] = _date_label(latest)
@@ -143,6 +265,11 @@ def build_data(
         "results": rows,
         "rankings": rankings,
         "decks": decks[:24],
+        # デッキごとの「なかみ」。中身をまだ取っていなければ空になり、
+        # 画面側は「なかみを しらべる」ボタンを出さない。
+        "contents": contents,
+        "cardDecks": card_decks,
+        "cardBase": CARD_IMAGE_BASE,
     }
 
 
@@ -240,6 +367,56 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 /* flex の子は既定で内容より縮まないので、明示的に縮められるようにする */
 .rankrow > div:last-child{min-width:0}
 .empty{text-align:center;color:var(--muted);padding:36px 10px;font-size:17px;line-height:2}
+/* ---- デッキの なかみ ---- */
+.groupbar{
+  display:flex;align-items:baseline;gap:10px;margin:20px 0 8px;
+  font-size:20px;font-weight:800;
+}
+.groupbar .howmany{font-size:14px;color:var(--muted);font-weight:700}
+/* カード1枚ぶん。押すと「このカードを つかう デッキ」が下に開く。 */
+.cardline{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:var(--card);border:3px solid var(--line);border-radius:16px;
+  padding:8px 12px;margin-bottom:8px;box-shadow:var(--shadow);color:inherit;
+}
+.cardline:active{transform:translateY(2px);box-shadow:none}
+.thumb{
+  flex:0 0 auto;width:52px;aspect-ratio:63/88;object-fit:cover;
+  border-radius:6px;background:#EFE1CE;border:1px solid var(--line);
+}
+/* 中央だけ伸び縮みさせる。枚数の枠まで伸ばすと、画像が読めなかったときに
+   枚数がやたら横長になってしまう。 */
+.cbody{min-width:0;flex:1}
+.cname{font-size:19px;font-weight:800;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
+.cmeta{font-size:14px;color:var(--muted);word-break:keep-all;overflow-wrap:anywhere}
+/* 何枚入れるかが一番大事なので、右端に大きく置く */
+.copies{
+  flex:0 0 auto;width:62px;text-align:center;font-size:22px;font-weight:800;
+  color:#B26A00;background:#FFF1D0;border-radius:12px;padding:4px 6px;line-height:1.2;
+}
+.copies small{display:block;font-size:12px;color:var(--muted);font-weight:700}
+/* 押したときに開く「このカードを つかう デッキ」 */
+.usedby{
+  background:#F5FAFF;border:3px solid #CFE4FF;border-radius:14px;
+  padding:10px 14px;margin:-4px 0 10px;font-size:16px;line-height:1.9;
+}
+.usedby b{font-size:17px}
+.usedby ul{margin:6px 0 0;padding-left:1.2em}
+/* 型の一覧 */
+.variant{
+  display:flex;align-items:center;gap:12px;background:var(--card);
+  border:3px solid var(--line);border-radius:16px;padding:10px 14px;
+  margin-bottom:8px;box-shadow:var(--shadow);
+}
+.variant .bar{flex:1;min-width:0}
+.variant .vname{font-size:18px;font-weight:800;word-break:keep-all;overflow-wrap:anywhere}
+.variant .track{height:10px;border-radius:6px;background:#F0E4D2;margin-top:6px;overflow:hidden}
+.variant .fill{height:100%;background:var(--blue);border-radius:6px}
+.variant .pct{flex:0 0 auto;font-size:19px;font-weight:800;min-width:56px;text-align:right}
+.lead{
+  background:#FFF3D6;border:3px solid #FFD98A;border-radius:14px;
+  padding:12px 14px;margin:0 0 4px;font-size:16px;line-height:1.8;
+}
 footer{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.8}
 footer a{color:var(--muted)}
 """
@@ -307,11 +484,106 @@ function esc(s){
     .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
+/* ---- デッキの なかみ ----
+   同じデッキ名でも、どこが共通で どこが人によって違うのかを見せる。
+   カードを押すと、そのカードを使っている他のデッキが下に開く。 */
+
+/* 画像が読めなかったときは、同じ大きさの空枠に置き換える。
+   消すと行の形が変わり、壊れたアイコンを残すと汚い。 */
+function thumbFail(img){
+  var box = document.createElement("span");
+  box.className = "thumb";
+  img.replaceWith(box);
+}
+
+function cardLineHtml(c){
+  var thumb = c.img
+    ? '<img class="thumb" src="' + esc(DATA.cardBase + c.img) + '" alt="" ' +
+      'loading="lazy" decoding="async" onerror="thumbFail(this)">'
+    : '<span class="thumb"></span>';
+  var pct = Math.round((c.decks / c.total) * 100);
+  var known = DATA.cardDecks[c.name];
+  var meta = pct + "%";
+  if (known && known.decks > c.decks){
+    meta += "　ほかにも " + (known.decks - c.decks) + "こ";
+  }
+  return '<button class="cardline" data-card="' + esc(c.name) + '">' +
+    thumb +
+    '<div class="cbody"><div class="cname">' + esc(c.name) + '</div>' +
+    '<div class="cmeta">' + meta + '</div></div>' +
+    '<div class="copies">' + c.n + '<small>まい</small></div>' +
+    '</button>';
+}
+
+function usedByHtml(name){
+  var d = DATA.cardDecks[name];
+  if (!d) return "";
+  var items = d.top.map(function(pair){
+    return "<li>" + esc(pair[0]) + "　" + pair[1] + "こ</li>";
+  }).join("");
+  return '<div class="usedby" data-used="' + esc(name) + '">' +
+    '<b>' + esc(name) + '</b> を つかって かった デッキは ' + d.decks + 'こ<br>' +
+    'たいてい ' + d.avg + 'まい いれる' +
+    '<ul>' + items + '</ul></div>';
+}
+
+function variantHtml(v, total){
+  var pct = Math.round(v.share * 100);
+  var name = v.cards.length ? v.cards.join(" と ") + " が はいってる" : "どれも いれない";
+  return '<div class="variant"><div class="bar">' +
+    '<div class="vname">' + esc(name) + '</div>' +
+    '<div class="track"><div class="fill" style="width:' + pct + '%"></div></div>' +
+    '</div><div class="pct">' + pct + '%</div></div>';
+}
+
+function insideHtml(){
+  if (state.deck === "all"){
+    return '<div class="empty">うえの ボタンで デッキを ひとつ えらんでね</div>';
+  }
+  var c = DATA.contents[state.deck];
+  if (!c){
+    return '<div class="empty">この デッキは かった かいすうが すくないので、<br>' +
+      'なかみを くらべられません。<br>ほかの デッキを えらんでね</div>';
+  }
+
+  var out = ['<div class="lead">かった <b>' + c.decks + 'この ' + esc(c.name) + '</b> を ' +
+    'くらべたよ。<br>カードを おすと、その カードを つかう ほかの デッキが わかるよ。</div>'];
+
+  if (c.variants.length){
+    out.push('<div class="groupbar">どんな かたちが ある？</div>');
+    for (var v=0; v<c.variants.length; v++) out.push(variantHtml(c.variants[v], c.decks));
+    if (c.other){
+      out.push('<div class="cmeta" style="margin:-2px 0 4px">' +
+        'のこり ' + c.other + 'こは、この わけかたに あてはまらなかったよ</div>');
+    }
+  }
+
+  for (var g=0; g<c.groups.length; g++){
+    var grp = c.groups[g];
+    out.push('<div class="groupbar">' + esc(grp.label) +
+      '<span class="howmany">' + grp.cards.length + 'しゅるい</span></div>');
+    for (var i=0; i<grp.cards.length; i++) out.push(cardLineHtml(grp.cards[i]));
+  }
+  return out.join("");
+}
+
 function render(){
   var listBox = el("list");
   var periodBox = el("periodRow");
   var rankRow = el("rankRow");
   var deckBox = el("deckRow");
+
+  if (state.view === "inside"){
+    // デッキを選ばないと始まらないので、デッキのボタンだけ残す
+    periodBox.style.display = "none";
+    rankRow.style.display = "none";
+    deckBox.style.display = "flex";
+    el("deckTitle").style.display = "block";
+    el("deckTitle").textContent = "どの デッキの なかみ？";
+    listBox.innerHTML = insideHtml();
+    return;
+  }
+  el("deckTitle").textContent = "デッキで さがす";
 
   if (state.view === "rank"){
     periodBox.style.display = "grid";
@@ -409,6 +681,21 @@ function boot(){
     state.deck = b.dataset.value; setPressed(el("deckRow"), state.deck); render();
   });
 
+  // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる。
+  el("list").addEventListener("click", function(e){
+    var b = e.target.closest("[data-card]"); if(!b) return;
+    var name = b.dataset.card;
+    var open = b.nextElementSibling;
+    if (open && open.dataset.used === name){ open.remove(); return; }
+    var html = usedByHtml(name);
+    if (html) b.insertAdjacentHTML("afterend", html);
+  });
+
+  // 中身をまだ持っていないときは「なかみ」ボタンを出さない
+  if (Object.keys(DATA.contents || {}).length){
+    el("insideBtn").style.display = "block";
+  }
+
   render();
 }
 document.addEventListener("DOMContentLoaded", boot);
@@ -446,6 +733,8 @@ BODY = """
   <div class="grid2" id="viewRow">
     <button class="seg" data-value="new" aria-pressed="true">あたらしい じゅん</button>
     <button class="seg blue" data-value="rank" aria-pressed="false">つよい じゅん</button>
+    <button class="seg span2" id="insideBtn" data-value="inside" aria-pressed="false"
+            style="display:none">デッキの なかみを しらべる</button>
   </div>
 
   <div class="grid2" id="rankRow" style="margin-top:10px">

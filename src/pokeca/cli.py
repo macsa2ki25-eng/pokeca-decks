@@ -204,9 +204,17 @@ def cmd_collect(
 @click.option("--body-only", is_flag=True, help="body の中身だけ出力する")
 def cmd_build(out: Path | None, body_only: bool) -> None:
     """results.json から子ども向けページを生成する。"""
+    from src.pokeca.cardstore import load_cards, load_decklists
+
     results = load_results()
     is_sample = bool(results) and all(r.source == "sample" for r in results)
-    data = site.build_data(results, is_sample=is_sample)
+    # デッキの中身をまだ持っていなければ、従来どおり一覧とランキングだけになる
+    data = site.build_data(
+        results,
+        is_sample=is_sample,
+        decklists=load_decklists(),
+        cards=load_cards(),
+    )
     html = site.build_html(data, standalone=not body_only)
 
     target = out or (SITE_DIR / "index.html")
@@ -215,6 +223,12 @@ def cmd_build(out: Path | None, body_only: bool) -> None:
 
     console.print(f"[green]生成しました[/green]: {target} ({len(html):,} バイト)")
     console.print(f"  結果 {len(results)} 件 / デッキ {len(data['decks'])} 種類")
+    inside = data.get("contents") or {}
+    if inside:
+        console.print(
+            f"  なかみを のせたデッキ {len(inside)} 種類 / "
+            f"カード索引 {len(data.get('cardDecks') or {})} 枚"
+        )
     if is_sample:
         console.print("[yellow]※ サンプルデータで生成しています。[/yellow]")
 
@@ -828,12 +842,26 @@ def cmd_probe_official(deck_code: str) -> None:
             sys.exit(1)
         deck_code = codes[0]
 
+    # カード画像は子ども向けページに直接並べるので、外から引けるかが重要。
+    # 引けないなら、そもそも画像を載せる設計自体が成り立たない。
+    from src.pokeca.cardstore import load_cards
+    from src.pokeca.site import CARD_IMAGE_BASE, CARD_IMAGE_PREFIX
+
+    image_url = ""
+    for card in load_cards().values():
+        path = card.get("image") or ""
+        if path.startswith(CARD_IMAGE_PREFIX):
+            image_url = CARD_IMAGE_BASE + path[len(CARD_IMAGE_PREFIX):]
+            break
+
     targets = [
         ("デッキ result.html", official_deck.deck_url(deck_code)),
         ("デッキ confirm.html", official_deck.deck_url_fallback(deck_code)),
         ("カード詳細", official_card.card_url("50452")),
         ("robots.txt", "https://www.pokemon-card.com/robots.txt"),
     ]
+    if image_url:
+        targets.append(("カード画像", image_url))
 
     for label, url in targets:
         console.print(f"\n[cyan]{label}[/cyan]  {url}")
@@ -841,6 +869,14 @@ def cmd_probe_official(deck_code: str) -> None:
             allowed = http.can_fetch(url)
             console.print(f"  robots.txt の許可: {allowed}")
             response = http.get(url, respect_robots=False)
+            kind = (response.headers.get("Content-Type") or "").split(";")[0]
+            if not kind.startswith("text") and "html" not in kind:
+                # 画像などはそのまま出せない。届いたかどうかだけ分かればよい。
+                console.print(
+                    f"  HTTP {response.status_code} / {kind} / "
+                    f"{len(response.content):,} バイト"
+                )
+                continue
             body = response.text
             console.print(f"  HTTP {response.status_code} / {len(body):,} 文字")
             markers = {
