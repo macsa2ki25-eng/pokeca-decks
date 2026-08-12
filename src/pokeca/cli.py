@@ -296,6 +296,223 @@ def cmd_rank(days: int, event: str) -> None:
 
 
 # ------------------------------------------------------------------
+# デッキの中身を見る
+# ------------------------------------------------------------------
+
+
+def _load_corpus():
+    """大会結果と60枚の中身を突き合わせたものを返す。"""
+    from src.pokeca import analysis
+    from src.pokeca.cardstore import load_decklists
+
+    decklists = load_decklists()
+    if not decklists:
+        console.print(
+            "[yellow]デッキの中身をまだ持っていません。"
+            "先に fetch-decks を実行してください。[/yellow]"
+        )
+        sys.exit(1)
+    return analysis.build_corpus(load_results(), decklists)
+
+
+def _resolve_deck(corpus, name: str):
+    """デッキ名の一部から、対象のデッキ群を絞る。
+
+    子どもが「ドラパルト」とだけ打っても引けるように、部分一致で探す。
+    """
+    from src.pokeca import analysis
+
+    keys = {d.deck_key: d.deck_name for d in corpus}
+    hits = [k for k in keys if name in k or name in keys[k]]
+    if not hits:
+        console.print(f"[yellow]「{name}」に当てはまるデッキがありません。[/yellow]")
+        counts = Counter(d.deck_name for d in corpus)
+        console.print("[dim]例: " + " / ".join(n for n, _ in counts.most_common(8)) + "[/dim]")
+        sys.exit(1)
+    # 一番件数の多いものを採る
+    counts = Counter(d.deck_key for d in corpus if d.deck_key in hits)
+    key = counts.most_common(1)[0][0]
+    return key, keys[key], analysis.select(corpus, deck_key=key)
+
+
+def _share(row: dict) -> str:
+    return f"{row['decks']}/{row['total']} ({row['share'] * 100:.0f}%)"
+
+
+@main.command("cards")
+@click.argument("deck_name")
+@click.option("--event", type=click.Choice(["city", "gym", "all"]), default="all")
+def cmd_cards(deck_name: str, event: str) -> None:
+    """あるデッキ名の中身が、勝っているデッキ同士でどう違うかを見る。
+
+    「ほぼ全部に入っているカード」と「入れる人と入れない人がいるカード」を
+    分けて出す。同じドラパルトでも中身がどう違うのか、はここに出る。
+    """
+    from src.pokeca import analysis
+
+    corpus = _load_corpus()
+    if event != "all":
+        corpus = analysis.select(corpus, event_type=event)
+    key, label, decks = _resolve_deck(corpus, deck_name)
+
+    groups = analysis.core_and_flex(analysis.adoption(decks))
+    console.print(f"\n[bold]{label}[/bold]  {len(decks)} デッキぶんの中身から\n")
+    for title, rows in groups.items():
+        if not rows:
+            continue
+        table = Table(title=title)
+        table.add_column("カード", style="bold")
+        table.add_column("入れているデッキ", justify="right")
+        table.add_column("平均", justify="right", style="cyan")
+        table.add_column("枚数の内訳", style="dim")
+        for row in rows[:30]:
+            spread = " ".join(f"{n}枚:{c}件" for n, c in row["distribution"].items())
+            table.add_row(row["name"], _share(row), f"{row['average']:.1f}", spread)
+        console.print(table)
+
+
+@main.command("decks-with")
+@click.argument("card_name")
+def cmd_decks_with(card_name: str) -> None:
+    """あるカードを使っているデッキを探す。
+
+    「マシマシラを使ったデッキにはどんなデッキがあるのか」に答える。
+    """
+    from src.pokeca import analysis
+
+    corpus = _load_corpus()
+    index = analysis.card_index(corpus)
+    hits = analysis.find_cards(index, card_name)
+    if not hits:
+        console.print(f"[yellow]「{card_name}」を使っているデッキはありません。[/yellow]")
+        return
+
+    for name, data in hits[:5]:
+        table = Table(title=f"{name}  ({data['decks']} デッキ / 平均 {data['average']:.1f}枚)")
+        table.add_column("デッキ", style="bold")
+        table.add_column("件数", justify="right")
+        for deck_name, count in list(data["archetypes"].items())[:15]:
+            table.add_row(deck_name, str(count))
+        console.print(table)
+
+
+@main.command("variants")
+@click.argument("deck_name")
+def cmd_variants(deck_name: str) -> None:
+    """同じデッキ名の中にある「型」を、分かれ目のカードで分けて出す。"""
+    from src.pokeca import analysis
+
+    corpus = _load_corpus()
+    key, label, decks = _resolve_deck(corpus, deck_name)
+    groups = analysis.variants(decks)
+    if not groups:
+        console.print(
+            f"[yellow]{label} は {len(decks)} デッキしか無いか、"
+            "中身がほとんど同じで、型に分けられません。[/yellow]"
+        )
+        return
+
+    table = Table(title=f"{label} の型  ({len(decks)} デッキ)")
+    table.add_column("入っているカード", style="bold")
+    table.add_column("件数", justify="right")
+    table.add_column("割合", justify="right", style="cyan")
+    table.add_column("デッキコードの例", style="dim")
+    for group in groups:
+        table.add_row(
+            " + ".join(group["cards"]) or "(どれも入れない)",
+            str(group["decks"]),
+            f"{group['share'] * 100:.0f}%",
+            " ".join(group["examples"]),
+        )
+    console.print(table)
+
+    left = analysis.variant_coverage(decks, groups)
+    if left:
+        console.print(
+            f"[dim]残り {left} デッキは、この分け方ではどれにも当てはまらなかった。"
+            "型はこれで全部、という意味ではない。[/dim]"
+        )
+
+
+@main.command("check")
+@click.argument("deck_code")
+@click.option("--against", default="", help="比べる相手のデッキ名 (省略すると一番近いものを探す)")
+def cmd_check(deck_code: str, against: str) -> None:
+    """自分のデッキを、勝っているデッキと見比べる。
+
+    公式サイトで作ったデッキのコードを渡すと、そのデッキと勝っている
+    デッキの中身の違いを並べる。
+
+    強い・弱いは言わない。勝っているデッキが何を入れているか、自分と
+    どこが違うかを出すところまで。そこから先は本人が決めること。
+    """
+    from src.pokeca import analysis
+    from src.pokeca.cardstore import load_decklists
+    from src.pokeca.sources import official_deck
+
+    decklists = load_decklists()
+    mine = decklists.get(deck_code)
+    if not mine:
+        mine, reason = official_deck.fetch_decklist(deck_code)
+        if not mine:
+            console.print(f"[red]デッキを読めませんでした[/red]: {reason}")
+            sys.exit(1)
+
+    counts: dict[str, int] = {}
+    for card in mine["cards"]:
+        if card.get("name"):
+            counts[card["name"]] = counts.get(card["name"], 0) + card.get("count", 0)
+
+    corpus = _load_corpus()
+    if against:
+        key, label, decks = _resolve_deck(corpus, against)
+    else:
+        # 同じカードを一番多く共有しているデッキ名を相手に選ぶ
+        overlap: Counter[str] = Counter()
+        for deck in corpus:
+            shared = sum(min(counts.get(n, 0), c) for n, c in deck.counts.items())
+            overlap[deck.deck_key] = max(overlap[deck.deck_key], shared)
+        if not overlap:
+            console.print("[yellow]比べられるデッキがありません。[/yellow]")
+            sys.exit(1)
+        key = overlap.most_common(1)[0][0]
+        label = next(d.deck_name for d in corpus if d.deck_key == key)
+        decks = analysis.select(corpus, deck_key=key)
+
+    report = analysis.compare(counts, decks)
+    console.print(
+        f"\n[bold]{deck_code}[/bold] を "
+        f"[bold]{label}[/bold] の勝ちデッキ {report['total']} 件と見比べます\n"
+    )
+
+    if report["missing"]:
+        table = Table(title="勝っているデッキによく入っていて、自分には無いカード")
+        table.add_column("カード", style="bold")
+        table.add_column("入れているデッキ", justify="right")
+        table.add_column("平均", justify="right", style="cyan")
+        for row in report["missing"][:20]:
+            table.add_row(row["name"], _share(row), f"{row['average']:.1f}")
+        console.print(table)
+
+    if report["different"]:
+        table = Table(title="枚数がちがうカード")
+        table.add_column("カード", style="bold")
+        table.add_column("自分", justify="right")
+        table.add_column("勝ちデッキの平均", justify="right", style="cyan")
+        for row in report["different"][:20]:
+            table.add_row(row["name"], str(row["yours"]), f"{row['average']:.1f}")
+        console.print(table)
+
+    if report["extra"]:
+        names = "  ".join(f"{r['name']}×{r['yours']}" for r in report["extra"][:20])
+        console.print(f"\n[bold]自分だけが入れているカード[/bold]\n  {names}")
+        console.print(
+            "[dim]勝っているデッキに無いから弱い、ということではない。"
+            "何のために入れたのかを説明できるかどうかが大事。[/dim]"
+        )
+
+
+# ------------------------------------------------------------------
 # fetch-decks / fetch-cards
 # ------------------------------------------------------------------
 
