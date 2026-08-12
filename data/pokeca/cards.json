@@ -19051,7 +19051,27 @@
    "set": "SVOD",
    "number": "006/018",
    "section": "ポケモン",
-   "image": "/assets/images/card_images/large/SVOD/047277_P_DAIGONOMETANGU.jpg"
+   "image": "/assets/images/card_images/large/SVOD/047277_P_DAIGONOMETANGU.jpg",
+   "id": "47277",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "steel",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "メタルスラッシュ",
+     "cost": [
+      "steel",
+      "無"
+     ],
+     "damage": "70",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 2,
+   "detail": true
   },
   "47278": {
    "id": "47278",
