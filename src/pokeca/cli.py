@@ -823,6 +823,54 @@ def cmd_dump_card(card_id: str) -> None:
     print(f"\n全文を保存: {path}")
 
 
+@main.command("check-images")
+@click.option("--count", default=5, help="確かめる枚数")
+def cmd_check_images(count: int) -> None:
+    """カード画像が外から引けるかを確かめる。
+
+    子ども向けページはカード画像を公式から直接読み込んでいる。断られると
+    画面は空枠が並ぶだけになり、しかもエラーは出ないので気付けない。
+    引けなくなったらここで分かるようにしておく。
+    """
+    from src.pokeca import http
+    from src.pokeca.cardstore import load_cards
+    from src.pokeca.site import CARD_IMAGE_BASE, CARD_IMAGE_PREFIX
+
+    paths = [
+        card["image"][len(CARD_IMAGE_PREFIX):]
+        for card in load_cards().values()
+        if (card.get("image") or "").startswith(CARD_IMAGE_PREFIX)
+    ]
+    if not paths:
+        console.print("[yellow]カード画像のURLをまだ持っていません。[/yellow]")
+        return
+
+    ok = 0
+    for path in paths[:count]:
+        url = CARD_IMAGE_BASE + path
+        try:
+            response = http.get(url, respect_robots=False)
+            kind = (response.headers.get("Content-Type") or "").split(";")[0]
+            size = len(response.content)
+            good = response.status_code == 200 and kind.startswith("image")
+            ok += good
+            mark = "[green]OK[/green]" if good else "[red]NG[/red]"
+            console.print(f"  {mark} {response.status_code} {kind} {size:,}バイト  {path}")
+        except Exception as exc:
+            console.print(f"  [red]NG[/red] {type(exc).__name__} {exc}  {path}")
+
+    tried = len(paths[:count])
+    if ok == tried:
+        console.print(f"[green]カード画像は外から読める[/green] ({ok}/{tried})")
+    else:
+        console.print(
+            f"[red]カード画像が読めません ({ok}/{tried})[/red]\n"
+            "[dim]直リンクを断られている可能性がある。"
+            "ページは空枠が並ぶだけになるので、画像をやめる判断が要る。[/dim]"
+        )
+        sys.exit(1)
+
+
 @main.command("probe-official")
 @click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
 def cmd_probe_official(deck_code: str) -> None:

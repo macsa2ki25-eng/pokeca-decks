@@ -62,6 +62,11 @@ jobs:
           python -m src.pokeca.cli fetch-decks --limit 5
           python -m src.pokeca.cli fetch-cards --limit 5
 
+      # 一番知りたいことを最後に置く。ログの末尾だけ見れば分かるように。
+      - name: Check card images can be hotlinked
+        continue-on-error: true
+        run: python -m src.pokeca.cli check-images
+
       # ログが流れてもあとから拾えるように、取得した生HTMLを成果物として残す。
       # リポジトリには入れない (他所のページを転載しないため)。
       - name: Upload raw responses
