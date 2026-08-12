@@ -155,10 +155,17 @@ def parse_card(html: str, card_id: str = "") -> dict:
     return card
 
 
-def fetch_card(card_id: str | int) -> dict | None:
+def fetch_card(card_id: str | int) -> tuple[dict | None, str]:
+    """カードIDから内容を取得する。
+
+    Returns:
+        (カード, 失敗理由)。成功時の理由は空文字。
+    """
     try:
         html = http.get_text(card_url(card_id))
-    except Exception:
-        return None
+    except Exception as exc:
+        return None, f"{type(exc).__name__} {exc}"[:110]
     card = parse_card(html, str(card_id))
-    return card if card.get("name") else None
+    if not card.get("name"):
+        return None, f"カード名が取れず (HTML {len(html):,}文字)"
+    return card, ""

@@ -120,3 +120,50 @@ def test_parse_card_survives_an_unrelated_page():
     card = official_card.parse_card("<html><title>x</title><body>y</body></html>")
     assert card["attacks"] == []
     assert card["abilities"] == []
+
+
+# ------------------------------------------------------------------
+# 失敗理由を握りつぶさない
+# ------------------------------------------------------------------
+
+
+def test_fetch_decklist_reports_why_it_failed(monkeypatch):
+    """全滅したときにログへ理由が出ること。
+
+    以前は例外を握りつぶして None を返していたため、本番のログに
+    「失敗 200」としか出ず、原因が分からないまま104分走り続けた。
+    """
+    monkeypatch.setattr(
+        official_deck.http, "get_text", lambda url: "<html>中身なし</html>"
+    )
+    deck, reason = official_deck.fetch_decklist("abc-def-ghi")
+    assert deck is None
+    assert "0枚しか取れず" in reason
+
+
+def test_fetch_decklist_reports_network_errors(monkeypatch):
+    def boom(url):
+        raise RuntimeError("403 Client Error: Forbidden")
+
+    monkeypatch.setattr(official_deck.http, "get_text", boom)
+    deck, reason = official_deck.fetch_decklist("abc-def-ghi")
+    assert deck is None
+    assert "403" in reason
+
+
+def test_fetch_decklist_succeeds_with_a_full_deck(monkeypatch):
+    html = (FIXTURES / "official_decklist.html").read_text(encoding="utf-8")
+    monkeypatch.setattr(official_deck.http, "get_text", lambda url: html)
+    deck, reason = official_deck.fetch_decklist("yyMppy-jUiB2j-pyXXRU")
+    assert reason == ""
+    assert deck["total"] == 60
+    assert deck["deck_code"] == "yyMppy-jUiB2j-pyXXRU"
+
+
+def test_fetch_card_reports_why_it_failed(monkeypatch):
+    monkeypatch.setattr(
+        official_card.http, "get_text", lambda url: "<html><body>x</body></html>"
+    )
+    card, reason = official_card.fetch_card("50452")
+    assert card is None
+    assert "カード名が取れず" in reason

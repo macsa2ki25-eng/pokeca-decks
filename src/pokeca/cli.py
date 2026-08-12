@@ -324,12 +324,22 @@ def cmd_fetch_decks(limit: int) -> None:
 
     ok = failed = 0
     for index, code in enumerate(todo, start=1):
-        deck = official_deck.fetch_decklist(code)
+        deck, reason = official_deck.fetch_decklist(code)
         if deck:
             known[code] = deck
             ok += 1
         else:
             failed += 1
+            if failed <= 3:
+                console.print(f"  [red]失敗[/red] {code}: {reason}")
+        # 最初の10件が全滅なら、続けても同じことを繰り返すだけ。
+        # 相手のサーバーに無駄なアクセスをかけないうちに止める。
+        if index == 10 and ok == 0:
+            console.print(
+                "[red]10件連続で失敗したため中止します。"
+                "上の理由を見て取得方法を直してください。[/red]"
+            )
+            sys.exit(1)
         if index % 25 == 0 or index == len(todo):
             console.print(f"  {index}/{len(todo)}  成功 {ok} / 失敗 {failed}")
             save_decklists(known)  # 途中で落ちても取得ぶんは残す
@@ -370,12 +380,20 @@ def cmd_fetch_cards(limit: int) -> None:
 
     ok = failed = 0
     for index, card_id in enumerate(todo, start=1):
-        card = official_card.fetch_card(card_id)
+        card, reason = official_card.fetch_card(card_id)
         if card:
             known[card_id] = card
             ok += 1
         else:
             failed += 1
+            if failed <= 3:
+                console.print(f"  [red]失敗[/red] {card_id}: {reason}")
+        if index == 10 and ok == 0:
+            console.print(
+                "[red]10件連続で失敗したため中止します。"
+                "上の理由を見て取得方法を直してください。[/red]"
+            )
+            sys.exit(1)
         if index % 25 == 0 or index == len(todo):
             console.print(f"  {index}/{len(todo)}  成功 {ok} / 失敗 {failed}")
             save_cards(known)
@@ -401,6 +419,55 @@ PROBE_TARGETS = [
     ("HTML: 記事", "https://pokecabook.com/archives/320777"),
     ("HTML: デッキ一覧", "https://pokecabook.com/archives/1417"),
 ]
+
+
+@main.command("probe-official")
+@click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
+def cmd_probe_official(deck_code: str) -> None:
+    """公式サイトが素のGETで何を返すか調べる。
+
+    ブラウザで保存したHTMLはJavaScriptが動いた後のDOMなので、
+    素のGETでは中身が空、ということが起こりうる。
+    実際に何が返っているのかをここで確かめる。
+    """
+    from src.pokeca import http
+    from src.pokeca.sources import official_card, official_deck
+
+    if not deck_code:
+        codes = [r.deck_code for r in load_results() if r.deck_code]
+        if not codes:
+            console.print("[yellow]デッキコードがありません。[/yellow]")
+            sys.exit(1)
+        deck_code = codes[0]
+
+    targets = [
+        ("デッキ result.html", official_deck.deck_url(deck_code)),
+        ("デッキ confirm.html", official_deck.deck_url_fallback(deck_code)),
+        ("カード詳細", official_card.card_url("50452")),
+        ("robots.txt", "https://www.pokemon-card.com/robots.txt"),
+    ]
+
+    for label, url in targets:
+        console.print(f"\n[cyan]{label}[/cyan]  {url}")
+        try:
+            allowed = http.can_fetch(url)
+            console.print(f"  robots.txt の許可: {allowed}")
+            response = http.get(url, respect_robots=False)
+            body = response.text
+            console.print(f"  HTTP {response.status_code} / {len(body):,} 文字")
+            markers = {
+                "cardName_ (カード表)": body.count("cardName_"),
+                "PCGDECK (JS)": body.count("PCGDECK"),
+                "ポケモン (": body.count("ポケモン ("),
+                "RightBox (カード詳細)": body.count("RightBox"),
+            }
+            for name, count in markers.items():
+                mark = "[green]✓[/green]" if count else "[red]✗[/red]"
+                console.print(f"    {mark} {name}: {count}")
+            head = " ".join(body[:220].split())
+            console.print(f"  [dim]冒頭: {head}[/dim]")
+        except Exception as exc:
+            console.print(f"  [red]{type(exc).__name__}[/red]: {exc}")
 
 
 @main.command("probe")

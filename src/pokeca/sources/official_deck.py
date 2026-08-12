@@ -101,19 +101,31 @@ def parse_decklist(html: str) -> dict:
     }
 
 
-def fetch_decklist(deck_code: str) -> dict | None:
+def fetch_decklist(deck_code: str) -> tuple[dict | None, str]:
     """デッキコードから中身を取得する。
 
     60枚に満たない結果は不完全とみなして捨てる。中途半端なデッキを
     保存してしまうと、採用率の集計がそのぶんだけ狂うため。
+
+    Returns:
+        (中身, 失敗理由)。成功時の理由は空文字。
+        以前は例外を握りつぶして None を返していたため、ログに
+        「失敗 200」としか出ず原因が分からなかった。理由を必ず返す。
     """
+    reasons = []
     for url in (deck_url(deck_code), deck_url_fallback(deck_code)):
         try:
-            parsed = parse_decklist(http.get_text(url))
-        except Exception:
+            html = http.get_text(url)
+        except Exception as exc:
+            reasons.append(f"{url.rsplit('/deck/', 1)[-1][:14]}: {type(exc).__name__} {exc}"[:110])
             continue
+        parsed = parse_decklist(html)
         if parsed["total"] == DECK_SIZE:
             parsed["deck_code"] = deck_code
             parsed["source_url"] = url
-            return parsed
-    return None
+            return parsed, ""
+        reasons.append(
+            f"{url.rsplit('/deck/', 1)[-1][:14]}: {parsed['total']}枚しか取れず "
+            f"(HTML {len(html):,}文字)"
+        )
+    return None, " / ".join(reasons)
