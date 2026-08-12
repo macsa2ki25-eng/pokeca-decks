@@ -116,6 +116,13 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: python -m src.pokeca.cli build
 
+      # ページはカード画像を公式から直接読み込んでいる。断られると画面は
+      # 空枠が並ぶだけになり、エラーも出ないので気付けない。毎日5枚だけ確かめる。
+      - name: Check card images
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: python -m src.pokeca.cli check-images
+
       - name: Healthcheck
         id: health
         if: ${{ inputs.dry_run != true }}
