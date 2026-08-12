@@ -1,0 +1,63 @@
+name: Publish page
+
+# 子ども向けページを GitHub Pages に反映する。
+#
+# 収集 (collect.yml) の最後にも反映しているが、そちらは1日1回しか動かない。
+# コードを直したのにページが変わらない、という状態を無くすため、
+# ページに関わるものを push したときにも反映する。
+#
+# ⚠️ このワークフローが触るのは **このリポジトリの Pages だけ**。
+#    https://macsa2ki25-eng.github.io/pokeca-decks/
+#    英単語学習サイト (SpecialAigent リポジトリ) とは別物で、影響しない。
+#
+# 収集が自動でコミットするときは [skip ci] が付いているので、
+# ここは動かない。二重に反映されることはない。
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "src/pokeca/**"
+      - "data/pokeca/**"
+      - ".github/workflows/publish.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages への反映は1つずつ。収集側の反映とぶつからないようにする。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      # 出来上がりのHTMLをそのまま使わず、その場で作り直す。
+      # コミットし忘れたHTMLが公開され続けるのを防ぐため。
+      - name: Build kids page
+        run: python -m src.pokeca.cli build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
