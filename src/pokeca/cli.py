@@ -11,12 +11,14 @@
 from __future__ import annotations
 
 import random
+import re
 import sys
 from collections import Counter
 from datetime import date, timedelta
 from pathlib import Path
 
 import click
+from bs4 import BeautifulSoup
 from rich.console import Console
 from rich.table import Table
 
@@ -421,6 +423,67 @@ PROBE_TARGETS = [
 ]
 
 
+# カードごとに1行ずつ並ぶ索引データ。件数だけ分かればよく、全部出すと
+# ログが埋まるので折りたたむ。
+INDEX_ASSIGN_RE = re.compile(r"^\s*PCGDECK\.(\w+)\[\s*(\d+)\s*\]\s*=")
+WRAP_WIDTH = 165
+
+
+def _emit(text: str, indent: str = "  ") -> None:
+    """長い行を折り返して素の print で出す。
+
+    rich は角括弧をマークアップとして解釈してしまううえ、幅で切り捨てる。
+    調査結果は1文字も落としたくないので、ここだけは console を使わない。
+    """
+    for i in range(0, len(text), WRAP_WIDTH):
+        print(f"{indent}{text[i : i + WRAP_WIDTH]}")
+
+
+def _dump_scripts(html: str) -> None:
+    """<script> を順に出す。索引データだけは件数にまとめる。"""
+    soup = BeautifulSoup(html, "html.parser")
+    for n, tag in enumerate(soup.find_all("script"), 1):
+        src = tag.get("src")
+        body = tag.string or tag.get_text() or ""
+        if src:
+            print(f"\n-- script {n}: src={src}")
+            continue
+        if not body.strip():
+            continue
+        print(f"\n-- script {n}: インライン {len(body):,} 文字")
+
+        folded: Counter[str] = Counter()
+        samples: dict[str, str] = {}
+        for line in body.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
+            match = INDEX_ASSIGN_RE.match(line)
+            if match:
+                # PCGDECK.searchItemName[47847]='...' のような索引行
+                folded[match.group(1)] += 1
+                samples.setdefault(match.group(1), stripped)
+                continue
+            _emit(stripped)
+        for name, count in folded.most_common():
+            print(f"  [索引 {count}件] PCGDECK.{name}[...] 例:")
+            _emit(samples[name][:400], indent="      ")
+
+
+def _dump_form_fields(html: str) -> None:
+    """input / textarea / select をそのまま出す。
+
+    JSが組み立てる画面でも、元になる値はたいてい hidden で埋まっている。
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup.find_all(["input", "textarea", "select"]):
+        attrs = " ".join(f'{k}="{v}"' for k, v in tag.attrs.items())
+        _emit(f"<{tag.name} {attrs}>")
+        inner = tag.get_text(strip=True)
+        if inner:
+            _emit(f"    中身({len(inner)}文字): {inner[:600]}", indent="  ")
+
+
 @main.command("dump-official")
 @click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
 def cmd_dump_official(deck_code: str) -> None:
@@ -429,6 +492,10 @@ def cmd_dump_official(deck_code: str) -> None:
     ブラウザで保存したHTMLはJavaScript実行後のDOMなので、実際に返ってくる
     HTMLとは別物。カード表がJSで組み立てられている場合、データの在り処は
     素のHTMLの中にある。それを突き止めるための調査用。
+
+    前回の調査で「外部APIは無く、カード名とIDは素のHTMLに直接書かれている」
+    ことまでは分かった。足りないのは **枚数** なので、インラインJSと
+    フォームの値を余さず出す。
     """
     from src.pokeca import http
     from src.pokeca.sources import official_deck
@@ -440,37 +507,32 @@ def cmd_dump_official(deck_code: str) -> None:
         console.print("[yellow]デッキコードがありません。[/yellow]")
         sys.exit(1)
 
-    url = official_deck.deck_url(deck_code)
-    console.print(f"[cyan]{url}[/cyan]")
-    html = http.get_text(url)
-    console.print(f"HTML {len(html):,} 文字\n")
+    routes = [
+        ("result.html", official_deck.deck_url(deck_code)),
+        # 「デッキ一覧画像を表示する」ボタンの飛び先。
+        # サーバ側で組み立てていれば、こちらの方が素直に読める。
+        ("thumbs.html", f"{official_deck.BASE}/deck/thumbs.html/deckID/{deck_code}/"),
+    ]
 
-    # データの在り処になりそうなものを順に探す
-    import re
+    for label, url in routes:
+        print(f"\n{'=' * 70}\n=== {label}  {url}\n{'=' * 70}")
+        try:
+            html = http.get_text(url, respect_robots=False)
+        except Exception as exc:
+            print(f"  取得できず: {type(exc).__name__} {exc}")
+            continue
+        print(f"HTML {len(html):,} 文字 / cardName_ {html.count('cardName_')}箇所 / 「枚」 {html.count('枚')}箇所")
 
-    console.print("[bold]■ 埋め込みデータらしき変数[/bold]")
-    for m in re.finditer(r"(?:var|let|const)\s+(\w+)\s*=\s*([\[\"'][^;\n]{40,})", html):
-        console.print(f"  {m.group(1)} = {m.group(2)[:150]}")
+        print("\n■ インラインJS")
+        _dump_scripts(html)
 
-    console.print("\n[bold]■ deckID を含む行[/bold]")
-    for line in html.splitlines():
-        if "deckID" in line and len(line.strip()) < 400:
-            console.print(f"  {line.strip()[:200]}")
+        print("\n■ フォームの値 (input / textarea / select)")
+        _dump_form_fields(html)
 
-    console.print("\n[bold]■ 通信先になりそうなURL[/bold]")
-    for m in sorted(set(re.findall(r"[\"'](/[\w/.\-]*\.(?:php|json|js))[\"']", html)))[:25]:
-        console.print(f"  {m}")
-
-    console.print("\n[bold]■ PCGDECK の周辺 (先頭3件)[/bold]")
-    for n, m in enumerate(re.finditer(r".{60}PCGDECK.{140}", html, re.S)):
-        console.print(f"  {' '.join(m.group().split())[:200]}")
-        if n >= 2:
-            break
-
-    path = INSPECT_DIR / f"official-deck-{deck_code}.html"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(html, encoding="utf-8")
-    console.print(f"\n[dim]全文を保存: {path}[/dim]")
+        path = INSPECT_DIR / f"official-{label}-{deck_code}.html"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(html, encoding="utf-8")
+        print(f"\n全文を保存: {path}")
 
 
 @main.command("probe-official")
