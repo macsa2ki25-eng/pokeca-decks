@@ -31,6 +31,10 @@ on:
         description: "1回に取りに行くデッキの中身/カードの枚数 (0 で全部。初回の貯め込みに使う)"
         type: string
         default: "200"
+      dump_official:
+        description: "true で公式デッキページの素のレスポンスを調べて表示する (調査用)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write   # results.json と site/ を更新してpushするため
@@ -82,18 +86,25 @@ jobs:
         if: failure()
         run: python -m src.pokeca.cli probe
 
+      # 公式のデッキページが素のGETで何を返すか調べる (調査のときだけ)
+      - name: Dump official deck page
+        if: ${{ inputs.dump_official == true }}
+        run: python -m src.pokeca.cli dump-official
+
       # デッキの中身とカードの内容を貯める。
       # どちらも一度取れば変わらないので、初回だけ時間がかかり、
       # 以後は新着ぶんだけになる。失敗しても収集そのものは止めない。
+      # ⚠️ カード表がJavaScriptで組み立てられており、素のGETでは取れない。
+      # 取得方法が確定するまで既定では動かさない (fetch_limit を明示したときだけ)。
       - name: Fetch deck contents
-        if: ${{ inputs.dry_run != true }}
+        if: ${{ inputs.dry_run != true && inputs.fetch_limit != '' }}
         continue-on-error: true
         run: |
           limit="${{ inputs.fetch_limit }}"
           python -m src.pokeca.cli fetch-decks --limit "${limit:-200}"
 
       - name: Fetch card text
-        if: ${{ inputs.dry_run != true }}
+        if: ${{ inputs.dry_run != true && inputs.fetch_limit != '' }}
         continue-on-error: true
         run: |
           limit="${{ inputs.fetch_limit }}"

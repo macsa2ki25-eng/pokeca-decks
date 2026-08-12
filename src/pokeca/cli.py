@@ -421,6 +421,58 @@ PROBE_TARGETS = [
 ]
 
 
+@main.command("dump-official")
+@click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
+def cmd_dump_official(deck_code: str) -> None:
+    """公式のデッキページの素のレスポンスを、そのまま調べて表示する。
+
+    ブラウザで保存したHTMLはJavaScript実行後のDOMなので、実際に返ってくる
+    HTMLとは別物。カード表がJSで組み立てられている場合、データの在り処は
+    素のHTMLの中にある。それを突き止めるための調査用。
+    """
+    from src.pokeca import http
+    from src.pokeca.sources import official_deck
+
+    if not deck_code:
+        codes = [r.deck_code for r in load_results() if r.deck_code]
+        deck_code = codes[0] if codes else ""
+    if not deck_code:
+        console.print("[yellow]デッキコードがありません。[/yellow]")
+        sys.exit(1)
+
+    url = official_deck.deck_url(deck_code)
+    console.print(f"[cyan]{url}[/cyan]")
+    html = http.get_text(url)
+    console.print(f"HTML {len(html):,} 文字\n")
+
+    # データの在り処になりそうなものを順に探す
+    import re
+
+    console.print("[bold]■ 埋め込みデータらしき変数[/bold]")
+    for m in re.finditer(r"(?:var|let|const)\s+(\w+)\s*=\s*([\[\"'][^;\n]{40,})", html):
+        console.print(f"  {m.group(1)} = {m.group(2)[:150]}")
+
+    console.print("\n[bold]■ deckID を含む行[/bold]")
+    for line in html.splitlines():
+        if "deckID" in line and len(line.strip()) < 400:
+            console.print(f"  {line.strip()[:200]}")
+
+    console.print("\n[bold]■ 通信先になりそうなURL[/bold]")
+    for m in sorted(set(re.findall(r"[\"'](/[\w/.\-]*\.(?:php|json|js))[\"']", html)))[:25]:
+        console.print(f"  {m}")
+
+    console.print("\n[bold]■ PCGDECK の周辺 (先頭3件)[/bold]")
+    for n, m in enumerate(re.finditer(r".{60}PCGDECK.{140}", html, re.S)):
+        console.print(f"  {' '.join(m.group().split())[:200]}")
+        if n >= 2:
+            break
+
+    path = INSPECT_DIR / f"official-deck-{deck_code}.html"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(html, encoding="utf-8")
+    console.print(f"\n[dim]全文を保存: {path}[/dim]")
+
+
 @main.command("probe-official")
 @click.option("--deck-code", default="", help="調べるデッキコード (既定は保存済みの先頭)")
 def cmd_probe_official(deck_code: str) -> None:
