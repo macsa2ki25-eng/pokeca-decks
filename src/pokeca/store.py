@@ -222,6 +222,19 @@ def load_deck_themes() -> dict:
         return yaml.safe_load(f) or {}
 
 
+def load_deck_notes() -> dict:
+    """デッキごとの「読み方」を読む。
+
+    採用率や打点は計算で出るが、「なぜそう組むのか」は数字からは出てこない。
+    そこだけを人の言葉で書いたもの。無ければ空で返す (ページは数字だけになる)。
+    """
+    path = POKECA_DIR / "deck_notes.yaml"
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
+
 def apply_aliases(results: list[DeckResult]) -> list[DeckResult]:
     """deck_themes.yaml の aliases に従って表記ゆれを寄せる。"""
     themes = load_deck_themes()

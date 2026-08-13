@@ -17,7 +17,7 @@ from datetime import date
 
 from src.pokeca import aggregate
 from src.pokeca.models import EVENT_CITY, EVENT_GYM, DeckResult
-from src.pokeca.store import load_deck_themes, now_jst
+from src.pokeca.store import load_deck_notes, load_deck_themes, now_jst
 
 # デッキ名が deck_themes.yaml に無いときに使う色。
 # デッキ名のハッシュから決めるので、同じデッキは常に同じ色になる。
@@ -120,6 +120,8 @@ def build_contents(
     if not corpus:
         return {}, {}
 
+    notes = (load_deck_notes() or {}).get("decks") or {}
+
     contents: dict[str, dict] = {}
     shown: set[str] = set()
 
@@ -148,6 +150,8 @@ def build_contents(
         contents[key] = {
             "name": decks[0].deck_name,
             "decks": len(decks),
+            # そのデッキの「読み方」。数字からは出てこない部分。
+            "note": notes.get(decks[0].deck_name) or notes.get(key) or {},
             "groups": groups,
             "variants": [
                 {"cards": v["cards"], "decks": v["decks"], "share": round(v["share"], 2)}
@@ -417,6 +421,23 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
   background:#FFF3D6;border:3px solid #FFD98A;border-radius:14px;
   padding:12px 14px;margin:0 0 4px;font-size:16px;line-height:1.8;
 }
+/* デッキの読み方。数字の並びに埋もれないよう、色で役割を分ける。
+   ヒーロー部分が .note を使っているので、別の名前にする。 */
+.deckNote{margin:12px 0 4px}
+.deckNote .oneline{
+  font-size:21px;font-weight:800;line-height:1.5;margin:0 0 10px;
+  padding:10px 14px;border-radius:14px;background:var(--ink);color:#fff;
+}
+.deckNote > div{border-radius:14px;padding:10px 14px;margin-bottom:8px;font-size:16px;line-height:1.85}
+.deckNote b{display:block;font-size:17px;margin-bottom:2px}
+.deckNote ul{margin:4px 0 0;padding-left:1.15em}
+.deckNote li{margin-bottom:4px}
+.sec-good{background:#EAF7EE;border:3px solid #B7E4C7}
+.sec-good b{color:#1B7A43}
+.sec-warn{background:#FFF1EC;border:3px solid #FFC9B5}
+.sec-warn b{color:#B3441E}
+.sec-vs{background:#EEF2FF;border:3px solid #C6D2FF}
+.sec-vs b{color:#3A4FB5}
 footer{margin-top:28px;font-size:13px;color:var(--muted);line-height:1.8}
 footer a{color:var(--muted)}
 """
@@ -536,6 +557,29 @@ function variantHtml(v, total){
     '</div><div class="pct">' + pct + '%</div></div>';
 }
 
+/* デッキの「読み方」。採用率や打点は数字で出るが、
+   なぜそう組むのかは数字からは出てこない。そこだけ人の言葉で持っている。 */
+var NOTE_SECTIONS = [
+  ["つよいところ", "sec-good", "つよい ところ"],
+  ["きをつけること", "sec-warn", "きを つける ところ"],
+  ["あいてにするとき", "sec-vs", "あいてに する とき"]
+];
+
+function noteHtml(note){
+  if (!note || !note["ひとこと"]) return "";
+  var out = ['<div class="deckNote"><div class="oneline">' + esc(note["ひとこと"]) + '</div>'];
+  for (var i=0; i<NOTE_SECTIONS.length; i++){
+    var key = NOTE_SECTIONS[i][0], cls = NOTE_SECTIONS[i][1], label = NOTE_SECTIONS[i][2];
+    var items = note[key];
+    if (!items || !items.length) continue;
+    out.push('<div class="' + cls + '"><b>' + label + '</b><ul>');
+    for (var j=0; j<items.length; j++) out.push('<li>' + esc(items[j]) + '</li>');
+    out.push('</ul></div>');
+  }
+  out.push('</div>');
+  return out.join("");
+}
+
 function insideHtml(){
   if (state.deck === "all"){
     return '<div class="empty">うえの ボタンで デッキを ひとつ えらんでね</div>';
@@ -548,6 +592,8 @@ function insideHtml(){
 
   var out = ['<div class="lead">かった <b>' + c.decks + 'この ' + esc(c.name) + '</b> を ' +
     'くらべたよ。<br>カードを おすと、その カードを つかう ほかの デッキが わかるよ。</div>'];
+
+  out.push(noteHtml(c.note));
 
   if (c.variants.length){
     out.push('<div class="groupbar">どんな かたちが ある？</div>');
