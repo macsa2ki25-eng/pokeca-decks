@@ -95,6 +95,10 @@ def _prose(node) -> str:
 
     実際これで、メガレックウザexのワザを「炎と雷だけ数える」と
     読み違えかけた。文章の意味に関わるので、マークは必ず残す。
+
+    つなぎ目に空白を入れないのも同じ理由。日本語のカード文に半角
+    スペースは出てこないので、空白が残っていればそこはマークが
+    落ちた場所だと後から見分けられる。
     """
     if node is None:
         return ""
@@ -106,7 +110,7 @@ def _prose(node) -> str:
             if cls.startswith("icon-") and cls != "icon"
         ]
         span.replace_with("".join(n for n in names if n))
-    return copy.get_text(" ", strip=True)
+    return copy.get_text("", strip=True)
 
 
 def _sections(main, heading: str) -> list[dict]:

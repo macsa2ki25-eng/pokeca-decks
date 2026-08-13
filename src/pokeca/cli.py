@@ -606,7 +606,12 @@ def cmd_fetch_decks(limit: int) -> None:
     is_flag=True,
     help="取得済みのカードも取り直す (読み取り方を直したときに使う)",
 )
-def cmd_fetch_cards(limit: int, refresh: bool) -> None:
+@click.option(
+    "--gaps",
+    is_flag=True,
+    help="効果文にすき間があるカードだけ取り直す (マークが落ちているぶん)",
+)
+def cmd_fetch_cards(limit: int, refresh: bool, gaps: bool) -> None:
     """デッキに入っているカードの内容 (HP・ワザ・特性) を取得して保存する。
 
     公式のカードは数千枚あるが、取りに行くのは優勝デッキに実際に
@@ -628,6 +633,11 @@ def cmd_fetch_cards(limit: int, refresh: bool) -> None:
         from src.pokeca.cardstore import card_ids_in
 
         todo = sorted(card_ids_in(decklists))
+    elif gaps:
+        # マークが落ちたカードだけ取り直す。全部取り直すより桁違いに速い。
+        from src.pokeca.cardstore import gapped_ids
+
+        todo = gapped_ids(decklists, known)
     else:
         todo = needs_detail(decklists, known)
     have = sum(1 for c in known.values() if c.get("detail"))

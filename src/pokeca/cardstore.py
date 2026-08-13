@@ -191,6 +191,37 @@ def card_ids_in(decklists: dict[str, dict]) -> set[str]:
     return ids
 
 
+def _card_texts(card: dict) -> list[str]:
+    texts = [card.get("text") or ""]
+    for block in ("abilities", "attacks"):
+        for entry in card.get(block) or []:
+            texts.append(entry.get("effect") or "")
+    return texts
+
+
+def has_text_gap(card: dict) -> bool:
+    """効果文にすき間があるカードかどうか。
+
+    エネルギーやタイプのマークは絵で書かれている。読み取り方を直す前に
+    取ったカードは、マークがあった場所が空白のまま残っている。
+    「自分のベンチの ポケモン」のように1文字ぶん抜けて見えるので、
+    どのタイプを指しているのか分からない。
+
+    カードの文に半角スペースは入らないので、スペースがあればそこは
+    マークが落ちた場所とみなして取り直す。
+    """
+    return any(" " in text for text in _card_texts(card))
+
+
+def gapped_ids(decklists: dict[str, dict], cards: dict[str, dict]) -> list[str]:
+    """効果文にすき間があるカードIDを、若い順に返す。"""
+    return sorted(
+        card_id
+        for card_id in card_ids_in(decklists)
+        if has_text_gap(cards.get(card_id, {}))
+    )
+
+
 def needs_detail(decklists: dict[str, dict], cards: dict[str, dict]) -> list[str]:
     """ワザや特性をまだ取っていないカードIDを、若い順に返す。
 
