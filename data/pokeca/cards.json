@@ -4165,7 +4165,7 @@
    "name": "ゲンガーex",
    "stage": "2 進化",
    "hp": 310,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "むしばむのろい",
@@ -4619,7 +4619,7 @@
    "name": "リキキリンex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "テイルアーマー",
@@ -4654,7 +4654,7 @@
    "name": "クチート",
    "stage": "たね",
    "hp": 90,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -4691,7 +4691,7 @@
    "name": "ダンバル",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -4727,7 +4727,7 @@
    "name": "メタング",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルメーカー",
@@ -4762,7 +4762,7 @@
    "name": "メタグロス",
    "stage": "2 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -5618,7 +5618,7 @@
    "name": "テツノイバラex",
    "stage": "たね",
    "hp": 230,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "イニシャライズ",
@@ -6987,7 +6987,7 @@
    "name": "アラブルタケ",
    "stage": "たね",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -7023,7 +7023,7 @@
    "name": "ヒードラン",
    "stage": "たね",
    "hp": 140,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "しゃくねつボディ",
@@ -8307,7 +8307,7 @@
    "name": "イベルタル",
    "stage": "たね",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -8343,7 +8343,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -8378,7 +8378,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -8412,7 +8412,7 @@
    "name": "ゲノセクト",
    "stage": "たね",
    "hp": 110,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "エースキャンセラー",
@@ -8739,7 +8739,7 @@
    "name": "バチュル",
    "stage": "たね",
    "hp": 30,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -8765,7 +8765,7 @@
    "name": "デンチュラex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -9005,7 +9005,7 @@
    "name": "ギギギアル",
    "stage": "2 進化",
    "hp": 140,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "きんきゅうかいてん",
@@ -9039,7 +9039,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -9075,7 +9075,7 @@
    "name": "ブリジュラス",
    "stage": "1 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "はがねのかけはし",
@@ -9110,7 +9110,7 @@
    "name": "ミミズズex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ボコスカがえし",
@@ -9626,7 +9626,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -9661,7 +9661,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -9728,7 +9728,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -9763,7 +9763,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -9797,7 +9797,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -10060,7 +10060,7 @@
    "name": "バチュル",
    "stage": "たね",
    "hp": 30,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -10894,7 +10894,7 @@
    "name": "ブリジュラスex",
    "stage": "1 進化",
    "hp": 300,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ごうきんビルド",
@@ -11228,7 +11228,7 @@
    "name": "ブリジュラスex",
    "stage": "1 進化",
    "hp": 300,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ごうきんビルド",
@@ -11298,7 +11298,7 @@
    "name": "ブリジュラスex",
    "stage": "1 進化",
    "hp": 300,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ごうきんビルド",
@@ -11638,7 +11638,7 @@
    "name": "ピカチュウex",
    "stage": "たね",
    "hp": 200,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "がんばりハート",
@@ -11673,7 +11673,7 @@
    "name": "レアコイル",
    "stage": "1 進化",
    "hp": 100,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "かじょうほうでん",
@@ -11884,7 +11884,7 @@
    "name": "モノズ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -11919,7 +11919,7 @@
    "name": "ジヘッド",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -11955,7 +11955,7 @@
    "name": "サザンドラex",
    "stage": "2 進化",
    "hp": 330,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -11993,7 +11993,7 @@
    "name": "モモワロウ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "もうどくしはい",
@@ -12389,7 +12389,7 @@
    "name": "カプ・コケコex",
    "stage": "たね",
    "hp": 200,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -12513,7 +12513,7 @@
    "name": "ドーミラー",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -12540,7 +12540,7 @@
    "name": "ドータクン",
    "stage": "1 進化",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "まもりのかね",
@@ -13727,7 +13727,7 @@
    "name": "サンダースex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -14285,7 +14285,7 @@
    "name": "ゾロアーク",
    "stage": "1 進化",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -14322,7 +14322,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -14357,7 +14357,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -14391,7 +14391,7 @@
    "name": "ダンバル",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -14427,7 +14427,7 @@
    "name": "メタング",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルメーカー",
@@ -14462,7 +14462,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -14498,7 +14498,7 @@
    "name": "ブリジュラス",
    "stage": "1 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "はがねのかけはし",
@@ -15967,7 +15967,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -16644,7 +16644,7 @@
    "name": "ナンジャモのビリリダマ",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -16671,7 +16671,7 @@
    "name": "ナンジャモのズピカ",
    "stage": "たね",
    "hp": 60,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -16698,7 +16698,7 @@
    "name": "ナンジャモのハラバリーex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキストリーマー",
@@ -16734,7 +16734,7 @@
    "name": "ナンジャモのカイデン",
    "stage": "たね",
    "hp": 60,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -16760,7 +16760,7 @@
    "name": "ナンジャモのタイカイデン",
    "stage": "1 進化",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "フラッシュドロー",
@@ -17101,7 +17101,7 @@
    "name": "バンギラス",
    "stage": "2 進化",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "いあつのがんこう",
@@ -17135,7 +17135,7 @@
    "name": "Nのチョロネコ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -17162,7 +17162,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -17188,7 +17188,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -17222,7 +17222,7 @@
    "name": "ホップのザシアンex",
    "stage": "たね",
    "hp": 230,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -17949,7 +17949,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -18274,7 +18274,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -18616,7 +18616,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -18714,7 +18714,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -18829,7 +18829,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -18863,7 +18863,7 @@
    "name": "マリィのベロバー",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -18897,7 +18897,7 @@
    "name": "マリィのギモー",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -18924,7 +18924,7 @@
    "name": "マリィのオーロンゲex",
    "stage": "2 進化",
    "hp": 320,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "パンクアップ",
@@ -19024,7 +19024,7 @@
    "name": "ダイゴのダンバル",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -19055,7 +19055,7 @@
    "id": "47277",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -19078,7 +19078,7 @@
    "name": "ダイゴのメタグロスex",
    "stage": "2 進化",
    "hp": 340,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "エクスブート",
@@ -19179,7 +19179,7 @@
    "name": "マリィのモルペコ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -19714,7 +19714,7 @@
    "name": "ヒビキのピチュー",
    "stage": "たね",
    "hp": 30,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -19738,7 +19738,7 @@
    "name": "ゼラオラ",
    "stage": "たね",
    "hp": 100,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -19903,7 +19903,7 @@
    "name": "シロナのミカルゲ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -20823,7 +20823,7 @@
    "name": "ロケット団のアーボ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -20857,7 +20857,7 @@
    "name": "ロケット団のアーボック",
    "stage": "1 進化",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "にらみをきかす",
@@ -20892,7 +20892,7 @@
    "name": "ロケット団のズバット",
    "stage": "たね",
    "hp": 50,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -20918,7 +20918,7 @@
    "name": "ロケット団のゴルバット",
    "stage": "1 進化",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "こっそりかみつく",
@@ -20951,7 +20951,7 @@
    "name": "ロケット団のクロバットex",
    "stage": "2 進化",
    "hp": 310,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "かみつきまわる",
@@ -20985,7 +20985,7 @@
    "name": "ロケット団のヤミカラス",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -21020,7 +21020,7 @@
    "name": "ロケット団のニューラ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -21055,7 +21055,7 @@
    "name": "ザマゼンタ",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -21432,7 +21432,7 @@
    "name": "ロケット団のヤミカラス",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -21827,7 +21827,7 @@
    "name": "シビシラス",
    "stage": "たね",
    "hp": 40,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -21853,7 +21853,7 @@
    "name": "シビビール",
    "stage": "1 進化",
    "hp": 90,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキダイナモ",
@@ -21992,7 +21992,7 @@
    "name": "メグロコ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22018,7 +22018,7 @@
    "name": "ワルビル",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22045,7 +22045,7 @@
    "name": "ゲノセクトex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルシグナル",
@@ -22432,7 +22432,7 @@
    "name": "チョロネコ",
    "stage": "たね",
    "hp": 60,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22458,7 +22458,7 @@
    "name": "レパルダス",
    "stage": "1 進化",
    "hp": 110,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22484,7 +22484,7 @@
    "name": "ズルッグ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22519,7 +22519,7 @@
    "name": "ゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -22545,7 +22545,7 @@
    "name": "ゾロアーク",
    "stage": "1 進化",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -23163,7 +23163,7 @@
    "name": "メガアブソルex",
    "stage": "たね",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -23200,7 +23200,7 @@
    "name": "イベルタル",
    "stage": "たね",
    "hp": 110,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -23236,7 +23236,7 @@
    "name": "メガクチートex",
    "stage": "たね",
    "hp": 270,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -23273,7 +23273,7 @@
    "name": "ディアルガ",
    "stage": "たね",
    "hp": 140,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -23650,7 +23650,7 @@
    "name": "コイル",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -23676,7 +23676,7 @@
    "name": "ラクライ",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -23702,7 +23702,7 @@
    "name": "メガライボルトex",
    "stage": "1 進化",
    "hp": 330,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -24242,7 +24242,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -24944,7 +24944,7 @@
    "name": "ゴース",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -24970,7 +24970,7 @@
    "name": "メガゲンガーex",
    "stage": "2 進化",
    "hp": 350,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "かげかくし",
@@ -25925,7 +25925,7 @@
    "name": "パーモット",
    "stage": "2 進化",
    "hp": 140,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -25979,7 +25979,7 @@
    "name": "キバニア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -26005,7 +26005,7 @@
    "name": "メガサメハダーex",
    "stage": "1 進化",
    "hp": 330,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -26040,7 +26040,7 @@
    "name": "ハブネーク",
    "stage": "たね",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "エキサイトパワー",
@@ -26075,7 +26075,7 @@
    "name": "ワルビアル",
    "stage": "2 進化",
    "hp": 170,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -26112,7 +26112,7 @@
    "name": "エレズン",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -26147,7 +26147,7 @@
    "name": "ストリンダー",
    "stage": "1 進化",
    "hp": 140,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "バッドアッパー",
@@ -26182,7 +26182,7 @@
    "name": "エンペルトex",
    "stage": "2 進化",
    "hp": 320,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "こうていのかまえ",
@@ -26217,7 +26217,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -26245,7 +26245,7 @@
    "name": "ブリジュラス",
    "stage": "1 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -26581,7 +26581,7 @@
    "name": "メガアブソルex",
    "stage": "たね",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -26618,7 +26618,7 @@
    "name": "メガクチートex",
    "stage": "たね",
    "hp": 270,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -26792,7 +26792,7 @@
    "name": "メガアブソルex",
    "stage": "たね",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -27044,7 +27044,7 @@
    "name": "ワルビアルex",
    "stage": "2 進化",
    "hp": 320,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -27081,7 +27081,7 @@
    "name": "エレズン",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -27242,7 +27242,7 @@
    "name": "ストリンダー",
    "stage": "1 進化",
    "hp": 140,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "バッドアッパー",
@@ -27277,7 +27277,7 @@
    "name": "エンペルトex",
    "stage": "2 進化",
    "hp": 320,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "こうていのかまえ",
@@ -28277,7 +28277,7 @@
    "name": "ピカチュウex",
    "stage": "たね",
    "hp": 200,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "がんばりハート",
@@ -28312,7 +28312,7 @@
    "name": "シビシラス",
    "stage": "たね",
    "hp": 40,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28338,7 +28338,7 @@
    "name": "シビビール",
    "stage": "1 進化",
    "hp": 90,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキダイナモ",
@@ -28373,7 +28373,7 @@
    "name": "メガシビルドンex",
    "stage": "2 進化",
    "hp": 350,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28410,7 +28410,7 @@
    "name": "マッギョ",
    "stage": "たね",
    "hp": 110,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28436,7 +28436,7 @@
    "name": "エリキテル",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28463,7 +28463,7 @@
    "name": "エレザード",
    "stage": "1 進化",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エリマキはつでん",
@@ -28498,7 +28498,7 @@
    "name": "カプ・コケコ",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28534,7 +28534,7 @@
    "name": "ゼラオラ",
    "stage": "たね",
    "hp": 100,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28570,7 +28570,7 @@
    "name": "ナンジャモのズピカ",
    "stage": "たね",
    "hp": 60,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -28597,7 +28597,7 @@
    "name": "ナンジャモのハラバリーex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキストリーマー",
@@ -28633,7 +28633,7 @@
    "name": "ナンジャモのタイカイデン",
    "stage": "1 進化",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "フラッシュドロー",
@@ -29375,7 +29375,7 @@
    "name": "ロケット団のヤミカラス",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29410,7 +29410,7 @@
    "name": "ロケット団のドンカラス",
    "stage": "1 進化",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29447,7 +29447,7 @@
    "name": "ロケット団のニューラ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29482,7 +29482,7 @@
    "name": "ガラル ジグザグマ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29508,7 +29508,7 @@
    "name": "ガラル マッスグマ",
    "stage": "1 進化",
    "hp": 90,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29543,7 +29543,7 @@
    "name": "ガラル タチフサグマ",
    "stage": "2 進化",
    "hp": 170,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29580,7 +29580,7 @@
    "name": "シロナのミカルゲ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29606,7 +29606,7 @@
    "name": "メガズルズキンex",
    "stage": "1 進化",
    "hp": 330,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "はんげきトサカ",
@@ -29641,7 +29641,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -29667,7 +29667,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -29701,7 +29701,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -29736,7 +29736,7 @@
    "name": "ゲノセクトex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルシグナル",
@@ -29771,7 +29771,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -29807,7 +29807,7 @@
    "name": "ブリジュラスex",
    "stage": "1 進化",
    "hp": 300,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ごうきんビルド",
@@ -29842,7 +29842,7 @@
    "name": "ホップのザシアンex",
    "stage": "たね",
    "hp": 230,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -33074,7 +33074,7 @@
    "name": "サンダースex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33111,7 +33111,7 @@
    "name": "サンダー",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33147,7 +33147,7 @@
    "name": "バチュル",
    "stage": "たね",
    "hp": 30,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33173,7 +33173,7 @@
    "name": "デンチュラex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33210,7 +33210,7 @@
    "name": "シビシラス",
    "stage": "たね",
    "hp": 40,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33236,7 +33236,7 @@
    "name": "シビビール",
    "stage": "1 進化",
    "hp": 90,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキダイナモ",
@@ -33271,7 +33271,7 @@
    "name": "ボルトロス",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33307,7 +33307,7 @@
    "name": "カプ・コケコ",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33343,7 +33343,7 @@
    "name": "ナンジャモのズピカ",
    "stage": "たね",
    "hp": 60,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33370,7 +33370,7 @@
    "name": "ナンジャモのハラバリーex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "エレキストリーマー",
@@ -33406,7 +33406,7 @@
    "name": "ナンジャモのカイデン",
    "stage": "たね",
    "hp": 60,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -33432,7 +33432,7 @@
    "name": "ナンジャモのタイカイデン",
    "stage": "1 進化",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "フラッシュドロー",
@@ -33467,7 +33467,7 @@
    "name": "テツノイバラex",
    "stage": "たね",
    "hp": 230,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "イニシャライズ",
@@ -35039,7 +35039,7 @@
    "name": "ロケット団のズバット",
    "stage": "たね",
    "hp": 50,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35065,7 +35065,7 @@
    "name": "ロケット団のゴルバット",
    "stage": "1 進化",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "こっそりかみつく",
@@ -35098,7 +35098,7 @@
    "name": "ロケット団のクロバットex",
    "stage": "2 進化",
    "hp": 310,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "かみつきまわる",
@@ -35132,7 +35132,7 @@
    "name": "ゴース",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35158,7 +35158,7 @@
    "name": "ゴースト",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35184,7 +35184,7 @@
    "name": "ロケット団のヤミカラス",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35219,7 +35219,7 @@
    "name": "ロケット団のニューラ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35254,7 +35254,7 @@
    "name": "アブソル",
    "stage": "たね",
    "hp": 110,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35280,7 +35280,7 @@
    "name": "ミカルゲ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "うらみのうず",
@@ -35313,7 +35313,7 @@
    "name": "Nのチョロネコ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35340,7 +35340,7 @@
    "name": "ゾロアーク",
    "stage": "1 進化",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35376,7 +35376,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35402,7 +35402,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -35436,7 +35436,7 @@
    "name": "ジヘッド",
    "stage": "1 進化",
    "hp": 110,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35474,7 +35474,7 @@
    "name": "イベルタル",
    "stage": "たね",
    "hp": 110,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35510,7 +35510,7 @@
    "name": "リキキリンex",
    "stage": "1 進化",
    "hp": 260,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "テイルアーマー",
@@ -35545,7 +35545,7 @@
    "name": "アラブルタケ",
    "stage": "たね",
    "hp": 120,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35581,7 +35581,7 @@
    "name": "イイネイヌex",
    "stage": "たね",
    "hp": 250,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -35617,7 +35617,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -35652,7 +35652,7 @@
    "name": "モモワロウ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "もうどくしはい",
@@ -35686,7 +35686,7 @@
    "name": "モモワロウex",
    "stage": "たね",
    "hp": 190,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "しはいのくさり",
@@ -35720,7 +35720,7 @@
    "name": "ダイゴのエアームド",
    "stage": "たね",
    "hp": 120,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -35757,7 +35757,7 @@
    "name": "クチート",
    "stage": "たね",
    "hp": 90,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -35793,7 +35793,7 @@
    "name": "ダンバル",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -35829,7 +35829,7 @@
    "name": "メタング",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルメーカー",
@@ -35864,7 +35864,7 @@
    "name": "ドーミラー",
    "stage": "たね",
    "hp": 60,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -35891,7 +35891,7 @@
    "name": "ディアルガ",
    "stage": "たね",
    "hp": 140,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -35927,7 +35927,7 @@
    "name": "ゲノセクトex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルシグナル",
@@ -35962,7 +35962,7 @@
    "name": "マギアナ",
    "stage": "たね",
    "hp": 90,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "オートヒール",
@@ -35995,7 +35995,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -36032,7 +36032,7 @@
    "name": "ジュラルドン",
    "stage": "たね",
    "hp": 130,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -36068,7 +36068,7 @@
    "name": "ブリジュラス",
    "stage": "1 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "はがねのかけはし",
@@ -36103,7 +36103,7 @@
    "name": "ブリジュラスex",
    "stage": "1 進化",
    "hp": 300,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ごうきんビルド",
@@ -36138,7 +36138,7 @@
    "name": "ホップのザシアンex",
    "stage": "たね",
    "hp": 230,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -36175,7 +36175,7 @@
    "name": "カヌチャン",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -36201,7 +36201,7 @@
    "name": "ナカヌチャン",
    "stage": "1 進化",
    "hp": 90,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "でたとこハンマー",
@@ -36234,7 +36234,7 @@
    "name": "デカヌチャン",
    "stage": "2 進化",
    "hp": 160,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -36260,7 +36260,7 @@
    "name": "ミミズズex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "ボコスカがえし",
@@ -38562,7 +38562,7 @@
    "name": "ミライドンex",
    "stage": "たね",
    "hp": 220,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -38777,7 +38777,7 @@
    "name": "ロケット団のクロバットex",
    "stage": "2 進化",
    "hp": 310,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "かみつきまわる",
@@ -38811,7 +38811,7 @@
    "name": "ハッサムex",
    "stage": "1 進化",
    "hp": 270,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -38847,7 +38847,7 @@
    "name": "ディアルガ",
    "stage": "たね",
    "hp": 140,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -38883,7 +38883,7 @@
    "name": "ゲノセクトex",
    "stage": "たね",
    "hp": 220,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "メタルシグナル",
@@ -39142,7 +39142,7 @@
    "name": "エモンガ",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -40027,7 +40027,7 @@
    "name": "ゴース",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -40053,7 +40053,7 @@
    "name": "ゴースト",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -40079,7 +40079,7 @@
    "name": "ゲンガー",
    "stage": "2 進化",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "むげんのかげ",
@@ -40112,7 +40112,7 @@
    "name": "スコルピ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -40139,7 +40139,7 @@
    "name": "ドラピオン",
    "stage": "1 進化",
    "hp": 140,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -40176,7 +40176,7 @@
    "name": "イベルタルex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -40214,7 +40214,7 @@
    "name": "メガエアームドex",
    "stage": "たね",
    "hp": 260,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -40242,7 +40242,7 @@
    "name": "ヒトツキ",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -40268,7 +40268,7 @@
    "name": "ニダンギル",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -40295,7 +40295,7 @@
    "name": "ギルガルド",
    "stage": "2 進化",
    "hp": 150,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -41090,7 +41090,7 @@
    "name": "カプ・コケコ",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -41402,7 +41402,7 @@
    "name": "ロケット団のドンカラス",
    "stage": "1 進化",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -41439,7 +41439,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -42372,7 +42372,7 @@
    "name": "ロケット団のヤミカラス",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -42407,7 +42407,7 @@
    "name": "ロケット団のドンカラス",
    "stage": "1 進化",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -42444,7 +42444,7 @@
    "name": "ロケット団のニューラ",
    "stage": "たね",
    "hp": 80,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -42479,7 +42479,7 @@
    "name": "Nのゾロア",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -42778,7 +42778,7 @@
    "name": "シロナのミカルゲ",
    "stage": "たね",
    "hp": 70,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -43163,7 +43163,7 @@
    "name": "Nのゾロアークex",
    "stage": "1 進化",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "とりひき",
@@ -43197,7 +43197,7 @@
    "name": "マリィのオーロンゲex",
    "stage": "2 進化",
    "hp": 320,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "パンクアップ",
@@ -43231,7 +43231,7 @@
    "name": "キチキギスex",
    "stage": "たね",
    "hp": 210,
-   "type": "dark",
+   "type": "悪",
    "abilities": [
     {
      "name": "さかてにとる",
@@ -43549,7 +43549,7 @@
    "name": "ドラピオン",
    "stage": "1 進化",
    "hp": 140,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -44432,7 +44432,7 @@
    "name": "エモンガ",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -44714,7 +44714,7 @@
    "name": "ダンバル",
    "stage": "たね",
    "hp": 70,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -44749,7 +44749,7 @@
    "name": "メタグロス",
    "stage": "2 進化",
    "hp": 180,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -45348,7 +45348,7 @@
    "name": "ラクライ",
    "stage": "たね",
    "hp": 70,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -45383,7 +45383,7 @@
    "name": "ライボルト",
    "stage": "1 進化",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -45420,7 +45420,7 @@
    "name": "メガゼラオラex",
    "stage": "たね",
    "hp": 270,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -45456,7 +45456,7 @@
    "name": "ミライドン",
    "stage": "たね",
    "hp": 120,
-   "type": "electric",
+   "type": "雷",
    "abilities": [
     {
      "name": "フォトンコード",
@@ -45921,7 +45921,7 @@
    "name": "メガダークライex",
    "stage": "たね",
    "hp": 280,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -45958,7 +45958,7 @@
    "name": "マーイーカ",
    "stage": "たね",
    "hp": 60,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -45993,7 +45993,7 @@
    "name": "フォクスライ",
    "stage": "1 進化",
    "hp": 100,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -46030,7 +46030,7 @@
    "name": "モルペコex",
    "stage": "たね",
    "hp": 180,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -46065,7 +46065,7 @@
    "name": "ザルード",
    "stage": "たね",
    "hp": 130,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -46101,7 +46101,7 @@
    "name": "イーユイ",
    "stage": "たね",
    "hp": 90,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -46127,7 +46127,7 @@
    "name": "タテトプス",
    "stage": "1 進化",
    "hp": 100,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -46154,7 +46154,7 @@
    "name": "トリデプス",
    "stage": "2 進化",
    "hp": 160,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [
     {
      "name": "たいこのぼうへき",
@@ -46189,7 +46189,7 @@
    "name": "メガドリュウズex",
    "stage": "1 進化",
    "hp": 340,
-   "type": "steel",
+   "type": "鋼",
    "abilities": [],
    "attacks": [
     {
@@ -46621,7 +46621,7 @@
    "name": "ライコウex",
    "stage": "たね",
    "hp": 200,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -46657,7 +46657,7 @@
    "name": "バチンウニ",
    "stage": "たね",
    "hp": 80,
-   "type": "electric",
+   "type": "雷",
    "abilities": [],
    "attacks": [
     {
@@ -46810,7 +46810,7 @@
    "name": "マーイーカ",
    "stage": "たね",
    "hp": 60,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
@@ -46836,7 +46836,7 @@
    "name": "メガカラマネロex",
    "stage": "1 進化",
    "hp": 320,
-   "type": "dark",
+   "type": "悪",
    "abilities": [],
    "attacks": [
     {
