@@ -354,3 +354,26 @@ def test_needs_detail_ignores_cards_that_only_have_a_name(store, raw_decklist):
     todo = store.needs_detail(decklists, store.load_cards())
     assert "47847" not in todo
     assert len(todo) == 26
+
+
+def test_japanese_energy_names_for_every_icon():
+    """公式(日本)は electric / dark / steel を使う。英語版の呼び方とは別。
+
+    ここが欠けると「弱点 electric×2」のまま残り、子どもには読めず、
+    弱点の計算もできない。実データで690箇所やられた。
+    """
+    for name in ("electric", "dark", "steel", "lightning", "darkness", "metal"):
+        assert official_card.ICON_NAMES[name] in "雷悪鋼"
+
+    html = (
+        '<div class="RightBox"><div class="TopInfo">'
+        '<span class="hp-type"><span class="icon-electric icon"></span></span></div>'
+        '<table><tr><th>弱点</th><th>抵抗力</th><th>にげる</th></tr>'
+        '<tr><td><span class="icon-dark icon"></span>×2</td>'
+        '<td><span class="icon-steel icon"></span>-30</td>'
+        '<td class="escape"><span class="icon-none icon"></span></td></tr></table></div>'
+    )
+    card = official_card.parse_card(html, "1")
+    assert card["type"] == "雷"
+    assert card["weakness"] == "悪×2"
+    assert card["resistance"] == "鋼-30"

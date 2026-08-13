@@ -41,14 +41,22 @@ from src.pokeca import http
 BASE = "https://www.pokemon-card.com"
 
 # icon-<英名> → 日本語のエネルギー/タイプ表記
+#
+# 公式(日本)は electric / dark / steel を使う。英語版の呼び方
+# (lightning / darkness / metal) とは別なので、両方受ける。
+# ここが欠けると「弱点 electric×2」のように英語のまま残り、
+# 子どもには読めないうえ、弱点の計算もできない。
 ICON_NAMES = {
     "grass": "草",
     "fire": "炎",
     "water": "水",
+    "electric": "雷",
     "lightning": "雷",
     "psychic": "超",
     "fighting": "闘",
+    "dark": "悪",
     "darkness": "悪",
+    "steel": "鋼",
     "metal": "鋼",
     "dragon": "竜",
     "colorless": "無",
