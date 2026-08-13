@@ -235,6 +235,19 @@ def load_deck_notes() -> dict:
         return yaml.safe_load(f) or {}
 
 
+def load_ruby() -> dict[str, str]:
+    """ルビの対応表を読む。長い語から当てられるように並べ替えて返す。
+
+    「事故率」が「事故」に食われないよう、長いほうを先に置く。
+    """
+    path = POKECA_DIR / "ruby.yaml"
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8") as f:
+        words = (yaml.safe_load(f) or {}).get("words") or {}
+    return dict(sorted(words.items(), key=lambda kv: -len(kv[0])))
+
+
 def apply_aliases(results: list[DeckResult]) -> list[DeckResult]:
     """deck_themes.yaml の aliases に従って表記ゆれを寄せる。"""
     themes = load_deck_themes()

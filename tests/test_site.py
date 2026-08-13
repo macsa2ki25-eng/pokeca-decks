@@ -57,8 +57,8 @@ def test_contents_are_built_for_a_deck_with_enough_wins():
 
 def test_contents_split_cards_by_how_often_they_are_used():
     labels = {g["label"]: g for g in build()["contents"]["ドラパルトex"]["groups"]}
-    assert "かならず はいってる" in labels
-    core = [c["name"] for c in labels["かならず はいってる"]["cards"]]
+    assert "かならず入っている" in labels
+    core = [c["name"] for c in labels["かならず入っている"]["cards"]]
     assert "ドラメシヤ" in core and "ドロンチ" in core
 
     rest = [c["name"] for g in labels.values() for c in g["cards"]]
@@ -139,5 +139,5 @@ def test_page_hides_the_inside_button_when_there_is_nothing_to_show():
 
 def test_page_embeds_the_contents_when_they_exist():
     html = site.build_html(build())
-    assert "かならず はいってる" in html
+    assert "かならず入っている" in html
     assert "ドラメシヤ" in html

@@ -13,11 +13,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from datetime import date
 
 from src.pokeca import aggregate
 from src.pokeca.models import EVENT_CITY, EVENT_GYM, DeckResult
-from src.pokeca.store import load_deck_notes, load_deck_themes, now_jst
+from src.pokeca.store import load_deck_notes, load_deck_themes, load_ruby, now_jst
 
 # デッキ名が deck_themes.yaml に無いときに使う色。
 # デッキ名のハッシュから決めるので、同じデッキは常に同じ色になる。
@@ -69,9 +70,9 @@ CARD_IMAGE_PREFIX = "/assets/images/card_images/large/"
 
 # 採用率のグループ名。子どもが読める言い方にする。
 GROUP_LABELS = {
-    "確定枠": "かならず はいってる",
-    "よく入る": "よく はいってる",
-    "選択枠": "ひとに よって ちがう",
+    "確定枠": "かならず入っている",
+    "よく入る": "よく入っている",
+    "選択枠": "人によってちがう",
 }
 # 1つのデッキで見せるカードの数の上限。
 # 1枚積みの端まで全部出すとページが重くなるうえ、子どもが読み切れない。
@@ -79,6 +80,24 @@ MAX_CARDS_PER_DECK = 45
 # 中身を出すのに必要な最低デッキ数。
 # 2〜3件しかないものの「採用率100%」は、ただの偶然でしかない。
 MIN_DECKS_FOR_CONTENTS = 5
+
+
+# YAML の折り返しは行を空白でつなぐので、日本語の文の途中に空白が入る。
+#   「320を 削り切るしかない」
+# 日本語どうしに挟まれた空白だけを消す。英数字の前後の空白は残す。
+_JOIN_SPACE = re.compile(r"(?<=[^\x00-\x7F])[ \t]+(?=[^\x00-\x7F])")
+
+
+def _tidy(value):
+    """ノートの文字列から、折り返しで入った余分な空白を取る。"""
+    if isinstance(value, str):
+        return _JOIN_SPACE.sub("", value.strip())
+    if isinstance(value, list):
+        return [_tidy(v) for v in value]
+    if isinstance(value, dict):
+        # 引用はカードの原文そのままなので、整形しない
+        return {k: (v if k == "引用" else _tidy(v)) for k, v in value.items()}
+    return value
 
 
 def _card_row(row: dict, cards: dict) -> dict:
@@ -151,7 +170,7 @@ def build_contents(
             "name": decks[0].deck_name,
             "decks": len(decks),
             # そのデッキの「読み方」。数字からは出てこない部分。
-            "note": notes.get(decks[0].deck_name) or notes.get(key) or {},
+            "note": _tidy(notes.get(decks[0].deck_name) or notes.get(key) or {}),
             "groups": groups,
             "variants": [
                 {"cards": v["cards"], "decks": v["decks"], "share": round(v["share"], 2)}
@@ -274,6 +293,8 @@ def build_data(
         "contents": contents,
         "cardDecks": card_decks,
         "cardBase": CARD_IMAGE_BASE,
+        # 読みにくい漢字にだけルビを振る。全部ひらがなにすると中身が薄くなる。
+        "ruby": load_ruby(),
     }
 
 
@@ -425,15 +446,29 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
    ヒーロー部分が .note を使っているので、別の名前にする。 */
 .deckNote{margin:12px 0 4px}
 .deckNote .oneline{
-  font-size:21px;font-weight:800;line-height:1.5;margin:0 0 10px;
-  padding:10px 14px;border-radius:14px;background:var(--ink);color:#fff;
+  font-size:20px;font-weight:800;line-height:1.65;margin:0 0 10px;
+  padding:12px 15px;border-radius:14px;background:var(--ink);color:#fff;
 }
-.deckNote > div{border-radius:14px;padding:10px 14px;margin-bottom:8px;font-size:16px;line-height:1.85}
-.deckNote b{display:block;font-size:17px;margin-bottom:2px}
+.deckNote > div{border-radius:14px;padding:11px 15px;margin-bottom:9px;font-size:17px;line-height:1.95}
+.deckNote b{display:block;font-size:18px;margin-bottom:4px}
+.deckNote p{margin:0 0 8px}
+.deckNote p:last-child{margin-bottom:0}
 .deckNote ul{margin:4px 0 0;padding-left:1.15em}
-.deckNote li{margin-bottom:4px}
-.sec-good{background:#EAF7EE;border:3px solid #B7E4C7}
-.sec-good b{color:#1B7A43}
+.deckNote li{margin-bottom:5px}
+/* ルビ。行間を広めに取っておかないと上の行と重なる */
+ruby{ruby-align:center}
+rt{font-size:.5em;font-weight:400;opacity:.75;letter-spacing:0}
+/* カードの原文。ここはルビを振らず、書いてあるとおりに見せる */
+.cardtext{
+  margin:6px 0 10px;padding:10px 12px;border-radius:10px;
+  background:#FBF6EE;border:2px solid var(--line);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  font-size:13.5px;line-height:1.7;white-space:pre-wrap;overflow-x:auto;
+}
+.sec{background:var(--card);border:3px solid var(--line)}
+.sec b{color:var(--ink)}
+.sec-sum{background:#FFF8E6;border:3px solid #FFD98A}
+.sec-sum b{color:#8A5A00}
 .sec-warn{background:#FFF1EC;border:3px solid #FFC9B5}
 .sec-warn b{color:#B3441E}
 .sec-vs{background:#EEF2FF;border:3px solid #C6D2FF}
@@ -466,14 +501,14 @@ function filtered(){
 
 function cardHtml(r){
   var cls = r.rank === 1 ? "r1" : "r2";
-  var label = r.rank === 1 ? "ゆうしょう" : "じゅんゆうしょう";
+  var label = r.rank === 1 ? "優勝" : "準優勝";
   var where = [r.eventLabel, r.prefecture, r.store].filter(Boolean).join(" ");
   var league = r.league ? "・" + r.league : "";
-  var go = r.hasCode ? "レシピ（60まい）を みる →" : "この デッキを みる →";
+  var go = r.hasCode ? "レシピ（60枚）を見る →" : "このデッキを見る →";
   // デッキ名がまだ取れていないときは、順位そのものを見出しにする
   var title = r.deck
     ? r.emoji + " " + esc(r.deck)
-    : (r.rank === 1 ? "🏆 ゆうしょうデッキ" : "🥈 じゅんゆうしょうデッキ");
+    : (r.rank === 1 ? "🏆 優勝デッキ" : "🥈 準優勝デッキ");
   var shot = r.image
     ? '<img class="shot" src="' + esc(r.image) + '" alt="" loading="lazy" decoding="async" ' +
       // 収集元が画像の直リンクを断ることがある。読み込めなければ黙って消して、
@@ -495,8 +530,8 @@ function rankHtml(item, index){
   return '<div class="card"><div class="rankrow">' +
     '<div class="' + cls + '">' + n + '</div>' +
     '<div><div class="deck">' + item.emoji + " " + esc(item.deck_name) + '</div>' +
-    '<div class="count"><span>ゆうしょう ' + item.first + 'かい</span>' +
-    '<span>じゅんゆうしょう ' + item.second + 'かい</span></div>' +
+    '<div class="count"><span>優勝' + item.first + '回</span>' +
+    '<span>準優勝' + item.second + '回</span></div>' +
     '</div></div></div>';
 }
 
@@ -526,7 +561,7 @@ function cardLineHtml(c){
   var known = DATA.cardDecks[c.name];
   var meta = pct + "%";
   if (known && known.decks > c.decks){
-    meta += "　ほかにも " + (known.decks - c.decks) + "こ";
+    meta += "　ほかにも" + (known.decks - c.decks) + "こ";
   }
   return '<button class="cardline" data-card="' + esc(c.name) + '">' +
     thumb +
@@ -550,30 +585,82 @@ function usedByHtml(name){
 
 function variantHtml(v, total){
   var pct = Math.round(v.share * 100);
-  var name = v.cards.length ? v.cards.join(" と ") + " が はいってる" : "どれも いれない";
+  var name = v.cards.length ? v.cards.join(" と ") + " が入っている" : "どれも入れない";
   return '<div class="variant"><div class="bar">' +
     '<div class="vname">' + esc(name) + '</div>' +
     '<div class="track"><div class="fill" style="width:' + pct + '%"></div></div>' +
     '</div><div class="pct">' + pct + '%</div></div>';
 }
 
-/* デッキの「読み方」。採用率や打点は数字で出るが、
-   なぜそう組むのかは数字からは出てこない。そこだけ人の言葉で持っている。 */
-var NOTE_SECTIONS = [
-  ["つよいところ", "sec-good", "つよい ところ"],
-  ["きをつけること", "sec-warn", "きを つける ところ"],
-  ["あいてにするとき", "sec-vs", "あいてに する とき"]
-];
+/* ---- ルビ ----
+   全部ひらがなにすると、かえって読みにくいうえに中身も薄くなる。
+   漢字のまま書いて、読みにくい語にだけルビを振る。
+   長い語から当てる (「事故率」が「事故」に食われないように)。 */
+var RUBY_RE = null;
+function rubyRegex(){
+  if (RUBY_RE !== null) return RUBY_RE;
+  var keys = Object.keys(DATA.ruby || {});
+  if (!keys.length){ RUBY_RE = false; return false; }
+  keys.sort(function(a, b){ return b.length - a.length; });
+  RUBY_RE = new RegExp(keys.join("|"), "g");
+  return RUBY_RE;
+}
 
+/* エスケープしてからルビを足す。戻り値はもうHTMLなので、重ねてescしないこと。
+   同じ語に何度もルビが付くと読みにくいので、ひとかたまりの中では最初の1回だけ。 */
+var rubySeen = {};
+function rubyReset(){ rubySeen = {}; }
+
+function rt(s){
+  var text = esc(s);
+  var re = rubyRegex();
+  if (!re) return text;
+  re.lastIndex = 0;
+  return text.replace(re, function(word){
+    var yomi = DATA.ruby[word];
+    if (!yomi || rubySeen[word]) return word;
+    rubySeen[word] = true;
+    return "<ruby>" + word + "<rt>" + yomi + "</rt></ruby>";
+  });
+}
+
+/* ---- デッキの読み方 ----
+   採用率や打点は数字で出るが、なぜそう組むのかは数字からは出てこない。
+   そこだけ人の言葉で持っている。 */
 function noteHtml(note){
-  if (!note || !note["ひとこと"]) return "";
-  var out = ['<div class="deckNote"><div class="oneline">' + esc(note["ひとこと"]) + '</div>'];
-  for (var i=0; i<NOTE_SECTIONS.length; i++){
-    var key = NOTE_SECTIONS[i][0], cls = NOTE_SECTIONS[i][1], label = NOTE_SECTIONS[i][2];
-    var items = note[key];
+  if (!note || !note["結論"]) return "";
+  var out = ['<div class="deckNote">'];
+  rubyReset();
+  out.push('<div class="oneline">' + rt(note["結論"]) + '</div>');
+
+  var secs = note["節"] || [];
+  for (var i=0; i<secs.length; i++){
+    var sec = secs[i];
+    rubyReset();
+    out.push('<div class="sec"><b>' + rt(sec["見出し"]) + '</b>');
+    if (sec["引用"]) out.push('<pre class="cardtext">' + esc(sec["引用"]) + '</pre>');
+    var ps = sec["本文"] || [];
+    for (var j=0; j<ps.length; j++) out.push('<p>' + rt(ps[j]) + '</p>');
+    out.push('</div>');
+  }
+
+  var sum = note["まとめ"] || [];
+  if (sum.length){
+    rubyReset();
+    out.push('<div class="sec-sum"><b>まとめ</b><ul>');
+    for (var k=0; k<sum.length; k++) out.push('<li>' + rt(sum[k]) + '</li>');
+    out.push('</ul>');
+    if (note["しめ"]) out.push('<p>' + rt(note["しめ"]) + '</p>');
+    out.push('</div>');
+  }
+
+  var pairs = [["弱点", "sec-warn", "弱点"], ["対面", "sec-vs", "相手にするとき"]];
+  for (var n=0; n<pairs.length; n++){
+    var items = note[pairs[n][0]];
     if (!items || !items.length) continue;
-    out.push('<div class="' + cls + '"><b>' + label + '</b><ul>');
-    for (var j=0; j<items.length; j++) out.push('<li>' + esc(items[j]) + '</li>');
+    rubyReset();
+    out.push('<div class="' + pairs[n][1] + '"><b>' + rt(pairs[n][2]) + '</b><ul>');
+    for (var m=0; m<items.length; m++) out.push('<li>' + rt(items[m]) + '</li>');
     out.push('</ul></div>');
   }
   out.push('</div>');
@@ -582,32 +669,32 @@ function noteHtml(note){
 
 function insideHtml(){
   if (state.deck === "all"){
-    return '<div class="empty">うえの ボタンで デッキを ひとつ えらんでね</div>';
+    return '<div class="empty">上のボタンでデッキを1つえらんでね</div>';
   }
   var c = DATA.contents[state.deck];
   if (!c){
-    return '<div class="empty">この デッキは かった かいすうが すくないので、<br>' +
-      'なかみを くらべられません。<br>ほかの デッキを えらんでね</div>';
+    return '<div class="empty">このデッキは勝った回数が少ないので、<br>' +
+      '中身を見くらべられません。<br>ほかのデッキをえらんでね</div>';
   }
 
-  var out = ['<div class="lead">かった <b>' + c.decks + 'この ' + esc(c.name) + '</b> を ' +
-    'くらべたよ。<br>カードを おすと、その カードを つかう ほかの デッキが わかるよ。</div>'];
+  var out = ['<div class="lead">勝った <b>' + c.decks + 'この' + esc(c.name) + '</b>を見くらべたよ。' +
+    '<br>カードをおすと、そのカードを使うほかのデッキが分かるよ。</div>'];
 
   out.push(noteHtml(c.note));
 
   if (c.variants.length){
-    out.push('<div class="groupbar">どんな かたちが ある？</div>');
+    out.push('<div class="groupbar">どんな形がある？</div>');
     for (var v=0; v<c.variants.length; v++) out.push(variantHtml(c.variants[v], c.decks));
     if (c.other){
       out.push('<div class="cmeta" style="margin:-2px 0 4px">' +
-        'のこり ' + c.other + 'こは、この わけかたに あてはまらなかったよ</div>');
+        'のこり' + c.other + 'こは、この分け方にあてはまらなかったよ</div>');
     }
   }
 
   for (var g=0; g<c.groups.length; g++){
     var grp = c.groups[g];
     out.push('<div class="groupbar">' + esc(grp.label) +
-      '<span class="howmany">' + grp.cards.length + 'しゅるい</span></div>');
+      '<span class="howmany">' + grp.cards.length + '種類</span></div>');
     for (var i=0; i<grp.cards.length; i++) out.push(cardLineHtml(grp.cards[i]));
   }
   return out.join("");
@@ -625,11 +712,11 @@ function render(){
     rankRow.style.display = "none";
     deckBox.style.display = "flex";
     el("deckTitle").style.display = "block";
-    el("deckTitle").textContent = "どの デッキの なかみ？";
+    el("deckTitle").textContent = "どのデッキの中身？";
     listBox.innerHTML = insideHtml();
     return;
   }
-  el("deckTitle").textContent = "デッキで さがす";
+  el("deckTitle").textContent = "デッキでさがす";
 
   if (state.view === "rank"){
     periodBox.style.display = "grid";
@@ -641,9 +728,9 @@ function render(){
     var named = DATA.namedEvents || [];
     var noNamesHere = state.event !== "all" && named.indexOf(state.event) < 0;
     var msg = noNamesHere
-      ? 'シティリーグは デッキの なまえが まだ わからないので、<br>' +
-        'ランキングは だせません。<br>「あたらしい じゅん」で みてね'
-      : 'この きかんの けっかは まだ ないよ。<br>「ぜんぶ」を おしてみてね';
+      ? 'シティリーグはデッキの名前がまだ分からないので、<br>' +
+        'ランキングは出せません。<br>「新しい順」で見てね'
+      : 'この期間の結果はまだ無いよ。<br>「ぜんぶ」をおしてみてね';
     listBox.innerHTML = items.length
       ? items.map(rankHtml).join("")
       : '<div class="empty">' + msg + '</div>';
@@ -659,25 +746,25 @@ function render(){
   var rows = filtered();
   listBox.innerHTML = rows.length
     ? rows.slice(0, 300).map(cardHtml).join("")
-    : '<div class="empty">それに あう けっかは まだ ないよ。<br>' +
-      '「ぜんぶ みる」を おしてみてね</div>';
+    : '<div class="empty">それに合う結果はまだ無いよ。<br>' +
+      '「ぜんぶ見る」をおしてみてね</div>';
 }
 
 function boot(){
   var s = DATA.summary || {};
   var top = s.top_deck;
   if (top){
-    el("heroCap").textContent = "いま いちばん つよい デッキ";
+    el("heroCap").textContent = "いま いちばん強いデッキ";
     el("heroName").textContent = top.deck_name;
-    el("heroNote").textContent = "さいきん 1しゅうかんで " + top.first + "かい ゆうしょう";
+    el("heroNote").textContent = "さいきん1週間で" + top.first + "回 優勝";
   } else if (s.latest_first_count){
     // デッキ名がまだ無いとき。日付と件数だけでも「新しい結果が来た」ことは伝わる
-    el("heroCap").textContent = "いちばん あたらしい けっか";
+    el("heroCap").textContent = "いちばん新しい結果";
     el("heroName").textContent = s.latest_date_label;
-    el("heroNote").textContent = "ゆうしょうデッキが " + s.latest_first_count + "こ あるよ";
+    el("heroNote").textContent = "優勝デッキが" + s.latest_first_count + "こあるよ";
   } else {
     el("heroCap").textContent = "";
-    el("heroName").textContent = "まだ データが ないよ";
+    el("heroName").textContent = "まだデータが無いよ";
     el("heroNote").textContent = "";
   }
   el("updated").textContent = "こうしん: " + DATA.updatedAt;
@@ -749,12 +836,12 @@ document.addEventListener("DOMContentLoaded", boot);
 
 BODY = """
 <div class="wrap">
-  <h1>きょうの ポケカ</h1>
+  <h1>きょうのポケカ</h1>
   <p class="updated" id="updated"></p>
 
   <div class="sample" id="sample" style="display:none">
-    ⚠️ いまは れんしゅうよう の サンプルデータ です。
-    ほんものの けっかに なるまで まってね。
+    ⚠️ いまは練習用のサンプルデータです。
+    本物の結果になるまで待ってね。
   </div>
 
   <div class="hero">
@@ -764,38 +851,38 @@ BODY = """
   </div>
 
   <div class="note-box" id="noNames" style="display:none">
-    デッキの なまえは まだ よみこめて いません。
-    カードを タップすると、ほんものの レシピ（60まい）が みられます。
+    デッキの名前はまだ読みこめていません。
+    カードをタップすると、本物のレシピ（60枚）が見られます。
   </div>
 
-  <div class="section-title" id="eventTitle" style="display:none">どの たいかい？</div>
+  <div class="section-title" id="eventTitle" style="display:none">どの大会？</div>
   <div class="grid3" id="eventRow" style="display:none">
     <button class="seg" data-value="all" aria-pressed="true">ぜんぶ</button>
     <button class="seg" data-value="city" aria-pressed="false">シティリーグ</button>
     <button class="seg" data-value="gym" aria-pressed="false">ジムバトル</button>
   </div>
 
-  <div class="section-title" id="viewTitle">なにを みる？</div>
+  <div class="section-title" id="viewTitle">何を見る？</div>
   <div class="grid2" id="viewRow">
-    <button class="seg" data-value="new" aria-pressed="true">あたらしい じゅん</button>
-    <button class="seg blue" data-value="rank" aria-pressed="false">つよい じゅん</button>
+    <button class="seg" data-value="new" aria-pressed="true">新しい順</button>
+    <button class="seg blue" data-value="rank" aria-pressed="false">強い順</button>
     <button class="seg span2" id="insideBtn" data-value="inside" aria-pressed="false"
-            style="display:none">デッキの なかみを しらべる</button>
+            style="display:none">デッキの中身を調べる</button>
   </div>
 
   <div class="grid2" id="rankRow" style="margin-top:10px">
-    <button class="seg" data-value="1" aria-pressed="false">ゆうしょう</button>
-    <button class="seg blue" data-value="2" aria-pressed="false">じゅんゆうしょう</button>
-    <button class="seg span2" data-value="all" aria-pressed="true">ぜんぶ みる</button>
+    <button class="seg" data-value="1" aria-pressed="false">優勝</button>
+    <button class="seg blue" data-value="2" aria-pressed="false">準優勝</button>
+    <button class="seg span2" data-value="all" aria-pressed="true">ぜんぶ見る</button>
   </div>
 
   <div class="grid3" id="periodRow" style="margin-top:10px;display:none">
-    <button class="seg" data-value="7d" aria-pressed="true">1しゅうかん</button>
-    <button class="seg" data-value="30d" aria-pressed="false">1かげつ</button>
+    <button class="seg" data-value="7d" aria-pressed="true">1週間</button>
+    <button class="seg" data-value="30d" aria-pressed="false">1か月</button>
     <button class="seg" data-value="all" aria-pressed="false">ぜんぶ</button>
   </div>
 
-  <div class="section-title" id="deckTitle">デッキで さがす</div>
+  <div class="section-title" id="deckTitle">デッキでさがす</div>
   <div class="chips" id="deckRow"></div>
 
   <div id="list"></div>
@@ -804,8 +891,8 @@ BODY = """
     データの もとは
     <a href="https://pokecabook.com/" target="_blank" rel="noopener">ポケカブック</a> と
     <a href="https://players.pokemon-card.com/" target="_blank" rel="noopener">ポケモンカードゲーム プレイヤーズクラブ</a>
-    です。デッキの なかみは タップして もとの ページで みてね。<br>
-    このページは 家族用の 個人的な まとめです。記事や 画像の 転載は していません。
+    です。デッキの中身はタップして元のページで見てね。<br>
+    このページは家族用の個人的なまとめです。記事や画像の転載はしていません。
   </footer>
 </div>
 """
@@ -824,7 +911,7 @@ def build_html(data: dict, *, standalone: bool = True) -> str:
         f"{BODY}\n<style>{STYLE}</style>\n<script>{script}</script>"
     )
     if not standalone:
-        return f"<title>きょうの ポケカ</title>\n{inner}\n"
+        return f"<title>きょうのポケカ</title>\n{inner}\n"
     return (
         "<!doctype html>\n"
         '<html lang="ja">\n<head>\n'
@@ -832,7 +919,7 @@ def build_html(data: dict, *, standalone: bool = True) -> str:
         '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
         '<meta name="apple-mobile-web-app-capable" content="yes">\n'
         '<meta name="theme-color" content="#FFB703">\n'
-        "<title>きょうの ポケカ</title>\n"
+        "<title>きょうのポケカ</title>\n"
         "</head>\n<body>\n"
         f"{inner}\n"
         "</body>\n</html>\n"
