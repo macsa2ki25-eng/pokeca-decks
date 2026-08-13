@@ -1175,5 +1175,78 @@ def cmd_sample(days: int, force: bool) -> None:
     console.print("次は: python -m src.pokeca.cli build")
 
 
+@main.command("odds")
+@click.option("--deck", required=True, help="デッキ名 (例: メガドリュウズex)")
+@click.option("--card", required=True, help="引きたいカード名")
+@click.option("--draws", default=8, help="何枚めくるか (後攻の1番めは8枚)")
+@click.option("--first/--second", default=False, help="先攻なら1番めにサポートが使えない")
+def cmd_odds(deck: str, card: str, draws: int, first: bool) -> None:
+    """引きたいカードにたどりつける確率を出す。
+
+        python -m src.pokeca.cli odds --deck メガドリュウズex --card プレシャスキャリー
+
+    デッキに1枚しか入っていなくても、そのカードを持ってこられるカードが
+    たくさん入っていれば、実際にはずっと高い確率で手に入る。
+    その「実質枚数」を数えてから確率を出す。
+    """
+    import statistics
+    from collections import Counter
+
+    from src.pokeca import odds as odds_mod
+    from src.pokeca.cardstore import load_cards, load_decklists
+
+    cards = load_cards()
+    decklists = load_decklists()
+    results = load_results()
+    by_name = odds_mod.cards_by_name(cards)
+    rules = odds_mod.load_reach()
+
+    codes = {
+        r.deck_code
+        for r in results
+        if r.deck_name == deck and r.deck_code and r.deck_code in decklists
+    }
+    if not codes:
+        console.print(f"[yellow]{deck} の中身つきデッキが見つかりません[/yellow]")
+        sys.exit(1)
+
+    totals: list[int] = []
+    sample: odds_mod.Reach | None = None
+    for code in codes:
+        entry = decklists[code]
+        items = entry if isinstance(entry, list) else entry.get("cards", [])
+        counts: Counter = Counter()
+        for card_id, copies in items:
+            counts[str(card_id)] += copies
+        deck_counts = odds_mod.deck_counts_of(dict(counts), cards)
+        if sum(deck_counts.values()) != 60:
+            continue
+        reach = odds_mod.reach_to(
+            card, deck_counts, by_name, rules, allow_supporter=not first
+        )
+        totals.append(reach.total)
+        if sample is None or reach.total > sample.total:
+            sample = reach
+
+    if not totals:
+        console.print("[yellow]60枚そろったデッキがありません[/yellow]")
+        sys.exit(1)
+
+    naive = odds_mod.at_least_one(4, 60, draws)
+    console.print(f"[bold]{deck}[/bold] で [bold]{card}[/bold] にたどりつく ({len(totals)}デッキ)")
+    console.print(f"  実質枚数: 平均 {statistics.mean(totals):.1f} / 中央値 {statistics.median(totals):.0f} / 最大 {max(totals)}")
+    best = max(totals)
+    console.print(
+        f"  最初の{draws}枚で1枚以上: "
+        f"平均 {statistics.mean([odds_mod.at_least_one(t, 60, draws) for t in totals]) * 100:.1f}% "
+        f"/ 一番よい形 {odds_mod.at_least_one(best, 60, draws) * 100:.1f}%"
+    )
+    console.print(f"  [dim](参考: ふつうに4枚入れただけなら {naive * 100:.1f}%)[/dim]")
+    if sample:
+        console.print("  一番よい形のたどり方:")
+        for line in sample.lines(8):
+            console.print(f"    {line}")
+
+
 if __name__ == "__main__":
     main()

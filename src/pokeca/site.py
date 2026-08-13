@@ -130,7 +130,7 @@ def build_contents(
     Returns:
         (なかみ, カード索引)。中身をまだ持っていなければ両方とも空。
     """
-    from src.pokeca import analysis
+    from src.pokeca import analysis, odds
 
     if not decklists:
         return {}, {}
@@ -140,6 +140,8 @@ def build_contents(
         return {}, {}
 
     notes = (load_deck_notes() or {}).get("decks") or {}
+    reach_rules = odds.load_reach()
+    by_name = odds.cards_by_name(cards)
 
     contents: dict[str, dict] = {}
     shown: set[str] = set()
@@ -169,6 +171,13 @@ def build_contents(
         contents[key] = {
             "name": decks[0].deck_name,
             "decks": len(decks),
+            # 1番めに引きたいカードへ、どれくらいの確率で届くか
+            "odds": odds.startup_odds(
+                decks[0].deck_name,
+                [d.counts for d in decks if d.total == 60],
+                by_name,
+                reach_rules,
+            ),
             # そのデッキの「読み方」。数字からは出てこない部分。
             "note": _tidy(notes.get(decks[0].deck_name) or notes.get(key) or {}),
             "groups": groups,
@@ -398,6 +407,41 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
   font-size:20px;font-weight:800;
 }
 .groupbar .howmany{font-size:14px;color:var(--muted);font-weight:700}
+/* ---- 確率のはなし ---- */
+.odds{
+  background:#EEF4FF;border:3px solid #BFD4FF;border-radius:16px;
+  padding:12px 14px;margin-bottom:9px;
+}
+.odds .head{font-size:18px;font-weight:800;margin-bottom:2px}
+.odds .why{font-size:14px;color:var(--muted);margin-bottom:8px}
+.odds .pair{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.odds .box{
+  flex:1 1 130px;min-width:0;background:#fff;border:2px solid #BFD4FF;
+  border-radius:12px;padding:8px 10px;
+}
+.odds .box.hi{border-color:var(--blue);background:#F4F8FF}
+.odds .box .lbl{font-size:13px;color:var(--muted);line-height:1.5}
+/* .num は順位バッジ (丸い背景) に使っているので、別の名前にする */
+.odds .box .pc{font-size:26px;font-weight:800;line-height:1.2}
+.odds .box.hi .pc{color:var(--blue)}
+.odds .how{font-size:14px;line-height:1.9;margin:0;padding-left:1.1em}
+.odds .how li{word-break:keep-all;overflow-wrap:anywhere}
+/* じぶんのデッキをしらべる計算機 */
+.calc{
+  background:var(--card);border:3px solid var(--line);border-radius:16px;
+  padding:12px 14px;margin-bottom:9px;box-shadow:var(--shadow);
+}
+.calc label{display:block;font-size:15px;font-weight:700;margin:8px 0 3px}
+.calc input{
+  width:100%;box-sizing:border-box;font-size:19px;font-weight:800;
+  padding:7px 10px;border:3px solid var(--line);border-radius:10px;
+  background:#fff;color:var(--ink);font-family:inherit;
+}
+.calc .out{
+  margin-top:12px;padding:10px 12px;border-radius:12px;background:#EEF4FF;
+  border:2px solid #BFD4FF;font-size:17px;line-height:1.8;
+}
+.calc .out b{font-size:28px;color:var(--blue)}
 /* カード1枚ぶん。押すと「このカードを つかう デッキ」が下に開く。 */
 .cardline{
   display:flex;align-items:center;gap:12px;width:100%;text-align:left;
@@ -667,6 +711,82 @@ function noteHtml(note){
   return out.join("");
 }
 
+// 山札 size 枚に hits 枚あるカードが、draws 枚の中に1枚以上ある確率。
+// 「引けなかった」のか「そもそも引ける枚数じゃなかった」のかを分ける道具。
+function chance(hits, size, draws){
+  if (hits <= 0 || size <= 0 || draws <= 0) return 0;
+  if (hits >= size || draws >= size) return 1;
+  var miss = 1;
+  for (var i=0; i<draws; i++) miss *= (size - hits - i) / (size - i);
+  return 1 - miss;
+}
+
+function oddsHtml(rows){
+  if (!rows || !rows.length) return "";
+  var out = ['<div class="groupbar">1番めに引けるかな？</div>'];
+  for (var i=0; i<rows.length; i++){
+    var r = rows[i];
+    rubyReset();
+    out.push('<div class="odds">');
+    out.push('<div class="head">' + esc(r.card) + '</div>');
+    if (r.why) out.push('<div class="why">' + rt(r.why) + '</div>');
+    out.push('<div class="pair">');
+    out.push('<div class="box"><div class="lbl">' + rt("入っている枚数で数えると") +
+      '</div><div class="pc">' + r.p_plain + '%</div>' +
+      '<div class="lbl">' + r.copies + rt("枚だから") + '</div></div>');
+    out.push('<div class="box hi"><div class="lbl">' + rt("たどりつけるカードも数えると") +
+      '</div><div class="pc">' + r.p_reach + '%</div>' +
+      '<div class="lbl">' + rt("実質") + r.effective + rt("枚") + '</div></div>');
+    out.push('</div>');
+    if (r.how && r.how.length){
+      out.push('<ul class="how">');
+      for (var j=0; j<r.how.length; j++) out.push('<li>' + esc(r.how[j]) + '</li>');
+      out.push('</ul>');
+    }
+    out.push('</div>');
+  }
+  rubyReset();
+  out.push('<div class="odds" style="background:#FFF3D6;border-color:#FFD98A">' +
+    '<div class="why" style="margin:0">' +
+    rt("最初の7枚に、後攻なら1枚引いて8枚。その8枚で見た数字です。" +
+       "たどりつけるカードを数えると、こんなに変わります。" +
+       "強いデッキは、こうやって当たりを増やしています。") + '</div></div>');
+  return out.join("");
+}
+
+// じぶんのデッキをしらべる計算機
+function calcHtml(){
+  rubyReset();
+  return '<div class="groupbar">じぶんのデッキをしらべる</div>' +
+    '<div class="calc">' +
+    '<div class="why" style="font-size:15px;line-height:1.9;color:var(--muted)">' +
+    rt("引きたいカードの枚数を入れてね。そのカードを持ってこられるカードがあれば、" +
+       "その枚数も足して入れると、本当の確率が分かるよ。") + '</div>' +
+    '<label>' + rt("山札の枚数") + '</label>' +
+    '<input id="cSize" type="number" inputmode="numeric" value="60" min="1" max="60">' +
+    '<label>' + rt("引きたいカードの枚数 (たどりつけるカードも足す)") + '</label>' +
+    '<input id="cHits" type="number" inputmode="numeric" value="4" min="0" max="60">' +
+    '<label>' + rt("何枚めくる？ (最初は7枚、後攻なら8枚)") + '</label>' +
+    '<input id="cDraw" type="number" inputmode="numeric" value="7" min="1" max="60">' +
+    '<div class="out" id="cOut"></div></div>';
+}
+
+function calcRun(){
+  var box = el("cOut");
+  if (!box) return;
+  var size = Math.max(1, Math.min(60, parseInt(el("cSize").value, 10) || 60));
+  var hits = Math.max(0, Math.min(size, parseInt(el("cHits").value, 10) || 0));
+  var draw = Math.max(1, Math.min(size, parseInt(el("cDraw").value, 10) || 1));
+  var p = Math.round(chance(hits, size, draw) * 100);
+  var times = Math.round(p / 10);
+  var tail = p >= 50
+    ? rt("10回やったら、だいたい") + times + rt("回は引ける、ということ")
+    : rt("10回やっても、だいたい") + times + rt("回しか引けない、ということ");
+  rubyReset();
+  box.innerHTML = rt("引ける確率は") + ' <b>' + p + '%</b><br>' +
+    '<span style="font-size:15px;color:var(--muted)">' + tail + '</span>';
+}
+
 function insideHtml(){
   if (state.deck === "all"){
     return '<div class="empty">上のボタンでデッキを1つえらんでね</div>';
@@ -681,6 +801,7 @@ function insideHtml(){
     '<br>カードをおすと、そのカードを使うほかのデッキが分かるよ。</div>'];
 
   out.push(noteHtml(c.note));
+  out.push(oddsHtml(c.odds));
 
   if (c.variants.length){
     out.push('<div class="groupbar">どんな形がある？</div>');
@@ -697,6 +818,7 @@ function insideHtml(){
       '<span class="howmany">' + grp.cards.length + '種類</span></div>');
     for (var i=0; i<grp.cards.length; i++) out.push(cardLineHtml(grp.cards[i]));
   }
+  out.push(calcHtml());
   return out.join("");
 }
 
@@ -714,6 +836,7 @@ function render(){
     el("deckTitle").style.display = "block";
     el("deckTitle").textContent = "どのデッキの中身？";
     listBox.innerHTML = insideHtml();
+    calcRun();
     return;
   }
   el("deckTitle").textContent = "デッキでさがす";
@@ -812,6 +935,11 @@ function boot(){
   el("deckRow").addEventListener("click", function(e){
     var b = e.target.closest("[data-value]"); if(!b) return;
     state.deck = b.dataset.value; setPressed(el("deckRow"), state.deck); render();
+  });
+
+  // 計算機の数字。中身は描き直されるので、まとめて拾う
+  el("list").addEventListener("input", function(e){
+    if (e.target && e.target.id && e.target.id.indexOf("c") === 0) calcRun();
   });
 
   // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる。
