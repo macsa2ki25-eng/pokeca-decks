@@ -387,13 +387,39 @@ PCGDECK.searchItemCardPict[47847]='/assets/images/card_images/large/M1S/047847_P
 データはページのどこかにある。** input・textarea・インラインJSを端から
 出せば見つかる。`dump-official` がそれをやる。
 
-### 調査用ワークフロー
+### また調べる必要が出たら
 
-開発機から公式サイトへは接続できないため、実物のレスポンスは Actions でしか
-見られない。`.github/workflows/investigate.yml` が調査専用で、
-`.github/investigate-trigger` を書き換えて push すると走る。
-権限は `contents: read` だけなので、収集にも公開にも触れない。
-**調査が終わったらこのワークフローごと消してよい。**
+開発機から公式サイトへ接続できない環境では、実物のレスポンスは Actions でしか
+見られない。調査専用のワークフローを一時的に置くのが早い。
+(取得方法が確定したので消したが、必要ならこの形で戻せる)
+
+```yaml
+# .github/workflows/investigate.yml
+name: Investigate official site
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/investigate-trigger"]
+permissions:
+  contents: read        # 収集にも公開にも触れない
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python -m src.pokeca.cli probe-official
+      - run: python -m src.pokeca.cli dump-official
+      - run: python -m src.pokeca.cli dump-card --card-id 50452
+      - run: python -m src.pokeca.cli check-images
+```
+
+`.github/investigate-trigger` という空ファイルを作り、中身を書き換えて
+push すると走る。**一番知りたいことは最後のステップに置く**こと。
+ログは末尾しか読めないことが多い。
 
 ## 6. 収集が止まったときの通知
 
