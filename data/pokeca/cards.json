@@ -1,5 +1,5 @@
 {
- "count": 2151,
+ "count": 2153,
  "cards": {
   "10126": {
    "id": "10126",
@@ -4449,6 +4449,41 @@
    "text": "このカードは、ポケモンについているかぎり、無エネルギー1個ぶんとしてはたらく。2進化ポケモンについているなら、すべてのタイプのエネルギー2個ぶんとしてはたらく。",
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SV5K/045217_E_NEOAPPAENERUGI.jpg",
+   "detail": true
+  },
+  "45222": {
+   "name": "ダーテング",
+   "set": "SV5M",
+   "number": "005/071",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5M/045222_P_DATENGU.jpg",
+   "id": "45222",
+   "stage": "2 進化",
+   "hp": 150,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "おいだしトルネード",
+     "cost": [
+      "草"
+     ],
+     "damage": "",
+     "effect": "相手のベンチポケモンを3匹選ぶ。その後、選んでいない相手のベンチポケモン全員と、ついているすべてのカードを、相手の山札にもどして切る。"
+    },
+    {
+     "name": "エネループ",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "140",
+     "effect": "このポケモンについているエネルギーを1個選び、手札にもどす。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "45231": {
@@ -20667,6 +20702,43 @@
    "number": "022/098",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV10/047415_P_ROKETTODANNOFURIZA.jpg",
+   "detail": true
+  },
+  "47426": {
+   "name": "ロケット団のサンダー",
+   "set": "SV10",
+   "number": "033/098",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV10/047426_P_ROKETTODANNOSANDA.jpg",
+   "id": "47426",
+   "stage": "たね",
+   "hp": 120,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ジャミングウイング",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": "のぞむなら、相手のバトルポケモンについているエネルギーを1個選び、相手のベンチポケモンにつけ替える。"
+    },
+    {
+     "name": "バッドサンダー",
+     "cost": [
+      "雷",
+      "無",
+      "無"
+     ],
+     "damage": "60＋",
+     "effect": "このポケモンに「ロケット団エネルギー」がついているなら、60ダメージ追加。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "47432": {
