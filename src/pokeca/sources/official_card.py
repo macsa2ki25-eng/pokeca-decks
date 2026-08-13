@@ -84,6 +84,31 @@ def _icons(node) -> list[str]:
     return out
 
 
+def _prose(node) -> str:
+    """効果テキストを、エネルギーのマークを残したまま文字列にする。
+
+    公式はエネルギーを ``<span class="icon-fire icon">`` で書くので、
+    素朴に文字だけ取ると **マークが消えて意味が変わる**。
+
+        ○ 「ついている[炎]と[雷]エネルギーの数×50」
+        × 「ついている と エネルギーの数×50」
+
+    実際これで、メガレックウザexのワザを「炎と雷だけ数える」と
+    読み違えかけた。文章の意味に関わるので、マークは必ず残す。
+    """
+    if node is None:
+        return ""
+    copy = BeautifulSoup(str(node), "html.parser")
+    for span in copy.find_all("span", class_="icon"):
+        names = [
+            ICON_NAMES.get(cls[5:], cls[5:])
+            for cls in span.get("class", [])
+            if cls.startswith("icon-") and cls != "icon"
+        ]
+        span.replace_with("".join(n for n in names if n))
+    return copy.get_text(" ", strip=True)
+
+
 def _sections(main, heading: str) -> list[dict]:
     """<h2>ワザ</h2> や <h2>特性</h2> の下に並ぶ h4 + p を拾う。"""
     out: list[dict] = []
@@ -106,7 +131,7 @@ def _sections(main, heading: str) -> list[dict]:
                     "name": block.get_text(" ", strip=True),
                     "cost": cost,
                     "damage": damage,
-                    "effect": paragraph.get_text(" ", strip=True) if paragraph else "",
+                    "effect": _prose(paragraph),
                 }
             )
     return out
@@ -158,7 +183,7 @@ def parse_card(html: str, card_id: str = "") -> dict:
     if not card["abilities"] and not card["attacks"]:
         paragraph = main.find("p")
         if paragraph:
-            card["text"] = paragraph.get_text(" ", strip=True)
+            card["text"] = _prose(paragraph)
 
     return card
 

@@ -601,7 +601,12 @@ def cmd_fetch_decks(limit: int) -> None:
 
 @main.command("fetch-cards")
 @click.option("--limit", default=300, help="1回に取りに行くカード数 (0 で全部)")
-def cmd_fetch_cards(limit: int) -> None:
+@click.option(
+    "--refresh",
+    is_flag=True,
+    help="取得済みのカードも取り直す (読み取り方を直したときに使う)",
+)
+def cmd_fetch_cards(limit: int, refresh: bool) -> None:
     """デッキに入っているカードの内容 (HP・ワザ・特性) を取得して保存する。
 
     公式のカードは数千枚あるが、取りに行くのは優勝デッキに実際に
@@ -618,7 +623,13 @@ def cmd_fetch_cards(limit: int) -> None:
     known = load_cards()
     # 名前だけ入っているカードは「取得済み」ではない。ワザや特性が
     # 入っているかどうかで判断する。
-    todo = needs_detail(decklists, known)
+    if refresh:
+        # 読み取り方を直したときは、取得済みでも中身が古い。全部取り直す。
+        from src.pokeca.cardstore import card_ids_in
+
+        todo = sorted(card_ids_in(decklists))
+    else:
+        todo = needs_detail(decklists, known)
     have = sum(1 for c in known.values() if c.get("detail"))
     if limit > 0:
         todo = todo[:limit]

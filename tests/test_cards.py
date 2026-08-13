@@ -377,3 +377,23 @@ def test_japanese_energy_names_for_every_icon():
     assert card["type"] == "雷"
     assert card["weakness"] == "悪×2"
     assert card["resistance"] == "鋼-30"
+
+
+def test_effect_text_keeps_energy_symbols():
+    """効果文のエネルギーはマークで書かれている。落とすと意味が変わる。
+
+        ○ ついている炎と雷エネルギーの数×50
+        × ついている と エネルギーの数×50
+
+    これでメガレックウザexのワザを読み違えかけた。
+    """
+    html = (
+        '<div class="RightBox"><h2>ワザ</h2>'
+        '<h4><span class="icon-fire icon"></span><span class="icon-electric icon"></span>'
+        'テストワザ<span class="f_right">50×</span></h4>'
+        '<p>自分のポケモン全員についている<span class="icon-fire icon"></span>と'
+        '<span class="icon-electric icon"></span>エネルギーの数×50ダメージ。</p></div>'
+    )
+    attack = official_card.parse_card(html, "1")["attacks"][0]
+    assert attack["cost"] == ["炎", "雷"]
+    assert "炎と雷エネルギーの数" in attack["effect"].replace(" ", "")
