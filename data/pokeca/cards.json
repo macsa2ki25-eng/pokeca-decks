@@ -1,5 +1,5 @@
 {
- "count": 2153,
+ "count": 2154,
  "cards": {
   "10126": {
    "id": "10126",
@@ -23741,6 +23741,41 @@
    "number": "027/063",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M1S/047823_P_KOIRU.jpg",
+   "detail": true
+  },
+  "47825": {
+   "name": "ジバコイル",
+   "set": "M1S",
+   "number": "029/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1S/047825_P_JIBAKOIRU.jpg",
+   "id": "47825",
+   "stage": "2 進化",
+   "hp": 160,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "アッパースパーク",
+     "cost": [
+      "雷"
+     ],
+     "damage": "50＋",
+     "effect": "この番に、このポケモンが「レアコイル」から進化していたなら、120ダメージ追加。"
+    },
+    {
+     "name": "フラッシュボルト",
+     "cost": [
+      "雷",
+      "雷"
+     ],
+     "damage": "160",
+     "effect": "次の自分の番、このポケモンは「フラッシュボルト」が使えない。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "47827": {
