@@ -1,5 +1,5 @@
 {
- "count": 2154,
+ "count": 2155,
  "cards": {
   "10126": {
    "id": "10126",
@@ -21989,6 +21989,33 @@
    "number": "043/086",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV11B/047579_P_RIGURE.jpg",
+   "detail": true
+  },
+  "47581": {
+   "name": "ゴビット",
+   "set": "SV11B",
+   "number": "045/086",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV11B/047581_P_GOBITTO.jpg",
+   "id": "47581",
+   "stage": "たね",
+   "hp": 90,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ぜんりょくパンチ",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "60",
+     "effect": "コインを1回投げウラなら、このワザは失敗。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 3,
    "detail": true
   },
   "47583": {
