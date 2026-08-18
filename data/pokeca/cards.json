@@ -1,5 +1,5 @@
 {
- "count": 2155,
+ "count": 2160,
  "cards": {
   "10126": {
    "id": "10126",
@@ -3103,6 +3103,17 @@
    "image": "/assets/images/card_images/large/SVAW/042764_T_ENERUGITENSOU.jpg",
    "detail": true
   },
+  "42765": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SVAW/042765_T_KURASSHIXYUHANMA.jpg",
+   "id": "42765",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
+   "detail": true
+  },
   "42767": {
    "id": "42767",
    "name": "ハイパーボール",
@@ -3870,6 +3881,43 @@
    "text": "おたがいのプレイヤーは、それぞれ手札をすべて山札にもどして切る。その後、それぞれ山札を4枚引く。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SV4a/045128_T_JIXYAJJIMAN.jpg",
+   "detail": true
+  },
+  "45158": {
+   "name": "ウガツホムラex",
+   "set": "SV5K",
+   "number": "012/071",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5K/045158_P_UGATSUHOMURAEX.jpg",
+   "id": "45158",
+   "stage": "たね",
+   "hp": 230,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ヒートブラスト",
+     "cost": [
+      "炎",
+      "無"
+     ],
+     "damage": "60",
+     "effect": ""
+    },
+    {
+     "name": "れっかばくしん",
+     "cost": [
+      "炎",
+      "炎",
+      "無"
+     ],
+     "damage": "260",
+     "effect": "このワザを使ったなら、このポケモンは、バトル場をはなれるまで「れっかばくしん」が使えない。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "45159": {
@@ -7015,6 +7063,41 @@
    "number": "064/101",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV6/045755_P_IINEINU.jpg",
+   "detail": true
+  },
+  "45756": {
+   "name": "オーガポン いしずえのめんex",
+   "set": "SV6",
+   "number": "065/101",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV6/045756_P_OGAPONISHIZUENOMENEX.jpg",
+   "id": "45756",
+   "stage": "たね",
+   "hp": 210,
+   "type": "闘",
+   "abilities": [
+    {
+     "name": "いしずえのかまえ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンは、相手の特性を持つポケモンからワザのダメージを受けない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ぶちやぶる",
+     "cost": [
+      "闘",
+      "無",
+      "無"
+     ],
+     "damage": "140",
+     "effect": "このワザのダメージは、弱点・抵抗力と、相手のバトルポケモンにかかっている効果を計算しない。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "45762": {
@@ -13383,6 +13466,41 @@
    "number": "018/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/046679_P_YABASOCHIXYA.jpg",
+   "detail": true
+  },
+  "46680": {
+   "name": "ヤバソチャex",
+   "set": "SV8a",
+   "number": "019/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046680_P_YABASOCHIXYAEX.jpg",
+   "id": "46680",
+   "stage": "1 進化",
+   "hp": 240,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "せんじがえし",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分のトラッシュにある「基本草エネルギー」をすべて相手に見せ、その枚数×2個ぶんのダメカンを、相手のポケモン1匹にのせる。その後、見せたエネルギーを山札にもどして切る。"
+    },
+    {
+     "name": "まっちゃスプラッシュ",
+     "cost": [
+      "草",
+      "無"
+     ],
+     "damage": "120",
+     "effect": "自分のポケモン全員のHPを、それぞれ「30」回復する。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "46681": {
@@ -47182,6 +47300,17 @@
    "number": "062/076",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M6/050400_P_FUAIAROIEKKUSU.jpg",
+   "detail": true
+  },
+  "50401": {
+   "name": "おいしいおむすび",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M6/050401_T_OISHIIOMUSUBI.jpg",
+   "id": "50401",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンのHPを「30」回復する。自分のトラッシュにある「おいしいおむすび」（このカードをのぞく）1枚につき、回復するHPは「30」多くなる。",
    "detail": true
   },
   "50402": {
