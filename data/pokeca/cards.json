@@ -1,5 +1,5 @@
 {
- "count": 2160,
+ "count": 2162,
  "cards": {
   "10126": {
    "id": "10126",
@@ -11818,6 +11818,68 @@
    "number": "035/106",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8/046375_P_REAKOIRU.jpg",
+   "detail": true
+  },
+  "46385": {
+   "name": "トゲピー",
+   "set": "SV8",
+   "number": "045/106",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8/046385_P_TOGEPI.jpg",
+   "id": "46385",
+   "stage": "たね",
+   "hp": 50,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "はたく",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "46387": {
+   "name": "トゲキッス",
+   "set": "SV8",
+   "number": "047/106",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8/046387_P_TOGEKISSU.jpg",
+   "id": "46387",
+   "stage": "2 進化",
+   "hp": 140,
+   "type": "超",
+   "abilities": [
+    {
+     "name": "ワンダーキッス",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、相手のバトルポケモンがきぜつするたび、自分はコインを1回投げる。オモテなら、サイドを1枚多くとる。この効果は、この特性を持つポケモンが何匹いても、重ならない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "スピードウイング",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "140",
+     "effect": ""
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "46391": {
