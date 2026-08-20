@@ -1,5 +1,5 @@
 {
- "count": 2162,
+ "count": 2164,
  "cards": {
   "10126": {
    "id": "10126",
@@ -23985,6 +23985,33 @@
    "retreat": 3,
    "detail": true
   },
+  "47826": {
+   "name": "ライコウ",
+   "set": "M1S",
+   "number": "030/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1S/047826_P_RAIKOU.jpg",
+   "id": "47826",
+   "stage": "たね",
+   "hp": 120,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "エレキフォール",
+     "cost": [
+      "雷",
+      "雷"
+     ],
+     "damage": "30＋",
+     "effect": "自分の場に雷エネルギーが4個以上あるなら、90ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "47827": {
    "id": "47827",
    "name": "ラクライ",
@@ -40941,6 +40968,40 @@
    "text": "このカードは、ポケモンについているかぎり、闘エネルギー1個ぶんとしてはたらく。このカードをつけている闘ポケモンは、相手のポケモンが使うワザの効果を受けない。（すでに受けている効果は、なくならない。）",
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/M3/049713_E_ROKKUTOUENERUGI.jpg",
+   "detail": true
+  },
+  "49714": {
+   "name": "ラルトス",
+   "set": "M-P",
+   "number": "066/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/049714_P_RARUTOSU.jpg",
+   "id": "49714",
+   "stage": "たね",
+   "hp": 70,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "もってくる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札を1枚引く。"
+    },
+    {
+     "name": "ずつき",
+     "cost": [
+      "超"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "49716": {
