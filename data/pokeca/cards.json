@@ -1,5 +1,5 @@
 {
- "count": 2164,
+ "count": 2165,
  "cards": {
   "10126": {
    "id": "10126",
@@ -13972,6 +13972,41 @@
    "number": "052/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/046713_P_SANDASUEX.jpg",
+   "detail": true
+  },
+  "46717": {
+   "name": "テツノイバラex",
+   "set": "SV8a",
+   "number": "056/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046717_P_TETSUNOIBARAEX.jpg",
+   "id": "46717",
+   "stage": "たね",
+   "hp": 230,
+   "type": "雷",
+   "abilities": [
+    {
+     "name": "イニシャライズ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがバトル場にいるかぎり、おたがいの場の「ルールを持つポケモン」（「未来」のポケモンをのぞく）の特性は、すべてなくなる。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ボルトサイクロン",
+     "cost": [
+      "雷",
+      "無",
+      "無"
+     ],
+     "damage": "140",
+     "effect": "このポケモンについているエネルギーを1個選び、ベンチポケモンにつけ替える。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 4,
    "detail": true
   },
   "46718": {
