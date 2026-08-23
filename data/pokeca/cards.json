@@ -1,5 +1,5 @@
 {
- "count": 2165,
+ "count": 2169,
  "cards": {
   "10126": {
    "id": "10126",
@@ -18519,6 +18519,17 @@
    "image": "/assets/images/card_images/large/SV-P/047172_T_NAKAYOSHIPOFUIN.jpg",
    "detail": true
   },
+  "47174": {
+   "name": "ポケモンセンターのお姉さん",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SV-P/047174_T_POKEMONSENTANOONEESAN.jpg",
+   "id": "47174",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のポケモン1匹のHPを「60」回復し、特殊状態もすべて回復する。",
+   "detail": true
+  },
   "47177": {
    "id": "47177",
    "name": "キチキギスex",
@@ -25339,6 +25350,32 @@
    "number": "001/021",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MBG/048262_P_GOSU.jpg",
+   "detail": true
+  },
+  "48263": {
+   "name": "ゴースト",
+   "set": "MBG",
+   "number": "002/021",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MBG/048263_P_GOSUTO.jpg",
+   "id": "48263",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ホロウショット",
+     "cost": [
+      "悪"
+     ],
+     "damage": "40",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "48264": {
@@ -47655,6 +47692,41 @@
    "image": "/assets/images/card_images/large/MEE/050428_T_HIKARI.jpg",
    "detail": true
   },
+  "50437": {
+   "name": "ゾロア",
+   "set": "MEZ",
+   "number": "006/019",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MEZ/050437_P_ZOROA.jpg",
+   "id": "50437",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ふむ",
+     "cost": [
+      "悪"
+     ],
+     "damage": "10",
+     "effect": ""
+    },
+    {
+     "name": "ひっかく",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50442": {
    "id": "50442",
    "name": "クラッシュハンマー",
@@ -47719,6 +47791,17 @@
    "text": "おたがいのプレイヤーは、それぞれ手札をすべて山札にもどして切る。その後、それぞれ山札を4枚引く。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/MEZ/050448_T_JIXYAJJIMAN.jpg",
+   "detail": true
+  },
+  "50449": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/MEZ/050449_T_BOSUNOSHIREI.jpg",
+   "id": "50449",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "detail": true
   },
   "50450": {
