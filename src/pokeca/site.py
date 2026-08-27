@@ -14,6 +14,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from collections import Counter
 from datetime import date
 
 from src.pokeca import aggregate
@@ -188,20 +189,98 @@ def build_contents(
             "other": analysis.variant_coverage(decks, variants),
         }
 
-    # カード → そのカードを使っているデッキ。画面に出したカードだけに絞る。
+    # カード → そのカードを使っているデッキ。
+    # デッキの中身に出したカードだけでなく、集めた全デッキぶんを載せる。
+    # 「このカードが入っているデッキ」を名前で探せるようにするため。
     index = analysis.card_index(corpus)
-    card_decks = {
-        name: {
+    facts = _card_facts(cards, _printing_use(decklists))
+    deck_totals = Counter(deck.deck_name for deck in corpus)
+
+    card_decks = {}
+    for name, data in index.items():
+        fact = facts.get(name, {})
+        image = fact.get("image") or ""
+        card_decks[name] = {
             "decks": data["decks"],
             "avg": round(data["average"], 1),
             # JSON にしたときと同じ形 (配列) で持つ。
             # タプルのままだと、書き出す前後で形が変わって扱いを間違えやすい。
-            "top": [[deck_name, n] for deck_name, n in list(data["archetypes"].items())[:8]],
+            # 3つめは「そのデッキ全体のうち何件か」。割合を出すのに使う。
+            "top": [
+                [deck_name, n, deck_totals.get(deck_name, 0)]
+                for deck_name, n in list(data["archetypes"].items())[:8]
+            ],
+            "sec": fact.get("section", ""),
+            "img": image[len(CARD_IMAGE_PREFIX):] if image.startswith(CARD_IMAGE_PREFIX) else "",
+            "txt": fact.get("text", ""),
         }
-        for name, data in index.items()
-        if name in shown
-    }
     return contents, card_decks
+
+
+def _printing_use(decklists: dict[str, dict]) -> Counter:
+    """カードID → そのIDが使われたデッキ数。どの版が実物かを決めるのに使う。"""
+    used: Counter = Counter()
+    for entry in decklists.values():
+        items = entry if isinstance(entry, list) else entry.get("cards", [])
+        for item in items:
+            card_id = item.get("id") if isinstance(item, dict) else item[0]
+            if card_id:
+                used[str(card_id)] += 1
+    return used
+
+
+def _card_facts(
+    cards: dict[str, dict], printing_use: Counter | None = None
+) -> dict[str, dict]:
+    """カード名 → 画面に出したい中身 (区分・画像・カードの文)。
+
+    同じ名前でも、ワザや特性がまるで違うカードがある。
+    たとえば「モグリュー」は【ほりまくり】を持つものと
+    「なかまをよぶ」を持つものがあり、メガドリュウズexのデッキは
+    178件すべてが後者を使っている。
+    ここで前者の文を出すと、誰も使っていないカードを見せることになる。
+
+    だから代表は「実際に一番多く使われている版」から選ぶ。
+    使われた数が同じなら、ワザや特性まで取れているほうを取る。
+    """
+    use = printing_use or Counter()
+    best: dict[str, dict] = {}
+    for card_id, card in cards.items():
+        name = card.get("name")
+        if not name:
+            continue
+        rank = (use.get(str(card_id), 0), 1 if card.get("detail") else 0)
+        current = best.get(name)
+        if current is None or rank > current[0]:
+            best[name] = (rank, card)
+    best = {name: card for name, (_, card) in best.items()}
+
+    out: dict[str, dict] = {}
+    for name, card in best.items():
+        lines: list[str] = []
+        if card.get("hp"):
+            head = ["HP" + str(card["hp"])]
+            head += [part for part in (card.get("type"), card.get("stage")) if part]
+            head.append("弱点 " + (card.get("weakness") or "なし"))
+            lines.append("　".join(head))
+        for ability in card.get("abilities") or []:
+            lines.append(f"【{ability['name']}】{ability.get('effect') or ''}")
+        for attack in card.get("attacks") or []:
+            # 空の欄をそのまま並べると、間が不自然に空いて読みにくくなる
+            parts = ["".join(attack.get("cost") or []) or "―", attack["name"]]
+            parts += [
+                part for part in (attack.get("damage"), attack.get("effect")) if part
+            ]
+            lines.append("　".join(parts))
+        if card.get("text"):
+            lines.append(card["text"])
+        out[name] = {
+            "section": card.get("section", ""),
+            "image": card.get("image", ""),
+            "text": "\n".join(lines),
+            "detail": card.get("detail"),
+        }
+    return out
 
 
 def build_data(
@@ -426,6 +505,23 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .odds .box.hi .pc{color:var(--blue)}
 .odds .how{font-size:14px;line-height:1.9;margin:0;padding-left:1.1em}
 .odds .how li{word-break:keep-all;overflow-wrap:anywhere}
+/* ---- カードでさがす ---- */
+.search{
+  background:var(--card);border:3px solid var(--line);border-radius:16px;
+  padding:12px 14px;margin-bottom:10px;box-shadow:var(--shadow);
+}
+.search input{
+  width:100%;box-sizing:border-box;font-size:19px;font-weight:700;
+  padding:9px 12px;border:3px solid var(--line);border-radius:12px;
+  background:#fff;color:var(--ink);font-family:inherit;
+}
+.search .hint{font-size:14px;color:var(--muted);line-height:1.8;margin-top:8px}
+.hitcount{font-size:15px;color:var(--muted);margin:0 2px 8px}
+.sec{
+  flex:0 0 auto;font-size:12px;font-weight:800;color:var(--muted);
+  border:2px solid var(--line);border-radius:8px;padding:1px 6px;margin-left:6px;
+}
+.usedby .why{font-size:13px;color:var(--muted);margin-bottom:6px}
 /* じぶんのデッキをしらべる計算機 */
 .calc{
   background:var(--card);border:3px solid var(--line);border-radius:16px;
@@ -523,7 +619,7 @@ footer a{color:var(--muted)}
 
 SCRIPT = """
 var DATA = __DATA__;
-var state = { rank: "all", view: "new", deck: "all", period: "7d", event: "all" };
+var state = { rank: "all", view: "new", deck: "all", period: "7d", event: "all", q: "" };
 
 function el(id){ return document.getElementById(id); }
 
@@ -619,12 +715,93 @@ function usedByHtml(name){
   var d = DATA.cardDecks[name];
   if (!d) return "";
   var items = d.top.map(function(pair){
-    return "<li>" + esc(pair[0]) + "　" + pair[1] + "こ</li>";
+    // pair = [デッキ名, このカードを入れていた件数, そのデッキの全件数]
+    var pct = pair[2] ? Math.round(pair[1] / pair[2] * 100) + "%" : "";
+    return "<li>" + esc(pair[0]) + "　" + pair[1] + "こ" +
+      (pct ? '<span style="color:var(--muted)">　' + pct + "</span>" : "") + "</li>";
   }).join("");
+  var txt = d.txt ? '<div class="cardtext">' + esc(d.txt) + "</div>" : "";
   return '<div class="usedby" data-used="' + esc(name) + '">' +
     '<b>' + esc(name) + '</b> を つかって かった デッキは ' + d.decks + 'こ<br>' +
-    'たいてい ' + d.avg + 'まい いれる' +
+    'たいてい ' + d.avg + 'まい いれる' + txt +
+    '<div class="why">どのデッキが つかっているか</div>' +
     '<ul>' + items + '</ul></div>';
+}
+
+/* ---- カードでさがす ----
+   名前の一部でも見つかるようにする。子どもは正確な名前を打てない。
+   名前で当たらなければ、カードの文の中も探す。
+   「ダメカン」と打てば、ダメカンを置くカードが全部出てくる。 */
+var SEARCH_MAX = 40;
+
+function searchHits(q){
+  q = (q || "").trim();
+  var all = DATA.cardDecks || {};
+  var names = Object.keys(all);
+  if (!q){
+    // 何も打っていないときは、よく入っているカードを出す
+    names.sort(function(a, b){ return all[b].decks - all[a].decks; });
+    return {rows: names.slice(0, 30), byText: {}, empty: true};
+  }
+  var byName = [], byText = [], flag = {};
+  for (var i=0; i<names.length; i++){
+    var n = names[i];
+    if (n.indexOf(q) >= 0){ byName.push(n); continue; }
+    if ((all[n].txt || "").indexOf(q) >= 0){ byText.push(n); flag[n] = true; }
+  }
+  var by = function(a, b){ return all[b].decks - all[a].decks; };
+  byName.sort(by); byText.sort(by);
+  return {rows: byName.concat(byText).slice(0, SEARCH_MAX), byText: flag, empty: false};
+}
+
+function searchRowHtml(name, viaText){
+  var d = DATA.cardDecks[name];
+  var thumb = d.img
+    ? '<img class="thumb" src="' + esc(DATA.cardBase + d.img) + '" alt="" ' +
+      'loading="lazy" decoding="async" onerror="thumbFail(this)">'
+    : '<span class="thumb"></span>';
+  var meta = d.decks + "この デッキで つかわれている";
+  if (viaText) meta = "カードの文に ありました　/　" + meta;
+  return '<button class="cardline" data-card="' + esc(name) + '">' + thumb +
+    '<div class="cbody"><div class="cname">' + esc(name) +
+    (d.sec ? '<span class="sec">' + esc(d.sec) + "</span>" : "") + "</div>" +
+    '<div class="cmeta">' + meta + "</div></div>" +
+    '<div class="copies">' + d.avg + "<small>まい</small></div></button>";
+}
+
+function searchOutHtml(){
+  var hit = searchHits(state.q);
+  var out = [];
+  if (hit.empty){
+    out.push('<div class="hitcount">よく入っているカード</div>');
+  } else if (!hit.rows.length){
+    return '<div class="empty">「' + esc(state.q) + '」は 見つかりませんでした。<br>' +
+      'ひらがなや かたかなを かえて みてね</div>';
+  } else {
+    out.push('<div class="hitcount">' + hit.rows.length +
+      (hit.rows.length >= SEARCH_MAX ? "こ以上" : "こ") + " 見つかったよ</div>");
+  }
+  for (var i=0; i<hit.rows.length; i++){
+    out.push(searchRowHtml(hit.rows[i], hit.byText[hit.rows[i]]));
+  }
+  return out.join("");
+}
+
+function searchHtml(){
+  rubyReset();
+  return '<div class="search">' +
+    '<input id="cardQ" type="search" autocomplete="off" ' +
+    'placeholder="カードの名前をいれてね" value="' + esc(state.q || "") + '">' +
+    '<div class="hint">' +
+    rt("名前のいちぶだけでも さがせます。「ボール」「エネルギー」でも出てきます。") +
+    "<br>" + rt("カードの文の中もさがすので、「ダメカン」「どく」でも出てきます。") +
+    "</div></div>" +
+    '<div id="searchOut">' + searchOutHtml() + "</div>";
+}
+
+function searchRun(){
+  var box = el("searchOut");
+  if (box) box.innerHTML = searchOutHtml();
 }
 
 function variantHtml(v, total){
@@ -828,6 +1005,21 @@ function render(){
   var rankRow = el("rankRow");
   var deckBox = el("deckRow");
 
+  if (state.view === "search"){
+    // 探すのはカードなので、しぼりこみのボタンは全部しまう。
+    // 大会や期間で結果は変わらないのに、押せると変わりそうに見えるため。
+    periodBox.style.display = "none";
+    rankRow.style.display = "none";
+    deckBox.style.display = "none";
+    el("deckTitle").style.display = "none";
+    el("eventRow").style.display = "none";
+    el("eventTitle").style.display = "none";
+    listBox.innerHTML = searchHtml();
+    // 入力欄が画面の下に隠れないよう、上まで送る
+    listBox.scrollIntoView({block: "start"});
+    return;
+  }
+
   if (state.view === "inside"){
     // デッキを選ばないと始まらないので、デッキのボタンだけ残す
     periodBox.style.display = "none";
@@ -937,9 +1129,15 @@ function boot(){
     state.deck = b.dataset.value; setPressed(el("deckRow"), state.deck); render();
   });
 
-  // 計算機の数字。中身は描き直されるので、まとめて拾う
+  // 入力を拾う。中身は描き直されるので、親でまとめて受ける
   el("list").addEventListener("input", function(e){
-    if (e.target && e.target.id && e.target.id.indexOf("c") === 0) calcRun();
+    if (!e.target || !e.target.id) return;
+    if (e.target.id === "cardQ"){
+      state.q = e.target.value;
+      searchRun();   // 入力欄は描き直さない。打っている途中で消えてしまうため
+      return;
+    }
+    if (e.target.id.indexOf("c") === 0) calcRun();
   });
 
   // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる。
@@ -955,6 +1153,10 @@ function boot(){
   // 中身をまだ持っていないときは「なかみ」ボタンを出さない
   if (Object.keys(DATA.contents || {}).length){
     el("insideBtn").style.display = "block";
+  }
+  // カードの索引が無いと、探しても何も出ないのでボタンを出さない
+  if (Object.keys(DATA.cardDecks || {}).length){
+    el("searchBtn").style.display = "block";
   }
 
   render();
@@ -996,6 +1198,8 @@ BODY = """
     <button class="seg blue" data-value="rank" aria-pressed="false">強い順</button>
     <button class="seg span2" id="insideBtn" data-value="inside" aria-pressed="false"
             style="display:none">デッキの中身を調べる</button>
+    <button class="seg span2" id="searchBtn" data-value="search" aria-pressed="false"
+            style="display:none">カードでさがす</button>
   </div>
 
   <div class="grid2" id="rankRow" style="margin-top:10px">

@@ -12,8 +12,27 @@ from src.pokeca.models import DeckResult
 CARDS = {
     "1": {"name": "ドラメシヤ", "image": site.CARD_IMAGE_PREFIX + "SV6/001_A.jpg"},
     "2": {"name": "ドロンチ", "image": site.CARD_IMAGE_PREFIX + "SV6/002_B.jpg"},
-    "3": {"name": "マシマシラ", "image": ""},
-    "4": {"name": "ナンジャモ"},
+    # 探した結果にカードの中身を出すので、本物と同じ形で持たせる
+    "3": {
+        "name": "マシマシラ",
+        "image": "",
+        "section": "ポケモン",
+        "hp": 110,
+        "type": "超",
+        "stage": "たね",
+        "weakness": "悪×2",
+        "abilities": [
+            {
+                "name": "アドレナブレイン",
+                "effect": "このポケモンに悪エネルギーがついているなら、自分の番に1回使える。",
+            }
+        ],
+        "attacks": [
+            {"name": "サイコトリップ", "cost": ["超", "無"], "damage": "60", "effect": ""}
+        ],
+        "detail": True,
+    },
+    "4": {"name": "ナンジャモ", "section": "サポート", "text": "手札を山札にもどす。"},
     "9": {"name": "ルギアVSTAR"},
 }
 
@@ -106,8 +125,8 @@ def test_a_deck_with_too_few_wins_gets_no_contents():
     assert "ルギアVSTAR" not in data["contents"]
 
 
-def test_card_index_only_covers_cards_shown_on_the_page():
-    """出していないカードの索引を埋め込むと、読み込むだけ無駄になる。"""
+def test_card_index_covers_every_card_in_the_collected_decks():
+    """カードで探せるようにするので、画面に出していないカードも索引に入れる。"""
     data = build()
     shown = {
         c["name"]
@@ -115,13 +134,23 @@ def test_card_index_only_covers_cards_shown_on_the_page():
         for g in inside["groups"]
         for c in g["cards"]
     }
-    assert set(data["cardDecks"]) == shown
+    assert shown <= set(data["cardDecks"])
+    assert len(data["cardDecks"]) >= len(shown)
 
 
 def test_card_index_says_which_decks_use_the_card():
     entry = build()["cardDecks"]["マシマシラ"]
     assert entry["decks"] == 4
-    assert entry["top"][0] == ["ドラパルトex", 4]
+    # [デッキ名, このカードを入れていた件数, そのデッキの全件数]
+    # 3つめが無いと「そのデッキの何%が入れているか」が出せない
+    assert entry["top"][0] == ["ドラパルトex", 4, 6]
+
+
+def test_card_index_carries_what_the_card_does():
+    """探した結果に、カードの文と区分を出したい。"""
+    entry = build()["cardDecks"]["マシマシラ"]
+    assert entry["sec"] == "ポケモン"
+    assert "アドレナブレイン" in entry["txt"]
 
 
 def test_no_contents_without_deck_data():
