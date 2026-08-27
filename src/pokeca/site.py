@@ -346,8 +346,19 @@ def build_data(
         entry["color"] = theme["color"]
         entry["emoji"] = theme["emoji"]
 
+    # 出すのは上位24デッキ。ただし解説を書いたデッキは、その週たまたま
+    # 勝ち数が落ちて24位から外れても残す。
+    # せっかく書いた読み方が、静かな1週間があるだけで見られなくなるのを防ぐ。
+    written = set(((load_deck_notes() or {}).get("decks") or {}))
+    shown_decks = decks[:24]
+    seen_names = {d["deck_name"] for d in shown_decks}
+    for entry in decks[24:]:
+        if entry["deck_name"] in written and entry["deck_name"] not in seen_names:
+            shown_decks.append(entry)
+            seen_names.add(entry["deck_name"])
+
     contents, card_decks = build_contents(
-        results, decklists or {}, cards or {}, [d["deck_key"] for d in decks[:24]]
+        results, decklists or {}, cards or {}, [d["deck_key"] for d in shown_decks]
     )
 
     summary = aggregate.summary(results)
@@ -375,7 +386,7 @@ def build_data(
         "summary": summary,
         "results": rows,
         "rankings": rankings,
-        "decks": decks[:24],
+        "decks": shown_decks,
         # デッキごとの「なかみ」。中身をまだ取っていなければ空になり、
         # 画面側は「なかみを しらべる」ボタンを出さない。
         "contents": contents,
@@ -586,7 +597,8 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
    ヒーロー部分が .note を使っているので、別の名前にする。 */
 .deckNote{margin:12px 0 4px}
 .deckNote .oneline{
-  font-size:20px;font-weight:800;line-height:1.65;margin:0 0 10px;
+  /* ルビが上の行にぶつかるので、本文と同じくらい行間をあける */
+  font-size:20px;font-weight:800;line-height:1.9;margin:0 0 10px;
   padding:12px 15px;border-radius:14px;background:var(--ink);color:#fff;
 }
 .deckNote > div{border-radius:14px;padding:11px 15px;margin-bottom:9px;font-size:17px;line-height:1.95}

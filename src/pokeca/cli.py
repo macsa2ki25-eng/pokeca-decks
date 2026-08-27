@@ -1026,6 +1026,26 @@ def cmd_healthcheck(max_age_days: int) -> None:
         sys.exit(1)
 
     console.print(f"最新の開催日: {latest} ({age} 日前) / 全 {len(results)} 件")
+
+    # 公式がデッキ名を変えることがある。
+    # 実際「オーガポンバレット」は「プリズムバレット」に変わり、
+    # 書いた解説がどのデッキにも当たらなくなって、ページから静かに消えていた。
+    # エラーは出ないので、ここで気づけるようにしておく。
+    from src.pokeca.store import load_deck_notes
+
+    written = set(((load_deck_notes() or {}).get("decks") or {}))
+    known = {r.deck_name for r in results if r.deck_name}
+    orphans = sorted(written - known)
+    if orphans:
+        console.print(
+            f"[yellow]解説を書いたのに、その名前のデッキが1件もありません: "
+            f"{', '.join(orphans)}[/yellow]"
+        )
+        console.print(
+            "[dim]公式がデッキ名を変えた可能性があります。"
+            "deck_notes.yaml と reach.yaml の名前を直してください。[/dim]"
+        )
+
     if age > max_age_days:
         console.print(
             f"[red]{max_age_days} 日以上更新されていません。"
