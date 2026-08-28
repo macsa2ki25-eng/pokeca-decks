@@ -1,5 +1,5 @@
 {
- "count": 2174,
+ "count": 2175,
  "cards": {
   "10126": {
    "id": "10126",
@@ -22206,6 +22206,43 @@
    "number": "034/086",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV11B/047570_P_SHIBIBIRU.jpg",
+   "detail": true
+  },
+  "47573": {
+   "name": "ゼクロムex",
+   "set": "SV11B",
+   "number": "037/086",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV11B/047573_P_ZEKUROMUEX.jpg",
+   "id": "47573",
+   "stage": "たね",
+   "hp": 230,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "きりさく",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    },
+    {
+     "name": "ボルテージバースト",
+     "cost": [
+      "雷",
+      "雷",
+      "無"
+     ],
+     "damage": "130＋",
+     "effect": "相手がすでにとったサイドの枚数×50ダメージ追加。このポケモンにも30ダメージ。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "47579": {
