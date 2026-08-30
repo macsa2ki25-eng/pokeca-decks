@@ -1,5 +1,5 @@
 {
- "count": 2175,
+ "count": 2176,
  "cards": {
   "10126": {
    "id": "10126",
@@ -45424,6 +45424,40 @@
    "number": "059/083",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M4/050143_P_METAGUROSU.jpg",
+   "detail": true
+  },
+  "50145": {
+   "name": "ナットレイ",
+   "set": "M4",
+   "number": "061/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050145_P_NATTOREI.jpg",
+   "id": "50145",
+   "stage": "1 進化",
+   "hp": 130,
+   "type": "鋼",
+   "abilities": [
+    {
+     "name": "どっきりおとし",
+     "cost": [],
+     "damage": "",
+     "effect": "相手の番に、このカードが相手のワザ・特性・グッズ・サポートの効果で山札からトラッシュされたとき、相手の山札を上から8枚トラッシュする。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "スペシャルウィップ",
+     "cost": [
+      "鋼",
+      "鋼"
+     ],
+     "damage": "70＋",
+     "effect": "このポケモンに特殊エネルギーがついているなら、70ダメージ追加。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 3,
    "detail": true
   },
   "50152": {
