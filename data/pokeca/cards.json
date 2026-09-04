@@ -1,5 +1,5 @@
 {
- "count": 2179,
+ "count": 2188,
  "cards": {
   "10126": {
    "id": "10126",
@@ -29691,6 +29691,32 @@
    "image": "/assets/images/card_images/large/M2a/048603_P_MASHIMASHIRA.jpg",
    "detail": true
   },
+  "48604": {
+   "name": "ロケット団のディグダ",
+   "set": "M2a",
+   "number": "082/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/048604_P_ROKETTODANNODEIGUDA.jpg",
+   "id": "48604",
+   "stage": "たね",
+   "hp": 60,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "もぐりまくる",
+     "cost": [
+      "闘"
+     ],
+     "damage": "",
+     "effect": "ウラが出るまでコインを投げ、オモテの数ぶん、相手の山札を上からトラッシュする。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "48608": {
    "id": "48608",
    "name": "ルナトーン",
@@ -40558,6 +40584,43 @@
    "image": "/assets/images/card_images/large/M3/049664_P_KUCHITO.jpg",
    "detail": true
   },
+  "49673": {
+   "name": "ランドロス",
+   "set": "M3",
+   "number": "040/080",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M3/049673_P_RANDOROSU.jpg",
+   "id": "49673",
+   "stage": "たね",
+   "hp": 120,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "がんせきおとし",
+     "cost": [
+      "闘",
+      "闘"
+     ],
+     "damage": "50",
+     "effect": "このワザのダメージは抵抗力を計算しない。"
+    },
+    {
+     "name": "スクリューナックル",
+     "cost": [
+      "闘",
+      "闘",
+      "無"
+     ],
+     "damage": "120",
+     "effect": "このポケモンについているエネルギーを1個選び、手札にもどす。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "49674": {
    "id": "49674",
    "name": "カメテテ",
@@ -44826,6 +44889,42 @@
    "image": "/assets/images/card_images/large/M4/050093_P_KIXYUUKON.jpg",
    "detail": true
   },
+  "50094": {
+   "name": "ホウオウ",
+   "set": "M4",
+   "number": "010/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050094_P_HOUOU.jpg",
+   "id": "50094",
+   "stage": "たね",
+   "hp": 130,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "さいきのほのお",
+     "cost": [
+      "炎"
+     ],
+     "damage": "",
+     "effect": "自分のトラッシュからたねポケモンを3枚まで選び、ベンチに出す。"
+    },
+    {
+     "name": "ぐれんのつばさ",
+     "cost": [
+      "炎",
+      "炎",
+      "炎"
+     ],
+     "damage": "130",
+     "effect": "このポケモンについている炎エネルギーを1個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "50095": {
    "id": "50095",
    "name": "フォッコ",
@@ -45989,6 +46088,42 @@
    "image": "/assets/images/card_images/large/M5/050225_P_YABASOCHIXYA.jpg",
    "detail": true
   },
+  "50227": {
+   "name": "ヤクデ",
+   "set": "M5",
+   "number": "008/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050227_P_YAKUDE.jpg",
+   "id": "50227",
+   "stage": "たね",
+   "hp": 80,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "のやき",
+     "cost": [
+      "炎"
+     ],
+     "damage": "",
+     "effect": "相手の山札を上から1枚トラッシュする。"
+    },
+    {
+     "name": "バグパニック",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "50×",
+     "effect": "自分の山札を下から7枚オモテにして、その中にある、ワザ「バグパニック」を持つポケモンの枚数×50ダメージ。オモテにしたポケモンは山札にもどして切る。残りのカードはトラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "50229": {
    "id": "50229",
    "name": "カルボウ",
@@ -46039,6 +46174,33 @@
    "number": "011/081",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M5/050230_P_GURENARUMA.jpg",
+   "detail": true
+  },
+  "50231": {
+   "name": "トサキント",
+   "set": "M5",
+   "number": "012/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050231_P_TOSAKINTO.jpg",
+   "id": "50231",
+   "stage": "たね",
+   "hp": 70,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "つきさす",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50233": {
@@ -47227,6 +47389,74 @@
    "image": "/assets/images/card_images/large/M5/050300_E_SHIXYADOAKUENERUGI.jpg",
    "detail": true
   },
+  "50340": {
+   "name": "アメタマ",
+   "set": "M6",
+   "number": "002/076",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6/050340_P_AMETAMA.jpg",
+   "id": "50340",
+   "stage": "たね",
+   "hp": 50,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ふえる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札から「アメタマ」を2枚まで選び、ベンチに出す。そして山札を切る。"
+    },
+    {
+     "name": "むしくい",
+     "cost": [
+      "草"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50341": {
+   "name": "アメモース",
+   "set": "M6",
+   "number": "003/076",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6/050341_P_AMEMOSU.jpg",
+   "id": "50341",
+   "stage": "1 進化",
+   "hp": 110,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "こわいもよう",
+     "cost": [
+      "無"
+     ],
+     "damage": "30",
+     "effect": "次の相手の番、このワザを受けたポケモンは、ワザが使えない。"
+    },
+    {
+     "name": "バグパニック",
+     "cost": [
+      "草"
+     ],
+     "damage": "50×",
+     "effect": "自分の山札を下から7枚オモテにして、その中にある、ワザ「バグパニック」を持つポケモンの枚数×50ダメージ。オモテにしたポケモンは山札にもどして切る。残りのカードはトラッシュする。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50342": {
    "id": "50342",
    "name": "サボネア",
@@ -47285,6 +47515,42 @@
    "number": "005/076",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M6/050343_P_NOKUTASU.jpg",
+   "detail": true
+  },
+  "50344": {
+   "name": "ミツハニー",
+   "set": "M6",
+   "number": "006/076",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6/050344_P_MITSUHANI.jpg",
+   "id": "50344",
+   "stage": "たね",
+   "hp": 50,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ぱっときえる",
+     "cost": [
+      "草"
+     ],
+     "damage": "10",
+     "effect": "このポケモンと、ついているすべてのカードを、手札にもどす。"
+    },
+    {
+     "name": "バグパニック",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "50×",
+     "effect": "自分の山札を下から7枚オモテにして、その中にある、ワザ「バグパニック」を持つポケモンの枚数×50ダメージ。オモテにしたポケモンは山札にもどして切る。残りのカードはトラッシュする。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50346": {
@@ -47578,6 +47844,42 @@
    "number": "039/076",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M6/050377_P_GURADON.jpg",
+   "detail": true
+  },
+  "50382": {
+   "name": "イトマル",
+   "set": "M6",
+   "number": "044/076",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6/050382_P_ITOMARU.jpg",
+   "id": "50382",
+   "stage": "たね",
+   "hp": 60,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "どくばり",
+     "cost": [
+      "悪"
+     ],
+     "damage": "",
+     "effect": "相手のバトルポケモンをどくにする。"
+    },
+    {
+     "name": "バグパニック",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "50×",
+     "effect": "自分の山札を下から7枚オモテにして、その中にある、ワザ「バグパニック」を持つポケモンの枚数×50ダメージ。オモテにしたポケモンは山札にもどして切る。残りのカードはトラッシュする。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50385": {
