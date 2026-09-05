@@ -54,7 +54,16 @@ class Post:
 
 
 class NoRouteAvailable(RuntimeError):
-    """どの経路でも記事を取得できなかった。"""
+    """どの経路でも記事を取得できなかった。
+
+    ``unreachable`` が True なら、原因は「サイトにつながらなかった」だけ。
+    読み取り方が壊れたわけではないので、呼び出し側はその日を
+    見送るだけにできる。
+    """
+
+    def __init__(self, message: str, *, unreachable: bool = False) -> None:
+        super().__init__(message)
+        self.unreachable = unreachable
 
 
 def _parse_date(value: str) -> date:
@@ -230,16 +239,24 @@ def fetch_posts(
     )
 
     problems: list[str] = []
+    # 全部が「つながらない」で終わったのかどうかを覚えておく。
+    # 1つでも別の理由 (0件・HTTPエラー) があれば、読み取り方の問題を疑う
+    only_unreachable = True
     for name, fetch in routes:
         try:
             posts = fetch()
+        except http.Unreachable as exc:
+            problems.append(f"{name}: {exc}")
+            continue
         except Exception as exc:
             problems.append(f"{name}: {exc}")
+            only_unreachable = False
             continue
         if posts:
             if log:
                 log(f"  経路: {name} ({len(posts)} 記事)")
             return posts
         problems.append(f"{name}: 0件")
+        only_unreachable = False
 
-    raise NoRouteAvailable(" / ".join(problems))
+    raise NoRouteAvailable(" / ".join(problems), unreachable=only_unreachable)

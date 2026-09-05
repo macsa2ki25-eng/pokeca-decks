@@ -794,3 +794,64 @@ def test_deck_image_url_is_empty_without_a_code():
 def test_every_record_with_a_code_gets_an_image(records):
     """シティリーグはデッキ名が無くても、画像は全件付く。"""
     assert all(r.deck_image_url for r in records)
+
+
+# ------------------------------------------------------------------
+# つながらない日と、壊れた日を分ける
+# ------------------------------------------------------------------
+
+
+def test_つながらないときは数回やり直す(monkeypatch):
+    """相手のサーバーが一時的に重いだけのことが多いので、少し粘る。"""
+    import requests
+
+    from src.pokeca import http
+
+    calls = {"n": 0}
+
+    def flaky(url, **kwargs):
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise requests.ConnectionError("timed out")
+
+        class Response:
+            status_code = 200
+            text = "ok"
+
+            def raise_for_status(self):
+                pass
+
+        return Response()
+
+    monkeypatch.setattr(http.requests, "get", flaky)
+    monkeypatch.setattr(http.time, "sleep", lambda *_: None)
+    monkeypatch.setattr(http, "can_fetch", lambda url: True)
+
+    assert http.get("https://example.test/a").text == "ok"
+    assert calls["n"] == 3
+
+
+def test_何度やってもつながらなければ専用の例外(monkeypatch):
+    import requests
+
+    from src.pokeca import http
+
+    def always_down(url, **kwargs):
+        raise requests.ConnectTimeout("nope")
+
+    monkeypatch.setattr(http.requests, "get", always_down)
+    monkeypatch.setattr(http.time, "sleep", lambda *_: None)
+    monkeypatch.setattr(http, "can_fetch", lambda url: True)
+
+    with pytest.raises(http.Unreachable):
+        http.get("https://example.test/a")
+
+
+def test_つながらないだけの日は失敗あつかいにしない():
+    """毎回赤くすると、本当に壊れた日の合図が埋もれる。"""
+    from src.pokeca.cli import _is_unreachable
+    from src.pokeca.sources import wp
+
+    assert _is_unreachable(wp.NoRouteAvailable("timeout", unreachable=True))
+    assert not _is_unreachable(wp.NoRouteAvailable("0件"))
+    assert not _is_unreachable(ValueError("読み取り方が変わった"))

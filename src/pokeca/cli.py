@@ -64,6 +64,22 @@ def _load_source(name: str):
 SOURCE_NAMES = ("pokecabook", "deckindex")
 
 
+def _is_unreachable(exc: Exception) -> bool:
+    """「サイトにつながらなかっただけ」かどうか。
+
+    読み取り方が壊れたのと同じ扱いにすると、相手のサーバーが重かった日まで
+    毎回赤くなる。そうなると本当に壊れた日の合図が埋もれる。
+    """
+    from src.pokeca import http
+    from src.pokeca.sources import wp
+
+    if isinstance(exc, http.Unreachable):
+        return True
+    if isinstance(exc, wp.NoRouteAvailable):
+        return getattr(exc, "unreachable", False)
+    return False
+
+
 @click.group()
 def main() -> None:
     """ポケカ シティリーグ 優勝デッキまとめ"""
@@ -106,6 +122,7 @@ def cmd_collect(
     targets = SOURCE_NAMES if source == "all" else (source,)
     collected: list[DeckResult] = []
     failures: list[str] = []
+    unreachable: list[str] = []
 
     for name in targets:
         module = _load_source(name)
@@ -121,7 +138,11 @@ def cmd_collect(
             found = module.collect(**kwargs)
         except Exception as exc:  # 片方が落ちても、もう片方は生かす
             failures.append(f"{name}: {exc}")
-            console.print(f"  [red]失敗[/red]: {exc}")
+            if _is_unreachable(exc):
+                unreachable.append(name)
+                console.print(f"  [yellow]つながりません[/yellow]: {exc}")
+            else:
+                console.print(f"  [red]失敗[/red]: {exc}")
             continue
         stamp = now_jst().isoformat(timespec="seconds")
         for record in found:
@@ -131,6 +152,18 @@ def cmd_collect(
 
     if not collected:
         console.print("[yellow]新しく取れたデータがありません。[/yellow]")
+        if failures and len(unreachable) == len(targets):
+            # 全部が「つながらない」だった日。相手のサーバーの都合なので、
+            # ここで失敗にすると毎回赤くなり、本当に壊れた日に気づけなくなる。
+            # 記事は消えないので、次に動いたときにまとめて取れる。
+            console.print(
+                "[yellow]今日は収集元につながりませんでした。"
+                "読み取り方の問題ではないので、次の実行にまわします。[/yellow]"
+            )
+            console.print(
+                "[dim]データが古いままなら healthcheck が知らせます。[/dim]"
+            )
+            return
         if failures:
             console.print("[red]エラー:[/red] " + " / ".join(failures))
             sys.exit(1)

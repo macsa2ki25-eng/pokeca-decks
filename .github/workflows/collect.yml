@@ -70,6 +70,11 @@ jobs:
       - name: Run tests
         run: python -m pytest tests/ -q
 
+      # 収集元につながらない日がある (数日に1回、接続がタイムアウトする)。
+      # その日は collect が正常終了して見送るので、ここは赤くならない。
+      # ページの作り直しと公開はそのまま進む。
+      # 読み取り方が壊れた場合だけ、ここで止まって下の probe が走る。
+      # データが古いままになったら、最後の Healthcheck が Issue で知らせる。
       - name: Collect results
         run: |
           batch="${{ inputs.deck_batch }}"

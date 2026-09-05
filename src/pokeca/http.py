@@ -5,7 +5,8 @@
 - robots.txt を必ず確認し、禁止されているパスは取りに行かない
 - 同一ホストへの連続アクセスは既定 1.5 秒あける
 - User-Agent に用途と連絡先を明示する
-- 失敗しても諦める (リトライは控えめに)
+- つながらないときだけ、間をあけて数回やり直す
+  (相手が落ちているのか、こちらの読み方が壊れたのかを区別するため)
 """
 
 from __future__ import annotations
@@ -29,9 +30,24 @@ _robots_cache: dict[str, RobotFileParser | None] = {}
 DEFAULT_DELAY = 1.5
 DEFAULT_TIMEOUT = 20
 
+# つながらないときのやり直し。相手のサーバーが一時的に重いだけのことが多い。
+# 毎日動かしていると数日に1回はここに落ちるので、少しだけ粘る。
+RETRIES = 3
+RETRY_WAIT = 4.0
+
 
 class FetchBlocked(RuntimeError):
     """robots.txt により取得が禁止されている。"""
+
+
+class Unreachable(RuntimeError):
+    """何度やってもつながらなかった。
+
+    「サイトが落ちている / 弾かれている」と
+    「こちらの読み取り方が壊れている」は、まったく別の問題。
+    前者で毎回赤くすると、本当に壊れた日の合図が埋もれてしまうので、
+    呼び出し側が区別できるように専用の例外にしておく。
+    """
 
 
 def _robots_for(url: str) -> RobotFileParser | None:
@@ -80,15 +96,27 @@ def get(
     """GET する。robots.txt で禁止なら FetchBlocked を投げる。"""
     if respect_robots and not can_fetch(url):
         raise FetchBlocked(f"robots.txt により取得が許可されていません: {url}")
-    _throttle(url, delay)
-    response = requests.get(
-        url,
-        params=params,
-        headers={"User-Agent": USER_AGENT, "Accept-Language": "ja,en;q=0.8"},
-        timeout=timeout,
-    )
-    response.raise_for_status()
-    return response
+
+    last: Exception | None = None
+    for attempt in range(RETRIES):
+        _throttle(url, delay)
+        try:
+            response = requests.get(
+                url,
+                params=params,
+                headers={"User-Agent": USER_AGENT, "Accept-Language": "ja,en;q=0.8"},
+                timeout=timeout,
+            )
+        except (requests.ConnectionError, requests.Timeout) as exc:
+            # つながらなかっただけ。少し待ってやり直す
+            last = exc
+            if attempt < RETRIES - 1:
+                time.sleep(RETRY_WAIT * (attempt + 1))
+            continue
+        response.raise_for_status()
+        return response
+
+    raise Unreachable(f"{url} につながりません ({RETRIES}回試行): {last}")
 
 
 def get_json(url: str, **kwargs) -> object:
