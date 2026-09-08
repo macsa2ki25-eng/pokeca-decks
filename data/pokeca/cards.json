@@ -1,5 +1,5 @@
 {
- "count": 2188,
+ "count": 2190,
  "cards": {
   "10126": {
    "id": "10126",
@@ -45549,6 +45549,32 @@
    "image": "/assets/images/card_images/large/M4/050127_P_USOKKI.jpg",
    "detail": true
   },
+  "50140": {
+   "name": "クズモー",
+   "set": "M4",
+   "number": "056/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050140_P_KUZUMO.jpg",
+   "id": "50140",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっかける",
+     "cost": [
+      "無"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50141": {
    "id": "50141",
    "name": "ダンバル",
@@ -45653,6 +45679,42 @@
    "weakness": "炎×2",
    "resistance": "草－30",
    "retreat": 3,
+   "detail": true
+  },
+  "50147": {
+   "name": "メガドラミドロex",
+   "set": "M4",
+   "number": "063/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050147_P_MDORAMIDOROEX.jpg",
+   "id": "50147",
+   "stage": "1 進化",
+   "hp": 330,
+   "type": "竜",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ふしょくえき",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモン全員についている「ポケモンのどうぐ」と「特殊エネルギー」を、すべてトラッシュする。"
+    },
+    {
+     "name": "デッドリーポイズン",
+     "cost": [
+      "水",
+      "悪"
+     ],
+     "damage": "",
+     "effect": "相手のバトルポケモンをどくにする。このどくでのせるダメカンの数は16個になる。"
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "50152": {
