@@ -650,7 +650,9 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
   flex:0 0 auto;font-size:12px;font-weight:800;color:var(--muted);
   border:2px solid var(--line);border-radius:8px;padding:1px 6px;margin-left:6px;
 }
-.usedby .why{font-size:13px;color:var(--muted);margin-bottom:6px}
+.usedby .why{font-size:15px;color:var(--muted);margin:12px 0 6px}
+.usedby .why b{font-size:17px;color:var(--ink)}
+.usedby .why:first-child{margin-top:0}
 /* じぶんのデッキをしらべる計算機 */
 .calc{
   background:var(--card);border:3px solid var(--line);border-radius:16px;
@@ -849,14 +851,14 @@ function usedByHtml(name){
   var items = d.top.map(function(pair){
     // pair = [デッキ名, このカードを入れていた件数, そのデッキの全件数]
     var pct = pair[2] ? Math.round(pair[1] / pair[2] * 100) + "%" : "";
-    return "<li>" + esc(pair[0]) + "　" + pair[1] + "こ" +
+    return "<li>" + esc(pair[0]) + "　" + pair[1] + "個" +
       (pct ? '<span style="color:var(--muted)">　' + pct + "</span>" : "") + "</li>";
   }).join("");
+  // 何デッキで使われているか・平均何枚か は、上のカードの行に出ているので出さない
   var txt = d.txt ? '<div class="cardtext">' + esc(d.txt) + "</div>" : "";
-  return '<div class="usedby" data-used="' + esc(name) + '">' +
-    '<b>' + esc(name) + '</b> を つかって かった デッキは ' + d.decks + 'こ<br>' +
-    'たいてい ' + d.avg + 'まい いれる' + txt +
-    '<div class="why">どのデッキが つかっているか</div>' +
+  rubyReset();
+  return '<div class="usedby" data-used="' + esc(name) + '">' + txt +
+    '<div class="why"><b>' + esc(name) + "</b> " + rt("がよく入っているデッキ") + "</div>" +
     '<ul>' + items + '</ul>' +
     recipeListHtml(name) + '</div>';
 }
@@ -905,14 +907,14 @@ function recipeListHtml(name){
   if (!hits.length) return "";
   rubyReset();
   var out = ['<div class="why" style="margin-top:12px">' +
-    rt("このカードを つかって かった デッキ") + "</div>", '<div class="recipes">'];
+    rt("このカードが入っているデッキ") + "</div>", '<div class="recipes">'];
   for (var i=0; i<Math.min(hits.length, RECIPE_MAX); i++){
     var h = hits[i];
     // 一覧に出しているデッキと同じ形で並べる。写真がそのままレシピになっている
     out.push(cardHtml(h.meta, h.copies + "まい"));
   }
   if (hits.length > RECIPE_MAX){
-    out.push('<div class="cmeta">ほかにも ' + (hits.length - RECIPE_MAX) + "こ あるよ</div>");
+    out.push('<div class="cmeta">ほかにも ' + (hits.length - RECIPE_MAX) + "個 あるよ</div>");
   }
   out.push("</div>");
   return out.join("");
@@ -951,8 +953,8 @@ function searchRowHtml(name, viaText){
     ? '<img class="thumb" src="' + esc(DATA.cardBase + d.img) + '" alt="" ' +
       'loading="lazy" decoding="async" onerror="thumbFail(this)">'
     : '<span class="thumb"></span>';
-  var meta = d.decks + "この デッキで つかわれている";
-  if (viaText) meta = "カードの文に ありました　/　" + meta;
+  var meta = d.decks + "個のデッキで使われている";
+  if (viaText) meta = "カードの文にありました　/　" + meta;
   return '<button class="cardline" data-card="' + esc(name) + '">' + thumb +
     '<div class="cbody"><div class="cname">' + esc(name) +
     (d.sec ? '<span class="sec">' + esc(d.sec) + "</span>" : "") + "</div>" +
@@ -970,7 +972,7 @@ function searchOutHtml(){
       'ひらがなや かたかなを かえて みてね</div>';
   } else {
     out.push('<div class="hitcount">' + hit.rows.length +
-      (hit.rows.length >= SEARCH_MAX ? "こ以上" : "こ") + " 見つかったよ</div>");
+      (hit.rows.length >= SEARCH_MAX ? "個以上" : "個") + " 見つかったよ</div>");
   }
   for (var i=0; i<hit.rows.length; i++){
     out.push(searchRowHtml(hit.rows[i], hit.byText[hit.rows[i]]));
