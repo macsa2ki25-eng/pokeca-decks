@@ -170,3 +170,38 @@ def test_page_embeds_the_contents_when_they_exist():
     html = site.build_html(build())
     assert "かならず入っている" in html
     assert "ドラメシヤ" in html
+
+
+# ------------------------------------------------------------------
+# じっさいのデッキと、その60枚
+# ------------------------------------------------------------------
+
+
+def test_カードが入っていた実物のデッキを持つ():
+    """どの型に多いかだけでは、他に何が入っているのかが分からない。"""
+    data = build()
+    assert data["recipes"], "実物のデッキが1つも入っていない"
+    code = next(iter(data["recipes"]))
+    assert data["recipeMeta"][code]["n"]           # デッキ名
+    assert data["recipeMeta"][code]["d"]           # 開催日
+    assert data["recipeMeta"][code]["u"]           # 本物のレシピへのリンク
+
+
+def test_中身はカード名の番号で持つ():
+    """同じ名前が何千回も出てくるので、そのまま入れるとページが重くなる。"""
+    data = build()
+    code = next(iter(data["recipes"]))
+    for number, copies in data["recipes"][code]:
+        assert isinstance(number, int)
+        assert 0 <= number < len(data["recipeCards"])
+        assert copies > 0
+
+
+def test_デッキ名ごとに数をそろえて拾う():
+    """全体の新しい順で拾うと、流行っている型だけで埋まって、
+    数の少ない型を調べたときに実例が1つも出てこなくなる。"""
+    from collections import Counter
+
+    data = build()
+    per_name = Counter(m["n"] for m in data["recipeMeta"].values())
+    assert max(per_name.values()) <= site.RECIPES_PER_DECK

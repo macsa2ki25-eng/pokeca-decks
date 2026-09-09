@@ -283,6 +283,95 @@ def _card_facts(
     return out
 
 
+# 中身を載せるデッキの数。デッキ名ごとに新しいほうからこの数だけ。
+# 全部 (4600件) 載せるとページが1MB増えるので、
+# 「どの型にも実例がある」ことを保ちつつ、この数で打ち切る。
+RECIPES_PER_DECK = 15
+
+# 60枚を並べる順番。実物のレシピと同じ並びにする
+SECTION_ORDER = (
+    "ポケモン",
+    "ポケモンのどうぐ",
+    "グッズ",
+    "サポート",
+    "スタジアム",
+    "エネルギー",
+)
+
+
+def build_recipes(
+    results: list[DeckResult],
+    decklists: dict[str, dict],
+    cards: dict[str, dict],
+    per_deck: int = RECIPES_PER_DECK,
+) -> tuple[list[str], dict, dict]:
+    """「このカードが入っていたデッキ」を実物で見せるための材料。
+
+    カード名を番号に置き換えて持つ。同じ名前が何千回も出てくるので、
+    そのまま入れるとページが1MB増えてしまう。
+
+    Returns:
+        (カード名の一覧, {デッキコード: [[番号, 枚数], ...]}, {デッキコード: 見出し})
+    """
+    if not decklists or not cards:
+        return [], {}, {}
+
+    name_of = {card_id: card.get("name") for card_id, card in cards.items()}
+
+    rows = [
+        r
+        for r in results
+        if r.deck_name and r.deck_code and r.deck_code in decklists
+    ]
+    rows.sort(key=lambda r: (r.date, r.rank), reverse=True)
+
+    # デッキ名ごとに新しいほうから拾う。
+    # 全体の新しい順にすると、流行っている型だけで埋まってしまい、
+    # 数の少ない型を調べたときに実例が1つも出てこなくなる。
+    taken: Counter = Counter()
+    picked: dict[str, DeckResult] = {}
+    for record in rows:
+        if record.deck_code in picked:
+            continue
+        if taken[record.deck_name] >= per_deck:
+            continue
+        taken[record.deck_name] += 1
+        picked[record.deck_code] = record
+
+    names: list[str] = []
+    number: dict[str, int] = {}
+
+    recipes: dict[str, list] = {}
+    meta: dict[str, dict] = {}
+    for code, record in picked.items():
+        entry = decklists[code]
+        items = entry if isinstance(entry, list) else entry.get("cards", [])
+        counts: Counter = Counter()
+        for item in items:
+            card_id, copies = (
+                (item.get("id"), item.get("count")) if isinstance(item, dict) else item
+            )
+            name = name_of.get(str(card_id))
+            if name:
+                counts[name] += copies
+        if not counts:
+            continue
+        packed = []
+        for name, copies in counts.items():
+            if name not in number:
+                number[name] = len(names)
+                names.append(name)
+            packed.append([number[name], copies])
+        recipes[code] = packed
+        meta[code] = {
+            "d": record.date,
+            "n": record.deck_name,
+            "r": record.rank,
+            "u": record.deck_code_url or record.source_url,
+        }
+    return names, recipes, meta
+
+
 def build_data(
     results: list[DeckResult],
     *,
@@ -360,6 +449,9 @@ def build_data(
     contents, card_decks = build_contents(
         results, decklists or {}, cards or {}, [d["deck_key"] for d in shown_decks]
     )
+    recipe_names, recipes, recipe_meta = build_recipes(
+        results, decklists or {}, cards or {}
+    )
 
     summary = aggregate.summary(results)
     latest = summary.get("latest_date") or ""
@@ -391,6 +483,11 @@ def build_data(
         # 画面側は「なかみを しらべる」ボタンを出さない。
         "contents": contents,
         "cardDecks": card_decks,
+        # 「このカードが入っていたデッキ」を実物で見せる材料。
+        # カード名は recipeCards の番号で持つ (そのまま入れると重い)
+        "recipeCards": recipe_names,
+        "recipes": recipes,
+        "recipeMeta": recipe_meta,
         "cardBase": CARD_IMAGE_BASE,
         # 読みにくい漢字にだけルビを振る。全部ひらがなにすると中身が薄くなる。
         "ruby": load_ruby(),
@@ -445,12 +542,17 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .grid3 .seg{font-size:17px}
 .seg[aria-pressed="true"]{background:var(--gold);border-color:#E09B00}
 .seg.blue[aria-pressed="true"]{background:var(--blue);border-color:#2668D8;color:#fff}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;-webkit-overflow-scrolling:touch}
+/* 横スクロールにすると、25個あるデッキ名のうち画面に入るのは3つだけで、
+   残りは指でこすらないと出てこない。何があるのか分からないので折り返す。
+   ただし全部出すと縦に長くなりすぎるので、はじめは少しだけ出す。 */
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 10px}
 .chip{
-  flex:0 0 auto;min-height:52px;padding:0 18px;border-radius:26px;
-  border:3px solid var(--line);background:var(--card);color:var(--ink);font-size:17px;
+  flex:0 0 auto;min-height:44px;padding:0 12px;border-radius:22px;
+  border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:15px;
+  max-width:100%;overflow-wrap:anywhere;
 }
 .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.more{border-style:dashed;color:var(--muted);font-weight:800}
 .card{
   display:block;background:var(--card);border:3px solid var(--line);
   border-radius:20px;padding:14px 16px;margin-bottom:12px;
@@ -516,6 +618,29 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .odds .box.hi .pc{color:var(--blue)}
 .odds .how{font-size:14px;line-height:1.9;margin:0;padding-left:1.1em}
 .odds .how li{word-break:keep-all;overflow-wrap:anywhere}
+/* ---- じっさいのデッキと、その60枚 ---- */
+.recipes{margin-top:10px}
+.reciperow{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+  background:#fff;border:2px solid var(--line);border-radius:12px;
+  padding:8px 11px;margin-bottom:6px;font-family:inherit;color:inherit;font-size:15px;
+}
+.reciperow[aria-expanded="true"]{border-color:var(--blue);background:#F4F8FF}
+.reciperow .when{flex:0 0 auto;color:var(--muted);font-size:13px}
+.reciperow .who{flex:1 1 auto;min-width:0;font-weight:800;overflow-wrap:anywhere}
+.reciperow .howmany{flex:0 0 auto;font-weight:800;color:var(--blue)}
+.deck60{
+  background:#FBF6EE;border:2px solid var(--line);border-radius:12px;
+  padding:10px 12px;margin:-2px 0 8px;font-size:15px;line-height:1.85;
+}
+.deck60 .part{font-weight:800;margin:8px 0 2px;font-size:14px;color:var(--muted)}
+.deck60 .part:first-child{margin-top:0}
+.deck60 .row{display:flex;gap:8px}
+.deck60 .row .nm{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.deck60 .row .ct{flex:0 0 auto;color:var(--muted)}
+.deck60 .row.hit .nm{font-weight:800;color:var(--blue)}
+.deck60 .row.hit .ct{color:var(--blue);font-weight:800}
+.deck60 a{display:inline-block;margin-top:8px;color:var(--blue);font-weight:800}
 /* ---- カードでさがす ---- */
 .search{
   background:var(--card);border:3px solid var(--line);border-radius:16px;
@@ -631,7 +756,7 @@ footer a{color:var(--muted)}
 
 SCRIPT = """
 var DATA = __DATA__;
-var state = { rank: "all", view: "new", deck: "all", period: "7d", event: "all", q: "" };
+var state = { rank: "all", view: "new", deck: "all", period: "7d", event: "all", q: "", allDecks: false };
 
 function el(id){ return document.getElementById(id); }
 
@@ -737,7 +862,108 @@ function usedByHtml(name){
     '<b>' + esc(name) + '</b> を つかって かった デッキは ' + d.decks + 'こ<br>' +
     'たいてい ' + d.avg + 'まい いれる' + txt +
     '<div class="why">どのデッキが つかっているか</div>' +
-    '<ul>' + items + '</ul></div>';
+    '<ul>' + items + '</ul>' +
+    recipeListHtml(name) + '</div>';
+}
+
+/* ---- じっさいのデッキと、その60枚 ----
+   「どのデッキで多く使われているか」だけでは、実物が見えない。
+   本当に知りたいのは「そのデッキに他に何が入っているか」なので、
+   実際に勝った60枚をそのまま開けるようにする。 */
+var RECIPE_MAX = 12;
+
+// カード名 → recipeCards の番号
+var recipeNo = null;
+function recipeNumber(name){
+  if (recipeNo === null){
+    recipeNo = {};
+    var list = DATA.recipeCards || [];
+    for (var i=0; i<list.length; i++) recipeNo[list[i]] = i;
+  }
+  return recipeNo[name];
+}
+
+// そのカードが入っている実物のデッキを、新しい順に集める
+function decksWithCard(name){
+  var no = recipeNumber(name);
+  if (no === undefined) return [];
+  var recipes = DATA.recipes || {}, meta = DATA.recipeMeta || {};
+  var out = [];
+  for (var code in recipes){
+    var deck = recipes[code], copies = 0;
+    for (var i=0; i<deck.length; i++){
+      if (deck[i][0] === no){ copies = deck[i][1]; break; }
+    }
+    if (!copies) continue;
+    var m = meta[code] || {};
+    out.push({code: code, copies: copies, date: m.d || "", deck: m.n || "", rank: m.r, url: m.u});
+  }
+  out.sort(function(a, b){ return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
+  return out;
+}
+
+function shortDate(iso){
+  var m = /^\d{4}-(\d{2})-(\d{2})$/.exec(iso || "");
+  return m ? (+m[1]) + "/" + (+m[2]) : "";
+}
+
+function recipeListHtml(name){
+  var hits = decksWithCard(name);
+  if (!hits.length) return "";
+  rubyReset();
+  var out = ['<div class="why" style="margin-top:12px">' +
+    rt("じっさいに かったデッキの中身を見る") + "</div>", '<div class="recipes">'];
+  for (var i=0; i<Math.min(hits.length, RECIPE_MAX); i++){
+    var h = hits[i];
+    out.push('<button class="reciperow" data-deck="' + esc(h.code) + '" ' +
+      'data-hit="' + esc(name) + '" aria-expanded="false">' +
+      '<span class="when">' + shortDate(h.date) + "</span>" +
+      '<span class="who">' + esc(h.deck) + "</span>" +
+      '<span class="howmany">' + h.copies + "まい</span></button>");
+  }
+  if (hits.length > RECIPE_MAX){
+    out.push('<div class="cmeta">ほかにも ' + (hits.length - RECIPE_MAX) + "こ あるよ</div>");
+  }
+  out.push("</div>");
+  return out.join("");
+}
+
+function deck60Html(code, hit){
+  var deck = (DATA.recipes || {})[code];
+  if (!deck) return "";
+  var meta = (DATA.recipeMeta || {})[code] || {};
+  var order = ["ポケモン", "ポケモンのどうぐ", "グッズ", "サポート", "スタジアム", "エネルギー"];
+  var groups = {}, total = 0;
+  for (var i=0; i<deck.length; i++){
+    var nm = (DATA.recipeCards || [])[deck[i][0]];
+    var info = (DATA.cardDecks || {})[nm] || {};
+    var sec = info.sec || "そのほか";
+    (groups[sec] = groups[sec] || []).push([nm, deck[i][1]]);
+    total += deck[i][1];
+  }
+  var keys = order.filter(function(k){ return groups[k]; });
+  for (var k in groups){ if (keys.indexOf(k) < 0) keys.push(k); }
+
+  var out = ['<div class="deck60" data-of="' + esc(code) + '">'];
+  for (var g=0; g<keys.length; g++){
+    var rows = groups[keys[g]];
+    rows.sort(function(a, b){ return b[1] - a[1] || (a[0] < b[0] ? -1 : 1); });
+    var n = 0;
+    for (var r=0; r<rows.length; r++) n += rows[r][1];
+    out.push('<div class="part">' + esc(keys[g]) + "　" + n + "まい</div>");
+    for (var r2=0; r2<rows.length; r2++){
+      out.push('<div class="row' + (rows[r2][0] === hit ? " hit" : "") + '">' +
+        '<span class="nm">' + esc(rows[r2][0]) + "</span>" +
+        '<span class="ct">' + rows[r2][1] + "</span></div>");
+    }
+  }
+  out.push('<div class="part">ぜんぶで ' + total + "まい</div>");
+  if (meta.u){
+    out.push('<a href="' + esc(meta.u) + '" target="_blank" rel="noopener">' +
+      "本物のレシピを見る →</a>");
+  }
+  out.push("</div>");
+  return out.join("");
 }
 
 /* ---- カードでさがす ----
@@ -1011,6 +1237,45 @@ function insideHtml(){
   return out.join("");
 }
 
+// はじめに出すデッキの数。多すぎると、下のリストが画面から押し出される
+var DECK_CHIPS_FIRST = 6;
+
+function drawDeckChips(){
+  var all = DATA.decks || [];
+  var show = state.allDecks ? all.length : Math.min(DECK_CHIPS_FIRST, all.length);
+  var chips = ['<button class="chip" data-value="all" aria-pressed="' +
+    (state.deck === "all") + '">ぜんぶ</button>'];
+  for (var i=0; i<show; i++){
+    var d = all[i];
+    var key = d.deckKey || d.deck_key;
+    chips.push('<button class="chip" data-value="' + esc(key) + '" aria-pressed="' +
+      (state.deck === key) + '">' + d.emoji + " " + esc(d.deck_name) + "</button>");
+  }
+  // 選んでいるデッキが、まだ出していないところにあるときは必ず出す。
+  // でないと「今どれを選んでいるか」が画面から消える
+  if (!state.allDecks && state.deck !== "all"){
+    var shown = false;
+    for (var s=0; s<show; s++){
+      if ((all[s].deckKey || all[s].deck_key) === state.deck){ shown = true; break; }
+    }
+    if (!shown){
+      for (var j=show; j<all.length; j++){
+        var e2 = all[j];
+        if ((e2.deckKey || e2.deck_key) === state.deck){
+          chips.push('<button class="chip" data-value="' + esc(state.deck) +
+            '" aria-pressed="true">' + e2.emoji + " " + esc(e2.deck_name) + "</button>");
+          break;
+        }
+      }
+    }
+  }
+  if (all.length > DECK_CHIPS_FIRST){
+    chips.push('<button class="chip more" data-more="1">' +
+      (state.allDecks ? "とじる" : "もっと見る (" + (all.length - show) + ")") + "</button>");
+  }
+  el("deckRow").innerHTML = chips.join("");
+}
+
 function render(){
   var listBox = el("list");
   var periodBox = el("periodRow");
@@ -1106,13 +1371,7 @@ function boot(){
     el("noNames").style.display = "block";
   }
 
-  var chips = ['<button class="chip" data-value="all" aria-pressed="true">ぜんぶ</button>'];
-  for (var i=0;i<DATA.decks.length;i++){
-    var d = DATA.decks[i];
-    chips.push('<button class="chip" data-value="' + esc(d.deckKey || d.deck_key) + '">' +
-      d.emoji + " " + esc(d.deck_name) + '</button>');
-  }
-  el("deckRow").innerHTML = chips.join("");
+  drawDeckChips();
 
   // 大会が2種類そろっているときだけ切り替えボタンを出す
   if ((DATA.events || []).length > 1){
@@ -1137,8 +1396,13 @@ function boot(){
     state.period = b.dataset.value; setPressed(el("periodRow"), state.period); render();
   });
   el("deckRow").addEventListener("click", function(e){
+    var more = e.target.closest("[data-more]");
+    if (more){ state.allDecks = !state.allDecks; drawDeckChips(); return; }
     var b = e.target.closest("[data-value]"); if(!b) return;
-    state.deck = b.dataset.value; setPressed(el("deckRow"), state.deck); render();
+    state.deck = b.dataset.value;
+    // 選んだデッキが「もっと見る」の中にあることもあるので、組み立て直す
+    drawDeckChips();
+    render();
   });
 
   // 入力を拾う。中身は描き直されるので、親でまとめて受ける
@@ -1152,11 +1416,28 @@ function boot(){
     if (e.target.id.indexOf("c") === 0) calcRun();
   });
 
-  // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる。
   el("list").addEventListener("click", function(e){
+    // デッキの行を押したら、その60枚を下に開く。もう一度押すと閉じる
+    var deckBtn = e.target.closest("[data-deck]");
+    if (deckBtn){
+      var next = deckBtn.nextElementSibling;
+      if (next && next.dataset.of === deckBtn.dataset.deck){
+        next.remove();
+        deckBtn.setAttribute("aria-expanded", "false");
+        return;
+      }
+      var body = deck60Html(deckBtn.dataset.deck, deckBtn.dataset.hit);
+      if (body){
+        deckBtn.insertAdjacentHTML("afterend", body);
+        deckBtn.setAttribute("aria-expanded", "true");
+      }
+      return;
+    }
+
+    // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる
     var b = e.target.closest("[data-card]"); if(!b) return;
-    var name = b.dataset.card;
     var open = b.nextElementSibling;
+    var name = b.dataset.card;
     if (open && open.dataset.used === name){ open.remove(); return; }
     var html = usedByHtml(name);
     if (html) b.insertAdjacentHTML("afterend", html);
