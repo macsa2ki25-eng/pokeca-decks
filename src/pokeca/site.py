@@ -632,31 +632,8 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .odds .box.hi .pc{color:var(--blue)}
 .odds .how{font-size:14px;line-height:1.9;margin:0;padding-left:1.1em}
 .odds .how li{word-break:keep-all;overflow-wrap:anywhere}
-/* ---- じっさいのデッキと、その60枚 ---- */
-.recipes{margin-top:10px}
 /* 何枚入れていたか。順位バッジのとなりに並べる */
 .badge.howmuch{background:var(--blue);margin-left:6px}
-/* 写真は絵なので、探しているカードがどこにあるかは分からない。
-   文字で見たいときのための、控えめなボタン */
-.moji{
-  display:block;width:100%;margin:-6px 0 12px;padding:7px 10px;
-  background:transparent;border:2px dashed var(--line);border-radius:10px;
-  color:var(--muted);font-family:inherit;font-size:14px;font-weight:800;
-}
-.moji[aria-expanded="true"]{border-color:var(--blue);color:var(--blue);border-style:solid}
-.deck60{
-  margin-top:-8px;
-  background:#FBF6EE;border:2px solid var(--line);border-radius:12px;
-  padding:10px 12px;margin:-2px 0 8px;font-size:15px;line-height:1.85;
-}
-.deck60 .part{font-weight:800;margin:8px 0 2px;font-size:14px;color:var(--muted)}
-.deck60 .part:first-child{margin-top:0}
-.deck60 .row{display:flex;gap:8px}
-.deck60 .row .nm{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
-.deck60 .row .ct{flex:0 0 auto;color:var(--muted)}
-.deck60 .row.hit .nm{font-weight:800;color:var(--blue)}
-.deck60 .row.hit .ct{color:var(--blue);font-weight:800}
-.deck60 a{display:inline-block;margin-top:8px;color:var(--blue);font-weight:800}
 /* ---- カードでさがす ---- */
 .search{
   background:var(--card);border:3px solid var(--line);border-radius:16px;
@@ -933,8 +910,6 @@ function recipeListHtml(name){
     var h = hits[i];
     // 一覧に出しているデッキと同じ形で並べる。写真がそのままレシピになっている
     out.push(cardHtml(h.meta, h.copies + "まい"));
-    out.push('<button class="moji" data-deck="' + esc(h.code) + '" ' +
-      'data-hit="' + esc(name) + '" aria-expanded="false">60枚を 文字で見る</button>');
   }
   if (hits.length > RECIPE_MAX){
     out.push('<div class="cmeta">ほかにも ' + (hits.length - RECIPE_MAX) + "こ あるよ</div>");
@@ -943,43 +918,6 @@ function recipeListHtml(name){
   return out.join("");
 }
 
-function deck60Html(code, hit){
-  var deck = (DATA.recipes || {})[code];
-  if (!deck) return "";
-  var meta = (DATA.recipeMeta || {})[code] || {};
-  var order = ["ポケモン", "ポケモンのどうぐ", "グッズ", "サポート", "スタジアム", "エネルギー"];
-  var groups = {}, total = 0;
-  for (var i=0; i<deck.length; i++){
-    var nm = (DATA.recipeCards || [])[deck[i][0]];
-    var info = (DATA.cardDecks || {})[nm] || {};
-    var sec = info.sec || "そのほか";
-    (groups[sec] = groups[sec] || []).push([nm, deck[i][1]]);
-    total += deck[i][1];
-  }
-  var keys = order.filter(function(k){ return groups[k]; });
-  for (var k in groups){ if (keys.indexOf(k) < 0) keys.push(k); }
-
-  var out = ['<div class="deck60" data-of="' + esc(code) + '">'];
-  for (var g=0; g<keys.length; g++){
-    var rows = groups[keys[g]];
-    rows.sort(function(a, b){ return b[1] - a[1] || (a[0] < b[0] ? -1 : 1); });
-    var n = 0;
-    for (var r=0; r<rows.length; r++) n += rows[r][1];
-    out.push('<div class="part">' + esc(keys[g]) + "　" + n + "まい</div>");
-    for (var r2=0; r2<rows.length; r2++){
-      out.push('<div class="row' + (rows[r2][0] === hit ? " hit" : "") + '">' +
-        '<span class="nm">' + esc(rows[r2][0]) + "</span>" +
-        '<span class="ct">' + rows[r2][1] + "</span></div>");
-    }
-  }
-  out.push('<div class="part">ぜんぶで ' + total + "まい</div>");
-  if (meta.u){
-    out.push('<a href="' + esc(meta.u) + '" target="_blank" rel="noopener">' +
-      "本物のレシピを見る →</a>");
-  }
-  out.push("</div>");
-  return out.join("");
-}
 
 /* ---- カードでさがす ----
    名前の一部でも見つかるようにする。子どもは正確な名前を打てない。
@@ -1432,23 +1370,6 @@ function boot(){
   });
 
   el("list").addEventListener("click", function(e){
-    // デッキの行を押したら、その60枚を下に開く。もう一度押すと閉じる
-    var deckBtn = e.target.closest("[data-deck]");
-    if (deckBtn){
-      var next = deckBtn.nextElementSibling;
-      if (next && next.dataset.of === deckBtn.dataset.deck){
-        next.remove();
-        deckBtn.setAttribute("aria-expanded", "false");
-        return;
-      }
-      var body = deck60Html(deckBtn.dataset.deck, deckBtn.dataset.hit);
-      if (body){
-        deckBtn.insertAdjacentHTML("afterend", body);
-        deckBtn.setAttribute("aria-expanded", "true");
-      }
-      return;
-    }
-
     // カードを押したら、そのカードを使う他のデッキを下に開く。もう一度押すと閉じる
     var b = e.target.closest("[data-card]"); if(!b) return;
     var open = b.nextElementSibling;

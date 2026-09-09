@@ -28,10 +28,19 @@ permissions:
   pages: write
   id-token: write
 
-# Pages への反映は1つずつ。収集側の反映とぶつからないようにする。
+# Pages への反映は1つずつ。
+#
+# 以前は group を "pages" にして cancel-in-progress: false にしていたが、
+# その組にした実行が 8/27 から一度も始まらないまま pending で止まり、
+# 新しい push が来るたびに前のものを cancelled にして順番待ちに入る、
+# という状態が2週間続いた (ジョブが1つも作られないまま)。
+# 結果、コードを直してもページに出るのは翌日の収集のときだけになっていた。
+#
+# 名前を変えて組を作り直す。
+# あとから来た push を優先する (最新のページさえ出れば、途中は要らない)。
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: publish-page
+  cancel-in-progress: true
 
 jobs:
   publish:
