@@ -182,9 +182,12 @@ def test_カードが入っていた実物のデッキを持つ():
     data = build()
     assert data["recipes"], "実物のデッキが1つも入っていない"
     code = next(iter(data["recipes"]))
-    assert data["recipeMeta"][code]["n"]           # デッキ名
-    assert data["recipeMeta"][code]["d"]           # 開催日
-    assert data["recipeMeta"][code]["u"]           # 本物のレシピへのリンク
+    meta = data["recipeMeta"][code]
+    assert meta["deck"]        # デッキ名
+    assert meta["dateLabel"]   # 「9がつ6にち」
+    assert meta["recipeUrl"]   # 本物のレシピへのリンク
+    # 一覧のデッキと同じ形にしておく。同じ見た目でそのまま並べたいので
+    assert set(data["results"][0]) >= set(meta)
 
 
 def test_中身はカード名の番号で持つ():
@@ -203,5 +206,5 @@ def test_デッキ名ごとに数をそろえて拾う():
     from collections import Counter
 
     data = build()
-    per_name = Counter(m["n"] for m in data["recipeMeta"].values())
+    per_name = Counter(m["deck"] for m in data["recipeMeta"].values())
     assert max(per_name.values()) <= site.RECIPES_PER_DECK

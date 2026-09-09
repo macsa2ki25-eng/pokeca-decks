@@ -303,6 +303,7 @@ def build_recipes(
     results: list[DeckResult],
     decklists: dict[str, dict],
     cards: dict[str, dict],
+    themes: dict | None = None,
     per_deck: int = RECIPES_PER_DECK,
 ) -> tuple[list[str], dict, dict]:
     """「このカードが入っていたデッキ」を実物で見せるための材料。
@@ -363,11 +364,24 @@ def build_recipes(
                 names.append(name)
             packed.append([number[name], copies])
         recipes[code] = packed
+        # 一覧に出すデッキと同じ形にしておく。
+        # そうすればカードを探したときも、いつもと同じ見た目の
+        # デッキ (レシピの写真つき) をそのまま並べられる
+        theme = _theme_for(record.deck_key, record.deck_name, themes or {})
         meta[code] = {
-            "d": record.date,
-            "n": record.deck_name,
-            "r": record.rank,
-            "u": record.deck_code_url or record.source_url,
+            "date": record.date,
+            "dateLabel": _date_label(record.date),
+            "store": record.store,
+            "prefecture": record.prefecture,
+            "league": record.league,
+            "rank": record.rank,
+            "eventLabel": record.event_label,
+            "deck": record.deck_name,
+            "deckKey": record.deck_key,
+            "recipeUrl": record.deck_code_url or record.source_url,
+            "hasCode": bool(record.deck_code),
+            "image": record.deck_image_url or record.image_url,
+            "emoji": theme["emoji"],
         }
     return names, recipes, meta
 
@@ -450,7 +464,7 @@ def build_data(
         results, decklists or {}, cards or {}, [d["deck_key"] for d in shown_decks]
     )
     recipe_names, recipes, recipe_meta = build_recipes(
-        results, decklists or {}, cards or {}
+        results, decklists or {}, cards or {}, themes
     )
 
     summary = aggregate.summary(results)
@@ -620,16 +634,18 @@ button{font-family:inherit;font-size:19px;font-weight:700;cursor:pointer}
 .odds .how li{word-break:keep-all;overflow-wrap:anywhere}
 /* ---- じっさいのデッキと、その60枚 ---- */
 .recipes{margin-top:10px}
-.reciperow{
-  display:flex;align-items:center;gap:10px;width:100%;text-align:left;
-  background:#fff;border:2px solid var(--line);border-radius:12px;
-  padding:8px 11px;margin-bottom:6px;font-family:inherit;color:inherit;font-size:15px;
+/* 何枚入れていたか。順位バッジのとなりに並べる */
+.badge.howmuch{background:var(--blue);margin-left:6px}
+/* 写真は絵なので、探しているカードがどこにあるかは分からない。
+   文字で見たいときのための、控えめなボタン */
+.moji{
+  display:block;width:100%;margin:-6px 0 12px;padding:7px 10px;
+  background:transparent;border:2px dashed var(--line);border-radius:10px;
+  color:var(--muted);font-family:inherit;font-size:14px;font-weight:800;
 }
-.reciperow[aria-expanded="true"]{border-color:var(--blue);background:#F4F8FF}
-.reciperow .when{flex:0 0 auto;color:var(--muted);font-size:13px}
-.reciperow .who{flex:1 1 auto;min-width:0;font-weight:800;overflow-wrap:anywhere}
-.reciperow .howmany{flex:0 0 auto;font-weight:800;color:var(--blue)}
+.moji[aria-expanded="true"]{border-color:var(--blue);color:var(--blue);border-style:solid}
 .deck60{
+  margin-top:-8px;
   background:#FBF6EE;border:2px solid var(--line);border-radius:12px;
   padding:10px 12px;margin:-2px 0 8px;font-size:15px;line-height:1.85;
 }
@@ -776,7 +792,7 @@ function filtered(){
   });
 }
 
-function cardHtml(r){
+function cardHtml(r, note){
   var cls = r.rank === 1 ? "r1" : "r2";
   var label = r.rank === 1 ? "優勝" : "準優勝";
   var where = [r.eventLabel, r.prefecture, r.store].filter(Boolean).join(" ");
@@ -792,8 +808,10 @@ function cardHtml(r){
       // 壊れたアイコンが並ばないようにする (カード自体はリンクとして機能する)
       'onerror="this.remove()">'
     : '';
+  // カードを探して出したときは「このデッキは何枚入れていたか」を並べて出す
+  var tag = note ? '<span class="badge howmuch">' + esc(note) + "</span>" : "";
   return '<a class="card" href="' + r.recipeUrl + '" target="_blank" rel="noopener">' +
-    '<span class="badge ' + cls + '">' + label + '</span>' +
+    '<span class="badge ' + cls + '">' + label + '</span>' + tag +
     '<div class="deck">' + title + '</div>' +
     '<div class="meta">' + esc(r.dateLabel) + "　" + esc(where) + esc(league) + '</div>' +
     shot +
@@ -896,15 +914,13 @@ function decksWithCard(name){
     }
     if (!copies) continue;
     var m = meta[code] || {};
-    out.push({code: code, copies: copies, date: m.d || "", deck: m.n || "", rank: m.r, url: m.u});
+    out.push({code: code, copies: copies, meta: m});
   }
-  out.sort(function(a, b){ return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
+  out.sort(function(a, b){
+    var x = a.meta.date || "", y = b.meta.date || "";
+    return x < y ? 1 : (x > y ? -1 : 0);
+  });
   return out;
-}
-
-function shortDate(iso){
-  var m = /^\d{4}-(\d{2})-(\d{2})$/.exec(iso || "");
-  return m ? (+m[1]) + "/" + (+m[2]) : "";
 }
 
 function recipeListHtml(name){
@@ -912,14 +928,13 @@ function recipeListHtml(name){
   if (!hits.length) return "";
   rubyReset();
   var out = ['<div class="why" style="margin-top:12px">' +
-    rt("じっさいに かったデッキの中身を見る") + "</div>", '<div class="recipes">'];
+    rt("このカードを つかって かった デッキ") + "</div>", '<div class="recipes">'];
   for (var i=0; i<Math.min(hits.length, RECIPE_MAX); i++){
     var h = hits[i];
-    out.push('<button class="reciperow" data-deck="' + esc(h.code) + '" ' +
-      'data-hit="' + esc(name) + '" aria-expanded="false">' +
-      '<span class="when">' + shortDate(h.date) + "</span>" +
-      '<span class="who">' + esc(h.deck) + "</span>" +
-      '<span class="howmany">' + h.copies + "まい</span></button>");
+    // 一覧に出しているデッキと同じ形で並べる。写真がそのままレシピになっている
+    out.push(cardHtml(h.meta, h.copies + "まい"));
+    out.push('<button class="moji" data-deck="' + esc(h.code) + '" ' +
+      'data-hit="' + esc(name) + '" aria-expanded="false">60枚を 文字で見る</button>');
   }
   if (hits.length > RECIPE_MAX){
     out.push('<div class="cmeta">ほかにも ' + (hits.length - RECIPE_MAX) + "こ あるよ</div>");
