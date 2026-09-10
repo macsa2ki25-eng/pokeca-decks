@@ -1,5 +1,5 @@
 {
- "count": 2190,
+ "count": 2191,
  "cards": {
   "10126": {
    "id": "10126",
@@ -20955,6 +20955,43 @@
    "number": "022/098",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV10/047415_P_ROKETTODANNOFURIZA.jpg",
+   "detail": true
+  },
+  "47419": {
+   "name": "ユキカブリ",
+   "set": "SV10",
+   "number": "026/098",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV10/047419_P_YUKIKABURI.jpg",
+   "id": "47419",
+   "stage": "たね",
+   "hp": 90,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "なぐる",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "20",
+     "effect": ""
+    },
+    {
+     "name": "つらら",
+     "cost": [
+      "水",
+      "無",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "47426": {
