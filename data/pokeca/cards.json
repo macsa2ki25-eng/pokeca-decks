@@ -1,5 +1,5 @@
 {
- "count": 2191,
+ "count": 2195,
  "cards": {
   "10126": {
    "id": "10126",
@@ -4304,6 +4304,33 @@
    "image": "/assets/images/card_images/large/SV5K/045200_P_HOHO.jpg",
    "detail": true
   },
+  "45201": {
+   "name": "ヨルノズク",
+   "set": "SV5K",
+   "number": "055/071",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5K/045201_P_YORUNOZUKU.jpg",
+   "id": "45201",
+   "stage": "1 進化",
+   "hp": 110,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かぎづめハント",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "70",
+     "effect": "のぞむなら、自分の山札から好きなカードを2枚まで選び、手札に加える。そして山札を切る。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
   "45202": {
    "id": "45202",
    "name": "ノコッチ",
@@ -5765,6 +5792,42 @@
    "number": "039/066",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV5a/045615_P_RABUTOROSU.jpg",
+   "detail": true
+  },
+  "45616": {
+   "name": "サケブシッポex",
+   "set": "SV5a",
+   "number": "040/066",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5a/045616_P_SAKEBUSHIPPOEX.jpg",
+   "id": "45616",
+   "stage": "たね",
+   "hp": 190,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ぜっきょう",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "このワザは、後攻プレイヤーの最初の番にだけ使える。次の相手の番、相手は手札からサポートを出して使えない。"
+    },
+    {
+     "name": "かみくだく",
+     "cost": [
+      "超",
+      "無",
+      "無"
+     ],
+     "damage": "120",
+     "effect": "相手のバトルポケモンについているエネルギーを1個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "45621": {
@@ -13635,6 +13698,44 @@
    "number": "022/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/046683_P_BUSUTAEX.jpg",
+   "detail": true
+  },
+  "46687": {
+   "name": "オーガポン かまどのめんex",
+   "set": "SV8a",
+   "number": "026/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046687_P_OGAPONKAMADONOMENEX.jpg",
+   "id": "46687",
+   "stage": "たね",
+   "hp": 210,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "いかりがま",
+     "cost": [
+      "炎",
+      "無",
+      "無"
+     ],
+     "damage": "20×",
+     "effect": "このポケモンにのっているダメカンの数×20ダメージ。"
+    },
+    {
+     "name": "ダイナミックブレイズ",
+     "cost": [
+      "炎",
+      "炎",
+      "炎"
+     ],
+     "damage": "140＋",
+     "effect": "相手のバトルポケモンが進化ポケモンなら、140ダメージ追加。その場合、このポケモンについているエネルギーを、すべてトラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "46688": {
@@ -22659,6 +22760,43 @@
    "number": "016/086",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV11W/047638_P_KUITARAN.jpg",
+   "detail": true
+  },
+  "47639": {
+   "name": "レシラムex",
+   "set": "SV11W",
+   "number": "017/086",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV11W/047639_P_RESHIRAMUEX.jpg",
+   "id": "47639",
+   "stage": "たね",
+   "hp": 230,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "きりさく",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    },
+    {
+     "name": "ブレイズバースト",
+     "cost": [
+      "炎",
+      "炎",
+      "無"
+     ],
+     "damage": "130＋",
+     "effect": "相手がすでにとったサイドの枚数×50ダメージ追加。このポケモンについているエネルギーを1個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "47659": {
