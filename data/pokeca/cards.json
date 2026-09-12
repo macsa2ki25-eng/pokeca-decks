@@ -1,5 +1,5 @@
 {
- "count": 2195,
+ "count": 2196,
  "cards": {
   "10126": {
    "id": "10126",
@@ -33298,6 +33298,43 @@
    "number": "151/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/048867_P_UGATSUHOMURAEX.jpg",
+   "detail": true
+  },
+  "48877": {
+   "name": "シャワーズex",
+   "set": "MC",
+   "number": "161/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/048877_P_SHIXYAWAZUEX.jpg",
+   "id": "48877",
+   "stage": "1 進化",
+   "hp": 280,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ヘビースコール",
+     "cost": [
+      "水",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手の「ポケモンex」全員に、それぞれ60ダメージ。このワザのダメージは弱点・抵抗力を計算しない。"
+    },
+    {
+     "name": "アクアマリン",
+     "cost": [
+      "炎",
+      "水",
+      "雷"
+     ],
+     "damage": "280",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "48878": {
