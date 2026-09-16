@@ -1,5 +1,5 @@
 {
- "count": 2196,
+ "count": 2197,
  "cards": {
   "10126": {
    "id": "10126",
@@ -39461,6 +39461,43 @@
    "number": "094/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/049484_P_BUSUTAEX.jpg",
+   "detail": true
+  },
+  "49492": {
+   "name": "レシラムex",
+   "set": "MC",
+   "number": "126/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049492_P_RESHIRAMUEX.jpg",
+   "id": "49492",
+   "stage": "たね",
+   "hp": 230,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "きりさく",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    },
+    {
+     "name": "ブレイズバースト",
+     "cost": [
+      "炎",
+      "炎",
+      "無"
+     ],
+     "damage": "130＋",
+     "effect": "相手がすでにとったサイドの枚数×50ダメージ追加。このポケモンについているエネルギーを1個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "49504": {
