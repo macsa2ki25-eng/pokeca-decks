@@ -1,5 +1,5 @@
 {
- "count": 2197,
+ "count": 2203,
  "cards": {
   "10126": {
    "id": "10126",
@@ -11140,6 +11140,41 @@
    "number": "040/064",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV7a/046269_P_ARORANASSHIEX.jpg",
+   "detail": true
+  },
+  "46274": {
+   "name": "カジッチュ",
+   "set": "SV7a",
+   "number": "045/064",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV7a/046274_P_KAJITCHIXYU.jpg",
+   "id": "46274",
+   "stage": "たね",
+   "hp": 40,
+   "type": "竜",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "えいようそ",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分のポケモン1匹のHPを「30」回復する。"
+    },
+    {
+     "name": "ころばす",
+     "cost": [
+      "草",
+      "炎"
+     ],
+     "damage": "20＋",
+     "effect": "コインを1回投げオモテなら、30ダメージ追加。"
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "46280": {
@@ -39788,6 +39823,43 @@
    "image": "/assets/images/card_images/large/MC/049537_P_ROKETTODANNOKUROBATTOEX.jpg",
    "detail": true
   },
+  "49541": {
+   "name": "バルジーナex",
+   "set": "MC",
+   "number": "475/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049541_P_BARUJINAEX.jpg",
+   "id": "49541",
+   "stage": "1 進化",
+   "hp": 260,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ほねシュート",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモン1匹に、50ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    },
+    {
+     "name": "バルチャークロー",
+     "cost": [
+      "悪",
+      "無",
+      "無"
+     ],
+     "damage": "160",
+     "effect": "相手の手札からオモテを見ないで1枚選び、トラッシュする。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
   "49543": {
    "id": "49543",
    "name": "ハッサムex",
@@ -45966,6 +46038,94 @@
    "retreat": 2,
    "detail": true
   },
+  "50148": {
+   "name": "ヌメラ",
+   "set": "M4",
+   "number": "064/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050148_P_NUMERA.jpg",
+   "id": "50148",
+   "stage": "たね",
+   "hp": 60,
+   "type": "竜",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "すいとる",
+     "cost": [
+      "水",
+      "超"
+     ],
+     "damage": "30",
+     "effect": "このポケモンのHPを「30」回復する。"
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "50149": {
+   "name": "ヌメイル",
+   "set": "M4",
+   "number": "065/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050149_P_NUMEIRU.jpg",
+   "id": "50149",
+   "stage": "1 進化",
+   "hp": 90,
+   "type": "竜",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっぱたく",
+     "cost": [
+      "水",
+      "超"
+     ],
+     "damage": "70",
+     "effect": ""
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 3,
+   "detail": true
+  },
+  "50150": {
+   "name": "ヌメルゴン",
+   "set": "M4",
+   "number": "066/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050150_P_NUMERUGON.jpg",
+   "id": "50150",
+   "stage": "2 進化",
+   "hp": 160,
+   "type": "竜",
+   "abilities": [
+    {
+     "name": "ぬめぬめスリップ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、相手のバトルポケモンがにげるとき、相手はコインを1回投げる。ウラなら、にげるためのエネルギーはトラッシュせず、入れ替えをしない。この特性の効果は重ならない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "りゅうのはどう",
+     "cost": [
+      "水",
+      "超"
+     ],
+     "damage": "160",
+     "effect": "自分の山札を上から1枚トラッシュする。"
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 3,
+   "detail": true
+  },
   "50152": {
    "id": "50152",
    "name": "ミネズミ",
@@ -47199,6 +47359,41 @@
    "number": "046/081",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M5/050265_P_MDAKURAIEX.jpg",
+   "detail": true
+  },
+  "50266": {
+   "name": "バルチャイ",
+   "set": "M5",
+   "number": "047/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050266_P_BARUCHIXYAI.jpg",
+   "id": "50266",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "はばたく",
+     "cost": [
+      "悪"
+     ],
+     "damage": "10",
+     "effect": ""
+    },
+    {
+     "name": "かぜおこし",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "50268": {
