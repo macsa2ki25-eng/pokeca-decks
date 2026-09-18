@@ -1,5 +1,5 @@
 {
- "count": 2203,
+ "count": 2204,
  "cards": {
   "10126": {
    "id": "10126",
@@ -13207,6 +13207,17 @@
    "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SVM/046626_T_BOSUNOSHIREI.jpg",
+   "detail": true
+  },
+  "46628": {
+   "name": "マツバの確信",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SVM/046628_T_MATSUBANOKAKUSHIN.jpg",
+   "id": "46628",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を1枚トラッシュしなければ使えない。相手のベンチポケモンの数ぶん、自分の山札を引く。",
    "detail": true
   },
   "46637": {

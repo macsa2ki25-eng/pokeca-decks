@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-17T09:57:01+09:00",
-  "count": 5409,
+  "updated_at": "2026-09-18T09:52:28+09:00",
+  "count": 5411,
   "results": [
     {
       "date": "2026-09-14",
@@ -340,6 +340,40 @@
       "event_url": "",
       "collected_at": "2026-09-17T09:57:01+09:00",
       "deck_key": "メガミミロップex",
+      "store_key": ""
+    },
+    {
+      "date": "2026-09-14",
+      "store": "",
+      "rank": 1,
+      "deck_name": "イワパレス",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "H9Lng9-GP6cev-L6nnHL",
+      "image_url": "",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/205224",
+      "event_url": "",
+      "collected_at": "2026-09-18T09:52:28+09:00",
+      "deck_key": "イワパレス",
+      "store_key": ""
+    },
+    {
+      "date": "2026-09-14",
+      "store": "",
+      "rank": 1,
+      "deck_name": "ジュナイパーex",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "3yMMpp-kkE9Bo-3RMRMR",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/image-639.png",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/237011",
+      "event_url": "",
+      "collected_at": "2026-09-18T09:52:28+09:00",
+      "deck_key": "ジュナイパーex",
       "store_key": ""
     },
     {
