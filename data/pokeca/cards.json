@@ -1,5 +1,5 @@
 {
- "count": 2206,
+ "count": 2207,
  "cards": {
   "10126": {
    "id": "10126",
@@ -49274,6 +49274,43 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 1,
+   "detail": true
+  },
+  "50682": {
+   "name": "ガマゲロゲ",
+   "set": "M6a",
+   "number": "070/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050682_P_GAMAGEROGE.jpg",
+   "id": "50682",
+   "stage": "2 進化",
+   "hp": 160,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ゆさぶるこぶし",
+     "cost": [
+      "闘"
+     ],
+     "damage": "60",
+     "effect": "次の相手の番、相手は手札からトレーナーズを出して使うたび、使う前にコインを1回投げる。ウラなら、そのカードは使ったことにならず、トラッシュする。"
+    },
+    {
+     "name": "メガトンパンチ",
+     "cost": [
+      "闘",
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "180",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   }
  }
