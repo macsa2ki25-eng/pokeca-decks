@@ -16,6 +16,17 @@ on:
   schedule:
     # cronはUTC基準。08:00 JST = 前日 23:00 UTC
     - cron: "0 23 * * *"
+
+  # 「今すぐ集めたい」ときの入口。
+  # 朝の定期実行のあとに出た結果は、次の朝まで載らない。
+  # .github/collect-now.trigger を書き換えて push すると、その場で走る。
+  #
+  # workflow_dispatch はこの環境から叩けない (403) ので、push で起こす。
+  push:
+    branches: [main]
+    paths:
+      - ".github/collect-now.trigger"
+
   workflow_dispatch:
     # 手動トリガー (スマホからでも回せる)
     inputs:
