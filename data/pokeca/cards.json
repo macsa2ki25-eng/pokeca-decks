@@ -1,5 +1,5 @@
 {
- "count": 2204,
+ "count": 2206,
  "cards": {
   "10126": {
    "id": "10126",
@@ -49214,6 +49214,66 @@
    "text": "このカードは、前の相手の番に、自分の「メガシンカex」がきぜつしていなければ使えない。自分の山札から基本エネルギーを2枚まで選び、自分の「メガシンカex」1匹につける。そして山札を切る。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/M-P/050475_T_DEURO.jpg",
+   "detail": true
+  },
+  "50669": {
+   "name": "ミュウex",
+   "set": "M6a",
+   "number": "057/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050669_P_MIXYUUIEKKUSU.jpg",
+   "id": "50669",
+   "stage": "たね",
+   "hp": 160,
+   "type": "超",
+   "abilities": [
+    {
+     "name": "きおくのらせん",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンは、自分のベンチポケモンが持つワザを、すべて使える。［ワザを使うためのエネルギーは必要。］"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "テレポートブレイク",
+     "cost": [
+      "超"
+     ],
+     "damage": "30",
+     "effect": "のぞむなら、このポケモンをベンチポケモンと入れ替える。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 0,
+   "detail": true
+  },
+  "50672": {
+   "name": "アンノーン",
+   "set": "M6a",
+   "number": "060/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050672_P_ANNON.jpg",
+   "id": "50672",
+   "stage": "たね",
+   "hp": 80,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ミステリーシグナル",
+     "cost": [
+      "超",
+      "超"
+     ],
+     "damage": "40",
+     "effect": "このワザのダメージで、相手のポケモンがきぜつしたなら、サイドを1枚多くとる。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   }
  }
