@@ -1,5 +1,5 @@
 {
- "count": 2208,
+ "count": 2209,
  "cards": {
   "10126": {
    "id": "10126",
@@ -49214,6 +49214,33 @@
    "text": "このカードは、前の相手の番に、自分の「メガシンカex」がきぜつしていなければ使えない。自分の山札から基本エネルギーを2枚まで選び、自分の「メガシンカex」1匹につける。そして山札を切る。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/M-P/050475_T_DEURO.jpg",
+   "detail": true
+  },
+  "50577": {
+   "name": "エーフィex",
+   "set": "MF",
+   "number": "014/040",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MF/050577_P_EFUIIEKKUSU.jpg",
+   "id": "50577",
+   "stage": "1 進化",
+   "hp": 260,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "サンシャインビート",
+     "cost": [
+      "超",
+      "無"
+     ],
+     "damage": "30×",
+     "effect": "自分の場のポケモンの数×30ダメージ。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "50627": {
