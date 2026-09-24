@@ -1,5 +1,5 @@
 {
- "count": 2211,
+ "count": 2213,
  "cards": {
   "10126": {
    "id": "10126",
@@ -29651,6 +29651,40 @@
    "image": "/assets/images/card_images/large/M2a/048588_P_TOGEKISSU.jpg",
    "detail": true
   },
+  "48593": {
+   "name": "メガサーナイトex",
+   "set": "M2a",
+   "number": "071/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/048593_P_MSANAITOEX.jpg",
+   "id": "48593",
+   "stage": "2 進化",
+   "hp": 360,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "あふれるねがい",
+     "cost": [
+      "超"
+     ],
+     "damage": "",
+     "effect": "自分のベンチポケモン全員に、山札から「基本超エネルギー」を1枚ずつつける。そして山札を切る。"
+    },
+    {
+     "name": "メガシンフォニア",
+     "cost": [
+      "超"
+     ],
+     "damage": "50×",
+     "effect": "自分のポケモン全員についている超エネルギーの数×50ダメージ。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 2,
+   "detail": true
+  },
   "48594": {
    "id": "48594",
    "name": "ヨマワル",
@@ -41794,6 +41828,40 @@
       "超"
      ],
      "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "49715": {
+   "name": "キルリア",
+   "set": "M-P",
+   "number": "067/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/049715_P_KIRURIA.jpg",
+   "id": "49715",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "コールサイン",
+     "cost": [
+      "超"
+     ],
+     "damage": "",
+     "effect": "自分の山札からポケモンを3枚まで選び、相手に見せて、手札に加える。そして山札を切る。"
+    },
+    {
+     "name": "サイコショット",
+     "cost": [
+      "超"
+     ],
+     "damage": "30",
      "effect": ""
     }
    ],
