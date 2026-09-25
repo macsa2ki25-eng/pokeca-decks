@@ -1,5 +1,5 @@
 {
- "count": 2213,
+ "count": 2218,
  "cards": {
   "10126": {
    "id": "10126",
@@ -12375,6 +12375,19 @@
    "image": "/assets/images/card_images/large/SV8/046437_T_MIRAKURUINKAMU.jpg",
    "detail": true
   },
+  "46438": {
+   "name": "希望のアミュレット",
+   "set": "ACE",
+   "number": "SPEC",
+   "section": "ポケモンのどうぐ",
+   "image": "/assets/images/card_images/large/SV8/046438_T_KIBOUNOAMIXYURETTO.jpg",
+   "id": "46438",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードをつけているポケモンが、相手のポケモンからワザのダメージを受けてきぜつしたとき、自分の山札から好きなカードを3枚まで選び、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "46440": {
    "id": "46440",
    "name": "リリバのみ",
@@ -23575,6 +23588,30 @@
    "number": "017/063",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M1L/047750_P_ESUBAN.jpg",
+   "detail": true
+  },
+  "47756": {
+   "name": "バルキー",
+   "set": "M1L",
+   "number": "023/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1L/047756_P_BARUKI.jpg",
+   "id": "47756",
+   "stage": "たね",
+   "hp": 30,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ボカボカなぐる",
+     "cost": [],
+     "damage": "10＋",
+     "effect": "ウラが出るまでコインを投げ、オモテの数×30ダメージ追加。"
+    }
+   ],
+   "weakness": "超×2",
+   "resistance": "",
+   "retreat": 0,
    "detail": true
   },
   "47757": {
@@ -49443,6 +49480,34 @@
    "retreat": 1,
    "detail": true
   },
+  "50681": {
+   "name": "ルカリオ",
+   "set": "M6a",
+   "number": "069/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050681_P_RUKARIO.jpg",
+   "id": "50681",
+   "stage": "1 進化",
+   "hp": 120,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "はどうだん",
+     "cost": [
+      "闘",
+      "闘",
+      "無"
+     ],
+     "damage": "100",
+     "effect": "相手のベンチポケモン1匹にも、60ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    }
+   ],
+   "weakness": "超×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "50682": {
    "name": "ガマゲロゲ",
    "set": "M6a",
@@ -49512,6 +49577,65 @@
    "weakness": "闘×2",
    "resistance": "",
    "retreat": 2,
+   "detail": true
+  },
+  "50691": {
+   "name": "イベルタル",
+   "set": "M6a",
+   "number": "079/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050691_P_IBERUTARU.jpg",
+   "id": "50691",
+   "stage": "たね",
+   "hp": 120,
+   "type": "悪",
+   "abilities": [
+    {
+     "name": "ライフバインド",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、相手のバトルポケモンのHPは、回復しない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ダークカッター",
+     "cost": [
+      "悪",
+      "無",
+      "無"
+     ],
+     "damage": "90",
+     "effect": ""
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "50708": {
+   "name": "ププリン",
+   "set": "M6a",
+   "number": "096/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050708_P_PUPURIN.jpg",
+   "id": "50708",
+   "stage": "たね",
+   "hp": 30,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ぷにぷにサークル",
+     "cost": [],
+     "damage": "30×",
+     "effect": "最大HPが「30」の自分のベンチポケモンの数×30ダメージ。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 0,
    "detail": true
   }
  }
