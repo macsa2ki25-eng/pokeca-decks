@@ -1,5 +1,5 @@
 {
- "count": 2221,
+ "count": 2270,
  "cards": {
   "10126": {
    "id": "10126",
@@ -167,6 +167,17 @@
    "text": "自分のポケモンについている基本エネルギーを1個、自分の別のポケモンにつけ替える。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/L1-Bhg/025117_T_ENERUGITSUKEKAE.jpg",
+   "detail": true
+  },
+  "25119": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/L1-Bhg/025119_T_POKEMONIREKAE.jpg",
+   "id": "25119",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
    "detail": true
   },
   "25252": {
@@ -387,6 +398,16 @@
    "image": "/assets/images/card_images/large/BW4-B/027825_T_FUSHIGINAAME.jpg",
    "detail": true
   },
+  "28001": {
+   "name": "基本炎エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/BWP/028001_E_KIHONHONOOENERUGI.jpg",
+   "id": "28001",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
   "28014": {
    "id": "28014",
    "name": "エネルギー転送",
@@ -396,6 +417,16 @@
    "text": "自分の山札から基本エネルギーを1枚選び、相手に見せてから、手札に加える。そして山札を切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/KLD/028014_T_ENERUGITENSOU.jpg",
+   "detail": true
+  },
+  "28093": {
+   "name": "基本超エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/BWP/028093_E_KIHONCHOUENERUGI.jpg",
+   "id": "28093",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "28343": {
@@ -1080,6 +1111,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SM2p/033520_E_KIHONAKUENERUGI.jpg",
+   "detail": true
+  },
+  "33552": {
+   "name": "基本超エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SMD/033552_E_KIHONCHOUENERUGI.jpg",
+   "id": "33552",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "34060": {
@@ -2674,6 +2715,17 @@
    "image": "/assets/images/card_images/large/SLL/041312_T_POKEMONIREKAE.jpg",
    "detail": true
   },
+  "41318": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SLL/041318_T_BOSUNOSHIREIAKAGI.jpg",
+   "id": "41318",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
+   "detail": true
+  },
   "41320": {
    "id": "41320",
    "name": "基本闘エネルギー",
@@ -3547,6 +3599,17 @@
    "image": "/assets/images/card_images/large/WCS23/044008_T_ENERUGIKAISHIXYUU.jpg",
    "detail": true
   },
+  "44011": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/WCS23/044011_T_HAIPABORU.jpg",
+   "id": "44011",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "44051": {
    "id": "44051",
    "name": "ハイパーボール",
@@ -3578,6 +3641,17 @@
    "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SVF/044066_T_BOSUNOSHIREI.jpg",
+   "detail": true
+  },
+  "44125": {
+   "name": "ふしぎなアメ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SV3a/044125_T_FUSHIGINAAME.jpg",
+   "id": "44125",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の手札から2進化ポケモンを1枚選び、そのポケモンへと進化する自分の場のたねポケモンにのせ、1進化をとばして進化させる。（最初の自分の番や、出したばかりのポケモンには使えない。）",
    "detail": true
   },
   "44177": {
@@ -6412,6 +6486,43 @@
    "text": "自分のトラッシュからポケモン（「ルールを持つポケモン」をのぞく）と基本エネルギーを合計3枚まで選び、相手に見せて、手札に加える。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SV5a/045688_T_SUIRENNOOSEWA.jpg",
+   "detail": true
+  },
+  "45689": {
+   "name": "ガチグマ アカツキex",
+   "set": "SV5a",
+   "number": "094/066",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5a/045689_P_GACHIGUMAAKATSUKIEX.jpg",
+   "id": "45689",
+   "stage": "たね",
+   "hp": 260,
+   "type": "無",
+   "abilities": [
+    {
+     "name": "ろうれんのわざ",
+     "cost": [],
+     "damage": "",
+     "effect": "相手がすでにとったサイドの枚数ぶん、このポケモンが「ブラッドムーン」を使うための無エネルギーは少なくなる。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ブラッドムーン",
+     "cost": [
+      "無",
+      "無",
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "240",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "45699": {
@@ -15076,6 +15187,40 @@
    "number": "120/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/046781_P_DORAPARUTOEX.jpg",
+   "detail": true
+  },
+  "46782": {
+   "name": "シャリタツ",
+   "set": "SV8a",
+   "number": "121/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046782_P_SHIXYARITATSU.jpg",
+   "id": "46782",
+   "stage": "たね",
+   "hp": 70,
+   "type": "竜",
+   "abilities": [
+    {
+     "name": "きゃくよせ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがバトル場にいるなら、自分の番に1回使える。自分の山札を上から6枚見て、その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "なみのり",
+     "cost": [
+      "炎",
+      "水"
+     ],
+     "damage": "50",
+     "effect": ""
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "46785": {
@@ -40191,6 +40336,17 @@
    "image": "/assets/images/card_images/large/MC/049563_P_BAFFURONEX.jpg",
    "detail": true
   },
+  "49569": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MC/049569_T_KURASSHIXYUHANMA.jpg",
+   "id": "49569",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
+   "detail": true
+  },
   "49570": {
    "id": "49570",
    "name": "なかよしポフィン",
@@ -43883,6 +44039,40 @@
    "image": "/assets/images/card_images/large/M2a/049943_P_DORONCHI.jpg",
    "detail": true
   },
+  "49944": {
+   "name": "シャリタツ",
+   "set": "M2a",
+   "number": "135/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/049944_P_SHIXYARITATSU.jpg",
+   "id": "49944",
+   "stage": "たね",
+   "hp": 70,
+   "type": "竜",
+   "abilities": [
+    {
+     "name": "きゃくよせ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがバトル場にいるなら、自分の番に1回使える。自分の山札を上から6枚見て、その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "なみのり",
+     "cost": [
+      "炎",
+      "水"
+     ],
+     "damage": "50",
+     "effect": ""
+    }
+   ],
+   "weakness": "",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "49946": {
    "id": "49946",
    "name": "ホーホー",
@@ -46563,6 +46753,40 @@
    "image": "/assets/images/card_images/large/M-P/050172_P_MGARURAEX.jpg",
    "detail": true
   },
+  "50173": {
+   "name": "シェイミ",
+   "set": "M-P",
+   "number": "095/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/050173_P_SHIEIMI.jpg",
+   "id": "50173",
+   "stage": "たね",
+   "hp": 80,
+   "type": "草",
+   "abilities": [
+    {
+     "name": "はなのカーテン",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、自分のベンチポケモン（「ルールを持つポケモン」をのぞく）全員は、相手のワザのダメージを受けない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "けとばす",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50174": {
    "id": "50174",
    "name": "メガマフォクシーex",
@@ -46619,6 +46843,61 @@
    "text": "自分の山札から「たねポケモン」「1進化ポケモン」「2進化ポケモン」を1枚ずつ選び、相手に見せて、手札に加える。そして山札を切る。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/M-P/050178_T_HIKARI.jpg",
+   "detail": true
+  },
+  "50204": {
+   "name": "ジャンボアイス",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M4/050204_T_JIXYANBOAISU.jpg",
+   "id": "50204",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "エネルギーが3個以上ついている自分のバトルポケモンのHPを「80」回復する。",
+   "detail": true
+  },
+  "50205": {
+   "name": "スペシャルレッドカード",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M4/050205_T_SUPESHIXYARUREDDOKADO.jpg",
+   "id": "50205",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、相手のサイドの残り枚数が3枚以下のときにしか使えない。相手は相手自身の手札をすべてウラにして切り、山札の下にもどす。その後、相手は山札を3枚引く。",
+   "detail": true
+  },
+  "50206": {
+   "name": "ツールスクラッパー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M4/050206_T_TSURUSUKURAPPA.jpg",
+   "id": "50206",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいの場のポケモンについている「ポケモンのどうぐ」を2枚まで選び、トラッシュする。",
+   "detail": true
+  },
+  "50211": {
+   "name": "なみのりビーチ",
+   "section": "スタジアム",
+   "image": "/assets/images/card_images/large/M4/050211_T_NAMINORIBICHI.jpg",
+   "id": "50211",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいのプレイヤーは、自分の番ごとに1回、自分のバトル場の水ポケモンを、ベンチの水ポケモンと入れ替えてよい。",
+   "detail": true
+  },
+  "50212": {
+   "name": "プリズムタワー",
+   "section": "スタジアム",
+   "image": "/assets/images/card_images/large/M4/050212_T_PURIZUMUTAWA.jpg",
+   "id": "50212",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいのプレイヤーは、自分の番ごとに1回、自分の手札を2枚トラッシュするなら、自分の山札を1枚引いてよい。",
    "detail": true
   },
   "50222": {
@@ -48084,6 +48363,153 @@
    "image": "/assets/images/card_images/large/M5/050300_E_SHIXYADOAKUENERUGI.jpg",
    "detail": true
   },
+  "50308": {
+   "name": "ダダリン",
+   "set": "M5",
+   "number": "088/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050308_P_DADARIN.jpg",
+   "id": "50308",
+   "stage": "たね",
+   "hp": 140,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "むねんのイカリ",
+     "cost": [
+      "超"
+     ],
+     "damage": "30＋",
+     "effect": "自分のトラッシュに、特性「ばけがくれ」を持つポケモンが4枚以上あるなら、140ダメージ追加。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 3,
+   "detail": true
+  },
+  "50315": {
+   "name": "ホエルオーex",
+   "set": "M5",
+   "number": "095/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050315_P_HOERUOEX.jpg",
+   "id": "50315",
+   "stage": "1 進化",
+   "hp": 380,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "なみのり",
+     "cost": [
+      "水",
+      "水",
+      "水"
+     ],
+     "damage": "120",
+     "effect": ""
+    },
+    {
+     "name": "フォーリングダウン",
+     "cost": [
+      "水",
+      "水",
+      "水",
+      "水",
+      "水"
+     ],
+     "damage": "270",
+     "effect": "このポケモンをねむりにする。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 4,
+   "detail": true
+  },
+  "50321": {
+   "name": "メガドリュウズex",
+   "set": "M5",
+   "number": "101/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050321_P_MDORIXYUUZUEX.jpg",
+   "id": "50321",
+   "stage": "1 進化",
+   "hp": 340,
+   "type": "鋼",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ほりくずす",
+     "cost": [
+      "鋼",
+      "鋼"
+     ],
+     "damage": "90",
+     "effect": "相手の山札を上から2枚トラッシュする。"
+    },
+    {
+     "name": "マキシマムドリル",
+     "cost": [
+      "鋼",
+      "鋼",
+      "鋼"
+     ],
+     "damage": "200＋",
+     "effect": "このワザを使うためのエネルギーより、2個多くエネルギーがついているなら、130ダメージ追加。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 4,
+   "detail": true
+  },
+  "50322": {
+   "name": "アイアンディフェンダー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M5/050322_T_AIANDEIFUENDA.jpg",
+   "id": "50322",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "次の相手の番、自分の鋼ポケモン全員が、相手のポケモンから受けるワザのダメージは「-30」される。（新しく場に出したポケモンもふくむ。）",
+   "detail": true
+  },
+  "50323": {
+   "name": "エネルギーつけかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M5/050323_T_ENERUGITSUKEKAE.jpg",
+   "id": "50323",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の場のポケモンについている基本エネルギーを1個選び、自分の別のポケモンにつけ替える。",
+   "detail": true
+  },
+  "50324": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M5/050324_T_KURASSHIXYUHANMA.jpg",
+   "id": "50324",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
+   "detail": true
+  },
+  "50331": {
+   "name": "ムク",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M5/050331_T_MUKU.jpg",
+   "id": "50331",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の手札からポケモン（「ルールを持つポケモン」をのぞく）を2枚までトラッシュし、その枚数×3枚ぶん、山札を引く。",
+   "detail": true
+  },
   "50340": {
    "name": "アメタマ",
    "set": "M6",
@@ -49394,6 +49820,50 @@
    "image": "/assets/images/card_images/large/MEM/050468_T_RIRIENOKESSHIN.jpg",
    "detail": true
   },
+  "50473": {
+   "name": "ミネズミ",
+   "set": "M-P",
+   "number": "141/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/050473_P_MINEZUMI.jpg",
+   "id": "50473",
+   "stage": "たね",
+   "hp": 70,
+   "type": "無",
+   "abilities": [
+    {
+     "name": "かんしのめ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、おたがいのポケモン全員にのっているダメカンは、別のポケモンにのせ替えられない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "かみつく",
+     "cost": [
+      "無"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50474": {
+   "name": "スペシャルレッドカード",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M-P/050474_T_SUPESHIXYARUREDDOKADO.jpg",
+   "id": "50474",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、相手のサイドの残り枚数が3枚以下のときにしか使えない。相手は相手自身の手札をすべてウラにして切り、山札の下にもどす。その後、相手は山札を3枚引く。",
+   "detail": true
+  },
   "50475": {
    "id": "50475",
    "name": "デウロ",
@@ -49403,6 +49873,155 @@
    "text": "このカードは、前の相手の番に、自分の「メガシンカex」がきぜつしていなければ使えない。自分の山札から基本エネルギーを2枚まで選び、自分の「メガシンカex」1匹につける。そして山札を切る。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/M-P/050475_T_DEURO.jpg",
+   "detail": true
+  },
+  "50476": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M-P/050476_T_BOSUNOSHIREI.jpg",
+   "id": "50476",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
+   "detail": true
+  },
+  "50489": {
+   "name": "リーリエの決心",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M-P/050489_T_RIRIENOKESSHIN.jpg",
+   "id": "50489",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の手札をすべて山札にもどして切る。その後、山札を6枚引く。自分のサイドの残り枚数が6枚なら、引く枚数は8枚になる。",
+   "detail": true
+  },
+  "50493": {
+   "name": "基本草エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050493_E_KIHONKUSAENERUGI.jpg",
+   "id": "50493",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50494": {
+   "name": "基本炎エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050494_E_KIHONHONOOENERUGI.jpg",
+   "id": "50494",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50495": {
+   "name": "基本水エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050495_E_KIHONMIZUENERUGI.jpg",
+   "id": "50495",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50497": {
+   "name": "基本超エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050497_E_KIHONCHIXYOUENERUGI.jpg",
+   "id": "50497",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50498": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050498_E_KIHONTOUENERUGI.jpg",
+   "id": "50498",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50499": {
+   "name": "基本悪エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M-P/050499_E_KIHONAKUENERUGI.jpg",
+   "id": "50499",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50537": {
+   "name": "ファイアローex",
+   "set": "M6",
+   "number": "096/076",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6/050537_P_FUAIAROIEKKUSU.jpg",
+   "id": "50537",
+   "stage": "2 進化",
+   "hp": 280,
+   "type": "無",
+   "abilities": [
+    {
+     "name": "エキサイトダイブ",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の番に、このカードが手札にあり、自分の場に無タイプの「メガシンカex」がいるなら、1回使える。このカードをベンチに出す。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "かぎづめハント",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "150",
+     "effect": "のぞむなら、自分の山札から好きなカードを2枚まで選び、手札に加える。そして山札を切る。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 0,
+   "detail": true
+  },
+  "50539": {
+   "name": "ポケモンキャッチャー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M6/050539_T_POKEMONKIXYATCHIXYA.jpg",
+   "id": "50539",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
+   "detail": true
+  },
+  "50540": {
+   "name": "とくちゅうチョッキ",
+   "section": "ポケモンのどうぐ",
+   "image": "/assets/images/card_images/large/M6/050540_T_TOKUCHIXYUUCHIXYOKKI.jpg",
+   "id": "50540",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードをつけているポケモン（「メガシンカex」をのぞく）が、相手の「メガシンカex」から受けるワザのダメージは「-60」される。",
+   "detail": true
+  },
+  "50547": {
+   "name": "バブル水エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6/050547_E_BABURUMIZUENERUGI.jpg",
+   "id": "50547",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、ポケモンについているかぎり、水エネルギー1個ぶんとしてはたらく。このカードをつけている水ポケモンは、特殊状態にならず、受けている特殊状態は、すべて回復する。",
    "detail": true
   },
   "50577": {
@@ -49430,6 +50049,17 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 1,
+   "detail": true
+  },
+  "50596": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MF/050596_T_KURASSHIXYUHANMA.jpg",
+   "id": "50596",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
    "detail": true
   },
   "50614": {
@@ -49719,6 +50349,108 @@
    "weakness": "闘×2",
    "resistance": "",
    "retreat": 0,
+   "detail": true
+  },
+  "50742": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M6a/050742_T_HAIPABORU.jpg",
+   "id": "50742",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
+  "50743": {
+   "name": "ポケパッド",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M6a/050743_T_POKEPADDO.jpg",
+   "id": "50743",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札からポケモン（「ルールを持つポケモン」をのぞく）を1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
+  "50745": {
+   "name": "基本草エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050745_E_KIHONKUSAENERUGI.jpg",
+   "id": "50745",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50746": {
+   "name": "基本炎エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050746_E_KIHONHONOOENERUGI.jpg",
+   "id": "50746",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50747": {
+   "name": "基本水エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050747_E_KIHONMIZUENERUGI.jpg",
+   "id": "50747",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50748": {
+   "name": "基本雷エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050748_E_KIHONKAMINARIENERUGI.jpg",
+   "id": "50748",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50749": {
+   "name": "基本超エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050749_E_KIHONCHIXYOUENERUGI.jpg",
+   "id": "50749",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50750": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050750_E_KIHONTOUENERUGI.jpg",
+   "id": "50750",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50751": {
+   "name": "基本悪エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050751_E_KIHONAKUENERUGI.jpg",
+   "id": "50751",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "50752": {
+   "name": "基本鋼エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/M6a/050752_E_KIHONHAGANEENERUGI.jpg",
+   "id": "50752",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   }
  }
