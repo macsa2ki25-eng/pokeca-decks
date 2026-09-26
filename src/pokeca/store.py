@@ -99,9 +99,12 @@ def merge_results(
 
         # ポケカブックの記事にデッキ名は無いので、まずコードだけのレコードが入り、
         # あとからデッキ名が付く。名前は集計キーと連動するので一緒に更新する。
-        if not current.deck_name and record.deck_name:
+        # 中身から当てた名前 (deck_name_guessed) より、収集元の名前を優先する。
+        replaceable = not current.deck_name or current.deck_name_guessed
+        if replaceable and record.deck_name and not record.deck_name_guessed:
             current.deck_name = record.deck_name
             current.deck_key = record.deck_key
+            current.deck_name_guessed = False
             changed = True
 
         if changed:

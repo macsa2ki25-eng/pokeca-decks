@@ -788,6 +788,56 @@ def cmd_fetch_cards(limit: int, refresh: bool, gaps: bool) -> None:
         )
 
 
+@main.command("name-decks")
+@click.option("--dry-run", is_flag=True, help="保存せず、付く名前だけ表示する")
+@click.option("--check", is_flag=True, help="手本を1件ずつ抜いて当てさせ、精度を出す")
+def cmd_name_decks(dry_run: bool, check: bool) -> None:
+    """名前の無い結果 (シティリーグ) に、デッキの中身から名前を付ける。
+
+    シティリーグは収集元がデッキ名を出さないので、同じシーズンの
+    ジムバトル (名前と中身がそろっている) を手本にして当てる。
+    中身をまだ取っていない結果は、次の実行に回る。
+    """
+    from src.pokeca import classify
+    from src.pokeca.cardstore import load_cards, load_decklists
+
+    results = load_results()
+    decklists = load_decklists()
+    cards = load_cards()
+
+    if check:
+        namer = classify.build_namer(results, decklists, cards)
+        right, wrong, skipped, mistakes = classify.leave_one_out(namer)
+        decided = right + wrong
+        console.print(
+            f"手本 {len(namer.examples)} 件: 当たり {right} / はずれ {wrong} / "
+            f"決めなかった {skipped}"
+        )
+        if decided:
+            console.print(
+                f"  名前を付けたうちの正解 {right / decided:.1%} / "
+                f"名前を付けた割合 {decided / len(namer.examples):.1%}"
+            )
+        for (truth, guessed), n in mistakes.most_common():
+            console.print(f"  [yellow]{truth} → {guessed}[/yellow] {n}件")
+        return
+
+    named, undecided = classify.name_decks(results, decklists, cards)
+    guessed = Counter(r.deck_name for r in results if r.deck_name_guessed)
+    console.print(f"中身から名前を付けた: {named} 件 / 決められなかった: {undecided} 件")
+    for name, n in guessed.most_common():
+        console.print(f"  {name} {n}")
+    waiting = sum(
+        1 for r in results if not r.deck_name and r.deck_code and r.deck_code not in decklists
+    )
+    if waiting:
+        console.print(f"[dim]中身をまだ取っていない {waiting} 件は次の実行に回します[/dim]")
+    if dry_run:
+        console.print("[yellow]--dry-run のため保存しません[/yellow]")
+        return
+    save_results(results)
+
+
 # ------------------------------------------------------------------
 # probe
 # ------------------------------------------------------------------

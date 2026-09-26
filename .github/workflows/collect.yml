@@ -128,6 +128,14 @@ jobs:
           limit="${{ inputs.fetch_limit }}"
           python -m src.pokeca.cli fetch-cards --limit "${limit:-600}"
 
+      # シティリーグは収集元がデッキ名を出さない。同じシーズンの
+      # ジムバトル (名前と中身がそろっている) を手本にして、中身から名前を当てる。
+      # 手本は毎日増えるので、毎回当て直す。失敗しても公開は止めない。
+      - name: Name decks by contents
+        if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
+        run: python -m src.pokeca.cli name-decks
+
       - name: Build kids page
         if: ${{ inputs.dry_run != true }}
         run: python -m src.pokeca.cli build

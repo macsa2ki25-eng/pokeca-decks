@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-27T07:37:06+09:00",
+  "updated_at": "2026-09-27T07:48:57+09:00",
   "count": 350,
   "results": [
     {
       "date": "2026-09-26",
       "store": "駿河屋本店駿河屋ビル",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "カミツオロチex",
       "event_type": "city",
       "prefecture": "静岡",
       "league": "",
@@ -16,14 +16,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc13",
       "event_url": "https://players.pokemon-card.com/event/detail/1115148/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "カミツオロチex",
       "store_key": "駿河屋本店駿河屋ビル"
     },
     {
       "date": "2026-09-26",
       "store": "駿河屋本店駿河屋ビル",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "タケルライコex",
       "event_type": "city",
       "prefecture": "静岡",
       "league": "",
@@ -33,14 +34,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc13",
       "event_url": "https://players.pokemon-card.com/event/detail/1115148/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "タケルライコex",
       "store_key": "駿河屋本店駿河屋ビル"
     },
     {
       "date": "2026-09-26",
       "store": "青馬堂本店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "神奈川",
       "league": "",
@@ -50,14 +52,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc20",
       "event_url": "https://players.pokemon-card.com/event/detail/1115149/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "青馬堂本店"
     },
     {
       "date": "2026-09-26",
       "store": "青馬堂本店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "メガドリュウズex",
       "event_type": "city",
       "prefecture": "神奈川",
       "league": "",
@@ -67,14 +70,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc20",
       "event_url": "https://players.pokemon-card.com/event/detail/1115149/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガドリュウズex",
       "store_key": "青馬堂本店"
     },
     {
       "date": "2026-09-26",
       "store": "遊ING浜町店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "長崎",
       "league": "",
@@ -84,14 +88,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc7",
       "event_url": "https://players.pokemon-card.com/event/detail/1115268/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "遊ING浜町店"
     },
     {
       "date": "2026-09-26",
       "store": "遊ING浜町店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ヤドキング",
       "event_type": "city",
       "prefecture": "長崎",
       "league": "",
@@ -101,14 +106,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc7",
       "event_url": "https://players.pokemon-card.com/event/detail/1115268/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ヤドキング",
       "store_key": "遊ING浜町店"
     },
     {
       "date": "2026-09-26",
       "store": "宝島 可児店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "カミツオロチex",
       "event_type": "city",
       "prefecture": "岐阜",
       "league": "",
@@ -118,14 +124,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc1",
       "event_url": "https://players.pokemon-card.com/event/detail/1115145/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "カミツオロチex",
       "store_key": "宝島可児店"
     },
     {
       "date": "2026-09-26",
       "store": "宝島 可児店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "岐阜",
       "league": "",
@@ -135,14 +142,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc1",
       "event_url": "https://players.pokemon-card.com/event/detail/1115145/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "宝島可児店"
     },
     {
       "date": "2026-09-26",
       "store": "北国書林 松任店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "石川",
       "league": "",
@@ -152,14 +160,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc3",
       "event_url": "https://players.pokemon-card.com/event/detail/1115146/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "北国書林松任店"
     },
     {
       "date": "2026-09-26",
       "store": "北国書林 松任店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "おまつりおんど",
       "event_type": "city",
       "prefecture": "石川",
       "league": "",
@@ -169,7 +178,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc3",
       "event_url": "https://players.pokemon-card.com/event/detail/1115146/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "おまつりおんど",
       "store_key": "北国書林松任店"
     },
     {
@@ -186,6 +196,7 @@
       "source_url": "https://pokecabook.com/archives/334266#toc12",
       "event_url": "https://players.pokemon-card.com/event/detail/1115147/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
+      "deck_name_guessed": false,
       "deck_key": "",
       "store_key": "ブックオフ相模大野店"
     },
@@ -193,7 +204,7 @@
       "date": "2026-09-26",
       "store": "ブックオフ 相模大野店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "Nのゾロアークex",
       "event_type": "city",
       "prefecture": "神奈川",
       "league": "",
@@ -203,7 +214,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc12",
       "event_url": "https://players.pokemon-card.com/event/detail/1115147/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "nのゾロアークex",
       "store_key": "ブックオフ相模大野店"
     },
     {
@@ -220,6 +232,7 @@
       "source_url": "https://pokecabook.com/archives/334266#toc21",
       "event_url": "https://players.pokemon-card.com/event/detail/1115150/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
+      "deck_name_guessed": false,
       "deck_key": "",
       "store_key": "ブックオフ田富昭和通り店"
     },
@@ -227,7 +240,7 @@
       "date": "2026-09-26",
       "store": "ブックオフ田富昭和通り店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "メガミミロップex",
       "event_type": "city",
       "prefecture": "山梨",
       "league": "",
@@ -237,14 +250,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc21",
       "event_url": "https://players.pokemon-card.com/event/detail/1115150/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガミミロップex",
       "store_key": "ブックオフ田富昭和通り店"
     },
     {
       "date": "2026-09-26",
       "store": "ブックオフ 札幌南2条店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "北海道",
       "league": "",
@@ -254,14 +268,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc11",
       "event_url": "https://players.pokemon-card.com/event/detail/1114997/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "ブックオフ札幌南2条店"
     },
     {
       "date": "2026-09-26",
       "store": "ブックオフ 札幌南2条店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "メガルカリオex",
       "event_type": "city",
       "prefecture": "北海道",
       "league": "",
@@ -271,7 +286,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc11",
       "event_url": "https://players.pokemon-card.com/event/detail/1114997/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガルカリオex",
       "store_key": "ブックオフ札幌南2条店"
     },
     {
@@ -288,6 +304,7 @@
       "source_url": "https://pokecabook.com/archives/334266#toc8",
       "event_url": "https://players.pokemon-card.com/event/detail/1115269/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
+      "deck_name_guessed": false,
       "deck_key": "",
       "store_key": "ブックオフ佐賀南部バイパス店"
     },
@@ -295,7 +312,7 @@
       "date": "2026-09-26",
       "store": "ブックオフ佐賀南部バイパス店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "シロナのガブリアスex",
       "event_type": "city",
       "prefecture": "佐賀",
       "league": "",
@@ -305,14 +322,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc8",
       "event_url": "https://players.pokemon-card.com/event/detail/1115269/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "シロナのガブリアスex",
       "store_key": "ブックオフ佐賀南部バイパス店"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコ 水戸駅前",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "プリズムバレット",
       "event_type": "city",
       "prefecture": "茨城",
       "league": "",
@@ -322,7 +340,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc16",
       "event_url": "https://players.pokemon-card.com/event/detail/1114998/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "プリズムバレット",
       "store_key": "バトロコ水戸駅前"
     },
     {
@@ -339,6 +358,7 @@
       "source_url": "https://pokecabook.com/archives/334266#toc16",
       "event_url": "https://players.pokemon-card.com/event/detail/1114998/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
+      "deck_name_guessed": false,
       "deck_key": "",
       "store_key": "バトロコ水戸駅前"
     },
@@ -346,7 +366,7 @@
       "date": "2026-09-26",
       "store": "バトロコ 本厚木駅前",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ヤドキング",
       "event_type": "city",
       "prefecture": "神奈川",
       "league": "",
@@ -356,14 +376,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc24",
       "event_url": "https://players.pokemon-card.com/event/detail/1115151/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ヤドキング",
       "store_key": "バトロコ本厚木駅前"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコ 本厚木駅前",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "神奈川",
       "league": "",
@@ -373,14 +394,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc24",
       "event_url": "https://players.pokemon-card.com/event/detail/1115151/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "バトロコ本厚木駅前"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコ 小山駅前",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋バシャーモex",
       "event_type": "city",
       "prefecture": "栃木",
       "league": "",
@@ -390,14 +412,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc23",
       "event_url": "https://players.pokemon-card.com/event/detail/1115603/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+バシャーモex",
       "store_key": "バトロコ小山駅前"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコ 小山駅前",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ばけがくれ",
       "event_type": "city",
       "prefecture": "栃木",
       "league": "",
@@ -407,14 +430,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc23",
       "event_url": "https://players.pokemon-card.com/event/detail/1115603/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ばけがくれ",
       "store_key": "バトロコ小山駅前"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコミニ苫小牧バイパス店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "北海道",
       "league": "",
@@ -424,14 +448,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc18",
       "event_url": "https://players.pokemon-card.com/event/detail/1115000/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "バトロコミニ苫小牧バイパス店"
     },
     {
       "date": "2026-09-26",
       "store": "バトロコミニ苫小牧バイパス店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "フーディン",
       "event_type": "city",
       "prefecture": "北海道",
       "league": "",
@@ -441,14 +466,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc18",
       "event_url": "https://players.pokemon-card.com/event/detail/1115000/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "フーディン",
       "store_key": "バトロコミニ苫小牧バイパス店"
     },
     {
       "date": "2026-09-26",
       "store": "ドラゴンスター日本橋3号店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "大阪",
       "league": "",
@@ -458,14 +484,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc4",
       "event_url": "https://players.pokemon-card.com/event/detail/1115265/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "ドラゴンスター日本橋3号店"
     },
     {
       "date": "2026-09-26",
       "store": "ドラゴンスター日本橋3号店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ばけがくれ",
       "event_type": "city",
       "prefecture": "大阪",
       "league": "",
@@ -475,14 +502,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc4",
       "event_url": "https://players.pokemon-card.com/event/detail/1115265/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ばけがくれ",
       "store_key": "ドラゴンスター日本橋3号店"
     },
     {
       "date": "2026-09-26",
       "store": "トレカショップKCC",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ヤドキング",
       "event_type": "city",
       "prefecture": "埼玉",
       "league": "",
@@ -492,14 +520,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc10",
       "event_url": "https://players.pokemon-card.com/event/detail/1114996/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ヤドキング",
       "store_key": "トレカショップKCC"
     },
     {
       "date": "2026-09-26",
       "store": "トレカショップKCC",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "タケルライコex",
       "event_type": "city",
       "prefecture": "埼玉",
       "league": "",
@@ -509,14 +538,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc10",
       "event_url": "https://players.pokemon-card.com/event/detail/1114996/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "タケルライコex",
       "store_key": "トレカショップKCC"
     },
     {
       "date": "2026-09-26",
       "store": "シーガル郡山店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋バシャーモex",
       "event_type": "city",
       "prefecture": "福島",
       "league": "",
@@ -526,14 +556,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc2",
       "event_url": "https://players.pokemon-card.com/event/detail/1114995/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+バシャーモex",
       "store_key": "シーガル郡山店"
     },
     {
       "date": "2026-09-26",
       "store": "シーガル郡山店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "福島",
       "league": "",
@@ -543,14 +574,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc2",
       "event_url": "https://players.pokemon-card.com/event/detail/1114995/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "シーガル郡山店"
     },
     {
       "date": "2026-09-26",
       "store": "カードショップ楓",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ばけがくれ",
       "event_type": "city",
       "prefecture": "高知",
       "league": "",
@@ -560,14 +592,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc9",
       "event_url": "https://players.pokemon-card.com/event/detail/1115270/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ばけがくれ",
       "store_key": "カードショップ楓"
     },
     {
       "date": "2026-09-26",
       "store": "カードショップ楓",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "高知",
       "league": "",
@@ -577,14 +610,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc9",
       "event_url": "https://players.pokemon-card.com/event/detail/1115270/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "カードショップ楓"
     },
     {
       "date": "2026-09-26",
       "store": "カードショップリドル京急蒲田店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "東京",
       "league": "",
@@ -594,14 +628,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc26",
       "event_url": "https://players.pokemon-card.com/event/detail/1115152/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "カードショップリドル京急蒲田店"
     },
     {
       "date": "2026-09-26",
       "store": "カードショップリドル京急蒲田店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "メガルカリオex",
       "event_type": "city",
       "prefecture": "東京",
       "league": "",
@@ -611,14 +646,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc26",
       "event_url": "https://players.pokemon-card.com/event/detail/1115152/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガルカリオex",
       "store_key": "カードショップリドル京急蒲田店"
     },
     {
       "date": "2026-09-26",
       "store": "アリオン皆生店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "プリズムバレット",
       "event_type": "city",
       "prefecture": "鳥取",
       "league": "",
@@ -628,14 +664,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc15",
       "event_url": "https://players.pokemon-card.com/event/detail/1115272/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "プリズムバレット",
       "store_key": "アリオン皆生店"
     },
     {
       "date": "2026-09-26",
       "store": "アリオン皆生店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "メガスターミーex",
       "event_type": "city",
       "prefecture": "鳥取",
       "league": "",
@@ -645,14 +682,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc15",
       "event_url": "https://players.pokemon-card.com/event/detail/1115272/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガスターミーex",
       "store_key": "アリオン皆生店"
     },
     {
       "date": "2026-09-26",
       "store": "Card Secret",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "メガミミロップex",
       "event_type": "city",
       "prefecture": "東京",
       "league": "",
@@ -662,14 +700,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc25",
       "event_url": "https://players.pokemon-card.com/event/detail/1115002/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "メガミミロップex",
       "store_key": "CardSecret"
     },
     {
       "date": "2026-09-26",
       "store": "Card Secret",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "東京",
       "league": "",
@@ -679,14 +718,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc25",
       "event_url": "https://players.pokemon-card.com/event/detail/1115002/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "CardSecret"
     },
     {
       "date": "2026-09-26",
       "store": "【CARDBOX】下関店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "Nのゾロアークex",
       "event_type": "city",
       "prefecture": "山口",
       "league": "",
@@ -696,7 +736,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc22",
       "event_url": "https://players.pokemon-card.com/event/detail/1115273/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "nのゾロアークex",
       "store_key": "CARDBOX下関店"
     },
     {
@@ -713,6 +754,7 @@
       "source_url": "https://pokecabook.com/archives/334266#toc22",
       "event_url": "https://players.pokemon-card.com/event/detail/1115273/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
+      "deck_name_guessed": false,
       "deck_key": "",
       "store_key": "CARDBOX下関店"
     },
@@ -720,7 +762,7 @@
       "date": "2026-09-26",
       "store": "BOOKOFF イトーヨーカドー流山店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "千葉",
       "league": "",
@@ -730,14 +772,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc19",
       "event_url": "https://players.pokemon-card.com/event/detail/1115001/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "BOOKOFFイトーヨーカドー流山店"
     },
     {
       "date": "2026-09-26",
       "store": "BOOKOFF イトーヨーカドー流山店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "おまつりおんど",
       "event_type": "city",
       "prefecture": "千葉",
       "league": "",
@@ -747,14 +790,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc19",
       "event_url": "https://players.pokemon-card.com/event/detail/1115001/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "おまつりおんど",
       "store_key": "BOOKOFFイトーヨーカドー流山店"
     },
     {
       "date": "2026-09-26",
       "store": "BOOKOFF307号枚方池之宮店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "大阪",
       "league": "",
@@ -764,14 +808,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc5",
       "event_url": "https://players.pokemon-card.com/event/detail/1115266/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "BOOKOFF307号枚方池之宮店"
     },
     {
       "date": "2026-09-26",
       "store": "BOOKOFF307号枚方池之宮店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex",
       "event_type": "city",
       "prefecture": "大阪",
       "league": "",
@@ -781,14 +826,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc5",
       "event_url": "https://players.pokemon-card.com/event/detail/1115266/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex",
       "store_key": "BOOKOFF307号枚方池之宮店"
     },
     {
       "date": "2026-09-26",
       "store": "BOOKOFF 248号西友岡崎店",
       "rank": 2,
-      "deck_name": "",
+      "deck_name": "カミツオロチex",
       "event_type": "city",
       "prefecture": "愛知",
       "league": "",
@@ -798,14 +844,15 @@
       "source_url": "https://pokecabook.com/archives/334266#toc14",
       "event_url": "https://players.pokemon-card.com/event/detail/1115271/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "カミツオロチex",
       "store_key": "BOOKOFF248号西友岡崎店"
     },
     {
       "date": "2026-09-26",
       "store": "BOOKOFF 248号西友岡崎店",
       "rank": 1,
-      "deck_name": "",
+      "deck_name": "ドラパルトex＋ノココッチ",
       "event_type": "city",
       "prefecture": "愛知",
       "league": "",
@@ -815,7 +862,8 @@
       "source_url": "https://pokecabook.com/archives/334266#toc14",
       "event_url": "https://players.pokemon-card.com/event/detail/1115271/result",
       "collected_at": "2026-09-27T07:36:26+09:00",
-      "deck_key": "",
+      "deck_name_guessed": true,
+      "deck_key": "ドラパルトex+ノココッチ",
       "store_key": "BOOKOFF248号西友岡崎店"
     },
     {
@@ -832,6 +880,7 @@
       "source_url": "https://pokecabook.com/archives/216334",
       "event_url": "",
       "collected_at": "2026-09-27T07:37:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のドンカラス",
       "store_key": ""
     },
@@ -849,6 +898,7 @@
       "source_url": "https://pokecabook.com/archives/214576",
       "event_url": "",
       "collected_at": "2026-09-27T07:37:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のミュウツーex",
       "store_key": ""
     },
@@ -866,6 +916,7 @@
       "source_url": "https://pokecabook.com/archives/149284",
       "event_url": "",
       "collected_at": "2026-09-27T07:37:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "イイネイヌ",
       "store_key": ""
     },
@@ -883,6 +934,7 @@
       "source_url": "https://pokecabook.com/archives/252045",
       "event_url": "",
       "collected_at": "2026-09-27T07:37:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガアブソルex",
       "store_key": ""
     },
@@ -900,6 +952,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-27T07:37:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -917,6 +970,7 @@
       "source_url": "https://pokecabook.com/archives/333318",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ゲンガーex",
       "store_key": ""
     },
@@ -934,6 +988,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -951,6 +1006,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -968,6 +1024,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -985,6 +1042,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -1002,6 +1060,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -1019,6 +1078,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -1036,6 +1096,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1053,6 +1114,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1070,6 +1132,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1087,6 +1150,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1104,6 +1168,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1121,6 +1186,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -1138,6 +1204,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -1155,6 +1222,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -1172,6 +1240,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -1189,6 +1258,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -1206,6 +1276,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -1223,6 +1294,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -1240,6 +1312,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -1257,6 +1330,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -1274,6 +1348,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -1291,6 +1366,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -1308,6 +1384,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -1325,6 +1402,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -1342,6 +1420,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -1359,6 +1438,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -1376,6 +1456,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -1393,6 +1474,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -1410,6 +1492,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -1427,6 +1510,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -1444,6 +1528,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -1461,6 +1546,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -1478,6 +1564,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -1495,6 +1582,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -1512,6 +1600,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -1529,6 +1618,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -1546,6 +1636,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -1563,6 +1654,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -1580,6 +1672,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -1597,6 +1690,7 @@
       "source_url": "https://pokecabook.com/archives/197309",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "マリィのオーロンゲex",
       "store_key": ""
     },
@@ -1614,6 +1708,7 @@
       "source_url": "https://pokecabook.com/archives/251215",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ストリンダーバレット",
       "store_key": ""
     },
@@ -1631,6 +1726,7 @@
       "source_url": "https://pokecabook.com/archives/252045",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガアブソルex",
       "store_key": ""
     },
@@ -1648,6 +1744,7 @@
       "source_url": "https://pokecabook.com/archives/182682",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヒビキのバクフーン",
       "store_key": ""
     },
@@ -1665,6 +1762,7 @@
       "source_url": "https://pokecabook.com/archives/234606",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガフシギバナex",
       "store_key": ""
     },
@@ -1682,6 +1780,7 @@
       "source_url": "https://pokecabook.com/archives/142393",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ソウブレイズex",
       "store_key": ""
     },
@@ -1699,6 +1798,7 @@
       "source_url": "https://pokecabook.com/archives/142393",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ソウブレイズex",
       "store_key": ""
     },
@@ -1716,6 +1816,7 @@
       "source_url": "https://pokecabook.com/archives/228787",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガガルーラex",
       "store_key": ""
     },
@@ -1733,6 +1834,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -1750,6 +1852,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -1767,6 +1870,7 @@
       "source_url": "https://pokecabook.com/archives/214576",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のミュウツーex",
       "store_key": ""
     },
@@ -1784,6 +1888,7 @@
       "source_url": "https://pokecabook.com/archives/69479",
       "event_url": "",
       "collected_at": "2026-09-24T09:57:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ブースターex",
       "store_key": ""
     },
@@ -1801,6 +1906,7 @@
       "source_url": "https://pokecabook.com/archives/285465",
       "event_url": "",
       "collected_at": "2026-09-24T09:57:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガジガルデex",
       "store_key": ""
     },
@@ -1818,6 +1924,7 @@
       "source_url": "https://pokecabook.com/archives/33500",
       "event_url": "",
       "collected_at": "2026-09-24T09:57:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガサーナイトex",
       "store_key": ""
     },
@@ -1835,6 +1942,7 @@
       "source_url": "https://pokecabook.com/archives/238786",
       "event_url": "",
       "collected_at": "2026-09-24T09:57:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲンガーex",
       "store_key": ""
     },
@@ -1852,6 +1960,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1869,6 +1978,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1886,6 +1996,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1903,6 +2014,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1920,6 +2032,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1937,6 +2050,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1954,6 +2068,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1971,6 +2086,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -1988,6 +2104,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2005,6 +2122,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2022,6 +2140,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -2039,6 +2158,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -2056,6 +2176,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -2073,6 +2194,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -2090,6 +2212,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -2107,6 +2230,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -2124,6 +2248,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -2141,6 +2266,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -2158,6 +2284,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -2175,6 +2302,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -2192,6 +2320,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -2209,6 +2338,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -2226,6 +2356,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -2243,6 +2374,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -2260,6 +2392,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -2277,6 +2410,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -2294,6 +2428,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -2311,6 +2446,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -2328,6 +2464,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -2345,6 +2482,7 @@
       "source_url": "https://pokecabook.com/archives/137510",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "カミツオロチex",
       "store_key": ""
     },
@@ -2362,6 +2500,7 @@
       "source_url": "https://pokecabook.com/archives/197309",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "マリィのオーロンゲex",
       "store_key": ""
     },
@@ -2379,6 +2518,7 @@
       "source_url": "https://pokecabook.com/archives/328615",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガカラマネロex",
       "store_key": ""
     },
@@ -2396,6 +2536,7 @@
       "source_url": "https://pokecabook.com/archives/182682",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヒビキのバクフーン",
       "store_key": ""
     },
@@ -2413,6 +2554,7 @@
       "source_url": "https://pokecabook.com/archives/234606",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガフシギバナex",
       "store_key": ""
     },
@@ -2430,6 +2572,7 @@
       "source_url": "https://pokecabook.com/archives/322236",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドデカバシ",
       "store_key": ""
     },
@@ -2447,6 +2590,7 @@
       "source_url": "https://pokecabook.com/archives/218938",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "オリーヴァex",
       "store_key": ""
     },
@@ -2464,6 +2608,7 @@
       "source_url": "https://pokecabook.com/archives/246027",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガミミロップex",
       "store_key": ""
     },
@@ -2481,6 +2626,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -2498,6 +2644,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -2515,6 +2662,7 @@
       "source_url": "https://pokecabook.com/archives/214576",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のミュウツーex",
       "store_key": ""
     },
@@ -2532,6 +2680,7 @@
       "source_url": "https://pokecabook.com/archives/149284",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "イイネイヌ",
       "store_key": ""
     },
@@ -2549,6 +2698,7 @@
       "source_url": "https://pokecabook.com/archives/246035",
       "event_url": "",
       "collected_at": "2026-09-24T09:57:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガサメハダーex",
       "store_key": ""
     },
@@ -2566,6 +2716,7 @@
       "source_url": "https://pokecabook.com/archives/333695",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ぷにぷにサークル",
       "store_key": ""
     },
@@ -2583,6 +2734,7 @@
       "source_url": "https://pokecabook.com/archives/333318",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ゲンガーex",
       "store_key": ""
     },
@@ -2600,6 +2752,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2617,6 +2770,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2634,6 +2788,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2651,6 +2806,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2668,6 +2824,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2685,6 +2842,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2702,6 +2860,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2719,6 +2878,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2736,6 +2896,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2753,6 +2914,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -2770,6 +2932,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2787,6 +2950,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2804,6 +2968,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2821,6 +2986,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2838,6 +3004,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -2855,6 +3022,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -2872,6 +3040,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -2889,6 +3058,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -2906,6 +3076,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -2923,6 +3094,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -2940,6 +3112,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -2957,6 +3130,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -2974,6 +3148,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -2991,6 +3166,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -3008,6 +3184,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -3025,6 +3202,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -3042,6 +3220,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -3059,6 +3238,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -3076,6 +3256,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -3093,6 +3274,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -3110,6 +3292,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -3127,6 +3310,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -3144,6 +3328,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -3161,6 +3346,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -3178,6 +3364,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -3195,6 +3382,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -3212,6 +3400,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -3229,6 +3418,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -3246,6 +3436,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -3263,6 +3454,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -3280,6 +3472,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -3297,6 +3490,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -3314,6 +3508,7 @@
       "source_url": "https://pokecabook.com/archives/137510",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "カミツオロチex",
       "store_key": ""
     },
@@ -3331,6 +3526,7 @@
       "source_url": "https://pokecabook.com/archives/328427",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガグソクムシャex",
       "store_key": ""
     },
@@ -3348,6 +3544,7 @@
       "source_url": "https://pokecabook.com/archives/234606",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガフシギバナex",
       "store_key": ""
     },
@@ -3365,6 +3562,7 @@
       "source_url": "https://pokecabook.com/archives/218938",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "オリーヴァex",
       "store_key": ""
     },
@@ -3382,6 +3580,7 @@
       "source_url": "https://pokecabook.com/archives/246027",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガミミロップex",
       "store_key": ""
     },
@@ -3399,6 +3598,7 @@
       "source_url": "https://pokecabook.com/archives/246027",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガミミロップex",
       "store_key": ""
     },
@@ -3416,6 +3616,7 @@
       "source_url": "https://pokecabook.com/archives/246027",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガミミロップex",
       "store_key": ""
     },
@@ -3433,6 +3634,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -3450,6 +3652,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -3467,6 +3670,7 @@
       "source_url": "https://pokecabook.com/archives/238786",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲンガーex",
       "store_key": ""
     },
@@ -3484,6 +3688,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -3501,6 +3706,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3518,6 +3724,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3535,6 +3742,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3552,6 +3760,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3569,6 +3778,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3586,6 +3796,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3603,6 +3814,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3620,6 +3832,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3637,6 +3850,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -3654,6 +3868,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -3671,6 +3886,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -3688,6 +3904,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -3705,6 +3922,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -3722,6 +3940,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -3739,6 +3958,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3756,6 +3976,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3773,6 +3994,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3790,6 +4012,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3807,6 +4030,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3824,6 +4048,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3841,6 +4066,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3858,6 +4084,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -3875,6 +4102,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -3892,6 +4120,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -3909,6 +4138,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -3926,6 +4156,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -3943,6 +4174,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -3960,6 +4192,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -3977,6 +4210,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -3994,6 +4228,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -4011,6 +4246,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -4028,6 +4264,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -4045,6 +4282,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -4062,6 +4300,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -4079,6 +4318,7 @@
       "source_url": "https://pokecabook.com/archives/120545",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "プリズムバレット",
       "store_key": ""
     },
@@ -4096,6 +4336,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4113,6 +4354,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4130,6 +4372,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4147,6 +4390,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4164,6 +4408,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -4181,6 +4426,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -4198,6 +4444,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -4215,6 +4462,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4232,6 +4480,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4249,6 +4498,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4266,6 +4516,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4283,6 +4534,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4300,6 +4552,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -4317,6 +4570,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -4334,6 +4588,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -4351,6 +4606,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -4368,6 +4624,7 @@
       "source_url": "https://pokecabook.com/archives/137510",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "カミツオロチex",
       "store_key": ""
     },
@@ -4385,6 +4642,7 @@
       "source_url": "https://pokecabook.com/archives/137510",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "カミツオロチex",
       "store_key": ""
     },
@@ -4402,6 +4660,7 @@
       "source_url": "https://pokecabook.com/archives/216334",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のドンカラス",
       "store_key": ""
     },
@@ -4419,6 +4678,7 @@
       "source_url": "https://pokecabook.com/archives/216334",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のドンカラス",
       "store_key": ""
     },
@@ -4436,6 +4696,7 @@
       "source_url": "https://pokecabook.com/archives/216334",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のドンカラス",
       "store_key": ""
     },
@@ -4453,6 +4714,7 @@
       "source_url": "https://pokecabook.com/archives/182682",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヒビキのバクフーン",
       "store_key": ""
     },
@@ -4470,6 +4732,7 @@
       "source_url": "https://pokecabook.com/archives/234606",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガフシギバナex",
       "store_key": ""
     },
@@ -4487,6 +4750,7 @@
       "source_url": "https://pokecabook.com/archives/322236",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドデカバシ",
       "store_key": ""
     },
@@ -4504,6 +4768,7 @@
       "source_url": "https://pokecabook.com/archives/214576",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のミュウツーex",
       "store_key": ""
     },
@@ -4521,6 +4786,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -4538,6 +4804,7 @@
       "source_url": "https://pokecabook.com/archives/214576",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のミュウツーex",
       "store_key": ""
     },
@@ -4555,6 +4822,7 @@
       "source_url": "https://pokecabook.com/archives/205224",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "イワパレス",
       "store_key": ""
     },
@@ -4572,6 +4840,7 @@
       "source_url": "https://pokecabook.com/archives/69479",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ブースターex",
       "store_key": ""
     },
@@ -4589,6 +4858,7 @@
       "source_url": "https://pokecabook.com/archives/238786",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲンガーex",
       "store_key": ""
     },
@@ -4606,6 +4876,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -4623,6 +4894,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4640,6 +4912,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4657,6 +4930,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4674,6 +4948,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4691,6 +4966,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4708,6 +4984,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -4725,6 +5002,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -4742,6 +5020,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -4759,6 +5038,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -4776,6 +5056,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -4793,6 +5074,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -4810,6 +5092,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -4827,6 +5110,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -4844,6 +5128,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -4861,6 +5146,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -4878,6 +5164,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -4895,6 +5182,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -4912,6 +5200,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4929,6 +5218,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-22T10:19:16+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -4946,6 +5236,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -4963,6 +5254,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -4980,6 +5272,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -4997,6 +5290,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -5014,6 +5308,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-25T09:58:12+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -5031,6 +5326,7 @@
       "source_url": "https://pokecabook.com/archives/246007",
       "event_url": "",
       "collected_at": "2026-09-26T10:00:07+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガリザードンxex",
       "store_key": ""
     },
@@ -5048,6 +5344,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5065,6 +5362,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5082,6 +5380,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5099,6 +5398,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5116,6 +5416,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -5133,6 +5434,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -5150,6 +5452,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -5167,6 +5470,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -5184,6 +5488,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -5201,6 +5506,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -5218,6 +5524,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -5235,6 +5542,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -5252,6 +5560,7 @@
       "source_url": "https://pokecabook.com/archives/188876",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ヤドキング",
       "store_key": ""
     },
@@ -5269,6 +5578,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -5286,6 +5596,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -5303,6 +5614,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -5320,6 +5632,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -5337,6 +5650,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-19T19:37:44+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -5354,6 +5668,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5371,6 +5686,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5388,6 +5704,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -5405,6 +5722,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -5422,6 +5740,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -5439,6 +5758,7 @@
       "source_url": "https://pokecabook.com/archives/322259",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガドリュウズex",
       "store_key": ""
     },
@@ -5456,6 +5776,7 @@
       "source_url": "https://pokecabook.com/archives/322263",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ばけがくれ",
       "store_key": ""
     },
@@ -5473,6 +5794,7 @@
       "source_url": "https://pokecabook.com/archives/216334",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ロケット団のドンカラス",
       "store_key": ""
     },
@@ -5490,6 +5812,7 @@
       "source_url": "https://pokecabook.com/archives/246035",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガサメハダーex",
       "store_key": ""
     },
@@ -5507,6 +5830,7 @@
       "source_url": "https://pokecabook.com/archives/246035",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガサメハダーex",
       "store_key": ""
     },
@@ -5524,6 +5848,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -5541,6 +5866,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -5558,6 +5884,7 @@
       "source_url": "https://pokecabook.com/archives/328428",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガレックウザex",
       "store_key": ""
     },
@@ -5575,6 +5902,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5592,6 +5920,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5609,6 +5938,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5626,6 +5956,7 @@
       "source_url": "https://pokecabook.com/archives/122503",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex",
       "store_key": ""
     },
@@ -5643,6 +5974,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -5660,6 +5992,7 @@
       "source_url": "https://pokecabook.com/archives/332536",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+ノココッチ",
       "store_key": ""
     },
@@ -5677,6 +6010,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -5694,6 +6028,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -5711,6 +6046,7 @@
       "source_url": "https://pokecabook.com/archives/234601",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガルカリオex",
       "store_key": ""
     },
@@ -5728,6 +6064,7 @@
       "source_url": "https://pokecabook.com/archives/93261",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "タケルライコex",
       "store_key": ""
     },
@@ -5745,6 +6082,7 @@
       "source_url": "https://pokecabook.com/archives/53696",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "フーディン",
       "store_key": ""
     },
@@ -5762,6 +6100,7 @@
       "source_url": "https://pokecabook.com/archives/187344",
       "event_url": "",
       "collected_at": "2026-09-19T09:44:42+09:00",
+      "deck_name_guessed": false,
       "deck_key": "nのゾロアークex",
       "store_key": ""
     },
@@ -5779,6 +6118,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5796,6 +6136,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5813,6 +6154,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5830,6 +6172,7 @@
       "source_url": "https://pokecabook.com/archives/122302",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "おまつりおんど",
       "store_key": ""
     },
@@ -5847,6 +6190,7 @@
       "source_url": "https://pokecabook.com/archives/111205",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガゲッコウガex",
       "store_key": ""
     },
@@ -5864,6 +6208,7 @@
       "source_url": "https://pokecabook.com/archives/174239",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "ドラパルトex+バシャーモex",
       "store_key": ""
     },
@@ -5881,6 +6226,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -5898,6 +6244,7 @@
       "source_url": "https://pokecabook.com/archives/205226",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "シロナのガブリアスex",
       "store_key": ""
     },
@@ -5915,6 +6262,7 @@
       "source_url": "https://pokecabook.com/archives/322250",
       "event_url": "",
       "collected_at": "2026-09-20T09:28:55+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガシャンデラex",
       "store_key": ""
     },
@@ -5932,6 +6280,7 @@
       "source_url": "https://pokecabook.com/archives/285277",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガスターミーex",
       "store_key": ""
     },
@@ -5949,6 +6298,7 @@
       "source_url": "https://pokecabook.com/archives/234609",
       "event_url": "",
       "collected_at": "2026-09-21T09:36:06+09:00",
+      "deck_name_guessed": false,
       "deck_key": "メガライボルトex",
       "store_key": ""
     }

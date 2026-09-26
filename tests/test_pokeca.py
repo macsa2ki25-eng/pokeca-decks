@@ -615,6 +615,25 @@ def test_merge_does_not_overwrite_existing_values():
     assert merged[0].deck_code == "keep-me"
 
 
+def test_merge_prefers_the_source_name_over_a_guessed_one():
+    """中身から当てた名前は、収集元の名前が来たら置きかわる。"""
+    existing = [_record(deck_name="ドラパルトex", deck_code="a-1", deck_name_guessed=True)]
+    merged, _, updated = merge_results(
+        existing, [_record(deck_name="ドラパルトex＋ノココッチ", deck_code="a-1")]
+    )
+    assert updated == 1
+    assert merged[0].deck_name == "ドラパルトex＋ノココッチ"
+    assert not merged[0].deck_name_guessed
+
+
+def test_merge_keeps_a_guessed_name_when_the_source_has_none():
+    existing = [_record(deck_name="ドラパルトex", deck_code="a-1", deck_name_guessed=True)]
+    merged, _, updated = merge_results(existing, [_record(deck_name="", deck_code="a-1")])
+    assert updated == 0
+    assert merged[0].deck_name == "ドラパルトex"
+    assert merged[0].deck_name_guessed
+
+
 # ------------------------------------------------------------------
 # 集計
 # ------------------------------------------------------------------

@@ -75,6 +75,9 @@ class DeckResult:
     source_url: str = ""  # 元記事・元ページURL
     event_url: str = ""  # 公式イベント結果ページ (リーグ区分の補完に使う)
     collected_at: str = ""  # 収集時刻 (JST ISO8601)
+    # deck_name を収集元からではなく、デッキの中身から当てたか (classify.py)。
+    # シティリーグは名前が出ないので当てている。収集元の名前が来たら上書きする
+    deck_name_guessed: bool = False
 
     # 集計用の正規化キー (保存はするが表示には使わない)
     deck_key: str = field(default="")

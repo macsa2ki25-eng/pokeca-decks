@@ -1455,6 +1455,7 @@ BODY = """
     <a href="https://pokecabook.com/" target="_blank" rel="noopener">ポケカブック</a> と
     <a href="https://players.pokemon-card.com/" target="_blank" rel="noopener">ポケモンカードゲーム プレイヤーズクラブ</a>
     です。デッキの中身はタップして元のページで見てね。<br>
+    シティリーグのデッキ名は、中身をジムバトルのデッキとくらべて決めています。<br>
     このページは家族用の個人的なまとめです。記事や画像の転載はしていません。
   </footer>
 </div>
