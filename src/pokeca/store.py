@@ -191,6 +191,51 @@ def sanitize_results(
     return kept, fixed + dropped
 
 
+SEASON_FILE = POKECA_DIR / "season.yaml"
+
+
+def load_season(path: Path | None = None) -> dict[str, str]:
+    """大会の種類 → 今シーズンの開始日 ("2026-09-26" の形)。
+
+    ファイルが無いときや、日付として読めない値は無視する。
+    そのときは何も落とさない (まちがって全部消さないため)。
+    """
+    target = path or SEASON_FILE
+    if not target.exists():
+        return {}
+    with target.open(encoding="utf-8") as f:
+        raw = yaml.safe_load(f) or {}
+    season: dict[str, str] = {}
+    for event, value in raw.items():
+        try:
+            season[str(event)] = date.fromisoformat(str(value)).isoformat()
+        except ValueError:
+            continue
+    return season
+
+
+def apply_season(
+    results: list[DeckResult], season: dict[str, str] | None = None
+) -> tuple[list[DeckResult], int]:
+    """シーズンが始まる前の結果を落とす。
+
+    環境が入れかわる前に勝ったデッキが混ざると、採用率も「強い順」も
+    今の実態とずれる。収集元には前のシーズンの記事も残っているので、
+    毎回ここを通して、拾い直したものが戻ってこないようにする。
+
+    Returns:
+        (残した結果, 落とした件数)
+    """
+    season = load_season() if season is None else season
+    if not season:
+        return list(results), 0
+    kept = [
+        r for r in results
+        if not (r.event_type in season and r.date and r.date < season[r.event_type])
+    ]
+    return kept, len(results) - len(kept)
+
+
 def prune_results(results: list[DeckResult], keep_days: int = 180) -> list[DeckResult]:
     """古いレコードを落とす。
 

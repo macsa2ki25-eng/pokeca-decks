@@ -855,3 +855,63 @@ def test_つながらないだけの日は失敗あつかいにしない():
     assert _is_unreachable(wp.NoRouteAvailable("timeout", unreachable=True))
     assert not _is_unreachable(wp.NoRouteAvailable("0件"))
     assert not _is_unreachable(ValueError("読み取り方が変わった"))
+
+
+# ------------------------------------------------------------------
+# シーズンの区切り
+# ------------------------------------------------------------------
+
+
+def _r(event: str, day: str, code: str = "") -> "DeckResult":
+    from src.pokeca.models import DeckResult
+
+    return DeckResult(
+        date=day, store="店", rank=1, deck_name="ドラパルトex",
+        event_type=event, deck_code=code,
+    )
+
+
+def test_シーズンより前の結果を落とす():
+    from src.pokeca.store import apply_season
+
+    season = {"city": "2026-09-26", "gym": "2026-09-17"}
+    results = [
+        _r("city", "2026-05-06"),   # 前のシーズン
+        _r("city", "2026-09-26"),   # 開幕日そのものは残す
+        _r("gym", "2026-09-16"),    # 9/16 以前は落とす
+        _r("gym", "2026-09-17"),
+    ]
+    kept, dropped = apply_season(results, season)
+    assert dropped == 2
+    assert [(r.event_type, r.date) for r in kept] == [
+        ("city", "2026-09-26"),
+        ("gym", "2026-09-17"),
+    ]
+
+
+def test_区切りを書いていない大会は落とさない():
+    from src.pokeca.store import apply_season
+
+    kept, dropped = apply_season([_r("gym", "2020-01-01")], {"city": "2026-09-26"})
+    assert dropped == 0 and len(kept) == 1
+
+
+def test_区切りが読めなければ何も落とさない(tmp_path):
+    """まちがって全部消さないように、読めない日付は無視する。"""
+    from src.pokeca.store import apply_season, load_season
+
+    broken = tmp_path / "season.yaml"
+    broken.write_text("city: いつか\n", encoding="utf-8")
+    season = load_season(broken)
+    assert season == {}
+    kept, dropped = apply_season([_r("city", "2026-05-06")], season)
+    assert dropped == 0
+
+
+def test_どの結果からも指されていない中身を落とす():
+    from src.pokeca.cardstore import prune_decklists
+
+    decklists = {"A": {"cards": []}, "B": {"cards": []}, "C": {"cards": []}}
+    kept, dropped = prune_decklists(decklists, {"A", "C"})
+    assert set(kept) == {"A", "C"}
+    assert dropped == 1

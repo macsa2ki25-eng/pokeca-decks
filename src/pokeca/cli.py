@@ -29,6 +29,8 @@ from src.pokeca.store import (
     RESULTS_FILE,
     SITE_DIR,
     apply_aliases,
+    apply_season,
+    load_season,
     load_results,
     merge_results,
     now_jst,
@@ -202,6 +204,13 @@ def cmd_collect(
     if fixed:
         console.print(f"[dim]おかしいデッキ名 {fixed} 件を空にしました。[/dim]")
 
+    # 今のシーズンより前の結果は落とす。収集元には前のシーズンの記事も
+    # 残っているので、毎回ここで切らないと拾い直したものが戻ってくる。
+    # 日付の直し (sanitize) のあとに切ること。直す前の日付で判定しないため
+    merged, off_season = apply_season(merged)
+    if off_season:
+        console.print(f"[dim]シーズンより前の結果 {off_season} 件を落としました。[/dim]")
+
     named = sum(1 for r in merged if r.deck_name)
     console.print(f"デッキ名あり: {named}/{len(merged)} 件")
     events = Counter(r.event_type for r in merged)
@@ -222,9 +231,72 @@ def cmd_collect(
 
     save_results(merged)
     console.print(f"保存しました: {RESULTS_FILE}")
+    _prune_orphan_decklists(merged)
 
     if failures:
         console.print("[yellow]一部の収集元で失敗しています:[/yellow] " + " / ".join(failures))
+
+
+def _prune_orphan_decklists(results: list[DeckResult]) -> None:
+    """どの結果からも指されていないデッキの中身 (60枚) を消す。
+
+    結果が1件も無いときは何もしない。
+    読み込みに失敗して空になったときに、中身まで全部消してしまわないため。
+    """
+    from src.pokeca.cardstore import load_decklists, prune_decklists, save_decklists
+
+    keep = {r.deck_code for r in results if r.deck_code}
+    if not keep:
+        return
+    decklists = load_decklists()
+    kept, dropped = prune_decklists(decklists, keep)
+    if dropped:
+        save_decklists(kept)
+        console.print(f"[dim]使われなくなったデッキの中身 {dropped} 件を削除しました。[/dim]")
+
+
+@main.command("season")
+@click.option("--apply", "do_apply", is_flag=True, help="実際に消す (付けなければ数えるだけ)")
+def cmd_season(do_apply: bool) -> None:
+    """今のシーズンより前の結果を消す。
+
+    season.yaml を書きかえたあと、次の収集を待たずに反映したいときに使う。
+    まずは --apply なしで、何件消えるかを確かめる。
+    """
+    season = load_season()
+    if not season:
+        console.print("[yellow]season.yaml が無いか、日付が読めません。何もしません。[/yellow]")
+        return
+
+    results = load_results()
+    kept, dropped = apply_season(results, season)
+
+    table = Table(title="シーズンの区切り")
+    table.add_column("大会")
+    table.add_column("この日から残す")
+    table.add_column("今ある", justify="right")
+    table.add_column("消える", justify="right", style="red")
+    table.add_column("残る", justify="right", style="green")
+    labels = {"city": "シティリーグ", "gym": "ジムバトル"}
+    for event in sorted({r.event_type for r in results} | set(season)):
+        before = sum(1 for r in results if r.event_type == event)
+        after = sum(1 for r in kept if r.event_type == event)
+        table.add_row(
+            labels.get(event, event), season.get(event, "(区切りなし)"),
+            str(before), str(before - after), str(after),
+        )
+    console.print(table)
+
+    if not do_apply:
+        console.print("[dim]--apply を付けると実際に消します。[/dim]")
+        return
+    if not kept:
+        console.print("[red]全部消えてしまうので中止しました。日付を確かめてください。[/red]")
+        sys.exit(1)
+
+    save_results(kept)
+    console.print(f"[green]{dropped} 件を消しました。[/green] 残り {len(kept)} 件")
+    _prune_orphan_decklists(kept)
 
 
 # ------------------------------------------------------------------

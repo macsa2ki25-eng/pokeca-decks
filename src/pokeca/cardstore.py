@@ -176,6 +176,21 @@ def merge_cards(new: dict[str, dict]) -> dict[str, dict]:
     return cards
 
 
+def prune_decklists(
+    decklists: dict[str, dict], keep_codes: set[str]
+) -> tuple[dict[str, dict], int]:
+    """どの結果からも指されていないデッキの中身 (60枚) を落とす。
+
+    結果を消しても中身だけ残っていると、どのカードが実際に使われているか
+    (版の選び方など) の数え方に古い環境が混ざる。ファイルも膨らみ続ける。
+
+    Returns:
+        (残したデッキ, 落とした数)
+    """
+    kept = {code: deck for code, deck in decklists.items() if code in keep_codes}
+    return kept, len(decklists) - len(kept)
+
+
 def card_ids_in(decklists: dict[str, dict]) -> set[str]:
     """デッキに実際に入っているカードIDを集める。
 
