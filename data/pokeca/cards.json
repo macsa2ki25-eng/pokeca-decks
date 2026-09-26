@@ -1,5 +1,5 @@
 {
- "count": 2218,
+ "count": 2221,
  "cards": {
   "10126": {
    "id": "10126",
@@ -12336,6 +12336,42 @@
    "number": "087/106",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8/046427_P_BAFFURON.jpg",
+   "detail": true
+  },
+  "46430": {
+   "name": "ヤレユータン",
+   "set": "SV8",
+   "number": "090/106",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8/046430_P_YAREYUTAN.jpg",
+   "id": "46430",
+   "stage": "たね",
+   "hp": 120,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "よわみをにぎる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "次の自分の番の終わりまで、このワザを受けたポケモンの弱点は無タイプになる。［弱点は「×2」でダメージ計算をする。］"
+    },
+    {
+     "name": "ひらてうち",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "80",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "46434": {
@@ -48948,6 +48984,17 @@
    "image": "/assets/images/card_images/large/MEE/050423_T_FUSHIGINAAME.jpg",
    "detail": true
   },
+  "50424": {
+   "name": "ポケパッド",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MEE/050424_T_POKEPADDO.jpg",
+   "id": "50424",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札からポケモン（「ルールを持つポケモン」をのぞく）を1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "50425": {
    "id": "50425",
    "name": "ふうせん",
@@ -49383,6 +49430,42 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 1,
+   "detail": true
+  },
+  "50614": {
+   "name": "アローラ ナッシー",
+   "set": "M6a",
+   "number": "002/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050614_P_ARORANASSHI.jpg",
+   "id": "50614",
+   "stage": "1 進化",
+   "hp": 150,
+   "type": "草",
+   "abilities": [
+    {
+     "name": "スケールアップ",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンに草エネルギーが6個以上ついているなら、このポケモンは最大HPが「＋250」される。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "メガドレイン",
+     "cost": [
+      "草",
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "150",
+     "effect": "このポケモンのHPを「50」回復する。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 4,
    "detail": true
   },
   "50627": {
