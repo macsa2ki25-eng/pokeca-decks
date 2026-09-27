@@ -1,5 +1,5 @@
 {
- "count": 2270,
+ "count": 2274,
  "cards": {
   "10126": {
    "id": "10126",
@@ -24132,6 +24132,32 @@
    "image": "/assets/images/card_images/large/M1L/047780_P_DEIARUGA.jpg",
    "detail": true
   },
+  "47781": {
+   "name": "カヌチャン",
+   "set": "M1L",
+   "number": "048/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1L/047781_P_KANUCHIXYAN.jpg",
+   "id": "47781",
+   "stage": "たね",
+   "hp": 70,
+   "type": "鋼",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "たたく",
+     "cost": [
+      "鋼"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 1,
+   "detail": true
+  },
   "47782": {
    "name": "ナカヌチャン",
    "set": "M1L",
@@ -45037,6 +45063,17 @@
    "image": "/assets/images/card_images/large/M-P/050039_T_BUREIBUBANGURU.jpg",
    "detail": true
   },
+  "50040": {
+   "name": "ジェット",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M-P/050040_T_JIETTO.jpg",
+   "id": "50040",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手の場の「メガシンカex」の数ぶん、自分の山札を引く。",
+   "detail": true
+  },
   "50041": {
    "id": "50041",
    "name": "ミツルの思いやり",
@@ -49454,6 +49491,33 @@
    "image": "/assets/images/card_images/large/MEE/050428_T_HIKARI.jpg",
    "detail": true
   },
+  "50432": {
+   "name": "キバニア",
+   "set": "MEZ",
+   "number": "001/019",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MEZ/050432_P_KIBANIA.jpg",
+   "id": "50432",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "おそいかかる",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "20＋",
+     "effect": "コインを1回投げオモテなら、20ダメージ追加。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50437": {
    "name": "ゾロア",
    "set": "MEZ",
@@ -50324,6 +50388,40 @@
    ],
    "weakness": "雷×2",
    "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "50706": {
+   "name": "イーブイ",
+   "set": "M6a",
+   "number": "094/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050706_P_IBUI.jpg",
+   "id": "50706",
+   "stage": "たね",
+   "hp": 70,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "くわえてかくす",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手の手札を見て、その中からグッズを1枚選び、相手の山札の下にもどす。"
+    },
+    {
+     "name": "たいあたり",
+     "cost": [
+      "無"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
    "retreat": 1,
    "detail": true
   },
