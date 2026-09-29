@@ -1,5 +1,5 @@
 {
- "count": 2319,
+ "count": 2321,
  "cards": {
   "10126": {
    "id": "10126",
@@ -14927,6 +14927,41 @@
    "retreat": 3,
    "detail": true
   },
+  "46739": {
+   "name": "テツノカシラex",
+   "set": "SV8a",
+   "number": "078/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046739_P_TETSUNOKASHIRAEX.jpg",
+   "id": "46739",
+   "stage": "たね",
+   "hp": 220,
+   "type": "超",
+   "abilities": [
+    {
+     "name": "コバルトコマンド",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがいるかぎり、自分の「未来」のポケモン（「テツノカシラex」をのぞく）が使うワザの、相手のバトルポケモンへのダメージは「+20」される。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ツインショーテル",
+     "cost": [
+      "超",
+      "無",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモン2匹に、それぞれ50ダメージ。このワザのダメージは、弱点・抵抗力と、ダメージを受けるポケモンにかかっている効果を計算しない。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 2,
+   "detail": true
+  },
   "46740": {
    "id": "46740",
    "name": "ジーランス",
@@ -16025,6 +16060,17 @@
    "text": "このカードをつけているどくのポケモンが使うワザの、相手のバトルポケモンへのダメージは「+40」される。",
    "section": "ポケモンのどうぐ",
    "image": "/assets/images/card_images/large/SV8a/046815_T_KUSARIMOCHI.jpg",
+   "detail": true
+  },
+  "46817": {
+   "name": "ハバンのみ",
+   "section": "ポケモンのどうぐ",
+   "image": "/assets/images/card_images/large/SV8a/046817_T_HABANNOMI.jpg",
+   "id": "46817",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードをつけているポケモンが、相手の竜ポケモンからワザのダメージを受けるとき、そのダメージは「-60」され、このカードをトラッシュする。",
    "detail": true
   },
   "46820": {
