@@ -1,5 +1,5 @@
 {
- "count": 2321,
+ "count": 2329,
  "cards": {
   "10126": {
    "id": "10126",
@@ -10461,6 +10461,17 @@
    "image": "/assets/images/card_images/large/ENE/046123_E_KIHONHAGANEENERUGI.jpg",
    "detail": true
   },
+  "46132": {
+   "name": "ゼイユ",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SV-P/046132_T_ZEIYU.jpg",
+   "id": "46132",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、先攻プレイヤーの最初の番でも使える。自分の手札をすべてトラッシュし、山札を5枚引く。",
+   "detail": true
+  },
   "46134": {
    "id": "46134",
    "name": "基本草エネルギー",
@@ -19990,6 +20001,148 @@
    "image": "/assets/images/card_images/large/SVOM/047271_T_SUPAIKUTAUNJIMU.jpg",
    "detail": true
   },
+  "47272": {
+   "name": "ダイゴのヤジロン",
+   "set": "SVOD",
+   "number": "001/018",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SVOD/047272_P_DAIGONOYAJIRON.jpg",
+   "id": "47272",
+   "stage": "たね",
+   "hp": 60,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "しょうしゅうサイン",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札からたねポケモンの「ダイゴのポケモン」を2枚まで選び、ベンチに出す。そして山札を切る。"
+    },
+    {
+     "name": "ねんどうだん",
+     "cost": [
+      "超"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "47273": {
+   "name": "ダイゴのネンドール",
+   "set": "SVOD",
+   "number": "002/018",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SVOD/047273_P_DAIGONONENDORU.jpg",
+   "id": "47273",
+   "stage": "1 進化",
+   "hp": 120,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ぶきみなひかり",
+     "cost": [
+      "超"
+     ],
+     "damage": "20",
+     "effect": "相手のバトルポケモンをこんらんにする。"
+    },
+    {
+     "name": "クレイブラスト",
+     "cost": [
+      "超",
+      "超",
+      "無"
+     ],
+     "damage": "220",
+     "effect": "このポケモンについているエネルギーを、すべてトラッシュする。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 2,
+   "detail": true
+  },
+  "47274": {
+   "name": "ダイゴのメレシー",
+   "set": "SVOD",
+   "number": "003/018",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SVOD/047274_P_DAIGONOMERESHI.jpg",
+   "id": "47274",
+   "stage": "たね",
+   "hp": 80,
+   "type": "超",
+   "abilities": [
+    {
+     "name": "ストーンパレス",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがベンチにいるかぎり、自分の「ダイゴのポケモン」全員が、相手のポケモンから受けるワザのダメージは「-30」される。この効果は、この特性を持つポケモンが何匹いても、重ならない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "マジカルショット",
+     "cost": [
+      "超",
+      "無",
+      "無"
+     ],
+     "damage": "80",
+     "effect": ""
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "47275": {
+   "name": "ダイゴのエアームド",
+   "set": "SVOD",
+   "number": "004/018",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SVOD/047275_P_DAIGONOEAMUDO.jpg",
+   "id": "47275",
+   "stage": "たね",
+   "hp": 120,
+   "type": "鋼",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "するどいはね",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    },
+    {
+     "name": "ツインソニック",
+     "cost": [
+      "鋼",
+      "鋼",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモン2匹に、それぞれ50ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
   "47276": {
    "id": "47276",
    "name": "ダイゴのダンバル",
@@ -20143,6 +20296,17 @@
    "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SVOD/047288_T_BOSUNOSHIREI.jpg",
+   "detail": true
+  },
+  "47289": {
+   "name": "いしのどうくつ",
+   "section": "スタジアム",
+   "image": "/assets/images/card_images/large/SVOD/047289_T_ISHINODOUKUTSU.jpg",
+   "id": "47289",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいの「ダイゴのポケモン」全員が、相手のポケモンから受けるワザのダメージは「-30」される。",
    "detail": true
   },
   "47290": {
@@ -42221,6 +42385,32 @@
    "image": "/assets/images/card_images/large/M3/049690_P_GIRUGARUDO.jpg",
    "detail": true
   },
+  "49691": {
+   "name": "クレッフィ",
+   "set": "M3",
+   "number": "058/080",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M3/049691_P_KUREFFUI.jpg",
+   "id": "49691",
+   "stage": "たね",
+   "hp": 70,
+   "type": "鋼",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "メモリーロック",
+     "cost": [
+      "鋼"
+     ],
+     "damage": "30",
+     "effect": "相手のバトルポケモンが持つワザを1つ選ぶ。次の相手の番、このワザを受けたポケモンは、選ばれたワザが使えない。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 1,
+   "detail": true
+  },
   "49694": {
    "id": "49694",
    "name": "ニャースex",
@@ -43079,6 +43269,42 @@
    "number": "054/193",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M2a/049762_P_KAPUKOKEKO.jpg",
+   "detail": true
+  },
+  "49763": {
+   "name": "ゼラオラ",
+   "set": "M2a",
+   "number": "055/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/049763_P_ZERAORA.jpg",
+   "id": "49763",
+   "stage": "たね",
+   "hp": 100,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっかく",
+     "cost": [
+      "無"
+     ],
+     "damage": "20",
+     "effect": ""
+    },
+    {
+     "name": "サンダーブリッツ",
+     "cost": [
+      "雷",
+      "雷",
+      "雷"
+     ],
+     "damage": "",
+     "effect": "このポケモンについているエネルギーをすべてトラッシュし、相手のベンチの「ポケモンex」1匹に、210ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "49776": {
