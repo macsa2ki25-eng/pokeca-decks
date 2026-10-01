@@ -1,7 +1,25 @@
 {
-  "updated_at": "2026-09-30T10:42:03+09:00",
-  "count": 507,
+  "updated_at": "2026-10-01T10:39:25+09:00",
+  "count": 512,
   "results": [
+    {
+      "date": "2026-09-29",
+      "store": "",
+      "rank": 1,
+      "deck_name": "サザンドラex",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "VkvFFw-lGhO88-kVbwwk",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/image-1160.png",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/155138",
+      "event_url": "",
+      "collected_at": "2026-10-01T10:39:09+09:00",
+      "deck_name_guessed": false,
+      "deck_key": "サザンドラex",
+      "store_key": ""
+    },
     {
       "date": "2026-09-28",
       "store": "シティリーグ9/29【火】",
@@ -41,6 +59,24 @@
     {
       "date": "2026-09-28",
       "store": "シティリーグ9/29【火】",
+      "rank": 2,
+      "deck_name": "メガスターミーex",
+      "event_type": "city",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "n9gg6n-RPOIY2-LnigLn",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/1_2_n9gg6n-RPOIY2-LnigLn.png",
+      "source": "pokecabook",
+      "source_url": "https://pokecabook.com/archives/336409#toc4",
+      "event_url": "https://players.pokemon-card.com/event/detail/1115161/result",
+      "collected_at": "2026-10-01T10:38:30+09:00",
+      "deck_name_guessed": true,
+      "deck_key": "メガスターミーex",
+      "store_key": "シティリーグ9/29火"
+    },
+    {
+      "date": "2026-09-28",
+      "store": "シティリーグ9/29【火】",
       "rank": 1,
       "deck_name": "おまつりおんど",
       "event_type": "city",
@@ -72,6 +108,24 @@
       "collected_at": "2026-09-30T10:40:54+09:00",
       "deck_name_guessed": true,
       "deck_key": "カミツオロチex",
+      "store_key": "シティリーグ9/29火"
+    },
+    {
+      "date": "2026-09-28",
+      "store": "シティリーグ9/29【火】",
+      "rank": 1,
+      "deck_name": "Nのゾロアークex",
+      "event_type": "city",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "yUR3yy-hxMPSP-MpMX2U",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/1_1_yUR3yy-hxMPSP-MpMX2U.png",
+      "source": "pokecabook",
+      "source_url": "https://pokecabook.com/archives/336409#toc4",
+      "event_url": "https://players.pokemon-card.com/event/detail/1115161/result",
+      "collected_at": "2026-10-01T10:38:30+09:00",
+      "deck_name_guessed": true,
+      "deck_key": "nのゾロアークex",
       "store_key": "シティリーグ9/29火"
     },
     {
@@ -360,6 +414,24 @@
       "collected_at": "2026-09-30T10:41:32+09:00",
       "deck_name_guessed": false,
       "deck_key": "ブルンゲルex",
+      "store_key": ""
+    },
+    {
+      "date": "2026-09-28",
+      "store": "",
+      "rank": 1,
+      "deck_name": "ミュウex",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "RXpS3y-egxTMv-Uyypyy",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/image-1141.png",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/336188",
+      "event_url": "",
+      "collected_at": "2026-10-01T10:39:09+09:00",
+      "deck_name_guessed": false,
+      "deck_key": "ミュウex",
       "store_key": ""
     },
     {
@@ -1728,6 +1800,24 @@
       "collected_at": "2026-09-30T10:41:32+09:00",
       "deck_name_guessed": false,
       "deck_key": "メガサーナイトex",
+      "store_key": ""
+    },
+    {
+      "date": "2026-09-27",
+      "store": "",
+      "rank": 1,
+      "deck_name": "メガユキノオーex",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "nQnPnL-GrhvRJ-66Ng9N",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/09/image-1125.png",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/234907",
+      "event_url": "",
+      "collected_at": "2026-10-01T10:39:09+09:00",
+      "deck_name_guessed": false,
+      "deck_key": "メガユキノオーex",
       "store_key": ""
     },
     {

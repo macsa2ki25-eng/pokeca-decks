@@ -1,5 +1,5 @@
 {
- "count": 2329,
+ "count": 2335,
  "cards": {
   "10126": {
    "id": "10126",
@@ -5334,6 +5334,19 @@
    "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SVHK/045316_T_HAIPABORU.jpg",
+   "detail": true
+  },
+  "45320": {
+   "name": "マスターボール",
+   "set": "ACE",
+   "number": "SPEC",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SVHK/045320_T_MASUTABORU.jpg",
+   "id": "45320",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
    "detail": true
   },
   "45360": {
@@ -21086,6 +21099,41 @@
    "image": "/assets/images/card_images/large/SV9a/047345_P_SHIRONANOMIKARUGE.jpg",
    "detail": true
   },
+  "47348": {
+   "name": "ケンタロス",
+   "set": "SV9a",
+   "number": "053/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV9a/047348_P_KENTAROSU.jpg",
+   "id": "47348",
+   "stage": "たね",
+   "hp": 130,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "つのでつく",
+     "cost": [
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    },
+    {
+     "name": "クリーンヒット",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "50＋",
+     "effect": "相手のバトルポケモンが進化ポケモンなら、50ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "47351": {
    "id": "47351",
    "name": "せいなるはい",
@@ -27602,6 +27650,41 @@
    "number": "039/080",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M2/048379_P_ZASHIAN.jpg",
+   "detail": true
+  },
+  "48382": {
+   "name": "パルデア ケンタロス",
+   "set": "M2",
+   "number": "042/080",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2/048382_P_PARUDEAKENTAROSU.jpg",
+   "id": "48382",
+   "stage": "たね",
+   "hp": 130,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "いかりのとっしん",
+     "cost": [
+      "闘"
+     ],
+     "damage": "40×",
+     "effect": "自分の場の、ダメカンがのっている名前に「ケンタロス」とつくポケモンの数×40ダメージ。"
+    },
+    {
+     "name": "すてみタックル",
+     "cost": [
+      "闘",
+      "闘"
+     ],
+     "damage": "70",
+     "effect": "このポケモンにも20ダメージ。"
+    }
+   ],
+   "weakness": "超×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "48390": {
@@ -47405,6 +47488,33 @@
    "retreat": 3,
    "detail": true
   },
+  "50151": {
+   "name": "ケンタロス",
+   "set": "M4",
+   "number": "067/083",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M4/050151_P_KENTAROSU.jpg",
+   "id": "50151",
+   "stage": "たね",
+   "hp": 130,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "むれでねらう",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモンを1匹選び、自分の場の、名前に「ケンタロス」とつくポケモンの数ぶんコインを投げる。選んだポケモンに、オモテの数×50ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "50152": {
    "id": "50152",
    "name": "ミネズミ",
@@ -51202,6 +51312,76 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 1,
+   "detail": true
+  },
+  "50584": {
+   "name": "モノズ",
+   "set": "MF",
+   "number": "021/040",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MF/050584_P_MONOZU.jpg",
+   "id": "50584",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かじる",
+     "cost": [
+      "悪"
+     ],
+     "damage": "10",
+     "effect": ""
+    },
+    {
+     "name": "ずつき",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "50585": {
+   "name": "ジヘッド",
+   "set": "MF",
+   "number": "022/040",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MF/050585_P_JIHEDDO.jpg",
+   "id": "50585",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かみつく",
+     "cost": [
+      "悪"
+     ],
+     "damage": "20",
+     "effect": ""
+    },
+    {
+     "name": "ぶちかます",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "50596": {
