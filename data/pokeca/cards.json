@@ -1,5 +1,5 @@
 {
- "count": 2335,
+ "count": 2339,
  "cards": {
   "10126": {
    "id": "10126",
@@ -239,6 +239,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/ENE/025299_E_KIHONMIZUENERUGI.jpg",
+   "detail": true
+  },
+  "25300": {
+   "name": "基本雷エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/025300_E_KIHONKAMINARIENERUGI.jpg",
+   "id": "25300",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "25301": {
@@ -10474,6 +10484,34 @@
    "image": "/assets/images/card_images/large/ENE/046123_E_KIHONHAGANEENERUGI.jpg",
    "detail": true
   },
+  "46125": {
+   "name": "メガヤンマ",
+   "set": "SV-P",
+   "number": "164/SV-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV-P/046125_P_MYANMA.jpg",
+   "id": "46125",
+   "stage": "1 進化",
+   "hp": 130,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ジャイロソニック",
+     "cost": [
+      "草",
+      "草",
+      "無"
+     ],
+     "damage": "110",
+     "effect": "このポケモンをベンチポケモンと入れ替える。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
   "46132": {
    "name": "ゼイユ",
    "section": "サポート",
@@ -15193,6 +15231,42 @@
    "number": "097/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/046758_P_ZOROAKU.jpg",
+   "detail": true
+  },
+  "46763": {
+   "name": "イイネイヌex",
+   "set": "SV8a",
+   "number": "102/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046763_P_IINEINUEX.jpg",
+   "id": "46763",
+   "stage": "たね",
+   "hp": 250,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ポイズンマッスル",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札から「基本悪エネルギー」を2枚まで選び、このポケモンにつける。そして山札を切る。つけた場合、このポケモンをどくにする。"
+    },
+    {
+     "name": "クレイジーチェーン",
+     "cost": [
+      "悪",
+      "悪",
+      "無"
+     ],
+     "damage": "130＋",
+     "effect": "このポケモンがどくなら、130ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "46765": {
@@ -51312,6 +51386,33 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 1,
+   "detail": true
+  },
+  "50580": {
+   "name": "ブラッキーex",
+   "set": "MF",
+   "number": "017/040",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MF/050580_P_BURAKKIIEKKUSU.jpg",
+   "id": "50580",
+   "stage": "1 進化",
+   "hp": 270,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ルナティッククロー",
+     "cost": [
+      "悪",
+      "無"
+     ],
+     "damage": "100＋",
+     "effect": "相手のバトルポケモンにダメカンがのっているなら、140ダメージ追加。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "50584": {
