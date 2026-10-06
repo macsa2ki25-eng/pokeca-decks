@@ -1,5 +1,5 @@
 {
- "count": 2394,
+ "count": 2397,
  "cards": {
   "10126": {
    "id": "10126",
@@ -7480,6 +7480,33 @@
    "number": "028/101",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV6/045719_P_RUJIXYURA.jpg",
+   "detail": true
+  },
+  "45722": {
+   "name": "ユキワラシ",
+   "set": "SV6",
+   "number": "031/101",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV6/045722_P_YUKIWARASHI.jpg",
+   "id": "45722",
+   "stage": "たね",
+   "hp": 60,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "おどろかす",
+     "cost": [
+      "水",
+      "無"
+     ],
+     "damage": "20",
+     "effect": "相手の手札からオモテを見ないで1枚選び、そのカードのオモテを見て、相手の山札にもどして切る。"
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "45723": {
@@ -52707,6 +52734,68 @@
    "weakness": "闘×2",
    "resistance": "",
    "retreat": 0,
+   "detail": true
+  },
+  "50710": {
+   "name": "ヒスイ ゾロア",
+   "set": "M6a",
+   "number": "098/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050710_P_HISUI.jpg",
+   "id": "50710",
+   "stage": "たね",
+   "hp": 60,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっかく",
+     "cost": [
+      "無"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50711": {
+   "name": "ヒスイ ゾロアーク",
+   "set": "M6a",
+   "number": "099/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050711_P_HISUI.jpg",
+   "id": "50711",
+   "stage": "1 進化",
+   "hp": 120,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっかく",
+     "cost": [
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    },
+    {
+     "name": "えんさのうず",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のバトルポケモンの残りHPが「50」になるように、ダメカンをのせる。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50712": {
