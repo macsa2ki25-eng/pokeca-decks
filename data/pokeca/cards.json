@@ -1,5 +1,5 @@
 {
- "count": 2405,
+ "count": 2409,
  "cards": {
   "10126": {
    "id": "10126",
@@ -615,6 +615,17 @@
    "text": "自分のたねポケモン1匹から進化する1進化の上の2進化ポケモンを、手札から1枚選び、そのたねポケモンにのせて進化させる。[最初の自分の番と、この番出したばかりのたねポケモンには使えない。]",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/BKB/028380_T_FUSHIGINAAME.jpg",
+   "detail": true
+  },
+  "28400": {
+   "name": "ふしぎなアメ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BKW/028400_T_FUSHIGINAAME.jpg",
+   "id": "28400",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のたねポケモン1匹から進化する1進化の上の2進化ポケモンを、手札から1枚選び、そのたねポケモンにのせて進化させる。[最初の自分の番と、この番出したばかりのたねポケモンには使えない。]",
    "detail": true
   },
   "28432": {
@@ -2623,6 +2634,17 @@
    "image": "/assets/images/card_images/large/SI/040465_T_FUSHIGINAAME.jpg",
    "detail": true
   },
+  "40466": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SI/040466_T_POKEMONIREKAE.jpg",
+   "id": "40466",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
+   "detail": true
+  },
   "40476": {
    "id": "40476",
    "name": "ジャッジマン",
@@ -4044,6 +4066,16 @@
    "abilities": [],
    "attacks": [],
    "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
+  "44024": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/WCS23/044024_E_KIHONTOUENERUGI.jpg",
+   "id": "44024",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "44051": {
@@ -34991,6 +35023,33 @@
    "number": "144/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/048860_P_RAUDOBON.jpg",
+   "detail": true
+  },
+  "48861": {
+   "name": "カルボウ",
+   "set": "MC",
+   "number": "145/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/048861_P_KARUBOU.jpg",
+   "id": "48861",
+   "stage": "たね",
+   "hp": 70,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ほのお",
+     "cost": [
+      "炎",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "48865": {
