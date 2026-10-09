@@ -1,5 +1,5 @@
 {
- "count": 2409,
+ "count": 2411,
  "cards": {
   "10126": {
    "id": "10126",
@@ -499,6 +499,17 @@
    "text": "自分のたねポケモン1匹から進化する1進化の上の2進化ポケモンを、手札から1枚選び、そのたねポケモンにのせて進化させる。[最初の自分の番と、この番出したばかりのたねポケモンには使えない。]",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/BW4-B/027825_T_FUSHIGINAAME.jpg",
+   "detail": true
+  },
+  "27955": {
+   "name": "ツールスクラッパー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BW5-Brn/027955_T_TSURUSUKURAPPA.jpg",
+   "id": "27955",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいの場のポケモンについている「ポケモンのどうぐ」を2枚まで選び、トラッシュする。",
    "detail": true
   },
   "27968": {
@@ -52349,6 +52360,17 @@
    "abilities": [],
    "attacks": [],
    "text": "このカードは、ポケモンについているかぎり、水エネルギー1個ぶんとしてはたらく。このカードをつけている水ポケモンは、特殊状態にならず、受けている特殊状態は、すべて回復する。",
+   "detail": true
+  },
+  "50553": {
+   "name": "ヒガナの信頼",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M6/050553_T_HIGANANOSHINRAI.jpg",
+   "id": "50553",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。その後、ベンチに入れ替えたポケモンについているエネルギーを1個選び、新しいバトルポケモンにつけ替える。",
    "detail": true
   },
   "50560": {
