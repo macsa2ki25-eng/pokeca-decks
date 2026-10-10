@@ -1,5 +1,5 @@
 {
- "count": 2411,
+ "count": 2414,
  "cards": {
   "10126": {
    "id": "10126",
@@ -340,6 +340,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/ENE/025303_E_KIHONAKUENERUGI.jpg",
+   "detail": true
+  },
+  "25304": {
+   "name": "基本鋼エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/025304_E_KIHONKOUENERUGI.jpg",
+   "id": "25304",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "25306": {
@@ -24754,6 +24764,17 @@
    "text": "ポケモンについているこのカードは、自分の番の終わりにトラッシュする。このカードは、ポケモンについているかぎり、無エネルギー1個ぶんとしてはたらく。進化ポケモンについているなら、無エネルギー3個ぶんとしてはたらく。",
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SV11W/047708_E_IGUNISSHIXYONENERUGI.jpg",
+   "detail": true
+  },
+  "47711": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SV-P/047711_T_KURASSHIXYUHANMA.jpg",
+   "id": "47711",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
    "detail": true
   },
   "47712": {
@@ -52585,6 +52606,17 @@
    "abilities": [],
    "attacks": [],
    "text": "おたがいのプレイヤーは、それぞれ手札をすべて山札にもどして切る。その後、それぞれ山札を4枚引く。",
+   "detail": true
+  },
+  "50606": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/MF/050606_T_BOSUNOSHIREI.jpg",
+   "id": "50606",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "detail": true
   },
   "50607": {
