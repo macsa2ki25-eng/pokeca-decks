@@ -1,5 +1,5 @@
 {
- "count": 2414,
+ "count": 2428,
  "cards": {
   "10126": {
    "id": "10126",
@@ -75,6 +75,17 @@
    "type": "",
    "abilities": [],
    "attacks": [],
+   "detail": true
+  },
+  "21061": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/DPt-EPp/021061_T_POKEMONIREKAE.jpg",
+   "id": "21061",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモン1匹を、自分のベンチポケモンと入れ替える。",
    "detail": true
   },
   "23270": {
@@ -458,6 +469,17 @@
    "image": "/assets/images/card_images/large/ENE/027284_E_KIHONAKUENERUGI.jpg",
    "detail": true
   },
+  "27316": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BTV/027316_T_KURASSHUHANMA.jpg",
+   "id": "27316",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手のポケモンについているエネルギーを1個選び、トラッシュする。",
+   "detail": true
+  },
   "27334": {
    "id": "27334",
    "name": "基本悪エネルギー",
@@ -477,6 +499,17 @@
    "text": "このカードは、無エネルギー1個ぶんとしてはたらく。たねポケモンについているかぎり、すべてのタイプのエネルギー1個ぶんとしてはたらく。",
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/BW3-Bp/027552_E_PURIZUMUENERUGI.jpg",
+   "detail": true
+  },
+  "27615": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BKR/027615_T_HAIPABORU.jpg",
+   "id": "27615",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せてから、手札に加える。そして山札を切る。",
    "detail": true
   },
   "27665": {
@@ -775,6 +808,17 @@
    "abilities": [],
    "attacks": [],
    "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せてから、手札に加える。そして山札を切る。",
+   "detail": true
+  },
+  "31075": {
+   "name": "ふしぎなアメ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/XYP/031075_T_FUSHIGINAAME.jpg",
+   "id": "31075",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の手札から2進化ポケモンを1枚選び、そのポケモンへと進化する自分の場のたねポケモンにのせて進化させる。（最初の自分の番と、この番出したばかりのたねポケモンには使えない。）",
    "detail": true
   },
   "31077": {
@@ -4165,6 +4209,28 @@
    "image": "/assets/images/card_images/large/SVEM/044178_T_POKEGIA30.jpg",
    "detail": true
   },
+  "44184": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SVEM/044184_T_BOSUNOSHIREI.jpg",
+   "id": "44184",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
+   "detail": true
+  },
+  "44196": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SVEL/044196_T_HAIPABORU.jpg",
+   "id": "44196",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "44198": {
    "id": "44198",
    "name": "ポケギア3.0",
@@ -4174,6 +4240,17 @@
    "text": "自分の山札を上から7枚見て、その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SVEL/044198_T_POKEGIA30.jpg",
+   "detail": true
+  },
+  "44203": {
+   "name": "ボスの指令",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SVEL/044203_T_BOSUNOSHIREI.jpg",
+   "id": "44203",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "detail": true
   },
   "44217": {
@@ -5939,6 +6016,41 @@
    "retreat": 3,
    "detail": true
   },
+  "45519": {
+   "name": "ハバタクカミ",
+   "set": "SV5K",
+   "number": "076/071",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV5K/045519_P_HABATAKUKAMI.jpg",
+   "id": "45519",
+   "stage": "たね",
+   "hp": 90,
+   "type": "超",
+   "abilities": [
+    {
+     "name": "あんやのはばたき",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがバトル場にいるかぎり、相手のバトルポケモンの特性（「あんやのはばたき」をのぞく）は、すべてなくなる。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "たたりとばす",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "90",
+     "effect": "ダメカン2個を、相手のベンチポケモンに好きなようにのせる。"
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "45520": {
    "id": "45520",
    "name": "ジーランス",
@@ -6827,6 +6939,16 @@
    "image": "/assets/images/card_images/large/XY-P/045646_T_ENERUGITSUKEKAE.jpg",
    "detail": true
   },
+  "45650": {
+   "name": "基本草エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/XY-P/045650_E_KIHONKUSAENERUGI.jpg",
+   "id": "45650",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
   "45651": {
    "id": "45651",
    "name": "基本炎エネルギー",
@@ -6855,6 +6977,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/XY-P/045654_E_KIHONCHIXYOUENERUGI.jpg",
+   "detail": true
+  },
+  "45655": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/XY-P/045655_E_KIHONTOUENERUGI.jpg",
+   "id": "45655",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "45656": {
@@ -18026,6 +18158,17 @@
    "image": "/assets/images/card_images/large/SV8a/046979_T_TANKENKANOSENDOU.jpg",
    "detail": true
   },
+  "46983": {
+   "name": "ブライア",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SV8a/046983_T_BURAIA.jpg",
+   "id": "46983",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、相手のサイドの残り枚数が2枚のときにしか使えない。この番、自分の「テラスタル」のポケモンが使うワザのダメージで、相手のバトルポケモンがきぜつしたなら、サイドを1枚多くとる。",
+   "detail": true
+  },
   "46987": {
    "id": "46987",
    "name": "お祭り会場",
@@ -19910,6 +20053,32 @@
    "number": "234/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/047155_P_OGAPONMIDORINOMENEX.jpg",
+   "detail": true
+  },
+  "47165": {
+   "name": "Nのゾロア",
+   "set": "SV-P",
+   "number": "200/SV-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV-P/047165_P_NNOZOROA.jpg",
+   "id": "47165",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ひっかく",
+     "cost": [
+      "悪"
+     ],
+     "damage": "20",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "47172": {
@@ -23176,6 +23345,17 @@
    "number": "083/098",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV10/047476_P_ROKETTODANNOPORIGONZ.jpg",
+   "detail": true
+  },
+  "47482": {
+   "name": "ロケット団のびっくりボム",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SV10/047482_T_ROKETTODANNOBIKKURIBOMU.jpg",
+   "id": "47482",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手のポケモン1匹に、ダメカンを2個のせる。ウラなら、自分のバトルポケモンに、ダメカンを2個のせる。",
    "detail": true
   },
   "47483": {
@@ -48975,6 +49155,17 @@
    "abilities": [],
    "attacks": [],
    "text": "おたがいのプレイヤーは、自分の番ごとに1回、自分の手札を2枚トラッシュするなら、自分の山札を1枚引いてよい。",
+   "detail": true
+  },
+  "50217": {
+   "name": "AZの安らぎ",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M4/050217_T_AZNOYASURAGI.jpg",
+   "id": "50217",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。「ポケモンex」をベンチに入れ替えた場合、そのポケモンのHPを「80」回復する。",
    "detail": true
   },
   "50222": {
