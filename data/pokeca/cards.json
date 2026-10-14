@@ -1,5 +1,5 @@
 {
- "count": 2484,
+ "count": 2485,
  "cards": {
   "10126": {
    "id": "10126",
@@ -691,6 +691,17 @@
    "text": "自分のたねポケモン1匹から進化する1進化の上の2進化ポケモンを、手札から1枚選び、そのたねポケモンにのせて進化させる。[最初の自分の番と、この番出したばかりのたねポケモンには使えない。]",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/BKB/028380_T_FUSHIGINAAME.jpg",
+   "detail": true
+  },
+  "28399": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BKW/028399_T_HAIPABORU.jpg",
+   "id": "28399",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せてから、手札に加える。そして山札を切る。",
    "detail": true
   },
   "28400": {
