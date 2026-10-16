@@ -1,5 +1,5 @@
 {
- "count": 2486,
+ "count": 2491,
  "cards": {
   "10126": {
    "id": "10126",
@@ -86,6 +86,17 @@
    "abilities": [],
    "attacks": [],
    "text": "自分のバトルポケモン1匹を、自分のベンチポケモンと入れ替える。",
+   "detail": true
+  },
+  "23018": {
+   "name": "エネルギーつけかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/DPt3-Sg/023018_T_ENERUGITSUKEKAE.jpg",
+   "id": "23018",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のポケモンの基本エネルギーを1個、自分の別のポケモンにつけ替える。",
    "detail": true
   },
   "23270": {
@@ -1567,6 +1578,17 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SM2p/033520_E_KIHONAKUENERUGI.jpg",
+   "detail": true
+  },
+  "33546": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SMD/033546_T_KURASSHUHANMA.jpg",
+   "id": "33546",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを、1個トラッシュする。",
    "detail": true
   },
   "33552": {
@@ -7919,6 +7941,44 @@
    "number": "021/101",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV6/045712_P_SHIXYANDERA.jpg",
+   "detail": true
+  },
+  "45713": {
+   "name": "オーガポン かまどのめんex",
+   "set": "SV6",
+   "number": "022/101",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV6/045713_P_OGAPONKAMADONOMENEX.jpg",
+   "id": "45713",
+   "stage": "たね",
+   "hp": 210,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "いかりがま",
+     "cost": [
+      "炎",
+      "無",
+      "無"
+     ],
+     "damage": "20×",
+     "effect": "このポケモンにのっているダメカンの数×20ダメージ。"
+    },
+    {
+     "name": "ダイナミックブレイズ",
+     "cost": [
+      "炎",
+      "炎",
+      "炎"
+     ],
+     "damage": "140＋",
+     "effect": "相手のバトルポケモンが進化ポケモンなら、140ダメージ追加。その場合、このポケモンについているエネルギーを、すべてトラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "45717": {
@@ -31327,6 +31387,42 @@
    "image": "/assets/images/card_images/large/M2a/048546_P_POKABU.jpg",
    "detail": true
   },
+  "48548": {
+   "name": "エンブオー",
+   "set": "M2a",
+   "number": "026/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/048548_P_ENBUO.jpg",
+   "id": "48548",
+   "stage": "2 進化",
+   "hp": 180,
+   "type": "炎",
+   "abilities": [
+    {
+     "name": "れっからんぶ",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の番に何回でも使える。自分の手札から「基本炎エネルギー」を1枚選び、自分のポケモンにつける。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ヒートスタンプ",
+     "cost": [
+      "炎",
+      "炎",
+      "炎",
+      "無"
+     ],
+     "damage": "120",
+     "effect": ""
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 4,
+   "detail": true
+  },
   "48549": {
    "id": "48549",
    "name": "Nのダルマッカ",
@@ -54021,6 +54117,42 @@
    "weakness": "闘×2",
    "resistance": "",
    "retreat": 2,
+   "detail": true
+  },
+  "50689": {
+   "name": "ブラッキー",
+   "set": "M6a",
+   "number": "077/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050689_P_BURAKKI.jpg",
+   "id": "50689",
+   "stage": "1 進化",
+   "hp": 110,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かたきうち",
+     "cost": [
+      "悪"
+     ],
+     "damage": "30＋",
+     "effect": "前の相手の番に、ワザのダメージで、自分のポケモンがきぜつしていたなら、100ダメージ追加。"
+    },
+    {
+     "name": "やみのキバ",
+     "cost": [
+      "悪",
+      "無",
+      "無"
+     ],
+     "damage": "100",
+     "effect": ""
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50691": {
