@@ -1,5 +1,5 @@
 {
- "count": 2491,
+ "count": 2493,
  "cards": {
   "10126": {
    "id": "10126",
@@ -2105,6 +2105,27 @@
    "text": "コインを1回投げオモテなら、相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SML/036488_T_POKEMONKYACCHA.jpg",
+   "detail": true
+  },
+  "36494": {
+   "name": "基本炎エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SML/036494_E_KIHONHONOOENERUGI.jpg",
+   "id": "36494",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "36531": {
+   "name": "クラッシュハンマー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SML/036531_T_KURASSHUHANMA.jpg",
+   "id": "36531",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを、1個トラッシュする。",
    "detail": true
   },
   "36609": {
