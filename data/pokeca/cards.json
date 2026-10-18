@@ -1,5 +1,5 @@
 {
- "count": 2493,
+ "count": 2515,
  "cards": {
   "10126": {
    "id": "10126",
@@ -544,6 +544,17 @@
    "image": "/assets/images/card_images/large/BKR/027665_E_KIHONHONOOENERUGI.jpg",
    "detail": true
   },
+  "27678": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BGSt/027678_T_POKEMONIREKAE.jpg",
+   "id": "27678",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
+   "detail": true
+  },
   "27744": {
    "name": "ポケモンいれかえ",
    "section": "グッズ",
@@ -778,6 +789,17 @@
    "text": "コインを1回投げオモテなら、相手の場のポケモンについているエネルギーを1個選び、トラッシュする。",
    "detail": true
   },
+  "30199": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/Y30/030199_T_POKEMONIREKAE.jpg",
+   "id": "30199",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
+   "detail": true
+  },
   "30304": {
    "id": "30304",
    "name": "せいなるはい",
@@ -914,6 +936,17 @@
    "type": "",
    "abilities": [],
    "attacks": [],
+   "detail": true
+  },
+  "31202": {
+   "name": "ハイパーボール",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MMB-P/031202_T_HAIPABORU.jpg",
+   "id": "31202",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せてから、手札に加える。そして山札を切る。",
    "detail": true
   },
   "31205": {
@@ -1903,6 +1936,17 @@
    "image": "/assets/images/card_images/large/SMI/035922_T_HAIPABORU.jpg",
    "detail": true
   },
+  "35924": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SMI/035924_T_POKEMONIREKAE.jpg",
+   "id": "35924",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
+   "detail": true
+  },
   "35929": {
    "name": "ジャッジマン",
    "section": "サポート",
@@ -2096,6 +2140,16 @@
    "image": "/assets/images/card_images/large/ENE/036469_E_KIHONAKUENERUGI.jpg",
    "detail": true
   },
+  "36470": {
+   "name": "基本鋼エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/036470_E_KIHONKOUENERUGI.jpg",
+   "id": "36470",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
   "36488": {
    "id": "36488",
    "name": "ポケモンキャッチャー",
@@ -2227,6 +2281,17 @@
    "image": "/assets/images/card_images/large/SM11a/036955_T_ENERUGITSUKEKAE.jpg",
    "detail": true
   },
+  "36961": {
+   "name": "ジャッジマン",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SM11a/036961_T_JAJJIMAN.jpg",
+   "id": "36961",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "おたがいのプレイヤーは、それぞれ手札をすべて山札にもどして切る。その後、それぞれ山札を4枚引く。",
+   "detail": true
+  },
   "37333": {
    "name": "ポケギア3.0",
    "section": "グッズ",
@@ -2247,6 +2312,19 @@
    "text": "自分の山札を上から7枚見る。その中にあるサポートを1枚、相手に見せてから、手札に加えてよい。残りのカードは山札にもどして切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SM12a/037334_T_POKEGIA.jpg",
+   "detail": true
+  },
+  "37437": {
+   "name": "ポケモン回収サイクロン",
+   "set": "ACE",
+   "number": "SPEC",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/BW/037437_T_POKEMONKAISHUUSAIKURON.jpg",
+   "id": "37437",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の場のポケモンを1匹選び、そのポケモンと、ついているすべてのカードを、手札にもどす。",
    "detail": true
   },
   "37470": {
@@ -2382,6 +2460,16 @@
    "text": "自分のトラッシュから基本エネルギーを2枚まで選び、相手に見せて、手札に加える。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SA/037562_T_ENERUGIKAISHUU.jpg",
+   "detail": true
+  },
+  "37600": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SA/037600_E_KIHONTOUENERUGI.jpg",
+   "id": "37600",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "37667": {
@@ -2541,6 +2629,17 @@
    "image": "/assets/images/card_images/large/S-P/038005_T_FUSHIGINAAME.jpg",
    "detail": true
   },
+  "38045": {
+   "name": "ポケギア3.0",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SCS/038045_T_POKEGIA.jpg",
+   "id": "38045",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札を上から7枚見る。その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。",
+   "detail": true
+  },
   "38062": {
    "id": "38062",
    "name": "ボスの指令",
@@ -2561,6 +2660,17 @@
    "text": "自分の場のポケモンについている基本エネルギーを1個選び、自分の別のポケモンにつけ替える。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SD/038357_T_ENERUGITSUKEKAE.jpg",
+   "detail": true
+  },
+  "38358": {
+   "name": "エネルギー転送",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SD/038358_T_ENERUGITENSOU.jpg",
+   "id": "38358",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札から基本エネルギーを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
    "detail": true
   },
   "38367": {
@@ -2648,6 +2758,17 @@
    "text": "相手のベンチポケモンを1匹選び、バトルポケモンと入れ替える。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SEK/038861_T_BOSUNOSHIREIFURADARI.jpg",
+   "detail": true
+  },
+  "38899": {
+   "name": "ポケギア3.0",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SC2/038899_T_POKEGIA.jpg",
+   "id": "38899",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札を上から7枚見る。その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。",
    "detail": true
   },
   "39229": {
@@ -3149,6 +3270,16 @@
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SI/040886_E_KIHONCHIXYOUENERUGI.jpg",
    "id": "40886",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "40888": {
+   "name": "基本悪エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SI/040888_E_KIHONAKUENERUGI.jpg",
+   "id": "40888",
    "type": "",
    "abilities": [],
    "attacks": [],
@@ -11660,6 +11791,42 @@
    "image": "/assets/images/card_images/large/SV7/046163_P_KAMITSUOROCHIEX.jpg",
    "detail": true
   },
+  "46169": {
+   "name": "ミミズズex",
+   "set": "SV7",
+   "number": "121/102",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV7/046169_P_MIMIZUZUEX.jpg",
+   "id": "46169",
+   "stage": "たね",
+   "hp": 220,
+   "type": "鋼",
+   "abilities": [
+    {
+     "name": "ボコスカがえし",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンが、相手のポケモンからワザのダメージを受けたとき、このポケモンについている鋼エネルギーの数×2個ぶんのダメカンを、ワザを使ったポケモンにのせる。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "がんせきふうじ",
+     "cost": [
+      "無",
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "150",
+     "effect": "次の相手の番、このワザを受けたポケモンは、にげられない。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 4,
+   "detail": true
+  },
   "46171": {
    "id": "46171",
    "name": "アカマツ",
@@ -18546,6 +18713,17 @@
    "image": "/assets/images/card_images/large/SV8a/046970_T_AKAMATSU.jpg",
    "detail": true
   },
+  "46971": {
+   "name": "アクロマの執念",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/SV8a/046971_T_AKUROMANOSHIXYUUNEN.jpg",
+   "id": "46971",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札からスタジアムとエネルギーを1枚ずつ選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "46972": {
    "id": "46972",
    "name": "暗号マニアの解読",
@@ -20774,6 +20952,17 @@
    "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SVN/047193_T_HAIPABORU.jpg",
+   "detail": true
+  },
+  "47194": {
+   "name": "ふしぎなアメ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SVN/047194_T_FUSHIGINAAME.jpg",
+   "id": "47194",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の手札から2進化ポケモンを1枚選び、そのポケモンへと進化する自分の場のたねポケモンにのせ、1進化をとばして進化させる。（最初の自分の番や、出したばかりのポケモンには使えない。）",
    "detail": true
   },
   "47195": {
@@ -25037,6 +25226,40 @@
    "image": "/assets/images/card_images/large/SV11B/047622_E_PURIZUMUENERUGI.jpg",
    "detail": true
   },
+  "47627": {
+   "name": "エルフーンex",
+   "set": "SV11W",
+   "number": "005/086",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV11W/047627_P_ERUFUNEX.jpg",
+   "id": "47627",
+   "stage": "1 進化",
+   "hp": 230,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "エナジーギフト",
+     "cost": [
+      "草"
+     ],
+     "damage": "",
+     "effect": "自分の山札から基本エネルギーを3枚まで選び、自分のポケモンに好きなようにつける。そして山札を切る。"
+    },
+    {
+     "name": "ワンダーコットン",
+     "cost": [
+      "草"
+     ],
+     "damage": "50×",
+     "effect": "相手の手札を見て、その中にあるトレーナーズの枚数×50ダメージ。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 0,
+   "detail": true
+  },
   "47638": {
    "id": "47638",
    "name": "クイタラン",
@@ -25644,6 +25867,17 @@
    "image": "/assets/images/card_images/large/SV-P/047729_T_POKEGIA30.jpg",
    "detail": true
   },
+  "47730": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SV-P/047730_T_POKEMONIREKAE.jpg",
+   "id": "47730",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
+   "detail": true
+  },
   "47731": {
    "id": "47731",
    "name": "からておうの稽古",
@@ -25753,6 +25987,32 @@
    "number": "003/063",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M1L/047736_P_MFUSHIGIBANAEX.jpg",
+   "detail": true
+  },
+  "47737": {
+   "name": "タマタマ",
+   "set": "M1L",
+   "number": "004/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1L/047737_P_TAMATAMA.jpg",
+   "id": "47737",
+   "stage": "たね",
+   "hp": 60,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "みがつまる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札から「基本草エネルギー」を1枚選び、このポケモンにつける。そして山札を切る。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "47739": {
@@ -26327,6 +26587,17 @@
    "weakness": "炎×2",
    "resistance": "草－30",
    "retreat": 2,
+   "detail": true
+  },
+  "47790": {
+   "name": "アイアンディフェンダー",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/M1L/047790_T_AIANDEIFUENDA.jpg",
+   "id": "47790",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "次の相手の番、自分の鋼ポケモン全員が、相手のポケモンから受けるワザのダメージは「-30」される。（新しく場に出したポケモンもふくむ。）",
    "detail": true
   },
   "47791": {
@@ -29280,6 +29551,32 @@
    "image": "/assets/images/card_images/large/M2/048374_P_PAMOTTO.jpg",
    "detail": true
   },
+  "48377": {
+   "name": "モンメン",
+   "set": "M2",
+   "number": "037/080",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2/048377_P_MONMEN.jpg",
+   "id": "48377",
+   "stage": "たね",
+   "hp": 60,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "もってくる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札を1枚引く。"
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "48379": {
    "id": "48379",
    "name": "ザシアン",
@@ -30664,6 +30961,41 @@
    "number": "089/080",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M2/048495_P_SUTORINDA.jpg",
+   "detail": true
+  },
+  "48504": {
+   "name": "メガサメハダーex",
+   "set": "M2",
+   "number": "098/080",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2/048504_P_MSAMEHADAEX.jpg",
+   "id": "48504",
+   "stage": "1 進化",
+   "hp": 330,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "よくばるキバ",
+     "cost": [
+      "悪"
+     ],
+     "damage": "70",
+     "effect": "自分の山札を2枚引く。"
+    },
+    {
+     "name": "ハングリージョー",
+     "cost": [
+      "悪",
+      "悪"
+     ],
+     "damage": "120＋",
+     "effect": "このポケモンにダメカンがのっているなら、150ダメージ追加。"
+    }
+   ],
+   "weakness": "草×2",
+   "resistance": "",
+   "retreat": 0,
    "detail": true
   },
   "48505": {
@@ -53908,6 +54240,32 @@
    "type": "",
    "abilities": [],
    "attacks": [],
+   "detail": true
+  },
+  "50613": {
+   "name": "タマタマ",
+   "set": "M6a",
+   "number": "001/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050613_P_TAMATAMA.jpg",
+   "id": "50613",
+   "stage": "たね",
+   "hp": 60,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "さいみんじゅつ",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のバトルポケモンをねむりにする。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "50614": {
