@@ -1,5 +1,5 @@
 {
- "count": 2531,
+ "count": 2532,
  "cards": {
   "10126": {
    "id": "10126",
@@ -54805,6 +54805,42 @@
    ],
    "weakness": "雷×2",
    "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "50693": {
+   "name": "ジラーチex",
+   "set": "M6a",
+   "number": "081/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050693_P_JIRACHIIEKKUSU.jpg",
+   "id": "50693",
+   "stage": "たね",
+   "hp": 160,
+   "type": "鋼",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ねがいをかなえる",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の手札が7枚になるように、山札を引く。"
+    },
+    {
+     "name": "スピードスター",
+     "cost": [
+      "無",
+      "無",
+      "無"
+     ],
+     "damage": "150",
+     "effect": "このワザのダメージは、弱点・抵抗力と、相手のバトルポケモンにかかっている効果を計算しない。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
    "retreat": 1,
    "detail": true
   },
