@@ -1,5 +1,5 @@
 {
- "count": 2532,
+ "count": 2533,
  "cards": {
   "10126": {
    "id": "10126",
@@ -25023,6 +25023,43 @@
    "number": "034/086",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV11B/047570_P_SHIBIBIRU.jpg",
+   "detail": true
+  },
+  "47571": {
+   "name": "シビルドン",
+   "set": "SV11B",
+   "number": "035/086",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV11B/047571_P_SHIBIRUDON.jpg",
+   "id": "47571",
+   "stage": "2 進化",
+   "hp": 160,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かみなりのキバ",
+     "cost": [
+      "雷"
+     ],
+     "damage": "60",
+     "effect": "コインを1回投げオモテなら、相手のバトルポケモンをマヒにする。"
+    },
+    {
+     "name": "バリバリかいてん",
+     "cost": [
+      "雷",
+      "雷",
+      "雷",
+      "無"
+     ],
+     "damage": "100×",
+     "effect": "コインを4回投げ、オモテの数×100ダメージ。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "47573": {
