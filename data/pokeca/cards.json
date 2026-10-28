@@ -1,5 +1,5 @@
 {
- "count": 2533,
+ "count": 2538,
  "cards": {
   "10126": {
    "id": "10126",
@@ -18025,6 +18025,66 @@
    "image": "/assets/images/card_images/large/SV8a/046877_P_YUKIMENOKO.jpg",
    "detail": true
   },
+  "46881": {
+   "name": "ナミイルカ",
+   "set": "SV8a",
+   "number": "044/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046881_P_NAMIIRUKA.jpg",
+   "id": "46881",
+   "stage": "たね",
+   "hp": 70,
+   "type": "水",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "アクアスラッシュ",
+     "cost": [
+      "水"
+     ],
+     "damage": "30",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "46882": {
+   "name": "イルカマン",
+   "set": "SV8a",
+   "number": "045/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/046882_P_IRUKAMAN.jpg",
+   "id": "46882",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "水",
+   "abilities": [
+    {
+     "name": "マイティチェンジ",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の番に、このポケモンがバトル場からベンチにもどったとき、1回使える。自分の山札から「イルカマンex」を1枚選び、このカードと入れ替える（ついているカード・ダメカン・特殊状態・効果などは、すべて引きつぐ）。入れ替えたなら、このカードは山札にもどす。そして山札を切る。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "スプラッシュ",
+     "cost": [
+      "水",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "46888": {
    "id": "46888",
    "name": "ケーシィ",
@@ -20354,6 +20414,39 @@
    "number": "203/187",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8a/047124_P_SOUBUREIZUEX.jpg",
+   "detail": true
+  },
+  "47128": {
+   "name": "イルカマンex",
+   "set": "SV8a",
+   "number": "207/187",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8a/047128_P_IRUKAMANEX.jpg",
+   "id": "47128",
+   "stage": "1 進化",
+   "hp": 340,
+   "type": "水",
+   "abilities": [
+    {
+     "name": "マイティソウル",
+     "cost": [],
+     "damage": "",
+     "effect": "このカードは、「イルカマン」の特性「マイティチェンジ」の効果によってしか場に出せない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ギガインパクト",
+     "cost": [
+      "水"
+     ],
+     "damage": "250",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "47129": {
@@ -54153,6 +54246,17 @@
    "text": "このカードをつけているポケモン（「メガシンカex」をのぞく）が、相手の「メガシンカex」から受けるワザのダメージは「-60」される。",
    "detail": true
   },
+  "50542": {
+   "name": "ギリー",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M6/050542_T_GIRI.jpg",
+   "id": "50542",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札からサポートとスタジアムを合計3枚まで選び、相手に見せて、手札に加える。そして山札を切る。",
+   "detail": true
+  },
   "50543": {
    "name": "ヒガナの信頼",
    "section": "サポート",
@@ -55173,6 +55277,33 @@
    "type": "",
    "abilities": [],
    "attacks": [],
+   "detail": true
+  },
+  "50806": {
+   "name": "サルノリ",
+   "set": "M-P",
+   "number": "122/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/050806_P_SARUNORI.jpg",
+   "id": "50806",
+   "stage": "たね",
+   "hp": 70,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "えだづき",
+     "cost": [
+      "草",
+      "草"
+     ],
+     "damage": "40",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "7": {
