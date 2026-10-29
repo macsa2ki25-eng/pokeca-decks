@@ -1,5 +1,5 @@
 {
- "count": 2538,
+ "count": 2541,
  "cards": {
   "10126": {
    "id": "10126",
@@ -13975,6 +13975,32 @@
    "number": "075/106",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV8/046415_P_MOMOWAROU.jpg",
+   "detail": true
+  },
+  "46422": {
+   "name": "ナマケロ",
+   "set": "SV8",
+   "number": "082/106",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV8/046422_P_NAMAKERO.jpg",
+   "id": "46422",
+   "stage": "たね",
+   "hp": 60,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "のんびりする",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "このポケモンのHPを「60」回復する。次の自分の番、このポケモンはにげられない。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "46427": {
@@ -41443,6 +41469,67 @@
    "number": "575/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/049291_P_NOKOKOTCHIEX.jpg",
+   "detail": true
+  },
+  "49298": {
+   "name": "ヤルキモノ",
+   "set": "MC",
+   "number": "582/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049298_P_YARUKIMONO.jpg",
+   "id": "49298",
+   "stage": "1 進化",
+   "hp": 90,
+   "type": "無",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "スラッシュクロー",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "50",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "49299": {
+   "name": "ケッキングex",
+   "set": "MC",
+   "number": "583/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049299_P_KEKKINGUEX.jpg",
+   "id": "49299",
+   "stage": "2 進化",
+   "hp": 340,
+   "type": "無",
+   "abilities": [
+    {
+     "name": "さぼりたいしつ",
+     "cost": [],
+     "damage": "",
+     "effect": "相手の場に「ポケモンex・V」がいないなら、このポケモンはワザが使えない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "グレートスイング",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "280",
+     "effect": "このポケモンについているエネルギーを1個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 4,
    "detail": true
   },
   "49305": {
