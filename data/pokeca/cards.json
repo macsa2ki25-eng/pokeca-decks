@@ -1,5 +1,5 @@
 {
- "count": 2541,
+ "count": 2542,
  "cards": {
   "10126": {
    "id": "10126",
@@ -33083,6 +33083,40 @@
    "number": "066/193",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/M2a/048588_P_TOGEKISSU.jpg",
+   "detail": true
+  },
+  "48592": {
+   "name": "キルリア",
+   "set": "M2a",
+   "number": "070/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/048592_P_KIRURIA.jpg",
+   "id": "48592",
+   "stage": "1 進化",
+   "hp": 100,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "コールサイン",
+     "cost": [
+      "超"
+     ],
+     "damage": "",
+     "effect": "自分の山札からポケモンを3枚まで選び、相手に見せて、手札に加える。そして山札を切る。"
+    },
+    {
+     "name": "サイコショット",
+     "cost": [
+      "超"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
    "detail": true
   },
   "48593": {
