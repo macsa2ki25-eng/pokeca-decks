@@ -1,5 +1,5 @@
 {
- "count": 2542,
+ "count": 2543,
  "cards": {
   "10126": {
    "id": "10126",
@@ -36194,6 +36194,33 @@
    "number": "082/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/048798_P_OGAPONMIDORINOMENEX.jpg",
+   "detail": true
+  },
+  "48799": {
+   "name": "ヒトカゲ",
+   "set": "MC",
+   "number": "083/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/048799_P_HITOKAGE.jpg",
+   "id": "48799",
+   "stage": "たね",
+   "hp": 80,
+   "type": "炎",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ほのおのツメ",
+     "cost": [
+      "炎",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "48800": {
