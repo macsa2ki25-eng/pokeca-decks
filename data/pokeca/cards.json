@@ -1,6 +1,16 @@
 {
- "count": 2564,
+ "count": 2568,
  "cards": {
+  "1": {
+   "name": "基本草エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/000001_E_KUSAENERUGI.jpg",
+   "id": "1",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
   "10126": {
    "id": "10126",
    "name": "ふしぎなアメ",
@@ -3070,6 +3080,16 @@
    "text": "おたがいのプレイヤーは、それぞれ手札をすべて山札にもどして切る。その後、それぞれ山札を4枚引く。",
    "section": "サポート",
    "image": "/assets/images/card_images/large/SH/039875_T_JAJJIMAN.jpg",
+   "detail": true
+  },
+  "4": {
+   "name": "基本雷エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/000004_E_KAMINARIENERUGI.jpg",
+   "id": "4",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "40092": {
@@ -39996,6 +40016,41 @@
    "image": "/assets/images/card_images/large/MC/049156_P_ROKETTODANNOKUROBATTOEX.jpg",
    "detail": true
   },
+  "49157": {
+   "name": "ゴース",
+   "set": "MC",
+   "number": "441/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049157_P_GOSU.jpg",
+   "id": "49157",
+   "stage": "たね",
+   "hp": 60,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ふしぎなビーム",
+     "cost": [
+      "悪"
+     ],
+     "damage": "",
+     "effect": "コインを1回投げオモテなら、相手のバトルポケモンについているエネルギーを1個選び、トラッシュする。"
+    },
+    {
+     "name": "ガスでつつむ",
+     "cost": [
+      "悪",
+      "悪"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "49158": {
    "id": "49158",
    "name": "ゴース",
@@ -55764,6 +55819,16 @@
    "weakness": "炎×2",
    "resistance": "",
    "retreat": 1,
+   "detail": true
+  },
+  "6": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/ENE/000006_E_TOUENERUGI.jpg",
+   "id": "6",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "7": {
