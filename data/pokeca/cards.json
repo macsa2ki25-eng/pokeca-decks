@@ -1,5 +1,5 @@
 {
- "count": 2613,
+ "count": 2619,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -825,6 +825,16 @@
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/HXY/030040_E_KIHONKUSAENERUGI.jpg",
    "id": "30040",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "30043": {
+   "name": "基本悪エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/HXY/030043_E_KIHONAKUENERUGI.jpg",
+   "id": "30043",
    "type": "",
    "abilities": [],
    "attacks": [],
@@ -1887,6 +1897,16 @@
    "image": "/assets/images/card_images/large/SMP/034554_E_KIHONKUSAENERUGI.jpg",
    "detail": true
   },
+  "34556": {
+   "name": "基本炎エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SMP/034556_E_KIHONHONOOENERUGI.jpg",
+   "id": "34556",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
   "34627": {
    "id": "34627",
    "name": "ハイパーボール",
@@ -2188,6 +2208,17 @@
    "text": "このカードは、自分の手札を2枚トラッシュしなければ使えない。自分の山札にあるポケモンを1枚、相手に見せてから、手札に加える。そして山札を切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/SMK/036241_T_HAIPABORU.jpg",
+   "detail": true
+  },
+  "36242": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/SMK/036242_T_POKEMONIREKAE.jpg",
+   "id": "36242",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
    "detail": true
   },
   "36307": {
@@ -3396,6 +3427,16 @@
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SI/040485_E_KIHONHONOOENERUGI.jpg",
    "id": "40485",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "detail": true
+  },
+  "40486": {
+   "name": "基本水エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SI/040486_E_KIHONMIZUENERUGI.jpg",
+   "id": "40486",
    "type": "",
    "abilities": [],
    "attacks": [],
@@ -5068,6 +5109,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/SV-P/044218_E_KIHONHONOOENERUGI.jpg",
+   "detail": true
+  },
+  "44220": {
+   "name": "基本雷エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/SV-P/044220_E_KIHONKAMINARIENERUGI.jpg",
+   "id": "44220",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "44221": {
@@ -42965,6 +43016,19 @@
    "text": "自分の山札を上から7枚見て、その中からサポートを1枚選び、相手に見せて、手札に加える。残りのカードは山札にもどして切る。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/MC/049376_T_POKEGIA30.jpg",
+   "detail": true
+  },
+  "49377": {
+   "name": "ポケバイタルA",
+   "set": "ACE",
+   "number": "SPEC",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MC/049377_T_POKEBAITARUA.jpg",
+   "id": "49377",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のポケモン1匹のHPを「150」回復する。このカードは、トラッシュにあるかぎり、手札に加えられず、山札にもどせない。",
    "detail": true
   },
   "49378": {
