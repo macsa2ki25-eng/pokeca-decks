@@ -1,5 +1,5 @@
 {
- "count": 2619,
+ "count": 2621,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -1353,6 +1353,17 @@
    "text": "自分のトラッシュから基本エネルギーを2枚選び、相手に見せてから、手札に加える。",
    "section": "グッズ",
    "image": "/assets/images/card_images/large/CP6/032278_T_ENERUGIKAISHUU.jpg",
+   "detail": true
+  },
+  "32283": {
+   "name": "ポケモンいれかえ",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/CP6/032283_T_POKEMONIREKAE.jpg",
+   "id": "32283",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分のバトルポケモンをベンチポケモンと入れ替える。",
    "detail": true
   },
   "32327": {
@@ -9777,6 +9788,39 @@
    "number": "114/101",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV6/045856_P_OGAPONMIDORINOMENEX.jpg",
+   "detail": true
+  },
+  "45858": {
+   "name": "イルカマンex",
+   "set": "SV6",
+   "number": "116/101",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV6/045858_P_IRUKAMANEX.jpg",
+   "id": "45858",
+   "stage": "1 進化",
+   "hp": 340,
+   "type": "水",
+   "abilities": [
+    {
+     "name": "マイティソウル",
+     "cost": [],
+     "damage": "",
+     "effect": "このカードは、「イルカマン」の特性「マイティチェンジ」の効果によってしか場に出せない。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ギガインパクト",
+     "cost": [
+      "水"
+     ],
+     "damage": "250",
+     "effect": "次の自分の番、このポケモンはワザが使えない。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 2,
    "detail": true
   },
   "45859": {
