@@ -1,5 +1,5 @@
 {
- "count": 2621,
+ "count": 2627,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -713,6 +713,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/MDB/028360_E_KIHONHONOOENERUGI.jpg",
+   "detail": true
+  },
+  "28362": {
+   "name": "基本雷エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/MDB/028362_E_KIHONKAMINARIENERUGI.jpg",
+   "id": "28362",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "28363": {
@@ -4638,6 +4648,16 @@
    "attacks": [],
    "section": "エネルギー",
    "image": "/assets/images/card_images/large/S-P/042936_E_KIHONKUSAENERUGI.jpg",
+   "detail": true
+  },
+  "42941": {
+   "name": "基本闘エネルギー",
+   "section": "エネルギー",
+   "image": "/assets/images/card_images/large/S-P/042941_E_KIHONTOUENERUGI.jpg",
+   "id": "42941",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
    "detail": true
   },
   "42944": {
@@ -31738,6 +31758,43 @@
    "image": "/assets/images/card_images/large/M1S/048457_P_FUDEIN.jpg",
    "detail": true
   },
+  "48463": {
+   "name": "メガライボルトex",
+   "set": "M1S",
+   "number": "077/063",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M1S/048463_P_MRAIBORUTOEX.jpg",
+   "id": "48463",
+   "stage": "1 進化",
+   "hp": 330,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "フラッシュレイ",
+     "cost": [
+      "雷",
+      "雷"
+     ],
+     "damage": "120",
+     "effect": "次の相手の番、このポケモンはたねポケモンからワザのダメージを受けない。"
+    },
+    {
+     "name": "ライオットブラスター",
+     "cost": [
+      "雷",
+      "雷",
+      "雷"
+     ],
+     "damage": "200＋",
+     "effect": "のぞむなら、このポケモンについているエネルギーをすべてトラッシュし、130ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 0,
+   "detail": true
+  },
   "48466": {
    "id": "48466",
    "name": "メガガルーラex",
@@ -38835,6 +38892,42 @@
    "number": "282/742",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/MC/048998_P_TETSUNOIBARAEX.jpg",
+   "detail": true
+  },
+  "49000": {
+   "name": "ミライドンex",
+   "set": "MC",
+   "number": "284/742",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MC/049000_P_MIRAIDONEX.jpg",
+   "id": "49000",
+   "stage": "たね",
+   "hp": 220,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "スラッシュクロー",
+     "cost": [
+      "雷"
+     ],
+     "damage": "40",
+     "effect": ""
+    },
+    {
+     "name": "ハドロンスパーク",
+     "cost": [
+      "雷",
+      "雷",
+      "無"
+     ],
+     "damage": "120＋",
+     "effect": "相手のバトルポケモンが「ポケモンex」なら、120ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 1,
    "detail": true
   },
   "49002": {
@@ -47025,6 +47118,32 @@
    "image": "/assets/images/card_images/large/M2a/049754_P_PAOJIAN.jpg",
    "detail": true
   },
+  "49759": {
+   "name": "マッギョ",
+   "set": "M2a",
+   "number": "050/193",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M2a/049759_P_MAGGIXYO.jpg",
+   "id": "49759",
+   "stage": "たね",
+   "hp": 110,
+   "type": "雷",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "とびつくわな",
+     "cost": [
+      "雷"
+     ],
+     "damage": "30",
+     "effect": "次の相手の番、このワザを受けたポケモンは、にげられない。次の自分の番、このワザを受けたポケモンが受けるワザのダメージは「+100」される。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
   "49762": {
    "id": "49762",
    "name": "カプ・コケコ",
@@ -53560,6 +53679,39 @@
    "weakness": "悪×2",
    "resistance": "闘－30",
    "retreat": 3,
+   "detail": true
+  },
+  "50312": {
+   "name": "ドデカバシ",
+   "set": "M5",
+   "number": "092/081",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M5/050312_P_DODEKABASHI.jpg",
+   "id": "50312",
+   "stage": "2 進化",
+   "hp": 150,
+   "type": "無",
+   "abilities": [
+    {
+     "name": "スカイドロー",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の番に1回使える。自分の山札を1枚引く。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "フェザーロンド",
+     "cost": [
+      "無"
+     ],
+     "damage": "60＋",
+     "effect": "おたがいのベンチポケモンの数×20ダメージ追加。"
+    }
+   ],
+   "weakness": "雷×2",
+   "resistance": "闘－30",
+   "retreat": 2,
    "detail": true
   },
   "50315": {
