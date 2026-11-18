@@ -1,5 +1,5 @@
 {
- "count": 2646,
+ "count": 2648,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -10694,6 +10694,42 @@
    "number": "035/064",
    "section": "ポケモン",
    "image": "/assets/images/card_images/large/SV6a/045910_P_IBERUTARU.jpg",
+   "detail": true
+  },
+  "45911": {
+   "name": "イイネイヌex",
+   "set": "SV6a",
+   "number": "036/064",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/SV6a/045911_P_IINEINUEX.jpg",
+   "id": "45911",
+   "stage": "たね",
+   "hp": 250,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ポイズンマッスル",
+     "cost": [
+      "無"
+     ],
+     "damage": "",
+     "effect": "自分の山札から「基本悪エネルギー」を2枚まで選び、このポケモンにつける。そして山札を切る。つけた場合、このポケモンをどくにする。"
+    },
+    {
+     "name": "クレイジーチェーン",
+     "cost": [
+      "悪",
+      "悪",
+      "無"
+     ],
+     "damage": "130＋",
+     "effect": "このポケモンがどくなら、130ダメージ追加。"
+    }
+   ],
+   "weakness": "闘×2",
+   "resistance": "",
+   "retreat": 3,
    "detail": true
   },
   "45913": {
@@ -56980,6 +57016,41 @@
    "weakness": "超×2",
    "resistance": "",
    "retreat": 3,
+   "detail": true
+  },
+  "50781": {
+   "name": "メガヒードランex",
+   "set": "M-P",
+   "number": "169/M-P",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M-P/050781_P_MHIDORANIEKKUSU.jpg",
+   "id": "50781",
+   "stage": "たね",
+   "hp": 300,
+   "type": "鋼",
+   "abilities": [
+    {
+     "name": "こうみつどアーマー",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンのHPがまんたんの状態なら、このポケモンが相手のポケモンから受けるワザのダメージは「-60」される。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ギガンティックプレス",
+     "cost": [
+      "鋼",
+      "鋼",
+      "鋼"
+     ],
+     "damage": "140",
+     "effect": "次の自分の番、このポケモンの「ギガンティックプレス」のダメージは「+140」される。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 4,
    "detail": true
   },
   "50782": {
