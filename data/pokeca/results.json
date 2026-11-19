@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-18T12:56:23+09:00",
-  "count": 1766,
+  "updated_at": "2026-11-19T12:54:15+09:00",
+  "count": 1767,
   "results": [
     {
       "date": "2026-11-15",
@@ -2793,6 +2793,24 @@
       "store_key": ""
     },
     {
+      "date": "2026-11-13",
+      "store": "",
+      "rank": 1,
+      "deck_name": "ゲンガーex",
+      "event_type": "gym",
+      "prefecture": "",
+      "league": "",
+      "deck_code": "2MMyXM-KfdNfQ-MMRM2p",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/11/image-122.png",
+      "source": "deckindex",
+      "source_url": "https://pokecabook.com/archives/333318",
+      "event_url": "",
+      "collected_at": "2026-11-19T12:54:12+09:00",
+      "deck_name_guessed": false,
+      "deck_key": "ゲンガーex",
+      "store_key": ""
+    },
+    {
       "date": "2026-11-12",
       "store": "",
       "rank": 1,
@@ -3269,7 +3287,7 @@
       "prefecture": "",
       "league": "",
       "deck_code": "xcxaxx-97SmvK-GxKJD8",
-      "image_url": "",
+      "image_url": "https://pokecabook.com/wp-content/uploads/2026/11/image-92.png",
       "source": "deckindex",
       "source_url": "https://pokecabook.com/archives/268551",
       "event_url": "",
