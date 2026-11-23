@@ -1,5 +1,5 @@
 {
- "count": 2648,
+ "count": 2651,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -56388,6 +56388,76 @@
    "retreat": 4,
    "detail": true
   },
+  "50618": {
+   "name": "ファイヤー",
+   "set": "M6a",
+   "number": "006/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050618_P_FUAIYA.jpg",
+   "id": "50618",
+   "stage": "たね",
+   "hp": 120,
+   "type": "炎",
+   "abilities": [
+    {
+     "name": "もえるはばたき",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の場に「フリーザー」「サンダー」がいるなら、自分の番に1回使える。自分の手札から「基本炎エネルギー」を1枚選び、このポケモンにつける。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ほのおのうず",
+     "cost": [
+      "炎",
+      "炎",
+      "無"
+     ],
+     "damage": "130",
+     "effect": "このポケモンについているエネルギーを2個選び、トラッシュする。"
+    }
+   ],
+   "weakness": "水×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50624": {
+   "name": "フリーザー",
+   "set": "M6a",
+   "number": "012/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050624_P_FURIZA.jpg",
+   "id": "50624",
+   "stage": "たね",
+   "hp": 120,
+   "type": "水",
+   "abilities": [
+    {
+     "name": "いてつくはばたき",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の場に「ファイヤー」「サンダー」がいるなら、自分の番に1回使える。自分の手札から「基本水エネルギー」を1枚選び、このポケモンにつける。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "あられ",
+     "cost": [
+      "水",
+      "水",
+      "無"
+     ],
+     "damage": "",
+     "effect": "相手のポケモン全員に、それぞれ30ダメージ。［ベンチは弱点・抵抗力を計算しない。］"
+    }
+   ],
+   "weakness": "鋼×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
   "50627": {
    "name": "ゲッコウガex",
    "set": "M6a",
@@ -56419,6 +56489,42 @@
     }
    ],
    "weakness": "雷×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50661": {
+   "name": "サンダー",
+   "set": "M6a",
+   "number": "049/103",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M6a/050661_P_SANDA.jpg",
+   "id": "50661",
+   "stage": "たね",
+   "hp": 120,
+   "type": "雷",
+   "abilities": [
+    {
+     "name": "はじけるはばたき",
+     "cost": [],
+     "damage": "",
+     "effect": "自分の場に「ファイヤー」「フリーザー」がいるなら、自分の番に1回使える。自分の手札から「基本雷エネルギー」を1枚選び、このポケモンにつける。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "らいごう",
+     "cost": [
+      "雷",
+      "雷",
+      "雷",
+      "無"
+     ],
+     "damage": "210",
+     "effect": "このポケモンにも60ダメージ。"
+    }
+   ],
+   "weakness": "闘×2",
    "resistance": "",
    "retreat": 1,
    "detail": true
