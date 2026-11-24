@@ -1,5 +1,5 @@
 {
- "count": 2651,
+ "count": 2652,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -57193,6 +57193,32 @@
     }
    ],
    "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50826": {
+   "name": "ゴース",
+   "set": "MG",
+   "number": "012/038",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/MG/050826_P_GOSU.jpg",
+   "id": "50826",
+   "stage": "たね",
+   "hp": 70,
+   "type": "悪",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ふいをつく",
+     "cost": [
+      "悪"
+     ],
+     "damage": "30",
+     "effect": "コインを1回投げウラなら、このワザは失敗。"
+    }
+   ],
+   "weakness": "闘×2",
    "resistance": "",
    "retreat": 1,
    "detail": true
