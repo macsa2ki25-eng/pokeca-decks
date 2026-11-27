@@ -1,5 +1,5 @@
 {
- "count": 2652,
+ "count": 2653,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -57287,6 +57287,17 @@
    "abilities": [],
    "attacks": [],
    "text": "このカードをつけているポケモンは、にげるためのエネルギーが2個ぶん少なくなる。",
+   "detail": true
+  },
+  "50849": {
+   "name": "ウエートレス",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/MG/050849_T_UETORESU.jpg",
+   "id": "50849",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "自分の山札を上から6枚見て、その中から基本エネルギーを1枚選び、自分のポケモンにつける。残りのカードは山札にもどして切る。",
    "detail": true
   },
   "50851": {
