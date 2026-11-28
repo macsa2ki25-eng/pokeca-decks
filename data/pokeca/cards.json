@@ -1,5 +1,5 @@
 {
- "count": 2653,
+ "count": 2665,
  "cards": {
   "1": {
    "name": "基本草エネルギー",
@@ -43306,6 +43306,19 @@
    "image": "/assets/images/card_images/large/MC/049362_T_SUKURANBURUSUITCHI.jpg",
    "detail": true
   },
+  "49363": {
+   "name": "デンジャラス光線",
+   "set": "ACE",
+   "number": "SPEC",
+   "section": "グッズ",
+   "image": "/assets/images/card_images/large/MC/049363_T_DENJIXYARASUKOUSEN.jpg",
+   "id": "49363",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "相手のバトルポケモンをやけどとこんらんにする。",
+   "detail": true
+  },
   "49364": {
    "id": "49364",
    "name": "なかよしポフィン",
@@ -57353,6 +57366,300 @@
    "abilities": [],
    "attacks": [],
    "text": "自分の手札をすべて山札にもどして切る。その後、山札を6枚引く。自分のサイドの残り枚数が6枚なら、引く枚数は8枚になる。",
+   "detail": true
+  },
+  "50856": {
+   "name": "マダツボミ",
+   "set": "M7",
+   "number": "001/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050856_P_MADATSUBOMI.jpg",
+   "id": "50856",
+   "stage": "たね",
+   "hp": 60,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ともだちをさがす",
+     "cost": [
+      "草"
+     ],
+     "damage": "",
+     "effect": "自分の山札からポケモンを1枚選び、相手に見せて、手札に加える。そして山札を切る。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50857": {
+   "name": "ウツドン",
+   "set": "M7",
+   "number": "002/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050857_P_UTSUDON.jpg",
+   "id": "50857",
+   "stage": "1 進化",
+   "hp": 90,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "はっぱカッター",
+     "cost": [
+      "草",
+      "草"
+     ],
+     "damage": "60",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "50858": {
+   "name": "ウツボット",
+   "set": "M7",
+   "number": "003/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050858_P_UTSUBOTTO.jpg",
+   "id": "50858",
+   "stage": "2 進化",
+   "hp": 150,
+   "type": "草",
+   "abilities": [
+    {
+     "name": "アシッドトラップ",
+     "cost": [],
+     "damage": "",
+     "effect": "場に自分のスタジアムが出ているなら、自分の番に1回使える。相手のバトルポケモンをどくとやけどにする。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "リーフドレイン",
+     "cost": [
+      "草",
+      "草",
+      "無"
+     ],
+     "damage": "120",
+     "effect": "このポケモンのHPを「30」回復する。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 3,
+   "detail": true
+  },
+  "50861": {
+   "name": "キモリ",
+   "set": "M7",
+   "number": "006/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050861_P_KIMORI.jpg",
+   "id": "50861",
+   "stage": "たね",
+   "hp": 70,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "かくれる",
+     "cost": [
+      "草"
+     ],
+     "damage": "",
+     "effect": "コインを1回投げオモテなら、次の相手の番、このポケモンはワザのダメージや効果を受けない。"
+    },
+    {
+     "name": "いあいぎり",
+     "cost": [
+      "草"
+     ],
+     "damage": "10",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50862": {
+   "name": "ジュプトル",
+   "set": "M7",
+   "number": "007/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050862_P_JIXYUPUTORU.jpg",
+   "id": "50862",
+   "stage": "1 進化",
+   "hp": 90,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ソーラーカッター",
+     "cost": [
+      "草"
+     ],
+     "damage": "40",
+     "effect": ""
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50863": {
+   "name": "ジュカインex",
+   "set": "M7",
+   "number": "008/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050863_P_JIXYUKAINIEKKUSU.jpg",
+   "id": "50863",
+   "stage": "2 進化",
+   "hp": 310,
+   "type": "草",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "どくのツメ",
+     "cost": [
+      "草"
+     ],
+     "damage": "40",
+     "effect": "相手のバトルポケモンをどくにする。"
+    },
+    {
+     "name": "アサシンブレード",
+     "cost": [
+      "草",
+      "草"
+     ],
+     "damage": "160＋",
+     "effect": "相手のバトルポケモンが受けている特殊状態の数×50ダメージ追加。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "",
+   "retreat": 1,
+   "detail": true
+  },
+  "50885": {
+   "name": "メガアブソルZex",
+   "set": "M7",
+   "number": "030/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050885_P_MABUSORUZETTOIEKKUSU.jpg",
+   "id": "50885",
+   "stage": "たね",
+   "hp": 270,
+   "type": "超",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "ブラッディフィアー",
+     "cost": [
+      "超",
+      "超",
+      "無"
+     ],
+     "damage": "160",
+     "effect": "次の相手の番、相手は手札から特殊エネルギーを出してつけられず、スタジアムも出せない。"
+    }
+   ],
+   "weakness": "悪×2",
+   "resistance": "闘－30",
+   "retreat": 1,
+   "detail": true
+  },
+  "50899": {
+   "name": "リオル",
+   "set": "M7",
+   "number": "044/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050899_P_RIORU.jpg",
+   "id": "50899",
+   "stage": "たね",
+   "hp": 80,
+   "type": "闘",
+   "abilities": [],
+   "attacks": [
+    {
+     "name": "うしろげり",
+     "cost": [
+      "無",
+      "無"
+     ],
+     "damage": "30",
+     "effect": ""
+    }
+   ],
+   "weakness": "超×2",
+   "resistance": "",
+   "retreat": 2,
+   "detail": true
+  },
+  "50912": {
+   "name": "メガルカリオZex",
+   "set": "M7",
+   "number": "057/078",
+   "section": "ポケモン",
+   "image": "/assets/images/card_images/large/M7/050912_P_MRUKARIOZETTOIEKKUSU.jpg",
+   "id": "50912",
+   "stage": "1 進化",
+   "hp": 330,
+   "type": "鋼",
+   "abilities": [
+    {
+     "name": "ハドウシーカー",
+     "cost": [],
+     "damage": "",
+     "effect": "このポケモンがバトル場にいるなら、自分の番に1回使える。自分の山札からサポートを1枚選び、相手に見せて、手札に加える。そして山札を切る。"
+    }
+   ],
+   "attacks": [
+    {
+     "name": "ダンシングフィスト",
+     "cost": [
+      "鋼",
+      "鋼"
+     ],
+     "damage": "120＋",
+     "effect": "相手のバトルポケモンが「ポケモンex」なら、120ダメージ追加。"
+    }
+   ],
+   "weakness": "炎×2",
+   "resistance": "草－30",
+   "retreat": 2,
+   "detail": true
+  },
+  "50929": {
+   "name": "きずなのタスキ",
+   "section": "ポケモンのどうぐ",
+   "image": "/assets/images/card_images/large/M7/050929_T_KIZUNANOTASUKI.jpg",
+   "id": "50929",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "このカードをつけている「メガシンカex」が、相手のポケモンからワザのダメージを受けてきぜつしたとき、自分の山札から好きなカードを1枚選び、手札に加える。そして山札を切る。",
+   "detail": true
+  },
+  "50930": {
+   "name": "コルニの本気",
+   "section": "サポート",
+   "image": "/assets/images/card_images/large/M7/050930_T_KORUNINOHONKI.jpg",
+   "id": "50930",
+   "type": "",
+   "abilities": [],
+   "attacks": [],
+   "text": "この番、自分の「メガシンカex」が使うワザの、相手のバトルポケモンへのダメージは、相手がすでにとったサイド1枚につき「+20」される。",
    "detail": true
   },
   "6": {
